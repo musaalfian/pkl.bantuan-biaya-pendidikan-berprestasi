@@ -7,7 +7,7 @@ $routes = Services::routes();
 
 // Load the system's routing file first, so that the app and ENVIRONMENT
 // can override as needed.
-if (is_file(SYSTEMPATH . 'Config/Routes.php')) {
+if (file_exists(SYSTEMPATH . 'Config/Routes.php')) {
     require SYSTEMPATH . 'Config/Routes.php';
 }
 
@@ -21,11 +21,7 @@ $routes->setDefaultController('Home');
 $routes->setDefaultMethod('index');
 $routes->setTranslateURIDashes(false);
 $routes->set404Override();
-// The Auto Routing (Legacy) is very dangerous. It is easy to create vulnerable apps
-// where controller filters or CSRF protection are bypassed.
-// If you don't want to define all routes, please use the Auto Routing (Improved).
-// Set `$autoRoutesImproved` to true in `app/Config/Feature.php` and set the following to true.
-//$routes->setAutoRoute(false);
+$routes->setAutoRoute(true);
 
 /*
  * --------------------------------------------------------------------
@@ -35,7 +31,24 @@ $routes->set404Override();
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Home::index');
+$routes->get('/', 'halaman_awal::halaman_awal');
+$routes->get('/user', 'user::index', ['filter' => 'role:admin,pendaftar']);
+// $routes->get('/', 'Home_Pendaftar::index');
+
+/**** ADMIN ****/
+$routes->add('/admin_daftar_penerima/(:any)', 'admin_daftar_penerima::$1',  ['filter' => 'role:admin']);
+$routes->add('/admin_data_pendaftaran/(:any)', 'admin_data_pendaftaran::$1',  ['filter' => 'role:admin']);
+$routes->add('/admin_detail_pendaftaran/(:any)', 'admin_detail_pendaftaran::$1',  ['filter' => 'role:admin']);
+$routes->add('/admin_download/(:any)', 'admin_download::$1',  ['filter' => 'role:admin']);
+$routes->add('/admin_informasi/(:any)', 'admin_informasi::$1',  ['filter' => 'role:admin']);
+$routes->add('/home_admin/(:any)', 'home_admin::$1',  ['filter' => 'role:admin']);
+
+/**** Pendaftar ****/
+// $routes->add('/home_pendaftar/download_detail_pendaftar/(:num)', 'home_pendaftar::download_detail_pendaftar/$1',  ['filter' => 'role: pendaftar']);
+$routes->add('/calon_mhs/(:any)', 'calon_mhs::$1',  ['filter' => 'role:pendaftar']);
+$routes->add('/mahasiswa/(:any)', 'mahasiswa::$1',  ['filter' => 'role:pendaftar']);
+$routes->add('/siswa/(:any)', 'siswa::$1',  ['filter' => 'role:pendaftar']);
+$routes->add('/penerima/(:any)', 'penerima::$1',  ['filter' => 'role:pendaftar']);
 
 /*
  * --------------------------------------------------------------------
@@ -50,6 +63,6 @@ $routes->get('/', 'Home::index');
  * You will have access to the $routes object within that file without
  * needing to reload it.
  */
-if (is_file(APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php')) {
+if (file_exists(APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php')) {
     require APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php';
 }

@@ -23,6 +23,9 @@ class Filters extends BaseConfig
         'honeypot'      => Honeypot::class,
         'invalidchars'  => InvalidChars::class,
         'secureheaders' => SecureHeaders::class,
+        'login'      => \Myth\Auth\Filters\LoginFilter::class,
+        'role'       => \Myth\Auth\Filters\RoleFilter::class,
+        'permission' => \Myth\Auth\Filters\PermissionFilter::class,
     ];
 
     /**
@@ -33,9 +36,10 @@ class Filters extends BaseConfig
      */
     public $globals = [
         'before' => [
-            // 'honeypot',
+            'honeypot',
             // 'csrf',
             // 'invalidchars',
+            // 'login'
         ],
         'after' => [
             'toolbar',
@@ -49,11 +53,7 @@ class Filters extends BaseConfig
      * particular HTTP method (GET, POST, etc.).
      *
      * Example:
-     * 'post' => ['foo', 'bar']
-     *
-     * If you use this, you should disable auto-routing because auto-routing
-     * permits any HTTP method to access a controller. Accessing the controller
-     * with a method you don’t expect could bypass the filter.
+     * 'post' => ['csrf', 'throttle']
      *
      * @var array
      */
@@ -68,5 +68,22 @@ class Filters extends BaseConfig
      *
      * @var array
      */
-    public $filters = [];
+    public $filters = [
+        'login' => [
+            'before' => [
+                'user/*',
+                'admin_daftar_penerima/*',
+                'admin_data_pendaftaran/*',
+                'admin_detail_pendaftaran/*',
+                'admin_download/*',
+                'admin_informasi/*',
+                'calon_mhs/*',
+                'home_admin/*',
+                'home_pendaftar/*',
+                'mahasiswa/*',
+                'penerima/*',
+                'siswa/*',
+            ]
+        ]
+    ];
 }
