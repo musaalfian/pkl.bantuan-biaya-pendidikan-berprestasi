@@ -6,26 +6,26 @@
     <div class=" admin-content p-4 mx-auto">
         <h3 class="mb20">Tambah Informasi Terbaru</h3>
         <form action="<?= base_url(); ?>/admin_informasi/simpan_tambah_informasi_terbaru" method="post"
-            enctype="multipart/form-data">
+            enctype="multipart/form-data" class="needs-validation" novalidate>
             <div class="mb20">
-                <label for="judul_informasi_terbaru" class="form-label">Judul <span
+                <label for="judul_informasi_terbaru" class="form-label">Judul<span
                         class="required-label">*</span></label>
-                <input id="judul_informasi_terbaru" type="text"
+                <input id="judul_informasi_terbaru" type="text" required
                     class="form-control <?= ($validation->hasError('judul_informasi_terbaru')) ? 'is-invalid' : ''; ?>"
                     name="judul_informasi_terbaru" value="<?= old('judul_informasi_terbaru'); ?>">
                 <div class="invalid-feedback">
-                    <?= ($validation->getError('judul_informasi_terbaru') == '') ? 'Bagian judul_informasi_terbaru wajib diisi' : str_replace('_', ' ', $validation->getError('judul_informasi_terbaru')) ?>
+                    <?= ($validation->getError('judul_informasi_terbaru') == '') ? 'Bagian judul informasi terbaru wajib diisi' : str_replace('_', ' ', $validation->getError('judul_informasi_terbaru')) ?>
                 </div>
             </div>
             <!-- end judul _informasi_terbaru -->
             <div class="mb20">
-                <label for="deskripsi_informasi_terbaru" class="form-label">Deskripsi <span
-                        class="required-label">*</span></label>
-                <textarea id="deskripsi_informasi_terbaru" cols="30" rows="10"
+                <label for="deskripsi_informasi_terbaru" class="form-label">Deskripsi<span
+                        class="required-label ">*</span></label>
+                <textarea id="deskripsi_informasi_terbaru" cols="30" rows="10" required
                     class="form-control <?= ($validation->hasError('deskripsi_informasi_terbaru')) ? 'is-invalid' : ''; ?>"
                     name="deskripsi_informasi_terbaru"><?= old('deskripsi_informasi_terbaru'); ?></textarea>
                 <div class="invalid-feedback">
-                    <?= ($validation->getError('deskripsi_informasi_terbaru') == '') ? 'Bagian deskripsi_informasi_terbaru wajib diisi' : str_replace('_', ' ', $validation->getError('deskripsi_informasi_terbaru')) ?>
+                    <?= ($validation->getError('deskripsi_informasi_terbaru') == '') ? 'Bagian deskripsi informasi terbaru wajib diisi' : str_replace('_', ' ', $validation->getError('deskripsi_informasi_terbaru')) ?>
                 </div>
             </div>
             <!-- end deskripsi _informasi_terbaru -->
@@ -36,17 +36,18 @@
                     name="file_informasi_terbaru" value="<?= old('file_informasi_terbaru'); ?>"
                     accept="application/pdf">
                 <div class="invalid-feedback">
-                    <?= ($validation->getError('file_informasi_terbaru') == '') ? 'Bagian file_informasi_terbaru wajib diisi' : str_replace('_', ' ', $validation->getError('file_informasi_terbaru')) ?>
+                    <?= ($validation->getError('file_informasi_terbaru') == '') ? 'Bagian file informasi terbaru wajib diisi' : str_replace('_', ' ', $validation->getError('file_informasi_terbaru')) ?>
                 </div>
             </div>
             <!-- end file _informasi_terbaru -->
             <div class="mb20">
                 <label for="informasi_terbaru" class="form-label">Gambar</label>
                 <input id="gambar_informasi_terbaru" type="file"
-                    class="form-control <?= ($validation->hasError('gambar_informasi_terbaru')) ? 'is-invalid' : ''; ?>"
-                    name="gambar_informasi_terbaru" value="<?= old('gambar_informasi_terbaru'); ?>" accept="image/*">
+                    class="form-control dropify <?= ($validation->hasError('gambar_informasi_terbaru')) ? 'is-invalid' : ''; ?>"
+                    name="gambar_informasi_terbaru" value="<?= old('gambar_informasi_terbaru'); ?>" accept="image/*"
+                    data-max-file-size="2M" data-allowed-file-extensions="jpg jpeg png ">
                 <div class="invalid-feedback">
-                    <?= ($validation->getError('gambar_informasi_terbaru') == '') ? 'Bagian gambar_informasi_terbaru wajib diisi' : str_replace('_', ' ', $validation->getError('gambar_informasi_terbaru')) ?>
+                    <?= ($validation->getError('gambar_informasi_terbaru') == '') ? 'Bagian gambar informasi terbaru wajib diisi' : str_replace('_', ' ', $validation->getError('gambar_informasi_terbaru')) ?>
                 </div>
             </div>
             <!-- end gambar _informasi_terbaru -->
@@ -85,5 +86,8 @@
         </form>
     </div>
 </div>
+<script>
+$('.dropify').dropify();
+</script>
 <!-- end main section -->
 <?= $this->endSection(); ?>

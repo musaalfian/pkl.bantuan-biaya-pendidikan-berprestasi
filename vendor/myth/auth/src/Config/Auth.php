@@ -153,10 +153,10 @@ class Auth extends BaseConfig
 	 * @var string|null Name of the ActivatorInterface class
 	 */
 	// dibutuhkan aktivasi lewat email
-	// public $requireActivation = 'Myth\Auth\Authentication\Activators\EmailActivator';
+	public $requireActivation = 'Myth\Auth\Authentication\Activators\EmailActivator';
 
 	// tidak dibutuhkan aktivasi lewat email
-	public $requireActivation = null;
+	// public $requireActivation = null;
 
 	/**
 	 * --------------------------------------------------------------------
@@ -169,10 +169,10 @@ class Auth extends BaseConfig
 	 * @var string|null Name of the ResetterInterface class
 	 */
 	// reset password dengan email
-	// public $activeResetter = 'Myth\Auth\Authentication\Resetters\EmailResetter';
+	public $activeResetter = 'Myth\Auth\Authentication\Resetters\EmailResetter';
 
 	// reset password tidak dengan email
-	public $activeResetter = null;
+	// public $activeResetter = null;
 
 	/**
 	 * --------------------------------------------------------------------

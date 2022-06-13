@@ -5,6 +5,7 @@
 /* Variabel */
 :root {
   --biru: #297bbf;
+  --merah: #dc3545;
   --abu: #f6f6f6;
   --abu2: #acacc0;
 }
@@ -259,7 +260,7 @@ p {
   box-shadow: 0px 4px 25px 0px rgba(0,0,0,0.05);
 }
 .required-label {
-  color: lightslategray;
+  color: var(--merah);
   font-size: 12px;
   margin-left: 10px;
 }
@@ -315,6 +316,10 @@ tr {
 .tahap_pendaftaran input{
   padding: 0;
   border-radius: 50% !important;
+}
+/* CKEditor */
+.ck-editor__editable_inline {
+  min-height: 200px;
 }
 /*********************************************/
 /*               NAVBAR                      */
