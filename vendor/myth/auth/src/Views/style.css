@@ -9,6 +9,7 @@ html {
 }
 :root {
   --biru: #297bbf;
+  --merah: #dc3545;
   --abu: #f6f6f6;
   --abu2: #acacc0;
 }
@@ -177,7 +178,7 @@ p {
   border: none;
 }
 .required-label {
-  color: var(--abu2);
+  color: var(--merah);
   font-size: 12px;
 }
 .fs12 {

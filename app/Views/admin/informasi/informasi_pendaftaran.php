@@ -28,10 +28,14 @@
                 <div class="detail ms-4">
 
                     <div class="mt20">
+                        <?php $i = 1 ?>
                         <?php foreach ($persyaratan as $persyaratan) : ?>
+                        <?php if ($persyaratan != null) : ?>
+
                         <p>
-                            <?= $persyaratan; ?>
+                            <?= $i++; ?>. <?= $persyaratan; ?>
                         </p>
+                        <?php endif ?>
                         <?php endforeach; ?>
                     </div>
                 </div>
@@ -68,10 +72,14 @@
             <div class="sub-informasi mb20">
                 <h3 class="mb20">3. Proses Seleksi</h3>
                 <div class="detail ms-4">
+                    <?php $i = 1 ?>
+
                     <?php foreach ($proses_seleksi as $proses_seleksi) : ?>
+                    <?php if ($proses_seleksi != null) : ?>
                     <p>
-                        <?= $proses_seleksi; ?>
+                        <?= $i++; ?>. <?= $proses_seleksi; ?>
                     </p>
+                    <?php endif ?>
                     <?php endforeach; ?>
                     <!-- download selengkapnya -->
                     <a href="<?= base_url(); ?>/admin_informasi/edit_informasi_pendaftaran"

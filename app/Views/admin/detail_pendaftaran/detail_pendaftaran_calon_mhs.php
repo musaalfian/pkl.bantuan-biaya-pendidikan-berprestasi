@@ -7,7 +7,7 @@
         <div class="row justify-content-around">
             <h3 class="col-6 pb20">Detail Data Beasiswa Calon Mahasiswa</h3>
             <div class="col-6 text-end">
-            <button class="btn btn-primary mx-3">
+                <button class="btn btn-primary mx-3">
                     <a style="text-decoration: none;" class="text-white"
                         href="<?= base_url(); ?>/assets/scan/<?= $detail_pendaftar['no_induk']; ?>/file/<?= $detail_pendaftar['formulir_pendaftaran']; ?>"
                         target="_blank">Download formulir pendaftaran</a>
@@ -704,7 +704,7 @@
                         </select>
                         <!-- end ubah status pendaftaran -->
                         <div id="ubah_status_final">
-                            <h4 class="mt-3">Status Pendaftaran</h4>
+                            <h4 class="mt-3">Status Pendaftaran Final</h4>
                             <select class="form-select" id="inputGroupSelect01" name="id_status_final">
                                 <option value="" selected></option>
                                 <?php foreach ($status_final as $status_final) : ?>

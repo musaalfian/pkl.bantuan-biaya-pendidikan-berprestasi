@@ -222,33 +222,43 @@ class Admin_informasi extends BaseController
         session();
         $validation = \Config\Services::validation();
         $informasi_pendaftaran = $this->MInformasiPendaftaran->findAll();
-        $i = 1;
-        // menambahkan ; dan line break agar terlihat jelas
+        // menghilangkan data null pada informasi
         foreach ($informasi_pendaftaran as $data_pendaftaran) {
             if ($data_pendaftaran['persyaratan'] != null) {
-                $persyaratan[] = $data_pendaftaran['persyaratan'] . "; \n";
+                $persyaratan[] = $data_pendaftaran['persyaratan'];
             }
             if ($data_pendaftaran['jadwal_kegiatan']) {
-                $jadwal_kegiatan[] = $i . ". " . $data_pendaftaran['jadwal_kegiatan'] . "; \n";
+                $jadwal_kegiatan[] = $data_pendaftaran['jadwal_kegiatan'];
             }
             if ($data_pendaftaran['jadwal_pelaksanaan']) {
-                $jadwal_pelaksanaan[] = $i . ". " . $data_pendaftaran['jadwal_pelaksanaan'] . "; \n";
+                $jadwal_pelaksanaan[] = $data_pendaftaran['jadwal_pelaksanaan'];
             }
             if ($data_pendaftaran['proses_seleksi']) {
-                $proses_seleksi[] = $data_pendaftaran['proses_seleksi'] . "; \n";
+                $proses_seleksi[] = $data_pendaftaran['proses_seleksi'];
             }
-            $i++;
         }
-        // dd($proses_seleksi);
+        // dd($persyaratan);
         $data = [
             'title'     => 'Beasiswa Batang | Informasi Pendaftaran Admin',
             'validation'    => $validation,
-            'persyaratan'   => implode(" ", $persyaratan),
-            'jadwal_kegiatan'   => implode(" ", $jadwal_kegiatan),
-            'jadwal_pelaksanaan'   => implode(" ", $jadwal_pelaksanaan),
-            'proses_seleksi'   => implode(" ", $proses_seleksi),
+            'persyaratan'   => $persyaratan,
+            'jadwal_kegiatan'   => $jadwal_kegiatan,
+            'jadwal_pelaksanaan'   => $jadwal_pelaksanaan,
+            'proses_seleksi'   => $proses_seleksi,
         ];
         return view('/admin/informasi/form_edit_informasi_pendaftaran', $data);
+    }
+    private function replaceCKEditor($teks)
+    {
+        // $patternList = ['/<ol>/i', '/\b</ol>\b/i', '/<ul>/i', '/<li>/i'];
+        $akhirList = ['</li>'];
+        // // dd($patternList);
+        // foreach ($patternList as $patternList) {
+        //     $teks = preg_replace($patternList, '', $teks);
+        // }
+        $teks = preg_replace('</li>', ';', $teks);
+        $teks = strip_tags($teks, '<;>,<strong>,<i>');
+        return $teks;
     }
     public function simpan_edit_informasi_pendaftaran()
     {
@@ -257,25 +267,27 @@ class Admin_informasi extends BaseController
 
         // melakukan validasi masukan edit informasi pendaftaran
         // jika ada yang tidak diisi akan mengembalikkan pesan ke form
-        if (!$this->validate([
-            'persyaratan'    => 'required',
-            'jadwal_kegiatan'      => 'required',
-            'jadwal_pelaksanaan'      => 'required',
-            'proses_seleksi'      => 'required',
-        ])) {
-            return redirect()->to('admin_informasi/tambah_informasi_pendaftaran')->withInput();
-        }
+        // if (!$this->validate([
+        //     'persyaratan'    => 'required',
+        //     'jadwal_kegiatan'      => 'required',
+        //     'jadwal_pelaksanaan'      => 'required',
+        //     'proses_seleksi'      => 'required',
+        // ])) {
+        //     return redirect()->to('admin_informasi/edit_informasi_pendaftaran')->withInput();
+        // }
+
         // mengambil inputan dan memasukkan ke variabel masing masing
-        $input_persyaratan = $this->request->getVar("persyaratan");
-        $input_jadwal_kegiatan = $this->request->getVar("jadwal_kegiatan");
-        $input_jadwal_pelaksanaan = $this->request->getVar("jadwal_pelaksanaan");
-        $input_proses_seleksi = $this->request->getVar("proses_seleksi");
+        $input_persyaratan = $this->replaceCKEditor($this->request->getVar("persyaratan"));
+        $input_jadwal_kegiatan = $this->replaceCKEditor($this->request->getVar("jadwal_kegiatan"));
+        $input_jadwal_pelaksanaan = $this->replaceCKEditor($this->request->getVar("jadwal_pelaksanaan"));
+        $input_proses_seleksi = $this->replaceCKEditor($this->request->getVar("proses_seleksi"));
 
         // melakukan pemisahan string ke array
-        $input_persyaratan = (explode(";", $input_persyaratan));
-        $input_jadwal_kegiatan = (explode(";", $input_jadwal_kegiatan));
-        $input_jadwal_pelaksanaan = (explode(";", $input_jadwal_pelaksanaan));
-        $input_proses_seleksi = (explode(";", $input_proses_seleksi));
+        $input_persyaratan = (explode("<;>", $input_persyaratan));
+        $input_jadwal_kegiatan = (explode("<;>", $input_jadwal_kegiatan));
+        $input_jadwal_pelaksanaan = (explode("<;>", $input_jadwal_pelaksanaan));
+        $input_proses_seleksi = (explode("<;>", $input_proses_seleksi));
+        // dd($input_persyaratan);
 
         // mencari nilai array maksimal dari data yang sudah diinputkan
         $count_data = max(
