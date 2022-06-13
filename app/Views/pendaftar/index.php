@@ -11,7 +11,7 @@ $tanggal_pendaftaran_bulan = date_format($tanggal, 'm');
 $tanggal_pendaftaran_tanggal = date_format($tanggal, 'd');
 ?>
 <!-- Hero section -->
-<div class="bg-abu p40">
+<div class=" p40">
     <div class="container">
         <div class="row">
             <div class="col-xl-8 mb-3 mb-xl-0 col-12">
@@ -27,13 +27,13 @@ $tanggal_pendaftaran_tanggal = date_format($tanggal, 'd');
 
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img src="<?= base_url(); ?>/assets/img/poster.png" class="d-block w-100" alt="..." />
+                            <img src="<?= base_url(); ?>/assets/img/poster.png" class="d-block w-100 br10" alt="..." />
                         </div>
                         <div class="carousel-item">
-                            <img src="<?= base_url(); ?>/assets/img/poster.png" class="d-block w-100" alt="..." />
+                            <img src="<?= base_url(); ?>/assets/img/poster.png" class="d-block w-100 br10" alt="..." />
                         </div>
                         <div class="carousel-item">
-                            <img src="<?= base_url(); ?>/assets/img/poster.png" class="d-block w-100" alt="..." />
+                            <img src="<?= base_url(); ?>/assets/img/poster.png" class="d-block w-100 br10" alt="..." />
                         </div>
                     </div>
                     <div class="arrow justify-content-end d-flex mt15">
@@ -56,8 +56,8 @@ $tanggal_pendaftaran_tanggal = date_format($tanggal, 'd');
 
             <!-- Informasi terbaru -->
             <div class="col-xl-4 col-12" data-bs-spy="scroll" data-bs-offset="0" class="scrollspy-example" tabindex="0">
-                <div class="border px-3 p20 overflow-scroll height__scroll bg-white">
-                    <h3 class="">Informasi terbaru</h3>
+                <div class="border px-4 br20 p25 overflow-scroll height__scroll bg-white">
+                    <h3 class="biru">Informasi <span class="orange">Terbaru</span></h3>
                     <?php foreach ($informasi as $informasi) : ?>
                     <div class="border-bottom pb-2 mt20">
                         <div class="info__section">
@@ -66,18 +66,18 @@ $tanggal_pendaftaran_tanggal = date_format($tanggal, 'd');
                                 <?= $informasi['judul_informasi_terbaru']; ?>
                             </a>
                             <div class="mt5">
-                                <p>
+                                <p class="fs12">
                                     <?= $informasi['deskripsi_singkat']; ?>
                                 </p>
                             </div>
                             <div class="tanggal">
-                                <p class="mt5"><?= $informasi['tanggal_indo_informasi']; ?> WIB</p>
+                                <p class="mt5 fs12"><?= $informasi['tanggal_indo_informasi']; ?> WIB</p>
                             </div>
                         </div>
                     </div>
                     <?php endforeach; ?>
                     <div class="mt-4 list__info">
-                        <a href="<?= base_url(); ?>/home_pendaftar/kumpulan_informasi_terbaru" class="fs14">
+                        <a href="<?= base_url(); ?>/home_pendaftar/kumpulan_informasi_terbaru" class="btn bg-biru ">
                             Lihat informasi selengkapnya
                             <i class="bi bi-arrow-right ms-2"></i></a>
                     </div>
@@ -90,44 +90,51 @@ $tanggal_pendaftaran_tanggal = date_format($tanggal, 'd');
 <!-- End hero section -->
 
 <!-- Kuota -->
-<div class="container pd__80">
+<div class="container bg-abu br20 pd__80">
     <div class="tengah">
-        <h2>Kuota dan Alokasi</h2>
+        <h3 class="biru fw-bold">Kuota dan <span class="orange">Alokasi</span> </h3>
     </div>
     <div class="row pt60 justify-content-center">
         <div class="col-md-4 mb20 mb-md-0 col-sm-5 col-12 mb-lg-0 mb-md-0 mb-sm-4">
-            <div class="tengah">
-                <img src="<?= base_url(); ?>/assets/img/Vector.png" alt="" />
-            </div>
-            <div class="tengah mt-4">
-                <h4>Peserta Didik</h4>
-            </div>
-            <div class="tengah">
-                <p><span id="jumlahpesertadidik">200</span> orang</p>
+            <div class="p25 bs1 br10 bg-white">
+                <div class="tengah">
+                    <img src="<?= base_url(); ?>/assets/img/kuota/sma.png" alt="" />
+                </div>
+                <div class="tengah mt-4">
+                    <h4>Peserta Didik</h4>
+                </div>
+                <div class="tengah">
+                    <p><span id="jumlahpesertadidik">200</span> orang</p>
+                </div>
             </div>
         </div>
         <!-- end peserta didik -->
         <div class="col-md-4 mb20 mb-md-0 col-sm-5 col-12 mb-lg-0 mb-md-0 mb-sm-2">
-            <div class="tengah">
-                <img src="<?= base_url(); ?>/assets/img/Vector.png" alt="" />
-            </div>
-            <div class="tengah mt-4">
-                <h4>Calon Mahasiswa</h4>
-            </div>
-            <div class="tengah">
-                <p><span id="jumlahpesertadidik">10 s.d 15</span> orang</p>
+            <div class="p25 bs1 br10 bg-white">
+                <div class="tengah">
+                    <img src="<?= base_url(); ?>/assets/img/kuota/calon-mahasiswa.png" alt="" />
+                </div>
+                <div class="tengah mt-4">
+                    <h4>Calon Mahasiswa</h4>
+                </div>
+                <div class="tengah">
+                    <p><span id="jumlahpesertadidik">10 s.d 15</span> orang</p>
+                </div>
             </div>
         </div>
         <!-- end calon mahasiswa -->
         <div class="col-md-4 mb20 mb-md-0 col-sm-5 col-12">
-            <div class="tengah">
-                <img src="<?= base_url(); ?>/assets/img/Vector.png" alt="" />
-            </div>
-            <div class="tengah mt-4">
-                <h4>Mahasiswa</h4>
-            </div>
-            <div class="tengah">
-                <p><span id="jumlahpesertadidik">10 s.d 20</span> orang</p>
+            <div class="p25 bs1 br10 bg-white">
+                <div class="tengah">
+                    <img src="<?= base_url(); ?>/assets/img/kuota/mahasiswa.png" alt="" />
+                </div>
+                <div class="tengah mt-4">
+                    <h4>Mahasiswa</h4>
+                </div>
+                <div class="tengah">
+                    <p><span id="jumlahpesertadidik">10 s.d 20</span> orang</p>
+                </div>
+
             </div>
         </div>
         <!-- end mahasiswa -->
@@ -136,17 +143,17 @@ $tanggal_pendaftaran_tanggal = date_format($tanggal, 'd');
 <!-- End kuota -->
 
 <!-- Jalur beasiswa -->
-<div class="bg-abu py40">
+<div class=" py40">
     <div class="container">
-        <h2 class="text-center">Jalur Beasiswa</h2>
+        <h3 class="text-center biru">Jalur  <span class="orange">Beasiswa</span></h3>
         <div class="row mt40 justify-content-lg-between justify-content-around jalur_beasiswa">
             <!-- Peserta didik -->
-            <div class="card__beasiswa col-lg-4 mb20 mb-lg-0 col-md-5 col-12 border gx-1 p-5 bg-white">
+            <div class="card__beasiswa br20 bs2  col-lg-4 mb20 mb-lg-0 col-md-5 col-12 border gx-1 p-5 bg-white">
                 <div class="text-center">
-                    <img src="<?= base_url(); ?>/assets/img/tut wuri handayani.png" alt="" />
+                    <img src="<?= base_url(); ?>/assets/img/tut wuri handayani.png"  alt="" />
                 </div>
                 <div class="deskripsi text-center">
-                    <h4 class="mt-5 mb-2">Peserta Didik</h4>
+                    <h4 class="mt-5 bold biru mb-2 ">Peserta Didik</h4>
                     <p class="">
                         Beasiswa bagi peserta didik <br />
                         SMA/SMK/MA sederajat
@@ -168,12 +175,12 @@ $tanggal_pendaftaran_tanggal = date_format($tanggal, 'd');
             <!-- End peserta didik -->
 
             <!-- Calon mahasiswa -->
-            <div class="card__beasiswa col-lg-4 mb20 mb-lg-0 col-md-5 col-12 border gx-1 p-5 bg-white">
+            <div class="card__beasiswa br20 bs2 col-lg-4 mb20 mb-lg-0 col-md-5 col-12 border gx-1 p-5 bg-white">
                 <div class="text-center">
                     <img src="<?= base_url(); ?>/assets/img/tut wuri handayani.png" alt="" />
                 </div>
                 <div class="deskripsi text-center">
-                    <h4 class="mt-5 mb-2">Calon Mahasiwa</h4>
+                    <h4 class="mt-5 bold biru mb-2">Calon Mahasiwa</h4>
                     <p class="">
                         Beasiswa bagi peserta didik lulusan SMA/SMK/MA dari daerah
                     </p>
@@ -194,12 +201,12 @@ $tanggal_pendaftaran_tanggal = date_format($tanggal, 'd');
             <!-- End calon mahasiswa -->
 
             <!-- Mahasiswa -->
-            <div class="card__beasiswa col-lg-4 mb20 mb-lg-0 col-md-5 col-12 border gx-1 p-5 bg-white">
+            <div class="card__beasiswa br20 bs2 col-lg-4 mb20 mb-lg-0 col-md-5 col-12 border gx-1 p-5 bg-white">
                 <div class="text-center">
                     <img src="<?= base_url(); ?>/assets/img/tut wuri handayani.png" alt="" />
                 </div>
                 <div class="deskripsi text-center">
-                    <h4 class="mt-5 mb-2">Mahasiswa</h4>
+                    <h4 class="mt-5 bold biru mb-2">Mahasiswa</h4>
                     <p class="">
                         Beasiswa bagi mahasiswa <br />
                         dari Kabupaten Batang

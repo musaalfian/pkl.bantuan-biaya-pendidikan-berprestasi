@@ -3,7 +3,7 @@
 <?= $this->section('content'); ?>
 
 <!-- Jalur beasiswa -->
-<div class="bg-abu py40">
+<div class=" py40">
     <div class="container">
         <!-- tanggal pengumuman -->
         <?php date_default_timezone_set("Asia/Jakarta");
@@ -22,18 +22,20 @@
                 ($tanggal_sekarang['mon'] <= $tanggal_pengumuman_bulan - 1 &&
                     $tanggal_sekarang['mday'] <= 31))
         ) { ?>
-        <h3>Anda sudah mendaftar, pendaftaran bantuan biaya pendidikan berprestasi sedang diproses</h3>
-        <p class="mt-2">Untuk lebih lanjut silahkan tunggu informasi selanjutnya. Terima kasih</p>
-        <p class="p-2 bg-white w-50 bold mt20 mb20">
-            Status pendaftaran : <span><?= $status_pendaftaran['nama_status']; ?></span>
-        </p>
+        <div class="container bs1 bg-white br20 p50 px50 ">
+            <h3 class="biru">Anda sudah mendaftar, <span class="orange"> pendaftaran bantuan biaya pendidikan berprestasi sedang diproses</span></h3>
+            <p class="mt-2">Untuk lebih lanjut silahkan tunggu informasi selanjutnya. Terima kasih</p>
+            <p class="p-2 bg_ungu bold br10  mt20 mb20">
+                Status pendaftaran : <span><?= $status_pendaftaran['nama_status']; ?></span>
+            </p>
+        </div>
         <?php } ?>
 
         <!-- end status final -->
         <!-- btn edit data -->
         <?php if ($identitas['pesan'] != null) : ?>
-        <div class="mb20 alert alert-danger" role="alert">
-            Pesan :
+        <p class="fs14">Pesan :</p>
+        <div class="mb20 mt-4 p-3 br10 bg-abu alert alert-danger " role="alert">
             <?= $identitas['pesan']; ?>
         </div>
         <?php endif ?>
@@ -63,15 +65,15 @@
                     $tanggal_sekarang['mday'] >= 1))
         ) { ?>
         <?php if ($status_final['id_status_final'] == 1) { ?>
-        <div class="p-4 pengumuman_lolos mt40">
+        <div class="p-4 pengumuman_lolos br20 mt40">
             <h2 class="text-white text-center">
                 Anda dinyatakan
                 <span class="d-inline-block">LOLOS</span>
                 seleksi beasiswa
             </h2>
-        </div>
+        </div> 
         <?php } else if ($status_final['id_status_final'] == 2) { ?>
-        <div class="p-4 pengumuman_belum_lolos mt40">
+        <div class="p-4 br20 pengumuman_belum_lolos mt40">
             <h2 class="text-white text-center">
                 Maaf, anda dinyatakan
                 <span class="d-inline-block">BELUM LOLOS</span>
@@ -83,7 +85,7 @@
         <?php if ($status_final['id_status_final'] == 1) { ?>
         <?php if ($identitas['no_rek'] == null) : ?>
         <div class="mt40">
-            <h3>Segera isi laporan rencana penggunaan dana dan nomor rekening</h3>
+            <h3 class="biru">Segera isi laporan rencana  <span class="orange">penggunaan dana dan nomor rekening</span></h3>
         </div>
         <?php else : ?>
         <div class="mt40">
@@ -116,7 +118,7 @@
                         <div class="mt15">
                             <label for="no_rek" class="form-label">2. Isi nomer rekening </label>
                             <small class="text-red ms-3">*Wajib diisi</small>
-                            <input type="number" name="no_rek" id="no_rek" class="form-control d-flex ms-3"
+                            <input type="number" name="no_rek" id="no_rek" class="form-control btn btn-white d-flex ms-3"
                                 value="<?= old('no_rek'); ?>" required>
                             <div class="invalid-feedback ms-3">
                                 Nomer rekening wajib diisi
@@ -139,7 +141,7 @@
                                 (noinduk)_scan_bpd, Contoh: 240601191_scan_bpd</small> <br>
                             <small class="text-red ms-3">*Wajib diisi dan tidak lebih dari 2 MB</small>
                             <div class="mt15">
-                                <input required type="File" id="rek_bpd" class="form-control ms-3" name="rek_bpd"
+                                <input required type="File" id="rek_bpd" class="form-control btn btn-white ms-3" name="rek_bpd"
                                     accept="application/pdf">
                                 <div class="invalid-feedback ms-3">
                                     File tidak boleh kosong dan tidak boleh lebih dari 2 MB
@@ -177,9 +179,9 @@
                 <?php endif; ?>
             </div>
             <?php } ?>
-            <div class="col-lg-6 col-12">
+            <!-- <div class="col-lg-6 col-12">
                 <div class="img-contain gambar-laporan"></div>
-            </div>
+            </div> -->
         </div>
         <!-- end laporan penggunaan dana -->
         <?php } else { ?>
