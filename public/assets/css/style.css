@@ -84,12 +84,6 @@ p {
 }
 /* End font size */
 
-/* Font weight */
-/* .fw400 {
-  font-weight: 400 !important;
-} */
-/* End font weight */
-
 /* Margin */
 .mt100 {
   margin-top: 100px;
@@ -240,6 +234,7 @@ p {
 }
 /* End color */
 
+/* Etc */
 .btn:hover{
   transition: 0.3s;
 }
@@ -259,9 +254,6 @@ p {
   box-shadow: 2px 0.2px 10px 2px var(--abu)  ;
   /* border: 0.1px solid var(--biru); */
 }
-
-
-
 .btn-red{
   background-color: var(--merah) !important;
   color: white;
@@ -298,9 +290,6 @@ p {
   background-color: var(--biru);
   box-shadow: none !important;
 }
-#file-upload-button {
-  background-color: white !important;
-}
 .bg-abu {
   background-color: var(--abu);
 }
@@ -335,151 +324,11 @@ p {
 .min-height-admin{
   min-height: 141px;
 }
-/* .br50{
-  border-radius: 50px !important;
-} */
-
-/* Datatables 0*/
 tr {
   border-color: var(--abu2);
 }
 
-/*********************************************/
-/*               CAPTCHA                     */
-/*********************************************/
-.captcha {
-  font-family: "Comic Sans MS", cursive, sans-serif;
-  font-style: italic;
-  font-weight: bold;
-  font-size: 14px;
-  border-radius: 0;
-  padding: 10px 10px;
-  text-decoration: line-through;
-  color: black;
-  background-color: white;
-}
-.captcha__section input {
-  margin-top: 0 !important;
-  font-size: 14px !important;
-}
-.captcha__content {
-  width: 40%;
-}
-.restart a {
-  text-decoration: none;
-}
-
-.errmsg {
-  color: red;
-  font-size: 12px;
-  transition: 0.5s ease;
-}
-/*********************************************/
-/*               END CAPTCHA                 */
-/*********************************************/
-
-/*********************************************/
-/*               ADMIN                       */
-/*********************************************/
-.tahap_pendaftaran input{
-  padding: 0;
-  border-radius: 50% !important;
-}
-/* CKEditor */
-.ck-editor__editable_inline {
-  min-height: 200px;
-}
-/*********************************************/
-/*               NAVBAR                      */
-/*********************************************/
-#navbar {
-  position: sticky;
-
-  /* position: fixed; */
-  z-index: 1;
-  /* Make it stick/fixed */
-  top: 0;
-  /* Stay on top */
-  width: 100%;
-  /* Full width */
-  transition: top 0.3s;
-  /* Transition effect when sliding down (and up) */
-  /* border-radius: 10px; */
-  box-shadow: 2px 2px 10px 2px var(--biru);
-}
-.nav-link {
-  color: rgb(255, 255, 255);
-  overflow: hidden;
-  /* font-weight: 700;
-  transition: color 0.4s, background-color 0.4s, border-radius 0.4s; */
-}
-/* .nav-link:focus {
-  color: white !important;
-} */
-/* .nav-link:hover {
-  color: #ffffff;
-} */
-
-
-.nav-item a::before {
-  border-radius: 2px;
-  content: "";
-  position: absolute;
-  width: 0;
-  height: 4px;
-  bottom: 0;
-  left: 0;
-  background-color: #ffffff;
-  visibility: hidden;
-  transition: all 0.5s ease-in-out;
-}
-.nav-item a:hover::before {
-  visibility: visible;
-  width: 100%;
-}
-.navbarNav{
-  position: relative;
-  font-size: 14px;
-  font-weight:600 ;
-}
-.navbarNav:hover{
-  /* position: relative; */
-  color: white;
-  
-}
-/* .navbarNav:hover {
-  color: black !important;
-  background-color: white !important;
- 
-  transition: color 0.4s, background-color 0.4s, border-radius 0.4s;
-} */
-.bl{
-  border-left:2px solid #ffffff;
-  margin-left: 10px;
-}
-/* .nav-item {
-  margin-left: 25px;
-  margin-right: 8px;
-} */
-/* .nav-item a {
-  padding: 3px 10px !important;
-} */
-.navbarNav.active {
-  visibility: visible;
-  width: 100%;
-  border-radius: 2px;
-  content: "";
-  /* position: absolute; */
-
-  
-}
-/* .navbar-nav .dropdown:hover .dropdown-menu {
-  display: block;
-  transition: display 0.5s;
-} */
-/* background img */
-
-
+/* Unknown */
 .topi {
   background-image: url("../img/topi.png");
   background-size: contain;
@@ -518,7 +367,6 @@ label {
   display: block;
   font-size: 16px;
 }
-
 small{
   font-size: 12px;
 }
@@ -530,12 +378,6 @@ small{
 
 .arrow i {
   font-size: 40px;
-}
-.icon-notif{
-  color: red;
-  font-size: 12px;
-  right: 1px;
-  bottom: 20px;
 }
 
 
@@ -561,17 +403,206 @@ small{
   position: absolute !important;
 } */
 
-/************************************/
-/*            FOOTER                */
-/************************************/
-footer {
-  position: sticky;
-  top: 100%;
+/* .sidebar__item a {
+  color: lightgray !important;
+}
+.item__active {
+  color: white !important;
+} */
+
+.fa-eye,.fa-fw{
+  color: #9a9a9a;
 }
 
-/************************************/
-/*            DAFTAR                */
-/************************************/
+
+/******************************************/
+/*                  USER                  */
+/******************************************/
+
+/*================ Halaman awal =================*/
+.p100 {
+  padding: 40px 10rem;
+}
+.p40 {
+  padding: 40px;
+}
+.bglight {
+  background-color: #E9F0F5;
+}
+/* .bdr__none {
+  border-radius: 0 !important;
+} */
+.halaman__awal__section .gambar {
+  width: 100%;
+  height: 100%;
+}
+.halaman__awal__section .gambar img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.halaman__awal__content {
+  border: 1px solid var(--biru);
+}
+.btn__lainnya button:hover {
+  background-color:var(--biru) !important;
+  color: white !important;
+}
+
+.bg-root{
+  background-image: url("../img/bg-root.png") !important;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  
+}
+.field-icon {
+  float: right;
+  margin-top: -25px;
+  position: relative;
+  z-index: 2;
+}
+
+/*================ Masuk =================*/
+/* Captcha */
+.captcha {
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  font-style: italic;
+  font-weight: bold;
+  font-size: 14px;
+  border-radius: 0;
+  padding: 10px 10px;
+  text-decoration: line-through;
+  color: black;
+  background-color: white;
+}
+.captcha__section input {
+  margin-top: 0 !important;
+  font-size: 14px !important;
+}
+.captcha__content {
+  width: 40%;
+}
+.restart a {
+  text-decoration: none;
+}
+.errmsg {
+  color: red;
+  font-size: 12px;
+  transition: 0.5s ease;
+}
+
+/* Lupa sandi */
+.lupa__sandi a {
+  font-size: 14px;
+}
+.pesan__error {
+  font-size: 12px;
+  color: red;
+}
+
+/*================ Index =================*/
+/* Carousel */
+.carousel-indicators {
+  display: none;
+}
+.height__scroll {
+  height: 482px;
+}
+
+/* Informasi terbaru */
+.blue {
+  color: var(--biru);
+}
+.abu {
+  color: lightslategray !important;
+}
+.info__section .tanggal p {
+  color: lightslategray;
+}
+/* .list__info a {
+  font-size: 14px;
+  padding: 10px 20px;
+  color: black;
+  border: .5px solid lightslategray;
+} */
+.list__info a:hover {
+  background-color: var(--biru);
+  color: white;
+  border: .5px solid var(--biru);
+  transition: .3s;
+}
+.info__terbaru .line {
+  border: 1px solid var(--abu2);
+}
+
+/* Kuota */
+.pd__80 {
+  padding: 60px 0;
+}
+.deskripsi .keterangan p {
+  font-size: 12px !important;
+}
+.deskripsi a {
+  font-size: 12px !important;
+}
+/* .card__beasiswa a {
+  font-size: 14px !important;
+} */
+
+#file-upload-button {
+  background-color: white !important;
+}
+
+/*================ Informasi pendaftaran =================*/
+/* Garis vertikal */
+.vl {
+  border-left: 1.5px solid var(--biru);
+}
+.icon-informasi {
+  font-size: 100px;
+  color: var(--biru);
+}
+.informasi__pendaftaran .nomor {
+  min-width: 24px;
+  min-height: 24px;
+  font-size: 14px;
+  border-radius: 50%;
+  color: white;
+  background-color: var(--biru);
+}
+.me2rem {
+  margin-left: 2.1rem;
+}
+.daftar__beasiswa__section .no {
+  min-width: 12px;
+}
+
+/* Jadwal kegiatan */
+.jadwal__section table {
+  width: fit-content !important;
+  overflow: auto;
+}
+.jadwal__section thead, tbody, tr, td, th {
+  border-style: solid !important;
+  border-width: 1px !important;
+  padding: 10px;
+  font-size: 14px;
+}
+.jadwal__section tbody>tr>th {
+  text-align: center;
+  font-weight: 400 !important;
+}
+.jadwal__section th {
+  text-align: left;
+}
+
+/* Detail informasi */
+.detail__header {
+  font-size: 24px;
+}
+
+/*================ Pendaftaran =================*/
 .ps {
   position: relative;
 }
@@ -636,156 +667,12 @@ footer {
   opacity: .5;
 }
 
-/************************************/
-/*            LOGIN                 */
-/************************************/
-.lupa__sandi a {
-  font-size: 14px;
-}
-.pesan__error {
-  font-size: 12px;
-  color: red;
-}
-
-/************************************/
-/*            INDEX                 */
-/************************************/
-.carousel-indicators {
-  display: none;
-}
-/* hero */
-.height__scroll {
-  height: 482px;
-}
-
-/* informasi terbaru */
-.blue {
-  color: var(--biru);
-}
-.abu {
-  color: lightslategray !important;
-}
-.info__section .tanggal p {
-  color: lightslategray;
-}
-/* .list__info a {
-  font-size: 14px;
-  padding: 10px 20px;
-  color: black;
-  border: .5px solid lightslategray;
-} */
-.list__info a:hover {
-  background-color: var(--biru);
-  color: white;
-  border: .5px solid var(--biru);
-  transition: .3s;
-}
-
-/* kumpulan informasi */
-.info__terbaru .line {
-  border: 1px solid var(--abu2);
-}
-
-/* kuota */
-.pd__80 {
-  padding: 60px 0;
-}
-
-/* jalur beasiswa */
-.deskripsi .keterangan p {
-  font-size: 12px !important;
-}
-.deskripsi a {
-  font-size: 12px !important;
-}
-/* .card__beasiswa a {
-  font-size: 14px !important;
-} */
-
-/************************************/
-/*       DETAIL INFORMASI           */
-/************************************/
-.detail__header {
-  font-size: 24px;
-}
-
-/************************************/
-/*            TEMPLATES             */
-/************************************/
-/* .sidebar__item a {
-  color: lightgray !important;
-}
-.item__active {
-  color: white !important;
-} */
-
-/************************************/
-/*      INFORMASI PENDAFTARAN       */
-/************************************/
-/* garis vertikal */
-.vl {
-  border-left: 1.5px solid var(--biru);
-}
-.icon-informasi {
-  font-size: 100px;
-  color: var(--biru);
-}
-.informasi__pendaftaran .nomor {
-  min-width: 24px;
-  min-height: 24px;
-  font-size: 14px;
-  border-radius: 50%;
-  color: white;
-  background-color: var(--biru);
-}
-.me2rem {
-  margin-left: 2.1rem;
-}
-.daftar__beasiswa__section .no {
-  min-width: 12px;
-}
-
-/* jadwal kegiatan */
-.jadwal__section table {
-  width: fit-content !important;
-  overflow: auto;
-}
-.jadwal__section thead, tbody, tr, td, th {
-  border-style: solid !important;
-  border-width: 1px !important;
-  padding: 10px;
-  font-size: 14px;
-}
-.jadwal__section tbody>tr>th {
-  text-align: center;
-  font-weight: 400 !important;
-}
-.jadwal__section th {
-  text-align: left;
-}
-
-/************************************/
-/*            PENGUMUMAN            */
-/************************************/
-.pengumuman_lolos{
-  background-color: #0cc23f;
-}
-.pengumuman_belum_lolos{
-  background-color: #c20c0c;
-}
-
-/************************************/
-/*            FORM SMA              */
-/************************************/
-/* textarea */
+/* Form sma */
 .alamat textarea{
   min-height: 129px;
 }
 
-/************************************/
-/*       FORM Calon Mahasiswa       */
-/************************************/
-/* textarea */
+/* Form calon mahasiswa */
 .form__calon textarea{
   border-radius: 0 !important;
 }
@@ -793,10 +680,7 @@ footer {
   min-height: 130px;
 }
 
-/************************************/
-/*     EDIT FORM CALON MAHASISWA    */
-/************************************/
-/* textarea */
+/* Edit form calon mahasiswa */
 .edit__calon textarea{
   border-radius: 0 !important;
 }
@@ -804,50 +688,236 @@ footer {
   min-height: 130px;
 }
 
-/*******************************************/
-/*               INFO AWAL                 */
-/*******************************************/
-.p100 {
-  padding: 40px 10rem;
+/*================ Pengumuman =================*/
+.pengumuman_lolos{
+  background-color: #0cc23f;
 }
-.p40 {
-  padding: 40px;
+.pengumuman_belum_lolos{
+  background-color: #c20c0c;
 }
-.bglight {
-  background-color: #E9F0F5;
+.icon-notif{
+  color: red;
+  font-size: 12px;
+  right: 1px;
+  bottom: 20px;
 }
-/* .bdr__none {
-  border-radius: 0 !important;
-} */
-.halaman__awal__section .gambar {
+
+/*================ Footer =================*/
+footer {
+  position: sticky;
+  top: 100%;
+}
+
+/******************************************/
+/*               END USER                 */
+/******************************************/
+
+
+
+/******************************************/
+/*                 ADMIN                  */
+/******************************************/
+
+/*================ Template =================*/
+#navbar {
+  position: sticky;
+
+  /* position: fixed; */
+  z-index: 1;
+  /* Make it stick/fixed */
+  top: 0;
+  /* Stay on top */
   width: 100%;
-  height: 100%;
+  /* Full width */
+  transition: top 0.3s;
+  /* Transition effect when sliding down (and up) */
+  /* border-radius: 10px; */
+  box-shadow: 2px 2px 10px 2px var(--biru);
 }
-.halaman__awal__section .gambar img{
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.nav-link {
+  color: rgb(255, 255, 255);
+  overflow: hidden;
+  /* font-weight: 700;
+  transition: color 0.4s, background-color 0.4s, border-radius 0.4s; */
 }
-.halaman__awal__content {
-  border: 1px solid var(--biru);
-}
-.btn__lainnya button:hover {
-  background-color:var(--biru) !important;
+/* .nav-link:focus {
   color: white !important;
+} */
+/* .nav-link:hover {
+  color: #ffffff;
+} */
+
+.nav-item a::before {
+  border-radius: 2px;
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 4px;
+  bottom: 0;
+  left: 0;
+  background-color: #ffffff;
+  visibility: hidden;
+  transition: all 0.5s ease-in-out;
 }
-/*******************************************/
-/*               END INFO AWAL                 */
-/*******************************************/
+.nav-item a:hover::before {
+  visibility: visible;
+  width: 100%;
+}
+.navbarNav{
+  position: relative;
+  font-size: 14px;
+  font-weight:600 ;
+}
+.navbarNav:hover{
+  /* position: relative; */
+  color: white;
+  
+}
+/* .navbarNav:hover {
+  color: black !important;
+  background-color: white !important;
+  transition: color 0.4s, background-color 0.4s, border-radius 0.4s;
+} */
+.bl{
+  border-left:2px solid #ffffff;
+  margin-left: 10px;
+}
+/* .nav-item {
+  margin-left: 25px;
+  margin-right: 8px;
+} */
+/* .nav-item a {
+  padding: 3px 10px !important;
+} */
+.navbarNav.active {
+  visibility: visible;
+  width: 100%;
+  border-radius: 2px;
+  content: "";
+  /* position: absolute; */
+
+  
+}
+/* .navbar-nav .dropdown:hover .dropdown-menu {
+  display: block;
+  transition: display 0.5s;
+} */
+/* background img */
+
+#wrapper {
+  overflow-x: hidden;
+}
+
+#sidebar-wrapper {
+  min-height: 100vh;
+  /* margin-left: -15rem; */
+  transition: margin 0.25s ease-out;
+}
+
+#sidebar-wrapper .sidebar-heading {
+  padding: 0.875rem 1.25rem;
+  font-size: 1.2rem;
+}
+
+#sidebar-wrapper .list-group {
+  width: 252px;
+}
+
+.tahap_pendaftaran input{
+  padding: 0;
+  border-radius: 50% !important;
+}
+/* CKEditor */
+.ck-editor__editable_inline {
+  min-height: 200px;
+}
+
+.active-menu{
+  background-color: white !important;
+  color: #000000 !important;
+  text-decoration: none !important;
+}
+.menu:hover {
+  background-color: white;
+}
+.menu:hover a {
+  color: #000000;
+}
+.menu a {
+  color: white;
+  font-weight: 700;
+  font-size: 18px;
+  text-decoration: none;
+}
+.menu a i {
+  margin-right: 5px;
+}
+.menu .dropdown ul li a {
+  color: black !important;
+  font-size: 14px;
+  text-decoration: underline;
+}
+.nav-admin,
+.sidebar-heading {
+  height: 84px;
+}
+.border-b {
+  border-bottom: 4px solid white;
+}
+.border-s {
+  border-left: 4px solid white;
+}
+.admin-content {
+  width: 90%;
+}
+.detail tbody,
+td,
+tfoot,
+th,
+thead,
+tr {
+  border-style: none;
+}
+.detail table > :not(caption) > * > * {
+  padding: 3px;
+}
+.admin h4 {
+  font-size: 16px !important;
+}
+.sidebar__admin a {
+  font-size: 16px !important;
+}
+.fa-solid{
+  font-size: 25px;
+}
+.fa-circle-question{
+  color: rgb(247, 215, 119);
+}
+.fa-circle-question:hover{
+  color: rgb(255, 191, 0);
+}
+.fa-pen-to-square{
+  color: #9f9f9f;
+}
+.fa-pen-to-square:hover{
+  color: #565656;
+}
+.fa-sack-dollar{
+  color: rgb(239, 98, 98);
+}
+.fa-sack-dollar:hover{
+  color: rgb(242, 29, 29);
+}
+
+/******************************************/
+/*              END ADMIN                 */
+/******************************************/
 
 
 /*******************************************/
 /*               RESPONSIVES               */
 /*******************************************/
-/*=============== laptop view ===============*/
 
-/************************************/
-/*            INDEX                 */
-/************************************/
 @media (min-width: 992px) {
   .jalur_beasiswa .col-lg-4 {
     width: 30% !important;
@@ -866,7 +936,6 @@ footer {
 
 }
 
-/*=============== tablet view ===============*/
 @media (max-width: 991px) {
   /* login */
   .login__section {
@@ -983,33 +1052,8 @@ footer {
   }
 }
 
-/**********************************************************/
-/*           ============== ADMIN ============            */
-/**********************************************************/
-/************************************/
-/*            INDEX                 */
-/************************************/
-/* pakai */
-
-#wrapper {
-  overflow-x: hidden;
-}
-
-#sidebar-wrapper {
-  min-height: 100vh;
-  /* margin-left: -15rem; */
-  transition: margin 0.25s ease-out;
-}
-
-#sidebar-wrapper .sidebar-heading {
-  padding: 0.875rem 1.25rem;
-  font-size: 1.2rem;
-}
-
-#sidebar-wrapper .list-group {
-  width: 252px;
-}
 @media (min-width: 375px) {
+  /*================ Template admin =================*/
   #sidebar-wrapper {
     margin-left: 0;
   }
@@ -1025,106 +1069,4 @@ footer {
   .wraper nav {
     width: 900px !important;
   }
-}
-.active-menu{
-  background-color: white !important;
-  color: #000000 !important;
-  text-decoration: none !important;
-}
-.menu:hover {
-  background-color: white;
-}
-.menu:hover a {
-  color: #000000;
-}
-.menu a {
-  color: white;
-  font-weight: 700;
-  font-size: 18px;
-  text-decoration: none;
-}
-.menu a i {
-  margin-right: 5px;
-}
-.menu .dropdown ul li a {
-  color: black !important;
-  font-size: 14px;
-  text-decoration: underline;
-}
-
-.nav-admin,
-.sidebar-heading {
-  height: 84px;
-}
-
-.border-b {
-  border-bottom: 4px solid white;
-}
-.border-s {
-  border-left: 4px solid white;
-}
-.admin-content {
-  width: 90%;
-}
-
-.detail tbody,
-td,
-tfoot,
-th,
-thead,
-tr {
-  border-style: none;
-}
-.detail table > :not(caption) > * > * {
-  padding: 3px;
-}
-
-.admin h4 {
-  font-size: 16px !important;
-}
-.sidebar__admin a {
-  font-size: 16px !important;
-}
-
-.fa-solid{
-  font-size: 25px;
-}
-.fa-circle-question{
-  color: rgb(247, 215, 119);
-}
-.fa-circle-question:hover{
-  color: rgb(255, 191, 0);
-}
-.fa-pen-to-square{
-  color: #9f9f9f;
-}
-.fa-pen-to-square:hover{
-  color: #565656;
-}
-.fa-sack-dollar{
-  color: rgb(239, 98, 98);
-}
-.fa-sack-dollar:hover{
-  color: rgb(242, 29, 29);
-}
-/**********************************************************/
-/*         ============== END ADMIN ============          */
-/**********************************************************/
-
-.bg-root{
-  background-image: url("../img/bg-root.png") !important;
-  background-position: center center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  
-}
-.field-icon {
-  float: right;
-  margin-top: -25px;
-  position: relative;
-  z-index: 2;
-}
-
-.fa-eye,.fa-fw{
-  color: #9a9a9a;
 }
