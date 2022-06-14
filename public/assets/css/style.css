@@ -276,7 +276,7 @@ p {
 }
 .btn-primary {
   background-color: var(--biru);
-  box-shadow: 2px 2px 10px 2px var(--biru);
+  box-shadow: 0.2px 0.2px 4px 0.2px var(--biru);
 }
 .btn_orange{
   background-color: #F8A61B;
