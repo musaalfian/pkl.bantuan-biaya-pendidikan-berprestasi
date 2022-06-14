@@ -9,7 +9,7 @@
 
         <form action="<?= base_url(); ?>/mahasiswa/simpan_tambah_lampiran_mhs/<?= $identitas['no_induk']; ?>"
             method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
-            <h2 class="mb40">Form Pendaftaran Beasiswa bagi Mahasiswa</h2>
+            <h3 class="mb20 biru fw-bold">Form Pendaftaran Beasiswa <span class="orange">Mahasiswa</span></h3>
             <!-- alert lampiran -->
             <?php if (session()->getFlashdata('pesan-tambah-lampiran-siswa')) : ?>
             <div class="alert alert-success" role="alert">
@@ -189,7 +189,7 @@
                                 Pastikan data prestasi sebelumnya sudah diisi.
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                <button type="button" class="btn btn_orange" data-bs-dismiss="modal">
                                     Batal
                                 </button>
                                 <a class="btn btn-primary" onclick="tambah_prestasi_<?= $i + 1; ?>()"
@@ -333,7 +333,7 @@
                             Pastikan data yang anda masukkan sudah benar.
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                            <button type="button" class="btn btn_orange" data-bs-dismiss="modal">
                                 Batal
                             </button>
                             <button type="submit" class="btn btn-success">Simpan</button>
@@ -402,7 +402,7 @@
                             Pastikan data yang anda masukkan sudah benar.
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                            <button type="button" class="btn btn_orange" data-bs-dismiss="modal">
                                 Batal
                             </button>
                             <button type="submit" class="btn btn-success">Kirim</button>

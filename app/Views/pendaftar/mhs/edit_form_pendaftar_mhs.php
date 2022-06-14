@@ -7,7 +7,7 @@
     <div class="container">
         <form action="<?= base_url(); ?>/mahasiswa/simpan_edit_mhs/<?= $identitas['no_induk']; ?>" method="post"
             enctype="multipart/form-data" class="needs-validation" novalidate>
-            <h2 class="mb40">Ubah Data Pendaftaran</h2>
+            <h3 class="mb20 biru fw-bold">Ubah  <span class="orange">Data Pendaftaran</span></h3>
             <!-- Btn Ubah data -->
             <h3 class="mb20">A. Identitas Diri</h3>
             <div class="row mt20 mb40">
@@ -870,7 +870,7 @@
                             Pastikan data yang anda masukkan sudah benar.
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                            <button type="button" class="btn btn_orange" data-bs-dismiss="modal">
                                 Batal
                             </button>
                             <button type="submit" class="btn btn-success">Simpan</button>

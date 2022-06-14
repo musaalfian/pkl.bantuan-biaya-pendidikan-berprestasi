@@ -7,7 +7,7 @@
         <?php if ($file == null) : ?>
         <form action="<?= base_url(); ?>/siswa/simpan_tambah_lampiran_siswa/<?= $identitas['no_induk']; ?>"
             method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
-            <h2 class="mb20 fs30">Form Pendaftaran Beasiswa SMA/SMK/MA Sederajat</h2>
+            <h3 class="mb20 biru fw-bold">Form Pendaftaran Beasiswa <span class="orange">SMA/SMK/MA Sederajat</span></h3>
             <!-- alert lampiran -->
             <?php if (session()->getFlashdata('pesan-tambah-lampiran-siswa')) : ?>
             <div class="alert alert-success" role="alert">
@@ -185,7 +185,7 @@
                                 Pastikan data prestasi sebelumnya sudah diisi.
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                <button type="button" class="btn btn_orange" data-bs-dismiss="modal">
                                     Batal
                                 </button>
                                 <a class="btn btn-primary" onclick="tambah_prestasi_<?= $i + 1; ?>()"
@@ -231,7 +231,7 @@
                                 style="color: red; font-size: 12px;">Format file .pdf</span></label>
                         <small style="color: gray">Format nama file :
                             (no induk)_scan_ktp<span class="fw-bold">.pdf</span></small>
-                        <input id="ktp"
+                        <input required id="ktp"
                             class="form-control <?= ($validation->hasError('scan_ktp')) ? 'is-invalid' : ''; ?>"
                             value="<?= old('scan_ktp'); ?>" name="scan_ktp" type="file" accept="application/pdf" />
                         <div class="invalid-feedback">
@@ -342,7 +342,7 @@
                             Pastikan data yang anda masukkan sudah benar.
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                            <button type="button" class="btn btn_orange" data-bs-dismiss="modal">
                                 Batal
                             </button>
                             <button type="submit" class="btn btn-success">Simpan</button>
@@ -412,7 +412,7 @@
                             Pastikan data yang anda masukkan sudah benar.
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                            <button type="button" class="btn btn_orange" data-bs-dismiss="modal">
                                 Batal
                             </button>
                             <button type="submit" class="btn btn-success">Kirim</button>

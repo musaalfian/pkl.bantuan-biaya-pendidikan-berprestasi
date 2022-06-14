@@ -6,7 +6,7 @@
     <div class="container">
         <form action="<?= base_url(); ?>/siswa/simpan_tambah_identitas_siswa" method="post" class="needs-validation"
             novalidate>
-            <h2 class="mb20 fs30">Form Pendaftaran Beasiswa SMA/SMK/MA Sederajat</h2>
+            <h3 class="mb20 biru fw-bold">Form Pendaftaran Beasiswa <span class="orange">SMA/SMK/MA Sederajat</span></h3>
             <!-- alert identitas -->
             <?php if (session()->getFlashdata('pesan-tambah-identitas-siswa')) : ?>
             <div class="alert alert-success" role="alert">
@@ -34,34 +34,37 @@
                     <!-- end nama lengkap -->
                     <div class="mb20">
                         <label for="jenis_kelamin" class="form-label">Jenis Kelamin <span
-                                class="required-label"></span></label>
-                        <select required <?= ($identitas != null) ? 'disabled' : ''; ?>
+                                class="required-label"></span>
+                        </label>
+                        <!-- radio button opsi jenis kelamin radio -->
+                        <!-- <select required <?= ($identitas != null) ? 'disabled' : ''; ?>
                             class="form-select <?= ($validation->hasError('jenis_kelamin')) ? 'is-invalid' : ''; ?>"
                             aria-label="Default select example" name="jenis_kelamin">
-                            <option hidden></option>
-                            <option <?php if ($identitas != null) {
+                            <option hidden></option> -->
+                            <input <?= ($identitas != null) ? 'disabled' : ''; ?> required type="radio" name="jenis_kelamin" <?php if ($identitas != null) {
                                         if ($identitas['jenis_kelamin'] == 'L') {
-                                            echo 'selected';
+                                            echo 'checked';
                                         };
                                     } else {
                                         if (old('jenis_kelamin') == 'L') {
-                                            echo 'selected';
+                                            echo 'checked';
                                         }
                                     } ?> value="L">
                                 Laki-laki
-                            </option>
-                            <option <?php if ($identitas != null) {
+                            </input>
+                            <br>
+                            <input <?= ($identitas != null) ? 'disabled' : ''; ?> required type="radio" name="jenis_kelamin" <?php if ($identitas != null) {
                                         if ($identitas['jenis_kelamin'] == 'P') {
-                                            echo 'selected';
+                                            echo 'checked';
                                         };
                                     } else {
                                         if (old('jenis_kelamin') == 'P') {
-                                            echo 'selected';
+                                            echo 'checked';
                                         }
                                     } ?> value="P">
                                 Perempuan
-                            </option>
-                        </select>
+                            </input>
+                        <!-- </select> -->
                         <div class="invalid-feedback">
                             <?= ($validation->getError('jenis_kelamin') == '') ? 'Bagian jenis kelamin  wajib diisi' : str_replace('_', ' ', $validation->getError('jenis_kelamin')) ?>
                         </div>
@@ -81,7 +84,7 @@
                     <!-- end NISN -->
                     <div class="mb20">
                         <label for="ttl" class="form-label">Tempat, Tanggal Lahir
-                            <span class="required-label">Contoh : Batang, 19 Agustus 2000</span></label>
+                            <span class="required-label"> *Contoh : Batang, 19 Agustus 2000</span></label>
                         <input required <?= ($identitas != null) ? 'disabled' : ''; ?> type="text"
                             class="form-control <?= ($validation->hasError('ttl')) ? 'is-invalid' : ''; ?>"
                             value="<?= ($identitas != null) ? $identitas['ttl'] : old('ttl'); ?>" name="ttl"
@@ -129,22 +132,23 @@
                         <label for="pernah_menerima_bantuan" class="form-label">Apakah Calon Penerima Beasiswa Pernah
                             Menerima Bantuan?
                             <span class="required-label"></span></label>
-                        <select required id="pernah_menerima_bantuan" <?= ($identitas != null) ? 'disabled' : ''; ?>
+                            <!-- radio button -->
+                            <!-- <select required id="pernah_menerima_bantuan" <?= ($identitas != null) ? 'disabled' : ''; ?>
                             class="form-select <?= ($validation->hasError('pernah_menerima_bantuan')) ? 'is-invalid' : ''; ?>"
-                            aria-label="Default select example" name="pernah_menerima_bantuan">
-                            <option selected hidden></option>
+                            aria-label="Default select example" name="pernah_menerima_bantuan">--
+                            <option selected hidden></option> -->
                             <?php foreach ($opsional as $opsional) : ?>
-                            <option <?php if ($identitas != null) {
+                            <input required <?= ($identitas != null) ? 'disabled' : ''; ?> type="radio" name="pernah_menerima_bantuan" <?php if ($identitas != null) {
                                             if ($identitas['pernah_menerima_bantuan'] == $opsional) {
-                                                echo 'selected';
+                                                echo 'checked';
                                             };
                                         } else {
                                             if (old('pernah_menerima_bantuan') == $opsional) {
-                                                echo 'selected';
+                                                echo 'checked';
                                             }
-                                        } ?> value="<?= $opsional; ?>"><?= ucfirst($opsional); ?></option>
+                                        } ?> value="<?= $opsional; ?>"><?= ucfirst($opsional); ?></input> <br>
                             <?php endforeach; ?>
-                        </select>
+                        <!-- </select> -->
                         <div class="invalid-feedback">
                             <?= ($validation->getError('pernah_menerima_bantuan') == '') ? 'Bagian pernah_menerima_bantuan  wajib diisi' : str_replace('_', ' ', $validation->getError('pernah_menerima_bantuan')); ?>
                         </div>
@@ -181,7 +185,7 @@
                     <div class="alamat mb20">
                         <label for="alamat_rumah" class="form-label">Alamat Rumah <span
                                 class="required-label"></span></label>
-                        <small>alamat berisi dukuh, rt, rw, desa, dan jalan</small>
+                        <small class="red"> *alamat berisi dukuh, rt, rw, desa, dan jalan</small>
 
                         <textarea required <?= ($identitas != null) ? 'disabled' : ''; ?>
                             class="form-control mb-2 <?= ($validation->hasError('alamat_rumah')) ? 'is-invalid' : ''; ?>"
@@ -350,7 +354,7 @@
                             Pastikan data yang anda masukkan sudah benar.
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                            <button type="button" class="btn btn_orange" data-bs-dismiss="modal">
                                 Batal
                             </button>
                             <button type="submit" class="btn btn-success">Simpan</button>
@@ -370,7 +374,7 @@
                             Anda harus mengisi form dan menyimpannya terlebih dahulu.
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                            <button type="button" class="btn btn_orange" data-bs-dismiss="modal">
                                 Oke
                             </button>
                         </div>
