@@ -11,9 +11,9 @@
             method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
             <h2 class="mb40">Form Pendaftaran Beasiswa bagi Mahasiswa</h2>
             <!-- alert lampiran -->
-            <?php if (session()->getFlashdata('pesan-tambah-lampiran-siswa')) : ?>
+            <?php if (session()->getFlashdata('pesan-tambah-lampiran-pendaftar')) : ?>
             <div class="alert alert-success" role="alert">
-                <?= session()->getFlashdata('pesan-tambah-lampiran-siswa'); ?>
+                <?= session()->getFlashdata('pesan-tambah-lampiran-pendaftar'); ?>
             </div>
             <?php endif; ?>
             <!-- end alert lampiran -->
@@ -24,7 +24,7 @@
                 </span>
             </h3>
             <p class="bold p20" style="color: red">
-                *Semua file di upload dan ukuran file tidak lebih dari 2MB
+                *Semua file di upload dan ukuran file tidak boleh lebih dari 2MB
             </p>
             <div class="alert alert-primary">
                 <p class="">
@@ -50,7 +50,7 @@
                                 value="<?= old('scan_prestasi_' . $i); ?>" name="scan_prestasi_<?= $i; ?>" type="file"
                                 accept="application/pdf" />
                             <div class="invalid-feedback">
-                                <?= ($validation->getError('scan_prestasi_' . $i) == '') ? 'Bagian scan prestasi wajib diisi dan ukuran file tidak lebih dari 2MB' : str_replace('_', ' ', $validation->getError('scan_prestasi_' . $i));
+                                <?= ($validation->getError('scan_prestasi_' . $i) == '') ? 'Bagian scan prestasi wajib diisi dan ukuran file tidak boleh lebih dari 2MB' : str_replace('_', ' ', $validation->getError('scan_prestasi_' . $i));
                                         ?>
                             </div>
                         </div>
@@ -205,7 +205,7 @@
             <p>Sistematika proposal bantuan biaya pendidikan : <a
                     href="<?= base_url(); ?>/assets/informasi/file/Sistematika Proposal.pdf">Unduh disini</a> </p>
             <p class="bold p20" style="color: red">
-                *Semua file di upload dan ukuran file tidak lebih dari 2MB
+                *Semua file di upload dan ukuran file tidak boleh lebih dari 2MB
             </p>
             <div class="row pb40">
                 <div class="col-12 col-md-6">
@@ -218,7 +218,7 @@
                             class="form-control <?= ($validation->hasError('scan_kk')) ? 'is-invalid' : ''; ?>"
                             value="<?= old('scan_kk'); ?>" name="scan_kk" type="file" accept="application/pdf" />
                         <div class="invalid-feedback">
-                            <?= ($validation->getError('scan_kk') == '') ? 'Bagian scan kk  wajib diisi dan ukuran file tidak lebih dari 2MB' : str_replace('_', ' ', $validation->getError('scan_kk')); ?>
+                            <?= ($validation->getError('scan_kk') == '') ? 'Bagian scan kk  wajib diisi dan ukuran file tidak boleh lebih dari 2MB' : str_replace('_', ' ', $validation->getError('scan_kk')); ?>
                         </div>
                     </div>
                     <!-- end scan KK -->
@@ -231,7 +231,7 @@
                             class="form-control <?= ($validation->hasError('scan_ktp')) ? 'is-invalid' : ''; ?>"
                             value="<?= old('scan_ktp'); ?>" name="scan_ktp" type="file" accept="application/pdf" />
                         <div class="invalid-feedback">
-                            <?= ($validation->getError('scan_ktp') == '') ? 'Bagian scan ktp  wajib diisi dan ukuran file tidak lebih dari 2MB' : str_replace('_', ' ', $validation->getError('scan_ktp')); ?>
+                            <?= ($validation->getError('scan_ktp') == '') ? 'Bagian scan ktp  wajib diisi dan ukuran file tidak boleh lebih dari 2MB' : str_replace('_', ' ', $validation->getError('scan_ktp')); ?>
                         </div>
                     </div>
                     <!-- end scan KTP -->
@@ -245,7 +245,7 @@
                             value="<?= old('scan_kartu_pelajar'); ?>" name="scan_kartu_pelajar" type="file"
                             accept="application/pdf" />
                         <div class="invalid-feedback">
-                            <?= ($validation->getError('scan_kartu_pelajar') == '') ? 'Bagian scan kartu pelajar  wajib diisi dan ukuran file tidak lebih dari 2MB' : str_replace('_', ' ', $validation->getError('scan_kartu_pelajar')); ?>
+                            <?= ($validation->getError('scan_kartu_pelajar') == '') ? 'Bagian scan kartu pelajar  wajib diisi dan ukuran file tidak boleh lebih dari 2MB' : str_replace('_', ' ', $validation->getError('scan_kartu_pelajar')); ?>
                         </div>
                     </div>
                     <!-- end scan Kartu pelajar -->
@@ -254,11 +254,12 @@
                             <span style="color: red; font-size: 12px;">Format file .jpg, jpeg, .png</span></label>
                         <small style="color: gray">Format nama file :
                             (no induk)_pas_foto, Contoh: 240601191_pas_foto</small>
-                        <input required id="pas_foto"
-                            class="form-control <?= ($validation->hasError('scan_pas_foto')) ? 'is-invalid' : ''; ?>"
-                            value="<?= old('scan_pas_foto'); ?>" name="scan_pas_foto" type="file" accept="image/*" />
+                        <input required id="pas_foto" type="file"
+                            class="form-control <?= ($validation->hasError('scan_pas_foto')) ? 'is-invalid' : ''; ?> lampiran-foto"
+                            data-height="100" data-allowed-file-extensions="jpg jpeg png" data-max-file-size="2M"
+                            value="<?= old('scan_pas_foto'); ?>" name="scan_pas_foto" accept="image/*" />
                         <div class="invalid-feedback">
-                            <?= ($validation->getError('scan_pas_foto') == '') ? 'Bagian scan pas foto  wajib diisi dan ukuran file tidak lebih dari 2MB' : str_replace('_', ' ', $validation->getError('scan_pas_foto')); ?>
+                            <?= ($validation->getError('scan_pas_foto') == '') ? 'Bagian scan pas foto  wajib diisi dan ukuran file tidak boleh lebih dari 2MB' : str_replace('_', ' ', $validation->getError('scan_pas_foto')); ?>
                         </div>
                     </div>
                     <!-- end scan_pas_foto -->
@@ -274,7 +275,7 @@
                             value="<?= old('scan_akreditasi_pt'); ?>" name="scan_akreditasi_pt" type="file"
                             accept="application/pdf" />
                         <div class="invalid-feedback">
-                            <?= ($validation->getError('scan_akreditasi_pt') == '') ? 'Bagian akreditasi perguruan tinggi wajib diisi dan ukuran file tidak lebih dari 2MB' : $validation->getError('scan_akreditasi_pt'); ?>
+                            <?= ($validation->getError('scan_akreditasi_pt') == '') ? 'Bagian akreditasi perguruan tinggi wajib diisi dan ukuran file tidak boleh lebih dari 2MB' : $validation->getError('scan_akreditasi_pt'); ?>
                         </div>
                     </div>
                     <!-- end scan_akreditasi_pt -->
@@ -288,7 +289,7 @@
                             value="<?= old('scan_proposal'); ?>" name="scan_proposal" type="file"
                             accept="application/pdf" />
                         <div class="invalid-feedback">
-                            <?= ($validation->getError('scan_proposal') == '') ? 'Bagian scan proposal wajib diisi dan ukuran file tidak lebih dari 2MB' : $validation->getError('scan_proposal'); ?>
+                            <?= ($validation->getError('scan_proposal') == '') ? 'Bagian scan proposal wajib diisi dan ukuran file tidak boleh lebih dari 2MB' : $validation->getError('scan_proposal'); ?>
                         </div>
                     </div>
                     <!-- end scan_proposal -->
@@ -304,13 +305,20 @@
                             class="form-control <?= ($validation->hasError('scan_sktm')) ? 'is-invalid' : ''; ?>"
                             value="<?= old('scan_sktm'); ?>" name="scan_sktm" accept="application/pdf" type="file" />
                         <div class="invalid-feedback">
-                            <?= ($validation->getError('scan_sktm') == '') ? 'Bagian scan sktm  wajib diisi dan ukuran file tidak lebih dari 2MB' : str_replace('_', ' ', $validation->getError('scan_sktm')); ?>
+                            <?= ($validation->getError('scan_sktm') == '') ? 'Bagian scan sktm  wajib diisi dan ukuran file tidak boleh lebih dari 2MB' : str_replace('_', ' ', $validation->getError('scan_sktm')); ?>
                         </div>
                     </div>
                     <!-- end SKTM -->
                 </div>
             </div>
             <!-- end lampiran dokumen -->
+            <!-- alert lampiran -->
+            <?php if (session()->getFlashdata('pesan-gagal-lampiran-pendaftar')) : ?>
+            <div class="alert alert-success" role="alert">
+                <?= session()->getFlashdata('pesan-gagal-lampiran-pendaftar'); ?>
+            </div>
+            <?php endif; ?>
+            <!-- end alert lampiran -->
             <div class="row pb40">
                 <div class="col-12 text-end">
                     <button type="button" data-bs-toggle="modal" data-bs-target="#simpan_modal"
@@ -363,31 +371,46 @@
             <div class="mb-3"></div>
             <!-- </button> -->
             <p class="bold p20" style="color: red">
-                Unggah formulir pendaftaran yang telah ditandatangani oleh orang tua dan ukuran file tidak lebih dari
-                2MB
+                Unggah formulir pendaftaran yang telah ditandatangani oleh orang tua dan ukuran file tidak boleh lebih
+                dari
+                8MB
             </p>
             <div class="mb20">
                 <label for="scan_formulir_pendaftaran" class="form-label">Formulir Pendaftaran(yang telah ditandatangani
                     oleh orang tua)<span style="color: red; font-size: 12px;">Format file .pdf</span></label>
                 <small style="color: gray">Format nama file :
                     (no induk)_scan_formulir_pendaftaran<span class="fw-bold">.pdf</span></small>
-                <input required id="formulir_pendaftaran"
+                <input required <?= ($file['formulir_pendaftaran'] != null) ? 'disabled' : ''; ?>
+                    id="formulir_pendaftaran"
                     class="form-control <?= ($validation->hasError('scan_formulir_pendaftaran')) ? 'is-invalid' : ''; ?>"
-                    value="<?= old('scan_formulir_pendaftaran'); ?>" name="scan_formulir_pendaftaran" type="file"
-                    accept="application/pdf" />
+                    value="<?= ($file['formulir_pendaftaran'] != null) ? $file['formulir_pendaftaran'] : old('scan_formulir_pendaftaran'); ?>"
+                    name="scan_formulir_pendaftaran"
+                    type="<?= ($file['formulir_pendaftaran'] != null) ? 'text' : 'file'; ?>" accept="application/pdf" />
                 <div class="invalid-feedback">
-                    <?= ($validation->getError('scan_formulir_pendaftaran') == '') ? 'Bagian scan formulir pendaftaran  wajib diisi dan ukuran file tidak lebih dari 2MB' : str_replace('_', ' ', $validation->getError('scan_formulir_pendaftaran')); ?>
+                    <?= ($validation->getError('scan_formulir_pendaftaran') == '') ? 'Bagian scan formulir pendaftaran wajib diisi dan ukuran file tidak boleh lebih dari 8MB' : str_replace('_', ' ', $validation->getError('scan_formulir_pendaftaran')); ?>
                 </div>
             </div>
             <!-- end scan Kartu pelajar -->
+            <?php if ($file['formulir_pendaftaran'] == null) : ?>
             <div class="row pb40">
                 <div class="col-12 text-end">
                     <button type="button" data-bs-toggle="modal" data-bs-target="#kirim_modal"
-                        class="btn btn-primary fs16 px-4 py-2">
-                        Kirim
+                        class="btn btn-success fs16 px-4 py-2">
+                        Simpan
                     </button>
                 </div>
             </div>
+            <?php else : ?>
+            <div class="row pb40">
+                <div class="col-12 text-end">
+                    <a href="/pendaftaran/review_pendaftaran/<?= $identitas['no_induk']; ?>">
+                        <button type="button" class="btn btn-primary fs16 px-4 py-2">
+                            Selanjutnya
+                        </button>
+                    </a>
+                </div>
+            </div>
+            <?php endif ?>
             <!-- SAVE  Modal -->
             <div class="modal fade" id="kirim_modal" tabindex="-1" aria-labelledby="saveModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
@@ -405,7 +428,7 @@
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
                                 Batal
                             </button>
-                            <button type="submit" class="btn btn-success">Kirim</button>
+                            <button type="submit" class="btn btn-success">Simpan</button>
                         </div>
                     </div>
                 </div>
@@ -416,7 +439,19 @@
 </div>
 
 <script>
-// kategori 2
+// dropify upload foto
+$(".lampiran-foto").dropify({
+    error: {
+        fileSize: "Ukuran gambar terlalu besar ({{ value }} maksimal).",
+        fileExtension: "format file tidak diperbolehkan, hanya ({{ value }} yang diperbolehkan).",
+    },
+    messages: {
+        default: "Tarik dan letakkan file disini atau pilih",
+        replace: "Tarik dan letakkan atau pilih gambar baru",
+        remove: "Hapus",
+        error: "Ooops, Terdapat kesalahan.",
+    },
+});
 </script>
 <!-- End form pendaftaran -->
 <?= $this->endSection(); ?>

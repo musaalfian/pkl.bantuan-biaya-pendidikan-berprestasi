@@ -40,22 +40,23 @@
                     <?= $data_informasi_terbaru['file_informasi_terbaru']; ?>
                 </label>
                 <div class="invalid-feedback">
-                    <?= ($validation->getError('file_informasi_terbaru') == '') ? 'Bagian file_informasi_terbaru wajib diisi' : str_replace('_', ' ', $validation->getError('file_informasi_terbaru')) ?>
+                    <?= ($validation->getError('file_informasi_terbaru') == '') ? 'Ukuran file informasi terbaru tidak boleh lebih dari 15 MB' : str_replace('_', ' ', $validation->getError('file_informasi_terbaru')) ?>
                 </div>
             </div>
             <!-- end file _informasi_terbaru -->
             <div class="mb20">
                 <label for="label_gambar_informasi_terbaru" class="form-label">Gambar</label>
                 <input id="gambar_informasi_terbaru" type="file" hidden
-                    class="form-control <?= ($validation->hasError('gambar_informasi_terbaru')) ? 'is-invalid' : ''; ?>"
-                    name="gambar_informasi_terbaru" accept="image/*">
+                    class="form-control dropify <?= ($validation->hasError('gambar_informasi_terbaru')) ? 'is-invalid' : ''; ?>"
+                    name="gambar_informasi_terbaru" accept="image/*" data-max-file-size="5M"
+                    data-allowed-file-extensions="jpg jpeg png">
                 <label class="bg-white" style="cursor: pointer;" for="gambar_informasi_terbaru">
                     <a class="btn btn-secondary">Pilih File</a>
                     <?= $data_informasi_terbaru['gambar_informasi_terbaru']; ?>
                 </label>
                 <!-- <div class="invalid-feedback"> -->
                 <div class="invalid-feedback">
-                    <?= ($validation->getError('gambar_informasi_terbaru') == '') ? 'Bagian gambar_informasi_terbaru wajib diisi' : str_replace('_', ' ', $validation->getError('gambar_informasi_terbaru')) ?>
+                    <?= ($validation->getError('gambar_informasi_terbaru') == '') ? '' : str_replace('_', ' ', $validation->getError('gambar_informasi_terbaru')) ?>
                 </div>
             </div>
             <!-- end gambar _informasi_terbaru -->
@@ -94,5 +95,19 @@
         </form>
     </div>
 </div>
+<script>
+$('.dropify').dropify({
+    error: {
+        fileSize: "Ukuran gambar terlalu besar ({{ value }} maksimal).",
+        fileExtension: "format file tidak diperbolehkan, hanya ({{ value }} yang diperbolehkan).",
+    },
+    messages: {
+        default: "Tarik dan letakkan file disini atau pilih",
+        replace: "Tarik dan letakkan atau pilih gambar baru",
+        remove: "Hapus",
+        error: "Ooops, Terdapat kesalahan.",
+    },
+});
+</script>
 <!-- end main section -->
 <?= $this->endSection(); ?>
