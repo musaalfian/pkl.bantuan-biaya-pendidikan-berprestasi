@@ -77,6 +77,7 @@ class Mahasiswa extends BaseController
         $user_id = user_id();
         if (!$this->validate([
             'no_induk'    => 'required|is_unique[identitas.no_induk]',
+            'no_induk_pelajar'    => 'required',
             'nama_lengkap'      => 'required|alpha_space',
             'jenis_kelamin'    => 'required',
             'ttl'    => [
@@ -126,6 +127,7 @@ class Mahasiswa extends BaseController
         $no_induk = $this->request->getVar('no_induk');
         $this->MIdentitas->insert([
             'no_induk' => $no_induk,
+            'no_induk_pelajar'    => $this->request->getVar('no_induk_pelajar'),
             'nama_lengkap' => $this->request->getVar('nama_lengkap'),
             'jenis_kelamin' => $this->request->getVar('jenis_kelamin'),
             'ttl' => $this->request->getVar('ttl'),
@@ -257,6 +259,7 @@ class Mahasiswa extends BaseController
             if (!$this->validate([
                 'scan_prestasi_2' => 'uploaded[scan_prestasi_2]|max_size[scan_prestasi_2,2048]|mime_in[scan_prestasi_2,application/pdf]',
             ])) {
+                session()->setFlashdata('pesan-gagal-lampiran-pendaftar', 'Data lampiran gagal ditambahkan, pendaftar harus mengunggah kembali seluruh file.');
                 return redirect()->to('mahasiswa/tambah_lampiran_mhs/' . $no_induk)->withInput();
             }
         } else if ($scan_prestasi['prestasi_2']->getError() != 4 || $juara_2 != null || $tingkat_2 != null) {
@@ -267,6 +270,7 @@ class Mahasiswa extends BaseController
                 'nama_prestasi_2' => 'required',
                 'tahun_prestasi_2' => 'required',
             ])) {
+                session()->setFlashdata('pesan-gagal-lampiran-pendaftar', 'Data lampiran gagal ditambahkan, pendaftar harus mengunggah kembali seluruh file.');
                 return redirect()->to('mahasiswa/tambah_lampiran_mhs/' . $no_induk)->withInput();
             }
         }
@@ -275,6 +279,7 @@ class Mahasiswa extends BaseController
             if (!$this->validate([
                 'scan_prestasi_3' => 'uploaded[scan_prestasi_3]|max_size[scan_prestasi_3,2048]|mime_in[scan_prestasi_3,application/pdf]',
             ])) {
+                session()->setFlashdata('pesan-gagal-lampiran-pendaftar', 'Data lampiran gagal ditambahkan, pendaftar harus mengunggah kembali seluruh file.');
                 return redirect()->to('mahasiswa/tambah_lampiran_mhs/' . $no_induk)->withInput();
             }
         } else if ($scan_prestasi['prestasi_3']->getError() != 4 || $juara_3 != null || $tingkat_3 != null) {
@@ -285,6 +290,7 @@ class Mahasiswa extends BaseController
                 'nama_prestasi_3' => 'required',
                 'tahun_prestasi_3' => 'required',
             ])) {
+                session()->setFlashdata('pesan-gagal-lampiran-pendaftar', 'Data lampiran gagal ditambahkan, pendaftar harus mengunggah kembali seluruh file.');
                 return redirect()->to('mahasiswa/tambah_lampiran_mhs/' . $no_induk)->withInput();
             }
         }
@@ -303,6 +309,7 @@ class Mahasiswa extends BaseController
                 'scan_proposal' => 'uploaded[scan_proposal]|max_size[scan_proposal,5120]|mime_in[scan_proposal,application/pdf]',
                 'scan_pas_foto' => 'uploaded[scan_pas_foto]|max_size[scan_pas_foto,2048]|mime_in[scan_pas_foto,image/jpg,image/jpeg,image/png]',
             ])) {
+                session()->setFlashdata('pesan-gagal-lampiran-pendaftar', 'Data lampiran gagal ditambahkan, pendaftar harus mengunggah kembali seluruh file.');
                 return redirect()->to('mahasiswa/tambah_lampiran_mhs/' . $no_induk)->withInput();
             }
         } else {
@@ -320,6 +327,7 @@ class Mahasiswa extends BaseController
                 'scan_proposal' => 'uploaded[scan_proposal]|max_size[scan_proposal,5120]|mime_in[scan_proposal,application/pdf]',
                 'scan_pas_foto' => 'uploaded[scan_pas_foto]|max_size[scan_pas_foto,2048]|mime_in[scan_pas_foto,image/jpg,image/jpeg,image/png]',
             ])) {
+                session()->setFlashdata('pesan-gagal-lampiran-pendaftar', 'Data lampiran gagal ditambahkan, pendaftar harus mengunggah kembali seluruh file.');
                 return redirect()->to('mahasiswa/tambah_lampiran_mhs/' . $no_induk)->withInput();
             }
         }
@@ -433,11 +441,7 @@ class Mahasiswa extends BaseController
         $this->MFile->update($file['id_file'], [
             'formulir_pendaftaran' => $nama_formulir_pendaftaran
         ]);
-        $data = [
-            'id_status_pendaftaran'    => 4
-        ];
-        $this->MIdentitas->update($no_induk, $data);
-        return redirect()->to('home_pendaftar/pengumuman');
+        return redirect()->to('pendaftaran/review_pendaftaran/' . $no_induk);
     }
     public function edit_mhs($no_induk)
     {
@@ -496,6 +500,7 @@ class Mahasiswa extends BaseController
         if ($identitas['no_induk'] != $input_no_induk) {
             if (!$this->validate([
                 'no_induk'    => 'required|numeric|is_unique[identitas.no_induk]',
+                'no_induk_pelajar'    => 'required',
                 'nama_lengkap'      => 'required|alpha_space',
                 'jenis_kelamin'    => 'required',
                 'ttl'    => [
@@ -599,6 +604,7 @@ class Mahasiswa extends BaseController
         }
         // Update data identitas mahasiswa
         $this->MIdentitas->update($identitas['no_induk'], [
+            'no_induk_pelajar'    => $this->request->getVar('no_induk_pelajar'),
             'nama_lengkap' => $this->request->getVar('nama_lengkap'),
             'jenis_kelamin' => $this->request->getVar('jenis_kelamin'),
             'ttl' => $this->request->getVar('ttl'),

@@ -170,7 +170,17 @@ $(document).ready(function () {
     $("label[for='gambar_informasi_terbaru']").append(gambar);
   });
 });
-
+// maks file upload
+$("#file_informasi_terbaru").change(function () {
+  // 2 MB
+  if (this.files[0].size > 15728640) {
+    $(this).addClass("is-invalid");
+    this.value = "";
+  } else {
+    $(this).removeClass("is-invalid");
+    $(this).addClass("is-valid");
+  }
+});
 /***********************************************************************************************************************/
 /*                                    Pendaftar                                                                        */
 /***********************************************************************************************************************/
@@ -406,7 +416,7 @@ $("#akreditasi_pt").change(function () {
 // scan scan formulir_pendaftaran
 $("#formulir_pendaftaran").change(function () {
   // 2 MB
-  if (this.files[0].size > 2097152) {
+  if (this.files[0].size > 8388608) {
     $(this).addClass("is-invalid");
     this.value = "";
   } else {
@@ -421,6 +431,7 @@ $(document).ready(function () {
     if (
       $("#kategori_" + index).val() == "hafidz" ||
       $("#kategori_" + index).val() == "ujian sekolah" ||
+      $("#kategori_" + index).val() == "lainnya" ||
       $("#kategori_" + index).val() == "KHS"
     ) {
       // $("#scan_prestasi_" + index).prop("disabled", true);

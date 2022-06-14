@@ -57,7 +57,8 @@
                             <tr>
                                 <td>Jenis Kelamin</td>
                                 <td>:</td>
-                                <td><?= $detail_pendaftar['jenis_kelamin']; ?></td>
+                                <td><?= ($detail_pendaftar['jenis_kelamin'] == 'L') ? 'Laki - laki' : 'Perempuan'; ?>
+                                </td>
                                 <td>
                                     <div class="input-group mb-3">
                                         <input class="form-check-input mt-0" type="checkbox" value=""
@@ -68,7 +69,7 @@
                             <tr>
                                 <td>NIM </td>
                                 <td>:</td>
-                                <td><?= $detail_pendaftar['no_induk']; ?></td>
+                                <td><?= $detail_pendaftar['no_induk_pelajar']; ?></td>
                                 <td>
                                     <div class="input-group mb-3">
                                         <input class="form-check-input mt-0" type="checkbox" value=""

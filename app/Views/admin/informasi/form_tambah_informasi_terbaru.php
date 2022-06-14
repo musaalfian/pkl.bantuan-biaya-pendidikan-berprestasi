@@ -30,13 +30,14 @@
             </div>
             <!-- end deskripsi _informasi_terbaru -->
             <div class="mb20">
-                <label for="informasi_terbaru" class="form-label">File</label>
+                <label for="informasi_terbaru" class="form-label">File<span class="required-label ">Format file .pdf
+                        dengan ukuran masksiman 15 MB</span></label>
                 <input id="file_informasi_terbaru" type="file"
                     class="form-control <?= ($validation->hasError('file_informasi_terbaru')) ? 'is-invalid' : ''; ?>"
                     name="file_informasi_terbaru" value="<?= old('file_informasi_terbaru'); ?>"
                     accept="application/pdf">
                 <div class="invalid-feedback">
-                    <?= ($validation->getError('file_informasi_terbaru') == '') ? 'Bagian file informasi terbaru wajib diisi' : str_replace('_', ' ', $validation->getError('file_informasi_terbaru')) ?>
+                    <?= ($validation->getError('file_informasi_terbaru') == '') ? 'Ukuran file informasi terbaru tidak boleh lebih dari 15 MB' : str_replace('_', ' ', $validation->getError('file_informasi_terbaru')) ?>
                 </div>
             </div>
             <!-- end file _informasi_terbaru -->
@@ -45,9 +46,9 @@
                 <input id="gambar_informasi_terbaru" type="file"
                     class="form-control dropify <?= ($validation->hasError('gambar_informasi_terbaru')) ? 'is-invalid' : ''; ?>"
                     name="gambar_informasi_terbaru" value="<?= old('gambar_informasi_terbaru'); ?>" accept="image/*"
-                    data-max-file-size="2M" data-allowed-file-extensions="jpg jpeg png ">
+                    data-max-file-size="5M" data-allowed-file-extensions="jpg jpeg png">
                 <div class="invalid-feedback">
-                    <?= ($validation->getError('gambar_informasi_terbaru') == '') ? 'Bagian gambar informasi terbaru wajib diisi' : str_replace('_', ' ', $validation->getError('gambar_informasi_terbaru')) ?>
+                    <?= ($validation->getError('gambar_informasi_terbaru') == '') ? '' : str_replace('_', ' ', $validation->getError('gambar_informasi_terbaru')) ?>
                 </div>
             </div>
             <!-- end gambar _informasi_terbaru -->
@@ -87,7 +88,18 @@
     </div>
 </div>
 <script>
-$('.dropify').dropify();
+$('.dropify').dropify({
+    error: {
+        fileSize: "Ukuran gambar terlalu besar ({{ value }} maksimal).",
+        fileExtension: "format file tidak diperbolehkan, hanya ({{ value }} yang diperbolehkan).",
+    },
+    messages: {
+        default: "Tarik dan letakkan file disini atau pilih",
+        replace: "Tarik dan letakkan atau pilih gambar baru",
+        remove: "Hapus",
+        error: "Ooops, Terdapat kesalahan.",
+    },
+});
 </script>
 <!-- end main section -->
 <?= $this->endSection(); ?>

@@ -25,6 +25,10 @@
     <!-- CSS Custom -->
     <link rel="stylesheet" href="<?= base_url(); ?>/assets/css/style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
+    <!-- Dropify -->
+    <link rel="stylesheet" href="<?= base_url(); ?>/dropify/dist/css/dropify.css" />
+    <script src="<?= base_url('dropify/dist/js/dropify.js') ?>" type="text/javascript"></script>
 </head>
 
 <body>
@@ -33,14 +37,14 @@
     <nav class="navbar navbar-expand-lg bg-biru" id="navbar">
         <div class="container">
             <div class="navbar-brand">
-                <a href="<?= base_url(); ?>/home_pendaftar/index"
-                    class="logo d-flex text-decoration-none text-white">
-                    <img class="d-inline sm_none" src="<?= base_url(); ?>/assets/img/logo-kabupaten-batang 2.png" alt="" />
+                <a href="<?= base_url(); ?>/home_pendaftar/index" class="logo d-flex text-decoration-none text-white">
+                    <img class="d-inline sm_none" src="<?= base_url(); ?>/assets/img/logo-kabupaten-batang 2.png"
+                        alt="" />
                     <p class="d-flex   align-items-center ms-2 ">
                         Dinas Pendidikan dan Kebudayaan <br />
                         Kabupaten Batang
                     </p>
-                    
+
                 </a>
             </div>
             <button class="navbar-toggler text-white border-0 bg-transparent" type="button" data-bs-toggle="collapse"
@@ -76,18 +80,18 @@
                         </li>
                     </ul>
                 </div>
-                
+
                 <div class="nav-item align-self-end me-0">
                     <div class="dropdown nav__icon d-flex justify-content-end ">
-                        <button class="dropdown-toggle " style=" background: none !important;border:none !important" type="button" id="dropdownMenuButton1"
-                            data-bs-toggle="dropdown" aria-expanded="false">
+                        <button class="dropdown-toggle " style=" background: none !important;border:none !important"
+                            type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                             <!-- <button class="btn btn_orange">Masuk</button> -->
                             <!-- <i class="fa-solid fa-user-gear fs-4"></i> -->
                             <i class="bi bi-person-circle" style="color: white;font-size: 30px !important;"></i>
                         </button>
                         <ul class="dropdown-menu p-3 br10" aria-labelledby="dropdownMenuButton1">
                             <hr class="dropdown-divider" />
-                                <p><?= user()->email; ?></p>
+                            <p><?= user()->email; ?></p>
                             <hr class="dropdown-divider" />
                             <li>
                                 <!-- Button trigger modal -->
@@ -99,8 +103,8 @@
                         </ul>
                     </div>
                 </div>
-                
-                
+
+
             </div>
         </div>
     </nav>
@@ -118,14 +122,14 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-7 col-12" style="height: 20vh;">
-                        
+
                         <div class="d-flex">
                             <img class="" src="<?= base_url(); ?>/assets/img/logo-kabupaten-batang 2.png" alt="" />
                             <p class="bold ms-2"> Dinas Pendidikan dan Kebudayaan <br />
-                            Kabupaten Batang</p>
+                                Kabupaten Batang</p>
                         </div>
-                            
-                        
+
+
                     </div>
                     <div class="col-lg-4 col-12 mt-md-3 mt-sm-3">
                         <div class="">
@@ -134,7 +138,8 @@
                             </div>
                             <div class="">
                                 <a href="<?= base_url(); ?>/home_pendaftar/index" class="text-white me-2  ">Beranda</a>
-                                <a href="<?= base_url(); ?>/home_pendaftar/informasi" class=" text-white  me-2 ">Informasi</a>
+                                <a href="<?= base_url(); ?>/home_pendaftar/informasi"
+                                    class=" text-white  me-2 ">Informasi</a>
                                 <!-- cek apakah user sudah mendaftar atau belum. jika belum akan ditampilan view pendaftaran atau jika sudah maka akan ditampilkan menu pengumuman -->
                                 <?php if ($identitas == null || $identitas['id_status_pendaftaran'] == null) { ?>
                                 <a class="text-white  me-2" id=""
@@ -148,7 +153,8 @@
                         </div>
                     </div>
                 </div>
-                <p class=" mt20" > <span class="orange fw-bold">©2022.</span> Dinas Pendidikan dan Kebudayaan Kabupaten Batang. All rights reserved</p>
+                <p class=" mt20"> <span class="orange fw-bold">©2022.</span> Dinas Pendidikan dan Kebudayaan Kabupaten
+                    Batang. All rights reserved</p>
             </div>
         </div>
     </footer>
