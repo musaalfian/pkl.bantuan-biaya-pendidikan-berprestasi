@@ -7,142 +7,139 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- CSS only -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
     <!-- JavaScript Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
     </script>
     <!-- ICON -->
     <script src="https://kit.fontawesome.com/5fbcc24921.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" />
 
     <!-- JQuery -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
     <!-- CSS Custom -->
     <link rel="stylesheet" href="" />
     <style>
-    * {
-        font-family: "Times New Roman", Times, serif !important;
-        padding: 0;
-        margin: 0;
-    }
+        * {
+            font-family: "Times New Roman", Times, serif !important;
+            padding: 0;
+            margin: 0;
+        }
 
-    table {
-        border-collapse: collapse;
-    }
+        table {
+            border-collapse: collapse;
+        }
 
-    .table-cetak> :not(caption)>*>* {
-        padding: 0;
-    }
+        .table-cetak> :not(caption)>*>* {
+            padding: 0;
+        }
 
-    p {
-        font-size: 12px;
-        margin-bottom: 0;
-    }
+        p {
+            font-size: 12px;
+            margin-bottom: 0;
+        }
 
-    h5 {
-        font-size: 14px;
-        font-weight: 700;
-        margin-bottom: 0;
-    }
+        h5 {
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 0;
+        }
 
-    td {
-        font-size: 12px;
-        padding-left: 0.5% !important;
-        border: 1px solid;
-    }
+        td {
+            font-size: 12px;
+            padding-left: 0.5% !important;
+            border: 1px solid;
+        }
 
-    th {
-        font-size: 12px;
-        border: 1px solid;
-    }
+        th {
+            font-size: 12px;
+            border: 1px solid;
+        }
 
-    .table-identitas td {
-        border: none;
-    }
+        .table-identitas td {
+            border: none;
+        }
 
-    .text-center-cetak {
-        text-align: center;
-    }
+        .text-center-cetak {
+            text-align: center;
+        }
 
-    .mt20-cetak {
-        margin-top: 20px;
-    }
+        .mt20-cetak {
+            margin-top: 20px;
+        }
 
-    .row-cetak {
-        display: flex;
-        flex-wrap: wrap;
-    }
+        .row-cetak {
+            display: flex;
+            flex-wrap: wrap;
+        }
 
-    .col-6-kiri-cetak {
-        float: left;
-        width: 50%;
-        min-height: 10%;
-        max-height: 15%;
-    }
+        .col-6-kiri-cetak {
+            float: left;
+            width: 50%;
+            min-height: 10%;
+            max-height: 15%;
+        }
 
-    .col-6-kanan-cetak {
-        float: right;
-        width: 50%;
-        min-height: 10%;
-        max-height: 15%;
-    }
+        .col-6-kanan-cetak {
+            float: right;
+            width: 50%;
+            min-height: 10%;
+            max-height: 15%;
+        }
 
-    .col-10-cetak {
-        /* flex: 0 0 auto;
+        .col-10-cetak {
+            /* flex: 0 0 auto;
         width: 83.33333333%; */
-        float: left;
-        width: 70%;
-        min-height: 25%;
-        max-height: 30%;
-    }
+            float: left;
+            width: 70%;
+            min-height: 25%;
+            max-height: 30%;
+        }
 
-    .table-cetak {
-        width: 100%;
-        margin-bottom: 1rem;
-        color: #212529;
-        vertical-align: top;
-        border-color: #dee2e6;
-    }
+        .table-cetak {
+            width: 100%;
+            margin-bottom: 1rem;
+            color: #212529;
+            vertical-align: top;
+            border-color: #dee2e6;
+        }
 
-    .overflow-auto-cetak {
-        overflow: auto !important;
-    }
+        .overflow-auto-cetak {
+            overflow: auto !important;
+        }
 
-    .ms-1-cetak {
-        margin-left: 0.25rem !important;
-    }
+        .ms-1-cetak {
+            margin-left: 0.25rem !important;
+        }
 
-    .align-self-end-cetak {
-        align-self: flex-end !important;
-    }
+        .align-self-end-cetak {
+            align-self: flex-end !important;
+        }
 
-    .col-2-cetak {
-        /* flex: 0 0 auto;
+        .col-2-cetak {
+            /* flex: 0 0 auto;
         width: 16.66666667%; */
-        float: right;
-        width: 30%;
-        min-height: 25%;
-        max-height: 30%;
-    }
+            float: right;
+            width: 30%;
+            min-height: 25%;
+            max-height: 30%;
+        }
 
-    .border-cetak {
-        border: 1px solid #dee2e6 !important;
-    }
+        .border-cetak {
+            border: 1px solid #dee2e6 !important;
+        }
 
-    .ms-3-cetak {
-        margin-left: 1rem !important;
-    }
+        .ms-3-cetak {
+            margin-left: 1rem !important;
+        }
 
-    .container-cetak {
-        max-width: 720px;
-        margin: 0 auto;
-    }
+        .container-cetak {
+            max-width: 720px;
+            margin: 0 auto;
+        }
 
-    /* @media print {
+        /* @media print {
         #print {
             display: none;
         }
@@ -203,7 +200,7 @@
                                 <td><?= $i; ?>.</td>
                                 <td><?= ($detail_pendaftar['id_status_peserta'] == 1 || $detail_pendaftar['id_status_peserta'] == 2) ? 'NISN' : 'NIM'; ?>
                                 </td>
-                                <td>: <?= $detail_pendaftar['no_induk']; ?></td>
+                                <td>: <?= $detail_pendaftar['no_induk_pelajar']; ?></td>
                                 <?php $i++ ?>
                             </tr>
                             <!-- end no induk -->
@@ -221,12 +218,12 @@
                                 <?php $i++ ?>
                             </tr>
                             <?php if ($detail_pendaftar['id_status_peserta'] == 1) : ?>
-                            <tr>
-                                <td><?= $i; ?>.</td>
-                                <td>Anak yang ke</td>
-                                <td>: <?= $detail_pendaftar['anak_ke']; ?></td>
-                                <?php $i++ ?>
-                            </tr>
+                                <tr>
+                                    <td><?= $i; ?>.</td>
+                                    <td>Anak yang ke</td>
+                                    <td>: <?= $detail_pendaftar['anak_ke']; ?></td>
+                                    <?php $i++ ?>
+                                </tr>
                             <?php endif; ?>
                             <tr>
                                 <td><?= $i; ?>.</td>
@@ -258,68 +255,67 @@
                             </tr>
                             <!-- jika pendaftar berstatus peserta didik -->
                             <?php if ($detail_pendaftar['id_status_peserta'] == 1) : ?>
-                            <tr>
-                                <td><?= $i; ?>.</td>
-                                <td>Jarak dari rumah ke sekolah</td>
-                                <td>: <?= $detail_pendaftar['jarak_sekolah']; ?> Km</td>
-                                <?php $i++ ?>
-                            </tr>
-                            <tr>
-                                <td><?= $i; ?>.</td>
-                                <td>Transportsi siswa ke sekolah</td>
-                                <td>: <?= $detail_pendaftar['nama_transportasi']; ?></td>
-                                <?php $i++ ?>
-                            </tr>
-                            <tr>
-                                <td><?= $i; ?>.</td>
-                                <td>Sekolah</td>
-                                <td>: <?= $detail_pendaftar['nama_sekolah']; ?></td>
-                                <?php $i++ ?>
-                            </tr>
-                            <tr>
-                                <td><?= $i; ?>.</td>
-                                <td>Kelas</td>
-                                <td>: <?= $detail_pendaftar['kelas']; ?></td>
-                                <?php $i++ ?>
-                            </tr>
-                            <tr>
-                                <td><?= $i; ?>.</td>
-                                <td>Alamat sekolah asal</td>
-                                <td>: <?= $detail_pendaftar['alamat_sekolah']; ?></td>
-                                <?php $i++ ?>
-                            </tr>
-                            <!-- jika pendaftar berstatus mahasiswa/calon mahasiswa -->
+                                <tr>
+                                    <td><?= $i; ?>.</td>
+                                    <td>Jarak dari rumah ke sekolah</td>
+                                    <td>: <?= $detail_pendaftar['jarak_sekolah']; ?> Km</td>
+                                    <?php $i++ ?>
+                                </tr>
+                                <tr>
+                                    <td><?= $i; ?>.</td>
+                                    <td>Transportsi siswa ke sekolah</td>
+                                    <td>: <?= $detail_pendaftar['nama_transportasi']; ?></td>
+                                    <?php $i++ ?>
+                                </tr>
+                                <tr>
+                                    <td><?= $i; ?>.</td>
+                                    <td>Sekolah</td>
+                                    <td>: <?= $detail_pendaftar['nama_sekolah']; ?></td>
+                                    <?php $i++ ?>
+                                </tr>
+                                <tr>
+                                    <td><?= $i; ?>.</td>
+                                    <td>Kelas</td>
+                                    <td>: <?= $detail_pendaftar['kelas']; ?></td>
+                                    <?php $i++ ?>
+                                </tr>
+                                <tr>
+                                    <td><?= $i; ?>.</td>
+                                    <td>Alamat sekolah asal</td>
+                                    <td>: <?= $detail_pendaftar['alamat_sekolah']; ?></td>
+                                    <?php $i++ ?>
+                                </tr>
+                                <!-- jika pendaftar berstatus mahasiswa/calon mahasiswa -->
                             <?php else : ?>
-                            <tr>
-                                <td style="width: 1%"><?= $i; ?>.</td>
-                                <td style="width: 35%">Nama Perguruan Tinggi</td>
-                                <td>: <?= $detail_pendaftar['nama_pt']; ?></td>
-                                <?php $i++ ?>
-                            </tr>
-                            <tr>
-                                <td><?= $i; ?>.</td>
-                                <td>Akreditasi PT</td>
-                                <td>: <?= $detail_pendaftar['nilai_akreditasi_pt']; ?></td>
-                                <?php $i++ ?>
-                            </tr>
-                            <tr>
-                                <td><?= $i; ?>.</td>
-                                <td>Tahun Masuk/Semester Ke</td>
-                                <td>: <?= $detail_pendaftar['tahun_masuk_pt']; ?> /
-                                    <?= $detail_pendaftar['semester_ke']; ?> </td>
-                                <?php $i++ ?>
-                            </tr>
-                            <tr>
-                                <td><?= $i; ?>.</td>
-                                <td>Alamat PT</td>
-                                <td>: <?= $detail_pendaftar['alamat_pt']; ?></td>
-                                <?php $i++ ?>
-                            </tr>
+                                <tr>
+                                    <td style="width: 1%"><?= $i; ?>.</td>
+                                    <td style="width: 35%">Nama Perguruan Tinggi</td>
+                                    <td>: <?= $detail_pendaftar['nama_pt']; ?></td>
+                                    <?php $i++ ?>
+                                </tr>
+                                <tr>
+                                    <td><?= $i; ?>.</td>
+                                    <td>Akreditasi PT</td>
+                                    <td>: <?= $detail_pendaftar['nilai_akreditasi_pt']; ?></td>
+                                    <?php $i++ ?>
+                                </tr>
+                                <tr>
+                                    <td><?= $i; ?>.</td>
+                                    <td>Tahun Masuk/Semester Ke</td>
+                                    <td>: <?= $detail_pendaftar['tahun_masuk_pt']; ?> /
+                                        <?= $detail_pendaftar['semester_ke']; ?> </td>
+                                    <?php $i++ ?>
+                                </tr>
+                                <tr>
+                                    <td><?= $i; ?>.</td>
+                                    <td>Alamat PT</td>
+                                    <td>: <?= $detail_pendaftar['alamat_pt']; ?></td>
+                                    <?php $i++ ?>
+                                </tr>
                             <?php endif; ?>
                         </table>
                     </div>
-                    <div class="col-2-cetak align-self-end-cetak"><img style="width: 113px; height: 150px;"
-                            src="<?= $image; ?>" />
+                    <div class="col-2-cetak align-self-end-cetak"><img style="width: 113px; height: 150px;" src="<?= $image; ?>" />
                     </div>
                 </div>
             </div>
@@ -341,14 +337,14 @@
             </tr>
             <?php $j = 1; ?>
             <?php foreach ($prestasi as $prestasi) : ?>
-            <tr>
-                <td class="text-center-cetak"><?= $j; ?></td>
-                <td><?= $prestasi['nama_prestasi']; ?></td>
-                <td><?= ($prestasi['tingkat'] != null) ? $prestasi['tingkat'] : '-'; ?></td>
-                <td><?= ($prestasi['juara'] != null) ? $prestasi['juara'] : '-'; ?></td>
-                <td><?= $prestasi['tahun_prestasi']; ?></td>
-            </tr>
-            <?php $j++; ?>
+                <tr>
+                    <td class="text-center-cetak"><?= $j; ?></td>
+                    <td><?= $prestasi['nama_prestasi']; ?></td>
+                    <td><?= ($prestasi['tingkat'] != null) ? $prestasi['tingkat'] : '-'; ?></td>
+                    <td><?= ($prestasi['juara'] != null) ? $prestasi['juara'] : '-'; ?></td>
+                    <td><?= $prestasi['tahun_prestasi']; ?></td>
+                </tr>
+                <?php $j++; ?>
             <?php endforeach; ?>
         </table>
         <!-- end jenis prestasi -->
@@ -367,12 +363,14 @@
                 <td><?= $detail_pendaftar['nama_ibu']; ?></td>
                 <!-- <td>AAAAA</td> -->
             </tr>
-            <tr>
-                <td>b. Usia</td>
-                <td><?= $detail_pendaftar['usia_ayah']; ?></td>
-                <td><?= $detail_pendaftar['usia_ibu']; ?></td>
-                <!-- <td>AAAAA</td> -->
-            </tr>
+            <?php if ($detail_pendaftar['id_status_peserta'] != 1) : ?>
+                <tr>
+                    <td>b. Usia</td>
+                    <td><?= $detail_pendaftar['usia_ayah']; ?></td>
+                    <td><?= $detail_pendaftar['usia_ibu']; ?></td>
+                    <!-- <td>AAAAA</td> -->
+                </tr>
+            <?php endif ?>
             <tr>
                 <td>c. Pekerjaan</td>
                 <td><?= $detail_pendaftar['pekerjaan_ayah']; ?></td>

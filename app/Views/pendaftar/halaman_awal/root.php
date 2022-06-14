@@ -6,114 +6,102 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home page</title>
-    <!-- CSS only -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
-    <!-- css -->
-    <link rel="stylesheet" href="<?= base_url(); ?>/assets/css/style.css">
-    <!-- JavaScript Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
-    </script>
-    <!-- icon bootstraps -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css">
-    <style>
-    .bg-root {
-        background-image: url("/assets/img/bg-root.png");
-        background-position: center center;
-        background-size: cover;
-        background-repeat: no-repeat;
-        width: 100%;
-        height: 100vh;
-    }
-    </style>
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+
+    <!-- Bootstrap Icon -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
+
+    <!-- Fontawesome Icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js" integrity="sha512-6PM0qYu5KExuNcKt5bURAoT6KCThUmHRewN3zUFNaoI6Di7XJPTMoT6K0nsagZKk2OB4L7E3q1uQKHNHd4stIQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/assets/css/style.css" />
+
+    <!-- Custom Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Open+Sans&display=swap" rel="stylesheet" />
 </head>
 
 <body>
-    <div class="halaman__awal__section p100 bglight">
-        <div class="halaman__awal__content p40 bg-white">
-            <div class="row">
-                <div class="col-lg-6 col-12">
-                    <div class="d-flex align-items-center mb40">
-                        <img class="logobatang me-3" src="<?= base_url(); ?>/assets/img/logo-kabupaten-batang 2-1.png"
-                            alt="" style="width: 50px;height: auto;">
-                        <h4>Dinas Pendidikan dan Kebudayaan <br> Kabupaten Batang</h4>
-                    </div>
-                    <h3 class="mb20">Sistem Informasi Bantuan Biaya Pendidikan
+    <div class="awal d-flex align-items-center">
+        <div class="awal__content bgwhite d-flex justify-content-center align-items-center w-100">
+            <div class="p-3 px-md-5">
+                <div class="logo__dinas d-flex align-items-center">
+                    <img src="<?= base_url('assets/img/logo-batang.png'); ?>" width="8%" height="100%" alt="Logo Kabupaten Batang" class="me-2">
+                    <h6 class="fs14 black">Dinas Pendidikan dan Kebudayaan <br> Kabupaten Batang</h6>
+                </div>
+                <div class="tagline mt60">
+                    <h4 class="fw-bold blue fs20">Sistem Informasi Bantuan Biaya Pendidikan
                         Bagi Peserta Didik Pendidikan Menengah dan
-                        Mahasiswa Yang Berprestasi Dari Keluarga Miskin
-                    </h3>
-                    <h4 class="mb40 fw-normal">Sistem Informasi Program Bantuan Biaya Pendidikan Berprestasi Beasiswa
-                        Kabupaten Batang merupakan sistem informasi berbasis website yang digunakan untuk mendaftar
-                        program bantuan biaya pendidikan berprestasi dari keluarga miskin di Kabupaten Batang.</h4>
-                    <div class="mb40">
-                        <h5 class="fw-normal">1. Informasi bantuan biaya pendidikan, silahkan pilih <span
-                                class="fw-bold">Informasi</span></h5>
-                        <h5 class="fw-normal">2. Melakukan pendaftaran silahkan pilih <span class="fw-bold">Masuk</span>
-                        </h5>
-                        <h5 class="fw-normal">3. Lihat pendaftar beasiswa, silahkan pilih <span
-                                class="fw-bold">Pendaftaran</span></h5>
-                        <h5 class="fw-normal">4. Lihat penerima beasiswa, silahkan pilih <span
-                                class="fw-bold">Penerima</span></h5>
-                        <h5 class="fw-normal">5. Petunjuk pendaftaran bantuan biaya pendidikan berprestasi dari keluarga
-                            miskin, <a href="<?= base_url('assets/informasi/file/petunjuk_pendaftaran.pdf'); ?>">Klik
-                                disini</a></h5>
+                        Mahasiswa yang Berprestasi
+                        Dari Keluarga Msikin
+                    </h4>
+                    <div class="d-flex mt40">
+                        <div class="daftar">
+                            <a href="/user/index" class="me-2">
+                                <button class="btn btn-primary bgorange shadow-none fs14 text-white">Daftar</button>
+                            </a>
+                        </div>
+                        <div class="informasi">
+                            <a href="/halaman_awal/informasi_pendaftaran/1">
+                                <button class="btn btn-primary shadow-none fs14">Informasi Pendaftaran</button>
+                            </a>
+                        </div>
                     </div>
-                    <div>
-                        <a href="/user/index">
-                            <button class="btn btn-primary bdr__none w-100">MASUK</button>
-                        </a>
-                        <div class="d-flex justify-content-evenly flex-wrap fw-normal mt20">
-                            <div class="btn__lainnya">
-                                <a href="/halaman_awal/informasi_pendaftaran/1"><button
-                                        class="btn btn-primary bdr__none fw-normal bg-transparent blue">INFORMASI</button></a>
-                            </div>
-                            <div class="btn__lainnya">
-                                <button class="btn btn-primary bdr__none fw-normal bg-transparent blue dropdown-toggle"
-                                    type="button" id="daftar_pendaftar" data-bs-toggle="dropdown" aria-expanded="false">
-                                    PENDAFTAR<i class="bi bi-caret-down-fill"></i>
+                    <div class="info__lainnya mt40">
+                        <h6 class="fs14 black">Unduh informasi terkait data pendaftar dan data penerima :</h6>
+                        <div class="d-flex mt-3">
+                            <div class="pendaftar me-2">
+                                <button class="btn btn-primary bdr__none fw-normal bg-transparent black fs14 dropdown-toggle shadow-none d-flex align-items-center" type="button" id="daftar_pendaftar" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Pendaftar <i class="fa-solid fa-angle-down ms-2"></i>
                                 </button>
                                 <ul class="dropdown-menu" aria-labelledby="daftar_pendaftar">
-                                    <li><a class="dropdown-item"
-                                            href="<?= base_url(); ?>/halaman_awal/info_awal_pendaftar/1">SMA
+                                    <li><a class="dropdown-item" href="<?= base_url(); ?>/halaman_awal/info_awal_pendaftar/1">SMA
                                             Sederajat</a></li>
-                                    <li><a class="dropdown-item"
-                                            href="<?= base_url(); ?>/halaman_awal/info_awal_pendaftar/2">Calon
+                                    <li><a class="dropdown-item" href="<?= base_url(); ?>/halaman_awal/info_awal_pendaftar/2">Calon
                                             Mahasiswa</a></li>
-                                    <li><a class="dropdown-item"
-                                            href="<?= base_url(); ?>/halaman_awal/info_awal_pendaftar/3">Mahasiswa</a>
+                                    <li><a class="dropdown-item" href="<?= base_url(); ?>/halaman_awal/info_awal_pendaftar/3">Mahasiswa</a>
                                     </li>
                                 </ul>
                             </div>
-                            <div class="btn__lainnya">
-                                <button
-                                    class="penerima btn btn-primary bdr__none fw-normal bg-transparent blue dropdown-toggle"
-                                    type="button" id="daftar_penerima" data-bs-toggle="dropdown" aria-expanded="false">
-                                    PENERIMA <i class="bi bi-caret-down-fill"></i>
-                                </button>
-                                <ul class="dropdown-menu" aria-labelledby="daftar_penerima">
-                                    <li><a class="dropdown-item"
-                                            href="<?= base_url(); ?>/halaman_awal/info_awal_penerima/1">SMA
-                                            Sederajat</a></li>
-                                    <li><a class="dropdown-item"
-                                            href="<?= base_url(); ?>/halaman_awal/info_awal_penerima/2">Calon
-                                            Mahasiswa</a></li>
-                                    <li><a class="dropdown-item"
-                                            href="<?= base_url(); ?>/halaman_awal/info_awal_penerima/3">Mahasiswa</a>
-                                    </li>
-                                </ul>
+                            <div class="penerima">
+                                <div class="btn__lainnya">
+                                    <button class="penerima btn btn-primary bdr__none fw-normal bg-transparent black fs14 dropdown-toggle shadow-none d-flex align-items-center" type="button" id="daftar_penerima" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Penerima <i class="fa-solid fa-angle-down ms-2"></i>
+                                    </button>
+                                    <ul class="dropdown-menu" aria-labelledby="daftar_penerima">
+                                        <li><a class="dropdown-item" href="<?= base_url(); ?>/halaman_awal/info_awal_penerima/1">SMA
+                                                Sederajat</a></li>
+                                        <li><a class="dropdown-item" href="<?= base_url(); ?>/halaman_awal/info_awal_penerima/2">Calon
+                                                Mahasiswa</a></li>
+                                        <li><a class="dropdown-item" href="<?= base_url(); ?>/halaman_awal/info_awal_penerima/3">Mahasiswa</a>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 col-12">
-                    <div class="gambar">
-                        <img class="" src="<?= base_url(); ?>/assets/img/foto-disdikbud.jpg" alt="Foto Disdikbud">
-                    </div>
-                </div>
+            </div>
+        </div>
+        <div class="awal__gambar px-4 w-50 bgblue align-items-center justify-content-center">
+            <div class="gambar px-5 w-100 h-100">
+                <img src="<?= base_url('assets/img/gambar-login.svg'); ?>" alt="">
             </div>
         </div>
     </div>
+
+
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+    <!-- JS Custom -->
+    <script src="<?= base_url('/assets/js/script.js'); ?>"></script>
+    <script src="https://kit.fontawesome.com/55f12d8286.js" crossorigin="anonymous"></script>
 </body>
 
 </html>

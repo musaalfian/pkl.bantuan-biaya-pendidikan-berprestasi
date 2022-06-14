@@ -21,8 +21,7 @@
             <div class="row mt20 mb40">
                 <div class="col-12 col-md-6">
                     <div class="mb20">
-                        <label for="nama_lengkap" class="form-label">Nama Lengkap <span
-                                class="required-label">*</span></label>
+                        <label for="nama_lengkap" class="form-label">Nama Lengkap </label>
                         <input required <?= ($identitas != null) ? 'disabled' : ''; ?> type="text"
                             class="form-control <?= ($validation->hasError('nama_lengkap')) ? 'is-invalid' : ''; ?>"
                             value="<?= ($identitas != null) ? $identitas['nama_lengkap'] : old('nama_lengkap'); ?>"
@@ -69,14 +68,26 @@
                     </div>
                     <!-- end jenis kelamin -->
                     <div class="mb20">
-                        <label for="no_induk" class="form-label">NIM <span class="required-label">*</span></label>
-                        <input required <?= ($identitas != null) ? 'disabled' : ''; ?> type="text" maxlength="25"
-                            name="no_induk"
+                        <label for="no_induk" class="form-label">NIK </label>
+                        <input required <?= ($identitas != null) ? 'disabled' : ''; ?> type="number" min="0"
+                            max="9999999999999999" name="no_induk"
                             class="form-control <?= ($validation->hasError('no_induk')) ? 'is-invalid' : ''; ?>"
                             value="<?= ($identitas != null) ? $identitas['no_induk'] : old('no_induk'); ?>"
                             name="no_induk" placeholder="" />
                         <div class="invalid-feedback">
-                            <?= ($validation->getError('no_induk') == '') ? 'Bagian NIM  wajib diisi' : str_replace('_', ' ', $validation->getError('no_induk')) ?>
+                            <?= ($validation->getError('no_induk') == '') ? 'Bagian NIK  wajib diisi' : str_replace('_', ' ', $validation->getError('no_induk')) ?>
+                        </div>
+                    </div>
+                    <!-- end NIK -->
+                    <div class="mb20">
+                        <label for="no_induk_pelajar" class="form-label">NIM </label>
+                        <input required <?= ($identitas != null) ? 'disabled' : ''; ?> type="text" maxlength="25"
+                            name="no_induk_pelajar"
+                            class="form-control <?= ($validation->hasError('no_induk_pelajar')) ? 'is-invalid' : ''; ?>"
+                            value="<?= ($identitas != null) ? $identitas['no_induk_pelajar'] : old('no_induk_pelajar'); ?>"
+                            name="no_induk_pelajar" placeholder="" />
+                        <div class="invalid-feedback">
+                            <?= ($validation->getError('no_induk_pelajar') == '') ? 'Bagian NIM  wajib diisi' : str_replace('_', ' ', $validation->getError('no_induk_pelajar')) ?>
                         </div>
                     </div>
                     <!-- end NIM -->
@@ -93,7 +104,7 @@
                     </div>
                     <!-- end Tempat, Tanggal Lahir -->
                     <div class="mb20">
-                        <label for="agama" class="form-label">Agama <span class="required-label">*</span></label>
+                        <label for="agama" class="form-label">Agama </label>
                         <select required <?= ($identitas != null) ? 'disabled' : ''; ?>
                             class="form-select <?= ($validation->hasError('agama')) ? 'is-invalid' : ''; ?>"
                             aria-label="Default select example" name="agama">
@@ -116,8 +127,7 @@
                     </div>
                     <!-- end agama -->
                     <div class="mb20">
-                        <label for="no_telepon" class="form-label">Nomer Telepon <span
-                                class="required-label">*</span></label>
+                        <label for="no_telepon" class="form-label">Nomer Telepon </label>
                         <input required <?= ($identitas != null) ? 'disabled' : ''; ?> type="number" min="0"
                             max="999999999999999"
                             class="form-control <?= ($validation->hasError('no_telepon')) ? 'is-invalid' : ''; ?>"
@@ -149,7 +159,7 @@
                             <?php endforeach; ?>
                         </select>
                         <div class="invalid-feedback">
-                            <?= ($validation->getError('pernah_menerima_bantuan') == '') ? 'Bagian pernah_menerima_bantuan  wajib diisi' : str_replace('_', ' ', $validation->getError('pernah_menerima_bantuan')); ?>
+                            <?= ($validation->getError('pernah_menerima_bantuan') == '') ? 'Bagian pernah menerima bantuan  wajib diisi' : str_replace('_', ' ', $validation->getError('pernah_menerima_bantuan')); ?>
                         </div>
                     </div>
                     <!-- end pernah menerima bantuan -->
@@ -162,7 +172,7 @@
                             value="<?= ($identitas != null) ? $identitas['menerima_bantuan_dari'] : old('menerima_bantuan_dari'); ?>"
                             name="menerima_bantuan_dari" placeholder="" />
                         <div class="invalid-feedback">
-                            <?= ($validation->getError('menerima_bantuan_dari') == '') ? 'Bagian no telepon  wajib diisi' : str_replace('_', ' ', $validation->getError('menerima_bantuan_dari')) ?>
+                            <?= ($validation->getError('menerima_bantuan_dari') == '') ? '' : str_replace('_', ' ', $validation->getError('menerima_bantuan_dari')) ?>
                         </div>
                     </div>
                     <!-- end menerima_bantuan_dari -->
@@ -183,8 +193,7 @@
                     </div>
                     <!-- end alamat -->
                     <div class="mb20">
-                        <label for="kecamatan" class="form-label">Kecamatan <span
-                                class="required-label">*</span></label>
+                        <label for="kecamatan" class="form-label">Kecamatan </label>
                         <select required <?= ($identitas != null) ? 'disabled' : ''; ?>
                             class="form-select <?= ($validation->hasError('kecamatan')) ? 'is-invalid' : ''; ?>"
                             aria-label="Default select example" name="kecamatan">
@@ -209,21 +218,19 @@
                     </div>
                     <!-- end kecamatan -->
                     <div class="mb20">
-                        <label for="nama_pt" class="form-label">Nama Perguruan Tinggi <span
-                                class="required-label">*</span>
+                        <label for="nama_pt" class="form-label">Nama Perguruan Tinggi
                         </label>
                         <input required <?= ($identitas != null) ? 'disabled' : ''; ?> type="text"
                             class="form-control <?= ($validation->hasError('nama_pt')) ? 'is-invalid' : ''; ?>"
                             value="<?= ($identitas != null) ? $identitas['nama_pt'] : old('nama_pt'); ?>" name="nama_pt"
                             placeholder="" />
                         <div class="invalid-feedback">
-                            <?= ($validation->getError('nama_pt') == '') ? 'Bagian nama_pt wajib diisi' : str_replace('_', ' ', $validation->getError('nama_pt')); ?>
+                            <?= ($validation->getError('nama_pt') == '') ? 'Bagian nama perguruan tinggi wajib diisi' : str_replace('_', ' ', $validation->getError('nama_pt')); ?>
                         </div>
                     </div>
                     <!-- end nama_pt -->
                     <div class="mb20">
-                        <label for="akreditasi_pt" class="form-label">Akrediktasi Perguruan Tinggi <span
-                                class="required-label">*</span>
+                        <label for="akreditasi_pt" class="form-label">Akrediktasi Perguruan Tinggi
                         </label>
                         <select required <?= ($identitas != null) ? 'disabled' : ''; ?>
                             class="form-select <?= ($validation->hasError('akreditasi_pt')) ? 'is-invalid' : ''; ?>"
@@ -243,25 +250,24 @@
                             <?php endforeach; ?>
                         </select>
                         <div class="invalid-feedback">
-                            <?= ($validation->getError('akreditasi_pt') == '') ? 'Bagian akreditasi_pt guru wajib diisi' : str_replace('_', ' ', $validation->getError('akreditasi_pt')); ?>
+                            <?= ($validation->getError('akreditasi_pt') == '') ? 'Bagian akreditasi perguruan tinggi wajib diisi' : str_replace('_', ' ', $validation->getError('akreditasi_pt')); ?>
                         </div>
                     </div>
                     <!-- end akreditasi_pt -->
                     <div class="mb20">
-                        <label for="tahun_masuk_pt" class="form-label">Tahun Masuk Perguruan Tinggi <span
-                                class="required-label">*</span>
+                        <label for="tahun_masuk_pt" class="form-label">Tahun Masuk Perguruan Tinggi
                         </label>
                         <input required <?= ($identitas != null) ? 'disabled' : ''; ?> type="number"
                             class="form-control <?= ($validation->hasError('tahun_masuk_pt')) ? 'is-invalid' : ''; ?>"
                             value="<?= ($identitas != null) ? $identitas['tahun_masuk_pt'] : old('tahun_masuk_pt'); ?>"
                             name="tahun_masuk_pt" placeholder="" min="2010" max="2022" />
                         <div class="invalid-feedback">
-                            <?= ($validation->getError('tahun_masuk_pt') == '') ? 'Bagian tahun_masuk_pt guru wajib diisi' : str_replace('_', ' ', $validation->getError('tahun_masuk_pt')); ?>
+                            <?= ($validation->getError('tahun_masuk_pt') == '') ? 'Bagian tahun masuk perguruan tinggi wajib diisi' : str_replace('_', ' ', $validation->getError('tahun_masuk_pt')); ?>
                         </div>
                     </div>
                     <!-- end tahun_masuk_pt -->
                     <div class="mb20">
-                        <label for="semester_ke" class="form-label">Semester ke <span class="required-label">*</span>
+                        <label for="semester_ke" class="form-label">Semester ke
                         </label>
                         <select required <?= ($identitas != null) ? 'disabled' : ''; ?>
                             class="form-select <?= ($validation->hasError('semester_ke')) ? 'is-invalid' : ''; ?>"
@@ -281,23 +287,22 @@
                             <?php endforeach; ?>
                         </select>
                         <div class="invalid-feedback">
-                            <?= ($validation->getError('semester_ke') == '') ? 'Bagian semester_ke guru wajib diisi' : str_replace('_', ' ', $validation->getError('semester_ke')); ?>
+                            <?= ($validation->getError('semester_ke') == '') ? 'Bagian semester ke wajib diisi' : str_replace('_', ' ', $validation->getError('semester_ke')); ?>
                         </div>
                     </div>
                     <!-- end semester_ke -->
                     <div class="mb20">
-                        <label for="alamat_pt" class="form-label">Alamat Perguruan Tinggi <span
-                                class="required-label">*</span>
+                        <label for="alamat_pt" class="form-label">Alamat Perguruan Tinggi
                         </label>
                         <textarea required <?= ($identitas != null) ? 'disabled' : ''; ?>
                             class="form-control <?= ($validation->hasError('alamat_pt')) ? 'is-invalid' : ''; ?>"
                             name="alamat_pt" id="alamat_pt"
                             rows="1"><?= ($identitas != null) ? $identitas['alamat_pt'] : old('alamat_pt'); ?></textarea>
                         <div class="invalid-feedback">
-                            <?= ($validation->getError('alamat_pt') == '') ? 'Bagian alamat_pt guru wajib diisi' : str_replace('_', ' ', $validation->getError('alamat_pt')); ?>
+                            <?= ($validation->getError('alamat_pt') == '') ? 'Bagian alamat perguruan tinggi wajib diisi' : str_replace('_', ' ', $validation->getError('alamat_pt')); ?>
                         </div>
                     </div>
-                    <!-- end alamat PT -->
+                    <!-- end alamat perguruan tinggi-->
                 </div>
             </div>
             <!-- end identitas diri -->

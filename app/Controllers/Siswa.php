@@ -77,6 +77,7 @@ class Siswa extends BaseController
         $user_id = user_id();
         if (!$this->validate([
             'no_induk'    => 'required|numeric|is_unique[identitas.no_induk]',
+            'no_induk_pelajar'    => 'required',
             'nama_lengkap'      => 'required|alpha_space',
             'jenis_kelamin'    => 'required',
             'ttl'    => [
@@ -107,6 +108,7 @@ class Siswa extends BaseController
         $no_induk = $this->request->getVar('no_induk');
         $this->MIdentitas->insert([
             'no_induk' => $no_induk,
+            'no_induk_pelajar' => $this->request->getVar('no_induk_pelajar'),
             'nama_lengkap' => $this->request->getVar('nama_lengkap'),
             'jenis_kelamin' => $this->request->getVar('jenis_kelamin'),
             'ttl' => $this->request->getVar('ttl'),
@@ -238,6 +240,7 @@ class Siswa extends BaseController
             if (!$this->validate([
                 'scan_prestasi_2' => 'uploaded[scan_prestasi_2]|max_size[scan_prestasi_2,2048]|mime_in[scan_prestasi_2,application/pdf]',
             ])) {
+                session()->setFlashdata('pesan-gagal-lampiran-pendaftar', 'Data lampiran gagal disimpan, pendaftar harus mengunggah kembali seluruh file.');
                 return redirect()->to('siswa/tambah_lampiran_siswa/' . $no_induk)->withInput();
             }
         } else if ($scan_prestasi['prestasi_2']->getError() != 4 || $juara_2 != null || $tingkat_2 != null) {
@@ -248,6 +251,7 @@ class Siswa extends BaseController
                 'nama_prestasi_2' => 'required',
                 'tahun_prestasi_2' => 'required',
             ])) {
+                session()->setFlashdata('pesan-gagal-lampiran-pendaftar', 'Data lampiran gagal disimpan, pendaftar harus mengunggah kembali seluruh file.');
                 return redirect()->to('siswa/tambah_lampiran_siswa/' . $no_induk)->withInput();
             }
         }
@@ -256,6 +260,7 @@ class Siswa extends BaseController
             if (!$this->validate([
                 'scan_prestasi_3' => 'uploaded[scan_prestasi_3]|max_size[scan_prestasi_3,2048]|mime_in[scan_prestasi_3,application/pdf]',
             ])) {
+                session()->setFlashdata('pesan-gagal-lampiran-pendaftar', 'Data lampiran gagal disimpan, pendaftar harus mengunggah kembali seluruh file.');
                 return redirect()->to('siswa/tambah_lampiran_siswa/' . $no_induk)->withInput();
             }
         } else if ($scan_prestasi['prestasi_3']->getError() != 4 || $juara_3 != null || $tingkat_3 != null) {
@@ -266,6 +271,8 @@ class Siswa extends BaseController
                 'nama_prestasi_3' => 'required',
                 'tahun_prestasi_3' => 'required',
             ])) {
+                session()->setFlashdata('pesan-gagal-lampiran-pendaftar', 'Data lampiran gagal disimpan, pendaftar harus mengunggah kembali seluruh file.');
+
                 return redirect()->to('siswa/tambah_lampiran_siswa/' . $no_induk)->withInput();
             }
         }
@@ -285,6 +292,7 @@ class Siswa extends BaseController
                 'scan_raport' => 'uploaded[scan_raport]|max_size[scan_raport,2048]|mime_in[scan_raport,application/pdf]',
                 'scan_pas_foto' => 'uploaded[scan_pas_foto]|max_size[scan_pas_foto,2048]|mime_in[scan_pas_foto,image/jpg,image/jpeg,image/png]',
             ])) {
+                session()->setFlashdata('pesan-gagal-lampiran-pendaftar', 'Data lampiran gagal disimpan, pendaftar harus mengunggah kembali seluruh file.');
                 return redirect()->to('siswa/tambah_lampiran_siswa/' . $no_induk)->withInput();
             }
         } else {
@@ -302,6 +310,7 @@ class Siswa extends BaseController
                 'scan_raport' => 'uploaded[scan_raport]|max_size[scan_raport,2048]|mime_in[scan_raport,application/pdf]',
                 'scan_pas_foto' => 'uploaded[scan_pas_foto]|max_size[scan_pas_foto,2048]|mime_in[scan_pas_foto,image/jpg,image/jpeg,image/png]',
             ])) {
+                session()->setFlashdata('pesan-gagal-lampiran-pendaftar', 'Data lampiran gagal disimpan, pendaftar harus mengunggah kembali seluruh file.');
                 return redirect()->to('siswa/tambah_lampiran_siswa/' . $no_induk)->withInput();
             }
         }
@@ -389,7 +398,7 @@ class Siswa extends BaseController
             'pas_foto' => $nama_scan[6],
         ]);
         // update status pendaftaran
-        session()->setFlashdata('pesan-tambah-lampiran-siswa', 'Data lampiran berhasil ditambahkan.');
+        session()->setFlashdata('pesan-tambah-lampiran-pendaftar', 'Data lampiran berhasil ditambahkan.');
         return redirect()->to('siswa/tambah_lampiran_siswa/' . $no_induk);
     }
     public function simpan_formulir_pendaftaran($no_induk)
@@ -407,12 +416,13 @@ class Siswa extends BaseController
         $this->MFile->update($file['id_file'], [
             'formulir_pendaftaran' => $nama_formulir_pendaftaran
         ]);
-        $data = [
-            'id_status_pendaftaran'    => 4
-        ];
-        $this->MIdentitas->update($no_induk, $data);
-        return redirect()->to('home_pendaftar/pengumuman');
+        // $data = [
+        //     'id_status_pendaftaran'    => 4
+        // ];
+        // $this->MIdentitas->update($no_induk, $data);
+        return redirect()->to('pendaftaran/review_pendaftaran/' . $no_induk);
     }
+
     public function edit_siswa($no_induk)
     {
         session();
@@ -464,6 +474,7 @@ class Siswa extends BaseController
         if ($identitas['no_induk'] != $input_no_induk) {
             if (!$this->validate([
                 'no_induk'    => 'required|numeric|is_unique[identitas.no_induk]',
+                'no_induk_pelajar'    => 'required',
                 'nama_lengkap'      => 'required|alpha_space',
                 'jenis_kelamin'    => 'required',
                 'ttl'    => [
@@ -497,6 +508,7 @@ class Siswa extends BaseController
             rename("assets/scan/" . $no_induk, "assets/scan/" . $input_no_induk);
         } else {
             if (!$this->validate([
+                'no_induk_pelajar'      => 'required',
                 'nama_lengkap'      => 'required|alpha_space',
                 'jenis_kelamin'    => 'required',
                 'ttl'    => [

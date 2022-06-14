@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 31, 2022 at 10:54 AM
+-- Generation Time: Jun 14, 2022 at 11:29 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.10
 
@@ -77,7 +77,9 @@ INSERT INTO `auth_activation_attempts` (`id`, `ip_address`, `user_agent`, `token
 (12, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.67 Safari/537.36', 'be7a56c7f3f8be8ecb882934396e3f83', '2022-05-26 12:49:36'),
 (13, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.61 Safari/537.36', 'fd39a08afd9fe678f2658b2fd1c3df3b', '2022-05-30 16:14:28'),
 (14, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.61 Safari/537.36', '28a0e06355633597d6935e145b0b1c6e', '2022-05-30 19:23:25'),
-(15, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.61 Safari/537.36', 'f01101e3361f249bf000c8f2f1a53aa6', '2022-05-30 19:38:25');
+(15, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.61 Safari/537.36', 'f01101e3361f249bf000c8f2f1a53aa6', '2022-05-30 19:38:25'),
+(16, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.63 Safari/537.36', 'cc8515e41cfcb622475fa112eb926e06', '2022-06-02 08:44:13'),
+(17, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36', '010062407a99918f356ae64d692a81d1', '2022-06-13 22:54:29');
 
 -- --------------------------------------------------------
 
@@ -126,7 +128,11 @@ CREATE TABLE `auth_groups_users` (
 --
 
 INSERT INTO `auth_groups_users` (`group_id`, `user_id`) VALUES
-(1, 1);
+(1, 1),
+(2, 21),
+(2, 22),
+(2, 23),
+(2, 27);
 
 -- --------------------------------------------------------
 
@@ -408,7 +414,44 @@ INSERT INTO `auth_logins` (`id`, `ip_address`, `email`, `user_id`, `date`, `succ
 (258, '::1', 'rafliferdian1203@gmail.com', 20, '2022-05-31 14:24:51', 1),
 (259, '::1', 'ferdianrafli125@gmail.com', 1, '2022-05-31 14:25:28', 1),
 (260, '::1', 'banksoalbatang@gmail.com', 18, '2022-05-31 15:25:10', 1),
-(261, '::1', 'banksoalbatang@gmail.com', 18, '2022-05-31 15:42:49', 1);
+(261, '::1', 'banksoalbatang@gmail.com', 18, '2022-05-31 15:42:49', 1),
+(262, '::1', 'admin1', NULL, '2022-05-31 15:57:05', 0),
+(263, '::1', 'ferdianrafli125@gmail.com', 1, '2022-05-31 15:57:24', 1),
+(264, '::1', 'admin1', NULL, '2022-06-02 08:26:58', 0),
+(265, '::1', 'ferdianrafli125@gmail.com', 1, '2022-06-02 08:27:57', 1),
+(266, '::1', 'ferdianrafli32@gmail.com', 21, '2022-06-02 08:44:54', 1),
+(267, '::1', 'ferdianrafli32@gmail.com', 21, '2022-06-02 09:43:09', 1),
+(268, '::1', 'ferdianrafli32@gmail.com', 21, '2022-06-02 11:34:24', 1),
+(269, '::1', 'ferdianrafli32@gmail.com', 21, '2022-06-02 14:23:09', 1),
+(270, '::1', 'admin1', NULL, '2022-06-02 15:17:40', 0),
+(271, '::1', 'beasiswabatang@gmail.com', 1, '2022-06-02 15:17:57', 1),
+(272, '::1', '\"\" or \"\"=\"\"', NULL, '2022-06-07 09:11:04', 0),
+(273, '::1', 'admin1', NULL, '2022-06-07 09:11:16', 0),
+(274, '::1', 'beasiswabatang@gmail.com', 1, '2022-06-07 09:11:29', 1),
+(275, '::1', 'beasiswabatang@gmail.com', 1, '2022-06-13 11:34:56', 1),
+(276, '::1', 'ferdianrafli25@gmail.com', 22, '2022-06-13 11:43:00', 1),
+(277, '::1', 'rafliferdian', NULL, '2022-06-13 13:31:32', 0),
+(278, '::1', 'ferdianrafli125@gmail.com', 23, '2022-06-13 13:31:51', 1),
+(279, '::1', 'beasiswabatang@gmail.com', 1, '2022-06-13 13:39:58', 1),
+(280, '::1', 'ferdianrafli125@gmail.com', 23, '2022-06-13 14:15:51', 1),
+(281, '::1', 'beasiswabatang@gmail.com', 1, '2022-06-13 22:20:11', 1),
+(282, '::1', 'banksoal', 27, '2022-06-13 22:54:22', 0),
+(283, '::1', 'soalbank7@gmail.com', 27, '2022-06-13 22:54:49', 1),
+(284, '::1', 'soalbank7@gmail.com', 27, '2022-06-13 23:00:01', 1),
+(285, '::1', 'beasiswabatang@gmail.com', 1, '2022-06-13 23:06:22', 1),
+(286, '::1', 'soalbank7@gmail.com', 27, '2022-06-14 00:55:24', 1),
+(287, '::1', 'beasiswabatang@gmail.com', 1, '2022-06-14 01:45:42', 1),
+(288, '::1', 'ferdianrafli32@gmail.com', 21, '2022-06-14 02:02:23', 1),
+(289, '::1', 'ferdianrafli32@gmail.com', 21, '2022-06-14 09:22:11', 1),
+(290, '::1', 'beasiswabatang@gmail.com', 1, '2022-06-14 10:02:11', 1),
+(291, '::1', 'ferdianrafli125@gmail.com', 23, '2022-06-14 12:39:45', 1),
+(292, '::1', 'ferdianrafli125@gmail.com', 23, '2022-06-14 14:42:15', 1),
+(293, '::1', 'pendaftar1', NULL, '2022-06-14 14:47:03', 0),
+(294, '::1', 'ferdianrafli32@gmail.com', 21, '2022-06-14 14:47:22', 1),
+(295, '::1', 'ferdianrafli25@gmail.com', 22, '2022-06-14 15:57:49', 1),
+(296, '::1', 'pendaftar3', NULL, '2022-06-14 16:09:49', 0),
+(297, '::1', 'ferdianrafli125@gmail.com', 23, '2022-06-14 16:10:09', 1),
+(298, '::1', 'ferdianrafli25@gmail.com', 22, '2022-06-14 16:21:31', 1);
 
 -- --------------------------------------------------------
 
@@ -436,6 +479,13 @@ CREATE TABLE `auth_reset_attempts` (
   `token` varchar(255) DEFAULT NULL,
   `created_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `auth_reset_attempts`
+--
+
+INSERT INTO `auth_reset_attempts` (`id`, `email`, `ip_address`, `user_agent`, `token`, `created_at`) VALUES
+(1, 'soalbank7@gmail.com', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36', '578da5c5c75e600acabf97bed1dfd391', '2022-06-13 22:59:37');
 
 -- --------------------------------------------------------
 
@@ -486,6 +536,15 @@ CREATE TABLE `file` (
   `formulir_pendaftaran` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `file`
+--
+
+INSERT INTO `file` (`id_file`, `no_induk`, `ktp`, `kk`, `kartu_pelajar`, `rek_bpd`, `raport_smt`, `raport_legalisasi`, `pas_foto`, `sktm`, `diterima_pt`, `proposal`, `akreditasi_pt`, `laporan`, `formulir_pendaftaran`) VALUES
+(54, '3324162512000002', NULL, 'VaksinGo_MuhammadHarioPerdana.pdf', '1_Anjartgsrisk.pdf', NULL, 'Dokumen Pengujian UPL - 11.pdf', 'Dico_24060119120044_Tugas-Publikasi-Ilmiah.pdf', '2d7418bc-44e2-4b69-886f-ac3b46805b39.jpg', 'Dico_24060119120044_Tugas-Publikasi-Ilmiah.pdf', NULL, NULL, NULL, NULL, 'KETAHANAN+NASIONAL+UPT+MKU+Penting+Sekali+A1+04-02-06_0.pdf'),
+(55, '3324162512000003', '280884-penerapan-sistem-informasi-dalam-sosio-t-cd56f3cf.pdf', 'Communicaton.en.id.pdf', 'KETAHANAN+NASIONAL+UPT+MKU+Penting+Sekali+A1+04-02-06_0.pdf', NULL, NULL, NULL, 'logo-mysql-26295.png', '1_Anjartgsrisk.pdf', 'DUPL COJ.pdf', 'Musa_24060119120039_Tugas-Publikasi-Ilmiah.pdf', NULL, NULL, 'formulir-pendaftaran_3.pdf'),
+(56, '3324162512000004', '47560136.pdf', 'UAS ESSAY MPI GENAP 2021-2022.pdf', 'Sistematika Proposal.pdf', NULL, NULL, NULL, 'python.png', 'Musa_24060119120039_Tugas-Publikasi-Ilmiah.pdf', NULL, 'VaksinGo_MuhammadHarioPerdana.pdf', '1_Anjartgsrisk.pdf', NULL, 'formulir-pendaftaran_4.pdf');
+
 -- --------------------------------------------------------
 
 --
@@ -494,6 +553,7 @@ CREATE TABLE `file` (
 
 CREATE TABLE `identitas` (
   `no_induk` varchar(25) NOT NULL,
+  `no_induk_pelajar` varchar(25) NOT NULL,
   `nama_lengkap` varchar(255) NOT NULL,
   `jenis_kelamin` varchar(1) NOT NULL,
   `ttl` varchar(100) NOT NULL,
@@ -524,6 +584,15 @@ CREATE TABLE `identitas` (
   `created_at` date DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `identitas`
+--
+
+INSERT INTO `identitas` (`no_induk`, `no_induk_pelajar`, `nama_lengkap`, `jenis_kelamin`, `ttl`, `id_agama`, `anak_ke`, `no_telepon`, `alamat_rumah`, `id_kecamatan`, `jarak_sekolah`, `id_transportasi`, `id_sekolah`, `kelas`, `nama_pt`, `akreditasi_pt`, `tahun_masuk_pt`, `semester_ke`, `alamat_pt`, `id_status_peserta`, `id_status_pendaftaran`, `id_status_pembayaran`, `id_status_final`, `pesan`, `no_rek`, `pernah_menerima_bantuan`, `menerima_bantuan_dari`, `nama_pemilik_rekening`, `nominal`, `created_at`) VALUES
+('3324162512000002', '0001267110', 'Rafli Ferdian', 'L', 'batang', 1, 2, '0895411812445', 'rumah', 7, 23, 3, '20322740', '12', NULL, NULL, NULL, NULL, NULL, 1, 4, NULL, NULL, NULL, NULL, 'tidak', '', NULL, NULL, '2022-06-14'),
+('3324162512000003', '0001267110', 'pendaftar', 'L', 'kendal', 1, NULL, '0895411812445', 'rumah', 6, NULL, NULL, NULL, NULL, 'undip', 'B', 2019, 6, 'semarang', 2, 4, NULL, NULL, NULL, NULL, 'tidak', '', NULL, NULL, '2022-06-14'),
+('3324162512000004', '0001267110', 'pendaftar tiga', 'L', 'kendal', 1, NULL, '0895411812445', 'rumah', 10, NULL, NULL, NULL, NULL, 'undip', 'A', 2019, 6, 'undip', 3, NULL, NULL, NULL, NULL, NULL, 'tidak', '', NULL, NULL, '2022-06-14');
+
 -- --------------------------------------------------------
 
 --
@@ -543,15 +612,15 @@ CREATE TABLE `informasi_pendaftaran` (
 --
 
 INSERT INTO `informasi_pendaftaran` (`id_informasi_pendaftaran`, `persyaratan`, `jadwal_kegiatan`, `jadwal_pelaksanaan`, `proses_seleksi`) VALUES
-(1, 'Warga Negara Indonesia yang bertempat tinggal dan menjadi penduduk Kabupaten Batang', 'Sosialisasi Program Bantuan', '2 s.d 31 Juni 2092', 'Proses seleksi administratif dilakukan secara langsung oleh Tim, setelah berkas dinyatakan lengkap memenuhi persyaratan, apabila berkas yang dikirim baik jalur daring atau luring belum lengkap, Tim menyampaikan kepada yang bersangkutan kekurangannya dan diberikan kesempatan untuk melengkapi sampai dengan jadwal pemberkasan teknis'),
-(2, 'Memiliki salah satu atau lebih prestasi', 'Pendaftaran siswa', '1 s.d 31 Juli 2021', 'Pemeringkatan sesuai kuota diurutkan berdasarkan bobot prestasi yang diambil paling tinggi berdasarkan tabel prestasi.'),
-(3, 'Memiliki nilai rata-rata laporan akademik (raport) pada semester terakhir minimal 7.50 (tujuh koma lima nol) serta tidak ada nilai dibawah 7.00 (tujuh koma nol-nol)', 'Seleksi Administrasi', '2 s.d 31 Juni 2021', 'Apabila calon penerima bantuan memiliki lebih dari satu prestasi, maka hanya diperhitungkan salah satu prestasi yang berbobot paling tinggi.'),
-(4, 'Berasal dari keluarga miskin atau tidak mampu secara ekonomi', 'Pemberkasan Teknis', '2 s.d 14 Arustus 2021', 'Apabila total bobot antara calon penerima memiliki nilai yang sama, maka pemeringkatan calon penerima bantuan diprioritaskan berdasarkan pertimbangan pada kemampuan ekonomi orangtua/wali.'),
-(5, 'Berasal dari perguruan tinggi yang terakreditasi', 'Pengumuman Penerima Bantuan', '31 Agustus 2021', 'Untuk prestasi non akademik mampu menghafal Al Quran, Dinas dapat menguji secara sederhana hafalan Al Quran kepada calon penerima jika diperlukan'),
-(6, 'Sedang menempuh program diploma atau sarjana strata 1', 'Pemberkasan Pencairan Bantuan', '1 s.d 14 September 2021', 'Penerima bantuan ditetapkan dengan Keputusan Kepala Dinas serta diumumkan sesuai dengan jadwal yang telah ditetapkan melalui Surat Dinas atau laman website Dinas.'),
-(7, 'Menyusun proposal bantuan', 'Penyaluran Bantuan', 'Akhir September 2021', 'Keputusan Kepala Dinas bersifat final dan tidak dapat diganggu gugat.'),
-(8, 'Diterima dalam program diploma atau sarjana strata 1 pada perguruan tinggi yang terakreditasi minimal B', 'Monitoring, Evaluasi dan Pelaporan', 'Oktober 2021', NULL),
-(9, NULL, 'koma', 'maret', NULL),
+(1, 'Warga Negara Indonesia yang bertempat tinggal dan menjadi penduduk Kabupaten Batang', 'Sosialisasi Program Bantuan.', '2 s.d 31 Juni 2022', 'Proses seleksi administratif dilakukan secara langsung oleh Tim, setelah berkas dinyatakan lengkap memenuhi persyaratan, apabila berkas yang dikirim baik jalur daring atau luring belum lengkap, Tim menyampaikan kepada yang bersangkutan kekurangannya dan diberikan kesempatan untuk melengkapi sampai dengan jadwal pemberkasan teknis.'),
+(2, 'Memiliki salah satu atau lebih prestasi', 'Pendaftaran siswa.', '1 s.d 31 Juli 2022', 'Pemeringkatan sesuai kuota diurutkan berdasarkan bobot prestasi yang diambil paling tinggi berdasarkan tabel prestasi.'),
+(3, 'Memiliki nilai rata-rata laporan akademik (raport) pada semester terakhir minimal 7.50 (tujuh koma lima nol) serta tidak ada nilai dibawah 7.00 (tujuh koma nol-nol)', 'Seleksi Administrasi.', '2 s.d 31 Juni 2022', 'Apabila calon penerima bantuan memiliki lebih dari satu prestasi, maka hanya diperhitungkan salah satu prestasi yang berbobot paling tinggi.'),
+(4, 'Berasal dari keluarga miskin atau tidak mampu secara ekonomi', 'Pemberkasan Teknis.', '2 s.d 14 Arustus 2022', 'Apabila total bobot antara calon penerima memiliki nilai yang sama, maka pemeringkatan calon penerima bantuan diprioritaskan berdasarkan pertimbangan pada kemampuan ekonomi orangtua/wali.'),
+(5, 'Berasal dari perguruan tinggi yang terakreditasi', 'Pengumuman Penerima Bantuan.', '31 Agustus 2022', 'Untuk prestasi non akademik mampu menghafal Al Quran, Dinas dapat menguji secara sederhana hafalan Al Quran kepada calon penerima jika diperlukan.'),
+(6, 'Sedang menempuh program diploma atau sarjana strata 1', 'Pemberkasan Pencairan Bantuan.', '1 s.d 14 September 2022', 'Penerima bantuan ditetapkan dengan Keputusan Kepala Dinas serta diumumkan sesuai dengan jadwal yang telah ditetapkan melalui Surat Dinas atau laman website Dinas.'),
+(7, 'Menyusun proposal bantuan', 'Penyaluran Bantuan.', 'Akhir September 2022', 'Keputusan Kepala Dinas bersifat final dan tidak dapat diganggu gugat.'),
+(8, 'Diterima dalam program diploma atau sarjana strata 1 pada perguruan tinggi yang terakreditasi minimal B', 'Monitoring, Evaluasi dan Pelaporan.', 'Oktober 2022', NULL),
+(9, NULL, NULL, NULL, NULL),
 (10, NULL, NULL, NULL, NULL),
 (11, NULL, NULL, NULL, NULL),
 (12, NULL, NULL, NULL, NULL);
@@ -582,10 +651,9 @@ INSERT INTO `informasi_terbaru` (`id_informasi_terbaru`, `judul_informasi_terbar
 (2, 'Peraturan Bupati Bantuan Biaya Pendidikan', 'Peraturan Bupati Bantuan Biaya Pendidikan', 'Pengumuman Prog Bantuan Biaya Pendidikan 2021.pdf', NULL, NULL, '2022-05-26 11:53:23', '2022-05-26 11:53:23'),
 (3, 'Tata cara Bantuan Biaya Pendidikan', 'Tata cara Bantuan Biaya Pendidikan', 'Perbup Tata Cara Pemberian Bantuan Biaya Pendidikan bagi Peserta didik menengah dan mhs yg berprestasi dr keluarga miskin.pdf', NULL, NULL, '2022-05-26 11:53:48', '2022-05-26 11:53:48'),
 (4, 'Bantuan Biaya Pendidikan', 'Bantuan Biaya Pendidikan', 'Perbup Tata Cara Pemberian Bantuan Biaya Pendidikan bagi Peserta didik menengah dan mhs yg berprestasi dr keluarga miskin.pdf', NULL, NULL, '2022-05-26 11:54:24', '2022-05-26 11:54:24'),
-(5, 'Dukung Pemulihan Ekonomi, Evermos Gelar Beasiswa hingga Pemberdayaan Perempuan', 'Vaksinasi COVID-19 booster covid-19 menimbulkan optimisme pulihnya perekonomian Indonesia. Evermos, startup social-commerce, berkomitmen untuk ambil bagian dalam pemulihan ekonomi tersebut melalui berbagai program, mulai dari beasiawa dan pelatihan kerja, hingga pemberdayaan perempuan. Bekerja sama dengan Pimpinan Pusat Ikatan Pelajar Muhammadiyah (PP IPM) dan perusahaan penyedia pelatihan Refactory, Evermos menggelar prgram Developer Muda Camp (DevMu) yang berlangsung sejak Januari hingga Maret 2022. Pesertanya tidak terbatas hanya berasal dari organisasi Muhammadiyah saja, melainkan terbuka untuk umum. \"Saya berharap dari kerja sama ini kita dapat menciptakan satu sinergi yang baik,\" ungkap Jauhari Khairul Kawistara, Co-Founder dan Head of Technology Evermos. Ia juga menyampaikan program ini bertujuan membangun generasi muda yang semakin mumpuni dalam berkarya di era teknologi digital. \"Kami berharap dapat memperkaya IPM dengan pemahaman dan pemanfaatan teknologi pemrograman,\" tutur Andri Wahyudi, Ketua Pelaksana DevMu dan Sekretaris Bidang Teknologi Informasi PP IPM. Penerima beasiswa mendapatkan fasilitas stay-in lengkap seperti penginapan dan akomodasi, serta program pelatihan yang komprehensif seperti real study case, kurikulum terbaru, dan pendampingan langsung dari para profesional. Yang tak kalah menarik, di akhir pelatihan para peserta berkesempatan untuk langsung mendapatkan posisi bekerja di Evermos. \"Dengan hadirnya kandidat-kandidat yang kompeten, nanti mereka dapat berkontribusi secara langsung dalam menciptakan berbagai produk digital yang turut mendukung upaya pemberdayaan kesejahteraan masyarakat dan ekonomi inklusif antara individu masyarakat, mitra UMKM, dan konsumen,\" jelasnya.', NULL, NULL, NULL, '2022-03-10 00:00:00', '2022-05-26 10:25:00'),
-(6, 'KSP Dorong Integrasi Sistem Pendidikan Indonesia Lewat Revisi UU Sisdiknas', 'Tenaga Ahli Utama Kantor Staf Presiden (KSP), Agung Hardjono mengatakan, KSP akan terus mendukung harmonisasi dan sinkronisasi peraturan perundang-undangan pendidikan Indonesia melalui revisi UU Sistem Pendidikan Nasional (Sisdiknas). Penyesuaian terhadap UU yang telah berusia 19 tahun itu dianggap perlu untuk menjawab berbagai tantangan baru sebagai akibat dari kondisi pandemi. “Revisi terhadap UU Sisdiknas dapat memberikan ruang bagi tiap daerah untuk mengaspirasikan kebutuhannya dan mengakomodasi konteks belajar yang berbeda-beda,\" ujar Agung dalam siaran persnya, Kamis (10/3/2022). Baca juga: RUU Sisdiknas Perbaiki Kualitas Pendidikan Nasional \"Terlebih lagi, pandemi menuntut adanya fleksibilitas, jadi UU Sisdiknas harus mampu beradaptasi dengan situasi krisis ke depan,” ujar dia. KSP berharap revisi UU Sisdiknas dapat memberi kemerdekaan kepada satuan pendidikan untuk mengembangkan kurikulum sesuai konteks dan tahap perkembangan usia dan kemampuan pelajar. Selain itu ada peraturan yang sudah tidak relevan lagi seiring dengan perkembangan proses belajar mengajar berbasis teknologi. \"Misalnya terkait kewajiban guru untuk mengajar 24 jam tatap muka/minggu,\" ujar Agung. Dia lantas menjelaskan, saat ini sistem pendidikan Indonesia diatur oleh setidaknya tiga peraturan perundangan yang berbeda. Ketiganya yaitu, UU Nomor 20/2003 tentang Sisdiknas, UU Nomor 14/2005 tentang Guru dan Dosen, dan UU Nomor 12/2012 tentang Pendidikan Tinggi. Hal ini berpotensi memunculkan ketidakselarasan dan tumpang tindih, terutama dalam pengaturan turunannya. Oleh karenanya, revisi UU Sisdiknas akan mengintegrasikan ketiga UU tersebut dalam satu sistem pendidikan yang dinamis dan sesuai dengan amanah UUD 1945.', NULL, NULL, NULL, '2022-03-09 00:00:00', '2022-05-18 05:58:05'),
-(7, 'judul', 'deskripsi', 'KelasB_Kelompok9_WBS.pdf', 'ivan-aleksic-PDRFeeDniCk-unsplash.jpg', NULL, '2022-03-22 00:00:00', '2022-05-26 10:59:09'),
-(8, 'undangan', 'silahkan download undangan', 'Dokumen Pengujian UPL - 11.pdf', 'download.png', NULL, '2022-05-24 14:10:56', '2022-05-15 08:23:18');
+(8, 'undangan', 'silahkan download undangan', 'Dokumen Pengujian UPL - 11.pdf', 'download.png', NULL, '2022-05-24 14:10:56', '2022-05-15 08:23:18'),
+(13, 'penerimaan ', 'penerimaan beasiswa', 'UAS Genap 2020-21 Masyarakat dan Etika Profesi final.pdf', 'Lambang_Kabupaten_Batang.png', NULL, '2022-06-13 11:54:10', '2022-06-13 11:54:10'),
+(14, 'Pendaftaran Bantuan Biaya Pendidikan', 'Pendaftaran Bantuan Biaya Pendidikan', '280884-penerapan-sistem-informasi-dalam-sosio-t-cd56f3cf.pdf', NULL, NULL, '2022-06-13 13:51:16', '2022-06-13 13:51:42');
 
 -- --------------------------------------------------------
 
@@ -645,6 +713,15 @@ CREATE TABLE `keluarga` (
   `bsm_kip` varchar(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `keluarga`
+--
+
+INSERT INTO `keluarga` (`id_keluarga`, `no_induk`, `nama_ayah`, `usia_ayah`, `pekerjaan_ayah`, `pendidikan_ayah`, `penghasilan_ayah`, `alamat_ayah`, `nama_ibu`, `usia_ibu`, `pekerjaan_ibu`, `pendidikan_ibu`, `penghasilan_ibu`, `alamat_ibu`, `rtsm_rtm`, `pkh_kks_kbs`, `bsm_kip`) VALUES
+(52, '3324162512000002', 'sehar', 0, 'swasta', 'S3', 50000000, 'rumah', 'nasriah', 0, 'pedagang', 'D4', 20000000, 'rumah', 'tidak', 'ya', 'tidak'),
+(53, '3324162512000003', 'suhar', 55, 'swasta', 'D4', 30000000, 'kendal', 'nas', 55, 'swasta', 'D3', 20000000, 'kendal', 'tidak', 'tidak', 'ya'),
+(54, '3324162512000004', 'suhar', 55, 'swasta', 'D3', 30000000, 'rumah', 'nas', 55, 'swasta', 'D3', 20000000, 'rumah', 'tidak', 'ya', 'tidak');
+
 -- --------------------------------------------------------
 
 --
@@ -685,6 +762,21 @@ CREATE TABLE `prestasi` (
   `no_induk` varchar(25) NOT NULL,
   `file_prestasi` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `prestasi`
+--
+
+INSERT INTO `prestasi` (`id_prestasi`, `kategori`, `tingkat`, `juara`, `nilai`, `nama_prestasi`, `tahun_prestasi`, `no_induk`, `file_prestasi`) VALUES
+(111, 'hafidz', NULL, NULL, 0, 'hafidz', 2022, '3324162512000002', 'MEP_24060119120031.pdf'),
+(112, 'perlombaan', 'provinsi', 'juara 2', 0, 'lomba', 2019, '3324162512000002', 'UAS Genap 2020-21 Masyarakat dan Etika Profesi final.pdf'),
+(113, 'lainnya', NULL, NULL, 0, 'lain', 2020, '3324162512000002', 'Dico_24060119120044_Tugas-Publikasi-Ilmiah.pdf'),
+(114, '', 'nasional', 'juara 2', 0, 'lomba', 2020, '3324162512000003', 'formulir-pendaftaran_2.pdf'),
+(115, 'ujian sekolah', NULL, NULL, 0, 'ujian', 2019, '3324162512000003', 'formulir-pendaftaran.pdf'),
+(116, 'hafidz', NULL, NULL, 0, 'hafidz', 2019, '3324162512000003', 'WAWASAN+NUSANTARA++Jurnal+Penting.pdf'),
+(117, 'perlombaan', 'nasional', 'juara 2', 0, 'lomba', 2020, '3324162512000004', 'formulir-pendaftaran_3.pdf'),
+(118, 'KHS', NULL, NULL, 0, 'khs', 2019, '3324162512000004', 'formulir-pendaftaran_2.pdf'),
+(119, 'hafidz', NULL, NULL, 0, 'hafidz', 2022, '3324162512000004', '280884-penerapan-sistem-informasi-dalam-sosio-t-cd56f3cf.pdf');
 
 -- --------------------------------------------------------
 
@@ -858,7 +950,7 @@ CREATE TABLE `tanggal_penting` (
 
 INSERT INTO `tanggal_penting` (`id_tanggal_penting`, `nama_tanggal_penting`, `tanggal_penting`) VALUES
 (1, 'Tanggal Pembukaan Pendaftaran', '2022-05-31'),
-(2, 'Tanggal Pengumuman', '2022-05-31');
+(2, 'Tanggal Pengumuman', '2022-06-12');
 
 -- --------------------------------------------------------
 
@@ -912,7 +1004,11 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `email`, `username`, `no_induk`, `password_hash`, `reset_hash`, `reset_at`, `reset_expires`, `activate_hash`, `status`, `status_message`, `active`, `force_pass_reset`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'ferdianrafli125@gmail.com', 'admin1', NULL, '$2y$10$Euhkx3BPxfSrXG8O2apu1.JFFEDo6WOo6eElsbd5jiQgS1r0RUoam', NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2022-03-01 10:22:10', '2022-03-01 10:22:46', NULL);
+(1, 'beasiswabatang@gmail.com', 'admin1', NULL, '$2y$10$Euhkx3BPxfSrXG8O2apu1.JFFEDo6WOo6eElsbd5jiQgS1r0RUoam', NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2022-03-01 10:22:10', '2022-03-01 10:22:46', NULL),
+(21, 'ferdianrafli32@gmail.com', 'pendaftar1', '3324162512000002', '$2y$10$sEcmiPOJygQStxy/ggvZNudYOLYd9HTHYbVCZpIExl2afqWark71O', NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2022-06-02 08:42:45', '2022-06-02 08:44:13', NULL),
+(22, 'ferdianrafli25@gmail.com', 'pendaftar2', '3324162512000003', '$2y$10$H50lhI23rIGg91RSrcMXOe00rh7ndsDJ2pmuM6/9.YMt3K0s.n/DK', NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2022-06-13 11:42:41', '2022-06-13 11:42:41', NULL),
+(23, 'ferdianrafli125@gmail.com', 'pendaftar3', '3324162512000004', '$2y$10$yF7rNHvd1W7p4Af./Ye5SuWt7xHqHHzXIyocxXox5cBSPEaPv2wAa', NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2022-06-13 13:30:50', '2022-06-13 13:30:50', NULL),
+(27, 'soalbank7@gmail.com', 'banksoal', NULL, '$2y$10$XazcR1GysyF06MzHdWQJmOqoMNq3J7P0Yu7sbxAV9Pqj1q0vwrf7S', '769ddd27072dbbc12885f434d7dc5891', '2022-06-13 22:59:38', '2022-06-14 01:14:55', NULL, NULL, NULL, 1, 0, '2022-06-13 22:50:10', '2022-06-14 00:14:55', NULL);
 
 --
 -- Indexes for dumped tables
@@ -1109,7 +1205,7 @@ ALTER TABLE `agama`
 -- AUTO_INCREMENT for table `auth_activation_attempts`
 --
 ALTER TABLE `auth_activation_attempts`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `auth_groups`
@@ -1121,7 +1217,7 @@ ALTER TABLE `auth_groups`
 -- AUTO_INCREMENT for table `auth_logins`
 --
 ALTER TABLE `auth_logins`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=262;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=299;
 
 --
 -- AUTO_INCREMENT for table `auth_permissions`
@@ -1133,7 +1229,7 @@ ALTER TABLE `auth_permissions`
 -- AUTO_INCREMENT for table `auth_reset_attempts`
 --
 ALTER TABLE `auth_reset_attempts`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `auth_tokens`
@@ -1145,7 +1241,7 @@ ALTER TABLE `auth_tokens`
 -- AUTO_INCREMENT for table `file`
 --
 ALTER TABLE `file`
-  MODIFY `id_file` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `id_file` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 
 --
 -- AUTO_INCREMENT for table `informasi_pendaftaran`
@@ -1157,7 +1253,7 @@ ALTER TABLE `informasi_pendaftaran`
 -- AUTO_INCREMENT for table `informasi_terbaru`
 --
 ALTER TABLE `informasi_terbaru`
-  MODIFY `id_informasi_terbaru` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_informasi_terbaru` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `kecamatan`
@@ -1169,7 +1265,7 @@ ALTER TABLE `kecamatan`
 -- AUTO_INCREMENT for table `keluarga`
 --
 ALTER TABLE `keluarga`
-  MODIFY `id_keluarga` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `id_keluarga` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -1181,7 +1277,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `prestasi`
 --
 ALTER TABLE `prestasi`
-  MODIFY `id_prestasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=100;
+  MODIFY `id_prestasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=120;
 
 --
 -- AUTO_INCREMENT for table `status_final`
@@ -1223,7 +1319,7 @@ ALTER TABLE `transportasi`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- Constraints for dumped tables

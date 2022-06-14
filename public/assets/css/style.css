@@ -1,16 +1,16 @@
-/* Inter font */
-/* @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Work+Sans:wght@400;600;900&display=swap"); */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap');
-/* End font */
+/* Nunito font */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;700&display=swap');
 
 /* Variabel */
 :root {
-  --biru: #297bbf;
-  --orange: #F8A61B;
+  --biru: #006AC2;
+  --orange: #f19422;
+  --light: #fdfcff;
   --abu: #f6f6f6;
   --abu2: #F8F8FF;
   --merah:#E50000;
   --ungu:#FB05E2;
+  --black:#140e10;
 }
 /* End variabel */
 
@@ -18,7 +18,7 @@
 * {
   margin: 0;
   padding: 0;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Nunito', sans-serif;
 }
 body {
   min-height: 100vh;
@@ -71,13 +71,13 @@ p {
   font-size: 16px !important;
 }
 .fs18 {
-  font-size: 18px;
+  font-size: 18px !important;
 }
 .fs20 {
   font-size: 20px !important;
 }
 .fs24 {
-  font-size: 24px;
+  font-size: 24px !important;
 }
 .fs30 {
   font-size: 30px !important;
@@ -232,7 +232,25 @@ p {
 .biru {
   color: var(--biru) !important;
 }
+.black {
+  color: var(--black);
+}
 /* End color */
+
+/* Background color */
+.bgblue {
+  background-color: var(--biru) !important;
+}
+.bgorange {
+  background-color: var(--orange) !important;
+}
+.bglight {
+  background-color: var(--light);
+}
+.bgwhite {
+  background-color: white;
+}
+/* End background color */
 
 /* Etc */
 .btn:hover{
@@ -414,13 +432,6 @@ small{
 .fa-eye,.fa-fw{
   color: #9a9a9a;
 }
-
-
-/******************************************/
-/*                  USER                  */
-/******************************************/
-
-/*================ Halaman awal =================*/
 .p100 {
   padding: 40px 10rem;
 }
@@ -430,24 +441,44 @@ small{
 .bglight {
   background-color: #E9F0F5;
 }
-/* .bdr__none {
-  border-radius: 0 !important;
-} */
-.halaman__awal__section .gambar {
+
+/******************************************/
+/*                  USER                  */
+/******************************************/
+
+/*================ Halaman awal =================*/
+/* Main */
+.bdorange {
+  border-color: var(--orange);
+}
+
+/* Kiri */
+.awal {
+  display: inline !important;
+}
+.awal, .awal__content, .awal__gambar {
+  min-height: 100vh;
+}
+.awal .tagline .daftar button {
+  border-color: var(--orange);
+}
+.awal .tagline .daftar button:hover {
+  border-color: var(--orange);
+}
+.awal .info__lainnya button:hover {
+  color: var(--black);
+}
+.awal .info__lainnya button:focus {
+  color: var(--black);
+}
+
+/* Kanan */
+.awal, .awal__gambar {
+  display: none;
+}
+.awal__gambar img {
   width: 100%;
   height: 100%;
-}
-.halaman__awal__section .gambar img{
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.halaman__awal__content {
-  border: 1px solid var(--biru);
-}
-.btn__lainnya button:hover {
-  background-color:var(--biru) !important;
-  color: white !important;
 }
 
 .bg-root{
@@ -933,8 +964,14 @@ tr {
     margin-right: 0;
   }
 
-  /* info awal */
-
+  /*================ Halaman awal =================*/
+  .awal {
+    display: flex;
+  }
+  .awal, .awal__gambar {
+    display: block;
+    min-height: 100vh;
+  }
 }
 
 @media (max-width: 991px) {
@@ -966,6 +1003,26 @@ tr {
   }
   .daftar__card{
     min-width: 550px !important;
+  }
+
+  /*================ Halaman awal =================*/
+  .awal {
+    display: flex !important;
+  }
+  .awal .awal__content {
+    width: 50% !important;
+  }
+  .awal .awal__gambar {
+    display: flex;
+  }
+  .awal h6 {
+    font-size: 20px;
+  }
+  .awal h4 {
+    font-size: 32px !important;
+  }
+  .awal button {
+    font-size: 18px;
   }
 }
 

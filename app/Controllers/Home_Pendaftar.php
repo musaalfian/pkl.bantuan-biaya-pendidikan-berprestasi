@@ -218,7 +218,7 @@ class Home_pendaftar extends BaseController
 
         $dompdf->render();
 
-        $dompdf->stream();
+        $dompdf->stream('formulir-pendaftaran');
         // instantiate and use the dompdf class
         // (Optional) Setup the paper size and orientation
         // Render the HTML as PDF
