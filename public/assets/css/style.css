@@ -14,7 +14,11 @@
   --merah:#E50000;
   --ungu:#FB05E2;
   --black:#140e10;
-  --max: max-content;
+
+  --main-trans: 4s linear
+
+  --blue-shadow: rgba(0, 86, 174, .5) 0px 8px 24px;
+  
 }
 /* End variabel */
 /* Main style */
@@ -520,6 +524,31 @@ small{
   position: relative;
   z-index: 2;
 }
+
+/*================ Informasi Awal =================*/
+.informasi__awal .bg {
+  max-width: 100%;
+  min-height: 300px;
+  max-height: 400px;
+  background-color: lightgray;
+  border-radius: 10px;
+}
+.informasi__awal p {
+  font-size: 16px;
+}
+.informasi__awal .info__lainnya {
+  border-radius: 10px;
+  border-color: var(--biru) !important;
+  transition: .4s;
+}
+.informasi__awal .info__lainnya:hover {
+  box-shadow: rgba(0, 86, 174, .2) 0px 8px 24px;
+  /* transition: .4s; */
+}
+.informasi__awal .info__lainnya .tanggal p {
+  font-size: 12px;
+}
+
 
 /*================ Masuk =================*/
 /* Kata sandi */
@@ -1141,6 +1170,20 @@ tr {
   /* Display */
   .awal .awal__gambar {
     display: flex !important;
+  }
+
+  /*================ Informasi Awal =================*/
+  .informasi__awal h3 {
+    font-size: 24px !important;
+  } 
+  .informasi__awal h2 {
+    font-size: 30px !important;
+  }
+  .informasi__awal .info__lainnya a {
+    font-size: 18px !important;
+  }
+  .informasi__awal .info__lainnya .tanggal p {
+    font-size: 14px;
   }
 }
 

@@ -29,6 +29,9 @@
     <div class="awal row me-0 align-items-center">
         <div class="awal__content col-md-6 col-12 bgwhite d-flex justify-content-center align-items-center">
             <div class="p-3 px-sm-4">
+                <div class="nav__back mb40">
+                    <a href="/" class="fw-bold blue fs20"><i class="fa-solid fa-arrow-left-long"></i></a>
+                </div>
                 <div class="header text-center">
                     <h3 class="black fw-bold">Masuk</h3>
                     <h6 class="grey mt-2">Silahkan masuk dengan akun

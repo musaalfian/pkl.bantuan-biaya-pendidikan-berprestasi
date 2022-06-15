@@ -24,6 +24,9 @@
     <div class="awal row me-0 align-items-center">
         <div class="awal__content col-md-6 col-12 bgwhite d-flex justify-content-center align-items-center">
             <div class="p-3 py-5 p-md-5">
+                <div class="nav__back mb40">
+                    <a href="/" class="fw-bold blue fs20"><i class="fa-solid fa-arrow-left-long"></i></a>
+                </div>
                 <div class="header text-center">
                     <h3 class="black fw-bold">Daftar</h3>
                     <h6 class="grey mt-2">Silahkan buat akun dengan mengisi data dibawah ini
@@ -84,7 +87,7 @@
                             <label class="form-check-label" for="flexCheckDefault">Saya setuju dengan peraturan layanan</label>
                         </div>
                         <div class="daftar__button mt40">
-                            <button type="submit" id="submit_login" class="btn btn-primary shadow-none fs14 btn__blue">Masuk</button>
+                            <button type="submit" id="submit_login" class="btn btn-primary shadow-none fs14 btn__blue">Daftar</button>
                         </div>
                     </form>
                     <div class="mt40">
