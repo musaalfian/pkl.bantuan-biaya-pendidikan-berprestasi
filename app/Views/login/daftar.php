@@ -21,87 +21,85 @@
 </head>
 
 <body>
-    <!-- Main section -->
-    <div class="d-flex">
-        <div class="daftar__card">
-            <h3>Daftar Akun</h3>
-            <p class="mt10 text-black">
-                Selamat datang di website bantuan biaya pendidikan berprestasi
-                kabupaten Batang.
-            </p>
-            <?= view('Myth\Auth\Views\_message_block') ?>
-            <div class="daftar__content text-black">
-                <form action="<?= route_to('register') ?>" method="post" style="overflow: auto">
-                    <?= csrf_field() ?>
-                    <div class="mt40">
-                        <label for="email">Email</label>
-                        <input class="daftar__input <?php if (session('errors.email')) : ?>is-invalid<?php endif ?>" placeholder="Masukan email" type="email" id="email" name="email" aria-describedby="emailHelp" value="<?= old('email') ?>" />
-                    </div>
-                    <div class="mt20">
-                        <label for="username">Nama pengguna</label>
-                        <input class="daftar__input <?php if (session('errors.username')) : ?>is-invalid<?php endif ?>" placeholder="Masukan nama pengguna" type="text" id="username" name="username" value="<?= old('username') ?>" />
-                    </div>
-                    <div class="mt20">
-                        <label for="sandi">Kata sandi</label>
-                        <small class="biru" style="font-size:10px;">Gunakan kombinasi huruf besar kecil, angka dan tanda
-                            baca <span class="bold">(buat sandi kuat)</span> </small>
-                        <input class="daftar__input <?php if (session('errors.password')) : ?>is-invalid<?php endif ?>" autocomplete="off" placeholder="Masukan kata sandi" type="password" id="password" name="password" autocomplete="off" />
-                        <span toggle="#password" class="fa fa-fw fa-eye field-icon toggle-password"></span>
-                        <span id="StrengthDisp" class="badge displayBadge mt-2" style="text-align: start !important ;"></span>
-                    </div>
-                    <div class="mt20">
-                        <label for="sandi">Ulangi kata sandi</label>
-                        <input class="daftar__input <?php if (session('errors.pass_confirm')) : ?>is-invalid<?php endif ?>" autocomplete="off" placeholder="Ulangi kata sandi" type="password" id="pass_confirm" name="pass_confirm" autocomplete="off" />
-                        <span toggle="#pass_confirm" class="fa fa-fw fa-eye field-icon toggle-password"></span>
-                    </div>
-                    <div class="mt20 captcha__section">
-                        <label for="captcha">Captcha</label>
-                        <div class="d-flex justify-content-between mt10">
-                            <div class="captcha__content">
-                                <div id="captcha" class="captcha">
-                                    <script>
-                                        createCaptcha();
-                                    </script>
+    <div class="awal row me-0 align-items-center">
+        <div class="awal__content col-md-6 col-12 bgwhite d-flex justify-content-center align-items-center">
+            <div class="p-3 py-5 p-md-5">
+                <div class="header text-center">
+                    <h3 class="black fw-bold">Daftar</h3>
+                    <h6 class="grey mt-2">Silahkan buat akun dengan mengisi data dibawah ini
+                    </h6>
+                    <?= view('Myth\Auth\Views\_message_block') ?>
+                </div>
+                <div class="content">
+                    <form action="<?= route_to('register') ?>" method="post">
+                        <?= csrf_field() ?>
+                        <div class="mt40">
+                            <label for="email">Email</label>
+                            <input class=" form-control mt-2 <?php if (session('errors.email')) : ?>is-invalid<?php endif ?>" placeholder="Masukan email" autofocus type="email" id="email" name="email" aria-describedby="emailHelp" value="<?= old('email') ?>" />
+                        </div>
+                        <div class="mt-3">
+                            <label for="username">Nama pengguna</label>
+                            <input class="form-control mt-2 <?php if (session('errors.username')) : ?>is-invalid<?php endif ?>" placeholder="Masukan nama pengguna" type="text" id="username" name="username" value="<?= old('username') ?>" />
+                        </div>
+                        <div class="mt-3">
+                            <label for="sandi">Kata Sandi</label>
+                            <div class="input__sandi position-relative mt-2">
+                                <input class="form-control <?php if (session('errors.password')) : ?>is-invalid<?php endif ?>" autocomplete="off" placeholder="Masukan kata sandi" type="password" id="password" name="password" autocomplete="off" />
+                                <span class="eye position-absolute"><i class="bi bi-eye-fill" area-hidden="true" onclick="toogle()" id="eye"></i></span>
+                            </div>
+                            <span id="StrengthDisp" class="badge displayBadge mt-2" style="text-align: start !important ;"></span>
+
+                        </div>
+                        <div class="mt-3">
+                            <label for="sandi">Ulangi kata sandi</label>
+                            <div class="input__sandi position-relative mt-2">
+                                <input class="form-control <?php if (session('errors.pass_confirm')) : ?>is-invalid<?php endif ?>" autocomplete="off" placeholder="Ulangi kata sandi" type="password" id="pass_confirm" name="pass_confirm" autocomplete="off" />
+                                <span class="eye2 position-absolute"><i class="bi bi-eye-fill" area-hidden="true" onclick="toogle()" id="eye"></i></span>
+                            </div>
+                        </div>
+                        <div class="mt-3 captcha__section">
+                            <label for="captcha">Captcha</label>
+                            <div class="d-flex justify-content-between align-items-center mt-2">
+                                <div class="input w-50">
+                                    <input class="form-control" type="text" name="reCaptcha" id="reCaptcha" placeholder="Masukkan captcha" />
+                                </div>
+                                <div class="captcha__content w-50 ms-2 position-relative">
+                                    <div id="captcha" class="captcha form-control">
+                                        <script>
+                                            createCaptcha();
+                                        </script>
+                                    </div>
+                                    <div class="ubah__captcha position-absolute">
+                                        <a href="#" onclick="createCaptcha()" class="fs14 text-white"><i class="fa-solid fa-arrow-rotate-right"></i></a>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="input">
-                                <input class="daftar__input" type="text" name="reCaptcha" id="reCaptcha" placeholder="Masukkan captcha" />
-                            </div>
-                        </div>
-                        <div class="restart mt10">
-                            <a href="#" onclick="createCaptcha()" class="fs14 blue">Ubah kode captcha</a>
-                        </div>
-
-
-                        <div id="errCaptcha" class="errmsg mt10 mb10"></div>
-                        <input hidden type="text" name="" id="hasilCaptcha">
-                        <!-- <button class="btn btn-primary fs14" type="button" onclick="validateCaptcha()">Cek
+                            <div id="errCaptcha" class="errmsg mt10 mb10"></div>
+                            <input hidden type="text" name="" id="hasilCaptcha">
+                            <!-- <button class="btn btn-primary fs14" type="button" onclick="validateCaptcha()">Cek
                             captcha</button> -->
-                    </div>
-                    <div class="mt40">
-                        <div class="check__setuju d-flex align-item-center">
-                            <input class="" type="checkbox" value="" id="flexCheckDefault" />
-                            <label class="form-check-label ms-2" for="flexCheckDefault">
-                                Saya setuju dengan peraturan layanan
-                            </label>
                         </div>
-                    </div>
-                    <div class="daftar__button mt40">
-                        <button type="submit" id="submit_daftar" class="fs14">Daftar</button>
-                    </div>
-
+                        <div class="mt40 form-check ceklis">
+                            <input type="checkbox" class="form-check-input" id="flexCheckDefault" required>
+                            <label class="form-check-label" for="flexCheckDefault">Saya setuju dengan peraturan layanan</label>
+                        </div>
+                        <div class="daftar__button mt40">
+                            <button type="submit" id="submit_login" class="btn btn-primary shadow-none fs14 btn__blue">Masuk</button>
+                        </div>
+                    </form>
                     <div class="mt40">
-                        <p>
+                        <p class="fs16">
                             Sudah punya akun?
-                            <span><a href="<?= route_to('login') ?>" class="fw-bold blue">Masuk</a></span>
+                            <a href="<?= route_to('login') ?>" class="fw-bold blue fs16">Masuk</a>
                         </p>
                     </div>
+                </div>
             </div>
         </div>
-        <div class="daftar__gambar">
+        <div class="awal__gambar besar col-md-6 col-12 px-4 bgblue align-items-center justify-content-center">
+            <img src="<?= base_url('assets/img/gambar-login.svg'); ?>" alt="Gambar Masuk">
         </div>
     </div>
-    <!-- End main section -->
 </body>
 <script src="<?php base_url() ?>/assets/js/script.js"></script>
 <script src="<?php base_url() ?>/assets/js/indicatorPass.js"></script>

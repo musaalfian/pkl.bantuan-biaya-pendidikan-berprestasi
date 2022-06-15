@@ -4,16 +4,19 @@
 /* Variabel */
 :root {
   --biru: #006AC2;
+  --biru2: rgb(0, 86, 174);
   --orange: #f19422;
+  --orange2: rgb(221, 128, 14);
   --light: #fdfcff;
+  --light2: rgb(235, 235, 235);
   --abu: #f6f6f6;
   --abu2: #F8F8FF;
   --merah:#E50000;
   --ungu:#FB05E2;
   --black:#140e10;
+  --max: max-content;
 }
 /* End variabel */
-
 /* Main style */
 * {
   margin: 0;
@@ -252,6 +255,37 @@ p {
 }
 /* End background color */
 
+/* Button */
+.btn__orange {
+  border-color: var(--orange2) !important;
+}
+.btn__blue {
+  border-color: var(--blue2) !important;
+}
+.btn__white:hover {
+  background-color: var(--light2) !important;
+  color: var(--black);
+}
+.btn__white:focus {
+  color: var(--black);
+  box-shadow: 0 0 0 0.25rem rgb(235, 235, 235, .5) !important;
+}
+.btn__orange:hover {
+  background-color: var(--orange2) !important;
+  border-color: var(--orange2) !important;
+}
+.btn__orange:focus {
+  box-shadow: 0 0 0 0.25rem rgb(221, 128, 14, .3) !important;
+}
+.btn__blue:hover {
+  background-color: var(--biru2) !important;
+  border-color: var(--biru) !important;
+}
+.btn__blue:focus {
+  box-shadow: 0 0 0 0.25rem rgb(0, 86, 174, .3) !important;
+}
+/* End button */
+
 /* Etc */
 .btn:hover{
   transition: 0.3s;
@@ -378,7 +412,6 @@ select {
   outline: none;
   border: none;
   padding: 5px 10px;
-  margin-top: 5px;
   border-radius: 10px !important;
 }
 label {
@@ -388,7 +421,6 @@ label {
 small{
   font-size: 12px;
 }
-
 /* .daftarbeasiswa small {
   color: var(--biru);
   display: block;
@@ -441,6 +473,8 @@ small{
   background-color: #E9F0F5;
 }
 
+
+
 /******************************************/
 /*                  USER                  */
 /******************************************/
@@ -452,32 +486,24 @@ small{
 }
 
 /* Kiri */
-.awal {
-  display: inline !important;
-}
 .awal, .awal__content, .awal__gambar {
   min-height: 100vh;
 }
-.awal .tagline .daftar button {
-  border-color: var(--orange);
-}
-.awal .tagline .daftar button:hover {
-  border-color: var(--orange);
-}
-.awal .info__lainnya button:hover {
-  color: var(--black);
-}
-.awal .info__lainnya button:focus {
-  color: var(--black);
-}
+
 
 /* Kanan */
-.awal, .awal__gambar {
+.awal .awal__gambar {
   display: none;
 }
 .awal__gambar img {
-  width: 100%;
-  height: 100%;
+  max-width: 100%;
+  min-height: 112vh;
+}
+.awal__gambar.besar img {
+  min-height: 143vh;
+}
+.awal__gambar.gambar__sandi img {
+  min-height: 100vh;
 }
 
 .bg-root{
@@ -495,27 +521,35 @@ small{
 }
 
 /*================ Masuk =================*/
+/* Kata sandi */
+.awal .input__sandi span {
+  top: 10%;
+  right: 5%;
+}
+.awal .input__sandi i {
+  color: var(--black);
+}
 /* Captcha */
 .captcha {
-  font-family: "Comic Sans MS", cursive, sans-serif;
-  font-style: italic;
-  font-weight: bold;
-  font-size: 14px;
-  border-radius: 0;
-  padding: 10px 10px;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
   text-decoration: line-through;
-  color: black;
-  background-color: white;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid var(--orange);
+  background-color: var(--orange);
+  border-radius: 10px;
 }
-.captcha__section input {
-  margin-top: 0 !important;
-  font-size: 14px !important;
+.ubah__captcha {
+  top: 20%;
+  right: 5%;
 }
-.captcha__content {
-  width: 40%;
-}
-.restart a {
-  text-decoration: none;
+.awal__content .content .ceklis input {
+  border-radius: .25em !important;
+  padding: 0;
 }
 .errmsg {
   color: red;
@@ -677,12 +711,6 @@ small{
   width: 20px;
 }
 
-.daftar__input {
-  background-color: white;
-  padding: 10px 10px;
-  margin-top: 10px;
-}
-
 .daftar__button button {
   background-color: var(--biru);
   color: white;
@@ -692,11 +720,11 @@ small{
 }
 
 ::-webkit-input-placeholder {
-  color: var(--abu2);
+  color: lightslategray;
 }
-:focus::-webkit-input-placeholder {
+/* :focus::-webkit-input-placeholder {
   opacity: .5;
-}
+} */
 
 /* Form sma */
 .alamat textarea{
@@ -918,9 +946,6 @@ tr {
 .sidebar__admin a {
   font-size: 16px !important;
 }
-.fa-solid{
-  font-size: 25px;
-}
 .fa-circle-question{
   color: rgb(247, 215, 119);
 }
@@ -949,33 +974,10 @@ tr {
 /*               RESPONSIVES               */
 /*******************************************/
 
-@media (min-width: 992px) {
-  .jalur_beasiswa .col-lg-4 {
-    width: 30% !important;
-  }
 
-  /* navbar */
-  .nav-item {
-    /* align-self: center !important; */
-    margin-right: 10px;
-  }
-  .nav__icon {
-    margin-right: 0;
-  }
-
-  /*================ Halaman awal =================*/
-  .awal {
-    display: flex;
-  }
-  .awal, .awal__gambar {
-    display: block;
-    min-height: 100vh;
-  }
-}
-
-@media (max-width: 991px) {
+/* @media (max-width: 991px) { */
   /* login */
-  .login__section {
+  /* .login__section {
     display: inline !important;
   }
   .login__section .daftar__gambar {
@@ -986,44 +988,11 @@ tr {
   }
   .halaman__awal__content .gambar {
     display: none;
-  }
+  } */
   
-}
+/* } */
 
-@media (min-width: 768px) {
-  /* kumpulan informasi */
-  .col-md-4 {
-    width: 30% !important;
-  }
 
-  /* detail informasi */
-  .detail__info__section .col-md-4 {
-    margin-top: 0px;
-  }
-  .daftar__card{
-    min-width: 550px !important;
-  }
-
-  /*================ Halaman awal =================*/
-  .awal {
-    display: flex !important;
-  }
-  .awal .awal__content {
-    width: 50% !important;
-  }
-  .awal .awal__gambar {
-    display: flex;
-  }
-  .awal h6 {
-    font-size: 20px;
-  }
-  .awal h4 {
-    font-size: 32px !important;
-  }
-  .awal button {
-    font-size: 18px;
-  }
-}
 
 @media (max-width: 767px) {
   /************************************/
@@ -1043,8 +1012,9 @@ tr {
   }
 }
 
+
 /*=============== phone view ===============*/
-@media (max-width: 576px) {
+/* @media (max-width: 576px) {
   nav .logo h4 {
     display: none !important;
   }
@@ -1092,22 +1062,17 @@ tr {
 
 
   /* login */
-  .daftar__card {
+  /* .daftar__card {
     padding: 50px 30px;
-  }
+  } */
 
   /* halaman awal */
-  .halaman__awal__content .btn__lainnya {
+  /* .halaman__awal__content .btn__lainnya {
     margin-bottom: 10px;
-  }
-}
+  } */
+/* } */ 
 
-/* min */
-@media (min-width: 577px) {
-  .kotaklogin {
-    width: 600px;
-  }
-}
+
 
 @media (min-width: 375px) {
   /*================ Template admin =================*/
@@ -1126,4 +1091,77 @@ tr {
   .wraper nav {
     width: 900px !important;
   }
+}
+
+/* Medium */
+@media (min-width: 576px) {
+  .kotaklogin {
+    width: 600px;
+  }
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+  /* kumpulan informasi */
+  .col-md-4 {
+    width: 30% !important;
+  }
+
+  /* detail informasi */
+  .detail__info__section .col-md-4 {
+    margin-top: 0px;
+  }
+  .daftar__card{
+    min-width: 550px !important;
+  }
+
+  /*================ Halaman awal =================*/
+  /* Font */
+  .awal h6 {
+    font-size: 16px;
+  }
+  .awal h4 {
+    font-size: 24px !important;
+  }
+  .awal button {
+    font-size: 16px;
+  }
+  /* End font */
+
+  /* Display */
+  .awal .awal__gambar {
+    display: flex !important;
+  }
+}
+
+/* Large */
+@media (min-width: 992px) {
+  .jalur_beasiswa .col-lg-4 {
+    width: 30% !important;
+  }
+
+  /* navbar */
+  .nav-item {
+    /* align-self: center !important; */
+    margin-right: 10px;
+  }
+  .nav__icon {
+    margin-right: 0;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1200px) {
+  /*================ Halaman awal =================*/
+  /* Font */
+  .awal h6 {
+    font-size: 16px;
+  }
+  .awal h4 {
+    font-size: 32px !important;
+  }
+  .awal button {
+    font-size: 16px;
+  }
+  /* End font */
 }

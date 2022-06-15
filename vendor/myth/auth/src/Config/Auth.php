@@ -43,7 +43,8 @@ class Auth extends BaseConfig
 		'register'		=> '\App\Views\Login\daftar',
 		// 'forgot'		  => 'Myth\Auth\Views\forgot',
 		'forgot'		  => '\App\Views\Login\lupa_password',
-		'reset'		   => 'Myth\Auth\Views\reset',
+		// 'reset'		   => 'Myth\Auth\Views\reset',
+		'reset'		   => '\App\Views\Login\ganti-sandi',
 		'emailForgot'	 => 'Myth\Auth\Views\emails\forgot',
 		'emailActivation' => 'Myth\Auth\Views\emails\activation',
 	];
