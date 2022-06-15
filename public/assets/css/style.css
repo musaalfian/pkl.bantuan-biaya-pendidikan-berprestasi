@@ -866,14 +866,20 @@ footer {
 
 .active-menu{
   background-color: white !important;
-  color: #000000 !important;
+  /* color: #000000 !important; */
+  color: var(--orange) !important;
+  font-weight: 800 !important;
   text-decoration: none !important;
+  border-radius: 10px;
+
 }
 .menu:hover {
   background-color: white;
+  border-radius: 10px;
 }
 .menu:hover a {
-  color: #000000;
+  /* color: #000000; */
+  color: var(--orange);
 }
 .menu a {
   color: white;
