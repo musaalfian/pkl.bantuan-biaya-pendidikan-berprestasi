@@ -54,7 +54,8 @@
                             <tr>
                                 <td>Jenis Kelamin</td>
                                 <td>:</td>
-                                <td><?= ($detail_pendaftar['jenis_kelamin'] == 'L') ? 'Laki - laki' : 'Perempuan'; ?></td>
+                                <td><?= ($detail_pendaftar['jenis_kelamin'] == 'L') ? 'Laki - laki' : 'Perempuan'; ?>
+                                </td>
                                 <td>
                                     <div class="input-group mb-3">
                                         <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
@@ -695,5 +696,20 @@
         </div>
     </div>
 </div>
+<script>
+    // pesan CKEditor
+    ClassicEditor
+        .create(document.querySelector('#pesan'), {
+            removePlugins: ['Heading', 'Link', 'CKFinder'],
+            toolbar: ['bold', 'italic', 'bulletedList', 'numberedList']
+        })
+        .then(newEditor => {
+            console.log(newEditor);
+            editor = newEditor;
+        })
+        .catch(error => {
+            console.error(error);
+        });
+</script>
 <!-- end main section -->
 <?= $this->endSection(); ?>

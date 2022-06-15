@@ -337,7 +337,7 @@
                         Simpan
                     </button>'; ?>
                             <?php if ($identitas['id_status_peserta'] == 1) : ?>
-                            <a <?= ($keluarga != null) ? 'href="' . base_url() . '/siswa/tambah_lampiran_calon_siswa/' .
+                            <a <?= ($keluarga != null) ? 'href="' . base_url() . '/siswa/tambah_lampiran_siswa/' .
                                         $identitas["no_induk"] . '"' : 'data-bs-toggle="modal" data-bs-target="#selanjutnya_modal"' ?>
                                 class="btn btn-primary text-white fs18 px-4 py-2">
                                 Selanjutnya</a>

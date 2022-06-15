@@ -235,7 +235,7 @@ class Siswa extends BaseController
             'prestasi_2' => $this->request->getFile('scan_prestasi_2'),
             'prestasi_3' => $this->request->getFile('scan_prestasi_3'),
         ];
-        // dd($scan_prestasi['prestasi_2']);
+        // dd($kategori_1);
         if ($kategori_2 == 'hafidz' || $kategori_2 == 'lainnya') {
             if (!$this->validate([
                 'scan_prestasi_2' => 'uploaded[scan_prestasi_2]|max_size[scan_prestasi_2,2048]|mime_in[scan_prestasi_2,application/pdf]',
@@ -339,12 +339,12 @@ class Siswa extends BaseController
                         'tingkat' => null,
                         'juara' => null,
                     ]);
-                } else if ($this->request->getVar('tingkat_' . $i) != null) {
+                } else if ($this->request->getVar('kategori_' . $i) == 'perlombaan') {
                     $this->MPrestasi->insert([
                         'file_prestasi' => $nama_scan_prestasi[$i - 1],
                         'nama_prestasi' => $this->request->getVar('nama_prestasi_' . $i),
                         'tahun_prestasi' => $this->request->getVar('tahun_prestasi_' . $i),
-                        'kategori' => "perlombaan",
+                        'kategori' => $this->request->getVar('kategori_' . $i),
                         'tingkat' => $this->request->getVar('tingkat_' . $i),
                         'juara' => $this->request->getVar('juara_' . $i),
                         'no_induk' => $no_induk
@@ -555,6 +555,9 @@ class Siswa extends BaseController
             'menerima_bantuan_dari' => $menerima_bantuan,
 
         ]);
+
+        // merubah no induk terbaru
+        $no_induk = $input_no_induk;
 
         /*******************    KELUARGA    ********************/
         $keluarga = $this->MKeluarga->find_keluarga_noinduk($no_induk)->getFirstRow('array');

@@ -374,9 +374,10 @@ class Calon_mhs extends BaseController
                         'tingkat' => null,
                         'juara' => null,
                     ]);
-                } else if ($this->request->getVar('tingkat_' . $i) != null) {
+                } else if ($this->request->getVar('kategori_' . $i) == 'perlombaan') {
                     $this->MPrestasi->insert([
                         'file_prestasi' => $nama_scan_prestasi[$i - 1],
+                        'kategori' => $this->request->getVar('kategori_' . $i),
                         'nama_prestasi' => $this->request->getVar('nama_prestasi_' . $i),
                         'tahun_prestasi' => $this->request->getVar('tahun_prestasi_' . $i),
                         'tingkat' => $this->request->getVar('tingkat_' . $i),
@@ -623,8 +624,9 @@ class Calon_mhs extends BaseController
             'alamat_pt' => $this->request->getVar('alamat_pt'),
             'pernah_menerima_bantuan' => $this->request->getVar('pernah_menerima_bantuan'),
             'menerima_bantuan_dari' => $menerima_bantuan,
-
         ]);
+        // merubah no induk terbaru
+        $no_induk = $input_no_induk;
 
         /*******************    KELUARGA    ********************/
         $keluarga = $this->MKeluarga->find_keluarga_noinduk($no_induk)->getFirstRow('array');
@@ -649,7 +651,7 @@ class Calon_mhs extends BaseController
         ])) {
             return redirect()->to('calon_mhs/edit_calon_mhs/' . $no_induk)->withInput();
         }
-        // dd($no_induk);
+        // dd($keluarga['id_keluarga']);
         // update data keluarga ke database
         $this->MKeluarga->update($keluarga['id_keluarga'], [
             'nama_ayah' => $this->request->getVar('nama_ayah'),
@@ -824,7 +826,7 @@ class Calon_mhs extends BaseController
                     } else if ($this->request->getVar('kategori_' . $i) == 'perlombaan') {
                         $this->MPrestasi->insert([
                             'file_prestasi' => $nama_scan_prestasi[$i - 1],
-                            'kategori' => "perlombaan",
+                            'kategori' => $this->request->getVar('kategori_' . $i),
                             'nama_prestasi' => $this->request->getVar('nama_prestasi_' . $i),
                             'tahun_prestasi' => $this->request->getVar('tahun_prestasi_' . $i),
                             'tingkat' => $this->request->getVar('tingkat_' . $i),

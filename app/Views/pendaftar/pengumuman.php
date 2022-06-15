@@ -23,7 +23,8 @@
                     $tanggal_sekarang['mday'] <= 31))
         ) { ?>
         <div class="container bs1 bg-white br20 p50 px50 ">
-            <h3 class="biru">Anda sudah mendaftar, <span class="orange"> pendaftaran bantuan biaya pendidikan berprestasi sedang diproses</span></h3>
+            <h3 class="biru">Anda sudah mendaftar, <span class="orange"> pendaftaran bantuan biaya pendidikan
+                    berprestasi sedang diproses</span></h3>
             <p class="mt-2">Untuk lebih lanjut silahkan tunggu informasi selanjutnya. Terima kasih</p>
             <p class="p-2 bg_ungu bold br10  mt20 mb20">
                 Status pendaftaran : <span><?= $status_pendaftaran['nama_status']; ?></span>
@@ -34,7 +35,7 @@
         <!-- end status final -->
         <!-- btn edit data -->
         <?php if ($identitas['pesan'] != null) : ?>
-        <p class="fs14">Pesan :</p>
+        <p class="fs14 mt40 fw-bold">Pesan :</p>
         <div class="mb20 mt-4 p-3 br10 bg-abu alert alert-danger " role="alert">
             <?= $identitas['pesan']; ?>
         </div>
@@ -71,7 +72,7 @@
                 <span class="d-inline-block">LOLOS</span>
                 seleksi beasiswa
             </h2>
-        </div> 
+        </div>
         <?php } else if ($status_final['id_status_final'] == 2) { ?>
         <div class="p-4 br20 pengumuman_belum_lolos mt40">
             <h2 class="text-white text-center">
@@ -85,7 +86,8 @@
         <?php if ($status_final['id_status_final'] == 1) { ?>
         <?php if ($identitas['no_rek'] == null) : ?>
         <div class="mt40">
-            <h3 class="biru">Segera isi laporan rencana  <span class="orange">penggunaan dana dan nomor rekening</span></h3>
+            <h3 class="biru">Segera isi laporan rencana <span class="orange">penggunaan dana dan nomor rekening</span>
+            </h3>
         </div>
         <?php else : ?>
         <div class="mt40">
@@ -118,8 +120,8 @@
                         <div class="mt15">
                             <label for="no_rek" class="form-label">2. Isi nomer rekening </label>
                             <small class="text-red ms-3">*Wajib diisi</small>
-                            <input type="number" name="no_rek" id="no_rek" class="form-control btn btn-white d-flex ms-3"
-                                value="<?= old('no_rek'); ?>" required>
+                            <input type="number" name="no_rek" id="no_rek"
+                                class="form-control btn btn-white d-flex ms-3" value="<?= old('no_rek'); ?>" required>
                             <div class="invalid-feedback ms-3">
                                 Nomer rekening wajib diisi
                             </div>
@@ -141,8 +143,8 @@
                                 (noinduk)_scan_bpd, Contoh: 240601191_scan_bpd</small> <br>
                             <small class="text-red ms-3">*Wajib diisi dan tidak lebih dari 2 MB</small>
                             <div class="mt15">
-                                <input required type="File" id="rek_bpd" class="form-control btn btn-white ms-3" name="rek_bpd"
-                                    accept="application/pdf">
+                                <input required type="File" id="rek_bpd" class="form-control btn btn-white ms-3"
+                                    name="rek_bpd" accept="application/pdf">
                                 <div class="invalid-feedback ms-3">
                                     File tidak boleh kosong dan tidak boleh lebih dari 2 MB
                                 </div>

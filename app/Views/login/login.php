@@ -20,6 +20,9 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="/assets/css/style.css" />
 
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
     <!-- Capctha -->
     <script src="<?php base_url() ?>/assets/js/captcha.js"></script>
 
@@ -93,7 +96,8 @@
                         </div>
                         <div class="mt40 form-check ceklis">
                             <input type="checkbox" class="form-check-input" id="flexCheckDefault" required>
-                            <label class="form-check-label" for="flexCheckDefault">Saya setuju dengan peraturan layanan</label>
+                            <label class="form-check-label" for="flexCheckDefault">Saya setuju dengan peraturan
+                                layanan</label>
                         </div>
                         <div class="daftar__button mt40">
                             <button type="submit" id="submit_login" class="btn btn-primary shadow-none fs14 btn__blue">Masuk</button>
@@ -122,10 +126,8 @@
         </div>
     </div>
 </body>
+<script src="<?php base_url() ?>/assets/js/script.js"></script>
 <script>
-    // $(document).ready(function() {
-    //     $("#submit_login").prop("disabled", true);
-    // });
     $('form').on('submit', function(e) {
         e.preventDefault();
         validateCaptcha();
@@ -134,6 +136,5 @@
         }
     });
 </script>
-<script src="<?php base_url() ?>/assets/js/script.js"></script>
 
 </html>

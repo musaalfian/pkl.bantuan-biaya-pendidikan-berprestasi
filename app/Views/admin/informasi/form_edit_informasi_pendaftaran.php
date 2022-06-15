@@ -4,7 +4,7 @@
 <!-- Main section-->
 <div class=" bg-abu p40">
     <div class=" admin-content mx-auto">
-        <h3 class="mb20 biru">Edit  <span class="orange">Informasi Pendaftaran</span></h3>
+        <h3 class="mb20 biru">Edit <span class="orange">Informasi Pendaftaran</span></h3>
         <form action="<?= base_url(); ?>/admin_informasi/simpan_edit_informasi_pendaftaran" method="post" class="needs-validation" novalidate>
             <div class="row">
                 <div class="mb20">
@@ -130,7 +130,7 @@
         .catch(error => {
             console.error(error);
         });
-    // persyaratan CKEditor
+    // jadwal kegiatan CKEditor
     ClassicEditor
         .create(document.querySelector('#jadwal_kegiatan'), {
             removePlugins: ['Heading', 'Link', 'CKFinder'],
@@ -143,7 +143,7 @@
         .catch(error => {
             console.error(error);
         });
-    // persyaratan CKEditor
+    // jadwal pelaksanaan CKEditor
     ClassicEditor
         .create(document.querySelector('#jadwal_pelaksanaan'), {
             removePlugins: ['Heading', 'Link', 'CKFinder'],
@@ -156,7 +156,7 @@
         .catch(error => {
             console.error(error);
         });
-    // persyaratan CKEditor
+    // proses seleksi CKEditor
     ClassicEditor
         .create(document.querySelector('#proses_seleksi'), {
             removePlugins: ['Heading', 'Link', 'CKFinder'],
