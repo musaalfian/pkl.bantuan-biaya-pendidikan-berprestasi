@@ -17,7 +17,7 @@ use App\Models\MStatusPeserta;
 use App\Models\MTransportasi;
 use App\Models\MInformasiTerbaru;
 
-class Admin_detail_pendaftaran extends BaseController
+class admin_detail_pendaftaran extends BaseController
 {
     protected $MAgama;
     protected $MFile;
@@ -60,7 +60,7 @@ class Admin_detail_pendaftaran extends BaseController
         $status_pendaftaran = $this->MStatusPendaftaran->findAll();
         // $status_pembayaran = $this->MStatusPembayaran->findAll();
         $status_final = $this->MStatusFinal->findAll();
-        dd($prestasi);
+        // dd($prestasi);
         foreach ($prestasi as $prestasi_penilaian) {
             /* hafidz lgsung diterima dengan nilai 200*/
             if ($prestasi_penilaian['kategori'] == 'hafidz') {
@@ -204,7 +204,7 @@ class Admin_detail_pendaftaran extends BaseController
             $j++;
         }
         session()->setFlashdata('pesan-edit-nilai-pendaftar', 'Data nilai prestasi berhasil diubah.');
-        return redirect()->to('Admin_Detail_Pendaftaran/detail_pendaftar/' . $no_induk);
+        return redirect()->to('admin_detail_pendaftaran/detail_pendaftar/' . $no_induk);
     }
     public function simpan_verifikasi($no_induk)
     {
@@ -244,6 +244,6 @@ class Admin_detail_pendaftaran extends BaseController
         // dd($update_identitas);
         $this->MIdentitas->update($no_induk, $update_identitas);
         session()->setFlashdata('pesan-edit-verifikasi-pendaftar', 'Data pendaftar berhasil diubah.');
-        return redirect()->to('Admin_Detail_Pendaftaran/detail_pendaftar/' . $no_induk);
+        return redirect()->to('admin_detail_pendaftaran/detail_pendaftar/' . $no_induk);
     }
 }

@@ -8,7 +8,11 @@
         <form action="<?= base_url(); ?>/mahasiswa/simpan_tambah_identitas_mhs" method="post" class="needs-validation" novalidate>
             <h3 class="mb20 biru fw-bold">Form Pendaftaran Beasiswa <span class="orange">Mahasiswa</span></h3>
             <!-- alert identitas -->
-            <?php if (session()->getFlashdata('pesan-tambah-identitas-calon-mhs')) : ?>
+            <?php
+
+            use phpDocumentor\Reflection\PseudoTypes\LowercaseString;
+
+            if (session()->getFlashdata('pesan-tambah-identitas-calon-mhs')) : ?>
                 <div class="alert alert-success" role="alert">
                     <?= session()->getFlashdata('pesan-tambah-identitas-calon-mhs'); ?>
                 </div>
@@ -128,17 +132,16 @@
                             aria-label="Default select example" name="pernah_menerima_bantuan">
                             <option selected hidden></option> -->
                         <div class="form-check">
-
                             <?php foreach ($opsional as $opsional) : ?>
-                                <input required type="radio" name="pernah_menerima_bantuan" id="pernah_menerima_bantuan_<?= $opsional; ?>" <?= ($identitas != null) ? 'disabled' : ''; ?> <?php if ($identitas != null) {
-                                                                                                                                                                                                if ($identitas['pernah_menerima_bantuan'] == $opsional) {
-                                                                                                                                                                                                    echo 'checked';
-                                                                                                                                                                                                };
-                                                                                                                                                                                            } else {
-                                                                                                                                                                                                if (old('pernah_menerima_bantuan') == $opsional) {
-                                                                                                                                                                                                    echo 'checked';
-                                                                                                                                                                                                }
-                                                                                                                                                                                            } ?> value="<?= $opsional; ?>">
+                                <input required class="form-check-input" type="radio" name="pernah_menerima_bantuan" id="pernah_menerima_bantuan_<?= $opsional; ?>" <?= ($identitas != null) ? 'disabled' : ''; ?> <?php if ($identitas != null) {
+                                                                                                                                                                                                                        if ($identitas['pernah_menerima_bantuan'] == $opsional) {
+                                                                                                                                                                                                                            echo 'checked';
+                                                                                                                                                                                                                        };
+                                                                                                                                                                                                                    } else {
+                                                                                                                                                                                                                        if (old('pernah_menerima_bantuan') == $opsional) {
+                                                                                                                                                                                                                            echo 'checked';
+                                                                                                                                                                                                                        }
+                                                                                                                                                                                                                    } ?> value="<?= $opsional; ?>">
                                 <label class="form-check-label" for="pernah_menerima_bantuan_<?= $opsional; ?>">
                                     <?= ucfirst($opsional); ?>
                                 </label>
@@ -185,7 +188,7 @@
                                                 echo 'selected';
                                             }
                                         } ?> value="<?= $kecamatan['id_kecamatan']; ?>">
-                                    <?= $kecamatan['nama_kecamatan']; ?>
+                                    <?= ucfirst(strtolower($kecamatan['nama_kecamatan'])); ?>
                                 </option>
                             <?php endforeach; ?>
                         </select>
