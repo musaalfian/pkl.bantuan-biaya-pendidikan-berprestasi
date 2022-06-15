@@ -543,7 +543,7 @@ small{
 }
 .informasi__awal .info__lainnya:hover {
   box-shadow: rgba(0, 86, 174, .2) 0px 8px 24px;
-  /* transition: .4s; */
+  transition: .4s;
 }
 .informasi__awal .info__lainnya .tanggal p {
   font-size: 12px;

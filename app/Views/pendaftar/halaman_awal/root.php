@@ -42,8 +42,8 @@
                     </h4>
                     <div class="d-flex mt40">
                         <div class="daftar">
-                            <a href="/register" class="me-2">
-                                <button class="btn btn-primary bgorange shadow-none fs14 text-white btn__orange">Daftar</button>
+                            <a href="/user/index" class="me-2">
+                                <button class="btn btn-primary bgorange shadow-none fs14 text-white btn__orange">Masuk</button>
                             </a>
                         </div>
                         <div class="informasi">
