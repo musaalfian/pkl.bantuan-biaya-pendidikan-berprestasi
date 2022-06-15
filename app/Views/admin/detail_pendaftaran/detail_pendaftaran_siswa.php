@@ -403,7 +403,7 @@
                 <div class="m20">
                     <h4>D. Prestasi </h4>
                 </div>
-                <form action="<?= base_url(); ?>/Admin_Detail_Pendaftaran/simpan_penilaian/<?= $detail_pendaftar['no_induk']; ?>" method="post">
+                <form action="<?= base_url(); ?>/admin_detail_pendaftaran/simpan_penilaian/<?= $detail_pendaftar['no_induk']; ?>" method="post">
                     <?php $i = 1; ?>
                     <?php foreach ($prestasi as $prestasi) : ?>
                         <div class="row mb20">
@@ -616,7 +616,7 @@
                 </div>
             </div>
             <!-- end lampiran dokumen -->
-            <form action="<?= base_url(); ?>/Admin_Detail_Pendaftaran/simpan_verifikasi/<?= $detail_pendaftar['no_induk']; ?>" method="POST">
+            <form action="<?= base_url(); ?>/admin_detail_pendaftaran/simpan_verifikasi/<?= $detail_pendaftar['no_induk']; ?>" method="POST">
                 <div class="row mb20">
 
                     <div class="col-lg-6 col-12">

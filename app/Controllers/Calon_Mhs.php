@@ -58,6 +58,7 @@ class Calon_mhs extends BaseController
         session();
         $validation = \Config\Services::validation();
         $opsional = ['ya', 'tidak'];
+        // dd($kecamatan);
         $data = [
             'title'     => 'Beasiswa Batang | Daftar Beasiswa Calon Mahasiswa',
             'identitas' => $identitas,
@@ -166,7 +167,7 @@ class Calon_mhs extends BaseController
             'pendidikan'    => $pendidikan,
             'opsional'  => $opsional
         ];
-        return view('/pendaftar/calon_mhs/form_keluarga_calon_mhs', $data);
+        return view('/pendaftar/pendaftaran/form_keluarga', $data);
     }
     public function simpan_tambah_keluarga_calon_mhs($no_induk)
     {
@@ -820,7 +821,7 @@ class Calon_mhs extends BaseController
                             'tingkat' => null,
                             'juara' => null,
                         ]);
-                    } else if ($this->request->getVar('tingkat_' . $i) != null) {
+                    } else if ($this->request->getVar('kategori_' . $i) == 'perlombaan') {
                         $this->MPrestasi->insert([
                             'file_prestasi' => $nama_scan_prestasi[$i - 1],
                             'kategori' => "perlombaan",

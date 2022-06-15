@@ -3,10 +3,10 @@
 <?= $this->section('content'); ?>
 <!-- Page content-->
 <div class=" bg-abu p40">
-    <div class=" admin-content p-4 mx-auto">
-        <h3>Data Penerima Beasiswa Mahasiswa</h3>
+    <div class=" admin-content  mx-auto">
+        <h3 class="biru">Data Penerima Beasiswa <span class="orange">Mahasiswa</span> </h3>
 
-        <div class="p-4 bg-white mt20 ">
+        <div class="p-4 br20 bg-white mt20 ">
             <p>Edit status pembayaran keseluruhan : <a href="" data-bs-toggle="modal"
                     data-bs-target="#ubahStatusPembayaranKeseluruhan">
                     Ubah
@@ -153,7 +153,7 @@
                 <form
                     action="<?php base_url() ?>/Admin_daftar_penerima/ubah_status_pembayaran/<?= $data['no_induk'] ?>/3"
                     method="POST">
-                    <select class="form-select mt-2" id="statusPembayaran" name="statusPembayaran">
+                    <!-- <select class="form-select mt-2" id="statusPembayaran" name="statusPembayaran">
                         <option selected hidden>---</option>
                         <?php foreach ($status_pembayaran as $status_pembayarans) : ?>
                         <option
@@ -161,7 +161,16 @@
                             name="statusPembayaran" value="<?= $status_pembayarans['id_status_pembayaran']; ?>">
                             <?= $status_pembayarans['nama_status_pembayaran']; ?></option>
                         <?php endforeach ?>
-                    </select>
+                    </select> -->
+                    <!-- <select class="form-select mt-2" id="statusPembayaran" name="statusPembayaran">
+                        <option selected hidden>---</option> -->
+                        <?php foreach ($status_pembayaran as $status_pembayarans) : ?>
+                        <input type="radio"
+                            <?= ($status_pembayarans['id_status_pembayaran'] == $data['id_status_pembayaran']) ? 'selected' : ''; ?>
+                            name="statusPembayaran" value="<?= $status_pembayarans['id_status_pembayaran']; ?>">
+                            <?= $status_pembayarans['nama_status_pembayaran']; ?></input> <br>
+                        <?php endforeach ?>
+                    <!-- </select> -->
                     <div class="modal-footer">
 
                         <button type="submit" class="btn btn-primary">Simpan</button>

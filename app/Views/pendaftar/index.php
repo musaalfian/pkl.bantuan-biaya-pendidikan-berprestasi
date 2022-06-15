@@ -27,13 +27,13 @@ $tanggal_pendaftaran_tanggal = date_format($tanggal, 'd');
 
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img src="<?= base_url(); ?>/assets/img/poster.png" class="d-block w-100 br10" alt="..." />
+                            <img src="<?= base_url(); ?>/assets/img/karate.png" class="d-block w-100 br10" alt="..." />
                         </div>
                         <div class="carousel-item">
-                            <img src="<?= base_url(); ?>/assets/img/poster.png" class="d-block w-100 br10" alt="..." />
+                            <img src="<?= base_url(); ?>/assets/img/quran2.png" class="d-block w-100 br10" alt="..." />
                         </div>
                         <div class="carousel-item">
-                            <img src="<?= base_url(); ?>/assets/img/poster.png" class="d-block w-100 br10" alt="..." />
+                            <img src="<?= base_url(); ?>/assets/img/paskibra.png" class="d-block w-100 br10" alt="..." />
                         </div>
                     </div>
                     <div class="arrow justify-content-end d-flex mt15">

@@ -3,8 +3,8 @@
 <?= $this->section('content'); ?>
 <!-- Main section-->
 <div class=" bg-abu p40">
-    <div class=" admin-content p-4 mx-auto">
-        <h3 class="mb20">Edit Informasi Terbaru</h3>
+    <div class=" admin-content mx-auto">
+        <h3 class="mb20 biru">Edit <span class="orange">Informasi Terbaru</span> </h3>
         <form
             action="<?= base_url(); ?>/admin_informasi/simpan_edit_informasi_terbaru/<?= $data_informasi_terbaru['id_informasi_terbaru']; ?>"
             method="post" enctype="multipart/form-data">

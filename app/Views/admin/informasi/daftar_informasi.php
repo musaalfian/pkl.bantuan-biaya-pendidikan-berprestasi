@@ -3,7 +3,7 @@
 <?= $this->section('content'); ?>
 <!-- Main Section-->
 <div class=" bg-abu p40">
-    <div class=" admin-content p-4 mx-auto">
+    <div class=" admin-content mx-auto">
         <!-- input tanggal pengumuman -->
         <a href="" class="btn btn-primary mb-4" data-bs-toggle="modal" data-bs-target="#input_tanggal_penting">Input
             tanggal penting</a>
@@ -31,7 +31,7 @@
         </div>
         <!-- end input tanggal pengumuman -->
         <div class="row justify-content-around">
-            <h3 class="col-6 pb20">Daftar Informasi Terbaru </h3>
+            <h3 class="col-6 biru pb20">Daftar <span class="orange">Informasi Terbaru</span>  </h3>
             <div class="col-6 text-end">
                 <button class="btn btn-primary mx-3">
                     <a style="text-decoration: none;" class="text-white"
@@ -56,7 +56,7 @@
         </div>
         <?php endif; ?>
         <!-- end alert informasi terbaru -->
-        <div class="p-4 bg-white mt20 ">
+        <div class="p-4 br20 bg-white mt20 ">
             <table class="table p-4" id="table_data_pendaftaran">
                 <thead>
                     <tr>
@@ -95,9 +95,9 @@
             </table>
         </div>
         <div class="row mt40">
-            <h3 class="col-6 pb20">Daftar Informasi Untuk Halaman Awal </h3>
+            <h3 class="col-6 biru pb20">Daftar Informasi Untuk <span class="orange">Halaman Awal</span>  </h3>
         </div>
-        <div class="p-4 bg-white mt20 ">
+        <div class="p-4 br20 bg-white mt20 ">
             <table class="table p-4" id="table_data_pendaftaran">
                 <thead>
                     <tr>

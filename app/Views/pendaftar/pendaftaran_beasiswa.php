@@ -12,7 +12,7 @@ $tanggal_pendaftaran_tanggal = date_format($tanggal, 'd');
 <!-- Jalur beasiswa -->
 <div class="bg-abu py40">
     <div class="container">
-        <h2 class="text-center">Jalur Beasiswa</h2>
+        <h3 class="text-center biru">Jalur <span class="orange" >Beasiswa</span> </h3>
         <div class="row mt40 justify-content-lg-between justify-content-around jalur_beasiswa">
             <!-- Peserta didik -->
             <div class="card__beasiswa col-lg-4 mb20 mb-lg-0 col-md-5 col-12 border gx-1 p-5 bg-white">
@@ -20,7 +20,7 @@ $tanggal_pendaftaran_tanggal = date_format($tanggal, 'd');
                     <img src="<?= base_url(); ?>/assets/img/tut wuri handayani.png" alt="" />
                 </div>
                 <div class="deskripsi text-center">
-                    <h4 class="mt-5 mb-2">Peserta Didik</h4>
+                    <p class="mt-5 biru fs14 bold mb-2">Peserta Didik</p>
                     <p class="">
                         Beasiswa bagi peserta didik <br />
                         SMA/SMK/MA sederajat
@@ -47,7 +47,7 @@ $tanggal_pendaftaran_tanggal = date_format($tanggal, 'd');
                     <img src="<?= base_url(); ?>/assets/img/tut wuri handayani.png" alt="" />
                 </div>
                 <div class="deskripsi text-center">
-                    <h4 class="mt-5 mb-2">Calon Mahasiwa</h4>
+                    <p class="mt-5  biru fs14 bold mb-2">Calon Mahasiwa</p>
                     <p class="">
                         Beasiswa bagi peserta didik lulusan SMA/SMK/MA dari daerah
                     </p>
@@ -74,7 +74,7 @@ $tanggal_pendaftaran_tanggal = date_format($tanggal, 'd');
                     <img src="<?= base_url(); ?>/assets/img/tut wuri handayani.png" alt="" />
                 </div>
                 <div class="deskripsi text-center">
-                    <h4 class="mt-5 mb-2">Mahasiswa</h4>
+                    <p class="mt-5 biru fs14 bold mb-2">Mahasiswa</p>
                     <p class="">
                         Beasiswa bagi mahasiswa <br />
                         dari Kabupaten Batang
@@ -87,7 +87,7 @@ $tanggal_pendaftaran_tanggal = date_format($tanggal, 'd');
                                 $tanggal_sekarang['mday'] >= 1))
                     ) : ?>
                     <?php if ($identitas == null || $identitas['id_status_peserta'] == 3) { ?>
-                    <a class="btn btn-primary d-block mt25"
+                    <a class="btn btn-primary  d-block mt25"
                         href="<?= base_url(); ?>/mahasiswa/tambah_identitas_mhs">Daftar</a>
                     <?php }  ?>
                     <?php endif ?>

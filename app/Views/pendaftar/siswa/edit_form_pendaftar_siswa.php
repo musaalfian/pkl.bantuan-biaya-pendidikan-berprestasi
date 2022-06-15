@@ -4,63 +4,63 @@
 <!-- Form pendaftaran -->
 <div class="bg-abu py40">
     <div class="container">
-        <form action="<?= base_url(); ?>/siswa/simpan_edit_siswa/<?= $identitas['no_induk']; ?>" method="post"
-            enctype="multipart/form-data" class="needs-validation" novalidate>
-            <h2 class="mb40">Ubah Data Pendaftaran</h2>
+        <form action="<?= base_url(); ?>/siswa/simpan_edit_siswa/<?= $identitas['no_induk']; ?>" method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
+            <h3 class="mb20 biru fw-bold">Ubah <span class="orange">Data Pendaftaran</span></h3>
             <!-- Btn Ubah data -->
             <h3 class="mb20">A. Identitas Diri</h3>
             <div class="row mt20 mb40">
                 <div class="col-12 col-md-6">
                     <div class="mb20 has-validation">
                         <label for="nama_lengkap" class="form-label">Nama Lengkap </label>
-                        <input type="text"
-                            class="form-control <?= ($validation->hasError('nama_lengkap')) ? 'is-invalid' : ''; ?>"
-                            value="<?= ($identitas != null) ? $identitas['nama_lengkap'] : old('nama_lengkap'); ?>"
-                            name="nama_lengkap" placeholder="" required />
+                        <input type="text" class="form-control <?= ($validation->hasError('nama_lengkap')) ? 'is-invalid' : ''; ?>" value="<?= ($identitas != null) ? $identitas['nama_lengkap'] : old('nama_lengkap'); ?>" name="nama_lengkap" placeholder="" required />
                         <div class="invalid-feedback">
                             <?= ($validation->getError('nama_lengkap') == '') ? 'Bagian nama lengkap  wajib diisi' : str_replace('_', ' ', $validation->getError('nama_lengkap')); ?>
                         </div>
                     </div>
                     <!-- end nama lengkap -->
                     <div class="mb20 has-validation">
-                        <label for="jenis_kelamin" class="form-label">Jenis Kelamin </label>
-                        <select class="form-select <?= ($validation->hasError('jenis_kelamin')) ? 'is-invalid' : ''; ?>"
-                            required aria-label="Default select example" name="jenis_kelamin">
-                            <option hidden></option>
-                            <option <?php if ($identitas != null) {
-                                        if ($identitas['jenis_kelamin'] == 'L') {
-                                            echo 'selected';
-                                        };
-                                    } else {
-                                        if (old('jenis_kelamin') == 'L') {
-                                            echo 'selected';
-                                        }
-                                    } ?> value="L">
-                                Laki-laki
-                            </option>
-                            <option <?php if ($identitas != null) {
-                                        if ($identitas['jenis_kelamin'] == 'P') {
-                                            echo 'selected';
-                                        };
-                                    } else {
-                                        if (old('jenis_kelamin') == 'P') {
-                                            echo 'selected';
-                                        }
-                                    } ?> value="P">
+                        <label for="jenis_kelamin" class="form-label">Jenis Kelamin <span class="required-label"></span>
+                        </label>
+                        <!-- radio button opsi jenis kelamin radio -->
+                        <!-- <select required <?= ($identitas != null) ? 'disabled' : ''; ?>
+                            class="form-select <?= ($validation->hasError('jenis_kelamin')) ? 'is-invalid' : ''; ?>"
+                            aria-label="Default select example" name="jenis_kelamin">
+                            <option hidden></option> -->
+                        <div class="form-check">
+                            <input <?= ($identitas != null) ? 'disabled' : ''; ?> required type="radio" class="form-check-input" name="jenis_kelamin" id="L" <?php if ($identitas != null) {
+                                                                                                                                                                    if ($identitas['jenis_kelamin'] == 'L') {
+                                                                                                                                                                        echo 'checked';
+                                                                                                                                                                    };
+                                                                                                                                                                } else {
+                                                                                                                                                                    if (old('jenis_kelamin') == 'L') {
+                                                                                                                                                                        echo 'checked';
+                                                                                                                                                                    }
+                                                                                                                                                                } ?> value="L">
+                            <label class="form-check-label" for="L">
+                                Laki - laki
+                            </label>
+                            <input <?= ($identitas != null) ? 'disabled' : ''; ?> required type="radio" class="form-check-input" name="jenis_kelamin" id="P" <?php if ($identitas != null) {
+                                                                                                                                                                    if ($identitas['jenis_kelamin'] == 'P') {
+                                                                                                                                                                        echo 'checked';
+                                                                                                                                                                    };
+                                                                                                                                                                } else {
+                                                                                                                                                                    if (old('jenis_kelamin') == 'P') {
+                                                                                                                                                                        echo 'checked';
+                                                                                                                                                                    }
+                                                                                                                                                                } ?> value="P">
+                            <label class="form-check-label" for="P">
                                 Perempuan
-                            </option>
-                        </select>
-                        <div class="invalid-feedback">
-                            <?= ($validation->getError('jenis_kelamin') == '') ? 'Bagian jenis kelamin  wajib diisi' : str_replace('_', ' ', $validation->getError('jenis_kelamin')) ?>
+                            </label>
+                            <!-- </select> -->
+                            <div class="invalid-feedback">
+                                <?= ($validation->getError('jenis_kelamin') == '') ? 'Bagian jenis kelamin  wajib diisi' : str_replace('_', ' ', $validation->getError('jenis_kelamin')) ?>
+                            </div>
                         </div>
                     </div>
                     <!-- end jenis kelamin -->
                     <div class="mb20 has-validation">
                         <label for="no_induk" class="form-label">NIK </label>
-                        <input type="number" min="0" max="9999999999999999" name="no_induk" required
-                            class="form-control <?= ($validation->hasError('no_induk')) ? 'is-invalid' : ''; ?>"
-                            value="<?= ($identitas != null) ? $identitas['no_induk'] : old('no_induk'); ?>"
-                            name="no_induk" placeholder="" />
+                        <input type="number" min="0" max="9999999999999999" name="no_induk" required class="form-control <?= ($validation->hasError('no_induk')) ? 'is-invalid' : ''; ?>" value="<?= ($identitas != null) ? $identitas['no_induk'] : old('no_induk'); ?>" name="no_induk" placeholder="" />
                         <div class="invalid-feedback">
                             <?= ($validation->getError('no_induk') == '') ? 'Bagian NIK  wajib diisi' : str_replace('_', ' ', $validation->getError('no_induk')) ?>
                         </div>
@@ -68,10 +68,7 @@
                     <!-- end NIK -->
                     <div class="mb20 has-validation">
                         <label for="no_induk_pelajar" class="form-label"> NISN </label>
-                        <input type="text" maxlength="25" required
-                            class="form-control <?= ($validation->hasError('no_induk_pelajar')) ? 'is-invalid' : ''; ?>"
-                            value="<?= ($identitas != null) ? $identitas['no_induk_pelajar'] : old('no_induk_pelajar'); ?>"
-                            name="no_induk_pelajar" placeholder="" />
+                        <input type="text" maxlength="25" required class="form-control <?= ($validation->hasError('no_induk_pelajar')) ? 'is-invalid' : ''; ?>" value="<?= ($identitas != null) ? $identitas['no_induk_pelajar'] : old('no_induk_pelajar'); ?>" name="no_induk_pelajar" placeholder="" />
                         <div class="invalid-feedback">
                             <?= ($validation->getError('no_induk_pelajar') == '') ? 'Bagian NISN  wajib diisi' : str_replace('_', ' ', $validation->getError('no_induk_pelajar')) ?>
                         </div>
@@ -80,10 +77,7 @@
                     <div class="mb20 has-validation">
                         <label for="ttl" class="form-label">Tempat, Tanggal Lahir
                         </label>
-                        <input type="text"
-                            class="form-control <?= ($validation->hasError('ttl')) ? 'is-invalid' : ''; ?>" required
-                            value="<?= ($identitas != null) ? $identitas['ttl'] : old('ttl'); ?>" name="ttl"
-                            placeholder="" />
+                        <input type="text" class="form-control <?= ($validation->hasError('ttl')) ? 'is-invalid' : ''; ?>" required value="<?= ($identitas != null) ? $identitas['ttl'] : old('ttl'); ?>" name="ttl" placeholder="" />
                         <div class="invalid-feedback">
                             <?= ($validation->getError('ttl') == '') ? 'Bagian tempat, tanggal lahir  wajib diisi' : str_replace('_', ' ', $validation->getError('ttl')) ?>
                         </div>
@@ -91,11 +85,10 @@
                     <!-- end Tempat, Tanggal Lahir -->
                     <div class="mb20 has-validation">
                         <label for="agama" class="form-label">Agama </label>
-                        <select class="form-select <?= ($validation->hasError('agama')) ? 'is-invalid' : ''; ?>"
-                            required aria-label="Default select example" name="agama">
+                        <select class="form-select <?= ($validation->hasError('agama')) ? 'is-invalid' : ''; ?>" required aria-label="Default select example" name="agama">
                             <option selected hidden></option>
                             <?php foreach ($agama as $agama) : ?>
-                            <option <?php if ($identitas != null) {
+                                <option <?php if ($identitas != null) {
                                             if ($identitas['id_agama'] == $agama['id_agama']) {
                                                 echo 'selected';
                                             };
@@ -113,49 +106,49 @@
                     <!-- end agama -->
                     <div class="mb20 has-validation">
                         <label for="anak_ke" class="form-label">Anak Ke </label>
-                        <input type="number" required
-                            class="form-control <?= ($validation->hasError('anak_ke')) ? 'is-invalid' : ''; ?>"
-                            value="<?= ($identitas != null) ? $identitas['anak_ke'] : old('anak_ke'); ?>" name="anak_ke"
-                            min="1" placeholder="" />
+                        <input type="number" required class="form-control <?= ($validation->hasError('anak_ke')) ? 'is-invalid' : ''; ?>" value="<?= ($identitas != null) ? $identitas['anak_ke'] : old('anak_ke'); ?>" name="anak_ke" min="1" placeholder="" />
                         <div class="invalid-feedback">
                             <?= ($validation->getError('anak_ke') == '') ? 'Bagian anak ke  wajib diisi' : $validation->getError('anak_ke'); ?>
                         </div>
                     </div>
                     <!-- end anak ke -->
 
-                    <div class="mb20">
+                    <div class="mb20 has-validation">
                         <label for="pernah_menerima_bantuan" class="form-label">Apakah Calon Penerima Beasiswa Pernah
                             Menerima Bantuan?
-                        </label>
-                        <select id="pernah_menerima_bantuan"
+                            <span class="required-label"></span></label>
+                        <!-- radio button -->
+                        <!-- <select required id="pernah_menerima_bantuan" <?= ($identitas != null) ? 'disabled' : ''; ?>
                             class="form-select <?= ($validation->hasError('pernah_menerima_bantuan')) ? 'is-invalid' : ''; ?>"
-                            aria-label="Default select example" name="pernah_menerima_bantuan">
-                            <option selected hidden></option>
-                            <?php foreach ($opsional as $opsional_pernah_menerima) : ?>
-                            <option <?php if ($identitas != null) {
-                                            if ($identitas['pernah_menerima_bantuan'] == $opsional_pernah_menerima) {
-                                                echo 'selected';
-                                            };
-                                        } else {
-                                            if (old('pernah_menerima_bantuan') == $opsional_pernah_menerima) {
-                                                echo 'selected';
-                                            }
-                                        } ?> value="<?= $opsional_pernah_menerima; ?>">
-                                <?= ucfirst($opsional_pernah_menerima); ?></option>
+                            aria-label="Default select example" name="pernah_menerima_bantuan">--
+                            <option selected hidden></option> -->
+                        <div class="form-check">
+                            <?php foreach ($opsional as $opsional_pernah_penerima) : ?>
+                                <input required class="form-check-input" <?= ($identitas != null) ? 'disabled' : ''; ?> type="radio" name="pernah_menerima_bantuan" id="pernah_menerima_bantuan_<?= $opsional_pernah_penerima; ?>" <?php if ($identitas != null) {
+                                                                                                                                                                                                                                        if ($identitas['pernah_menerima_bantuan'] == $opsional_pernah_penerima) {
+                                                                                                                                                                                                                                            echo 'checked';
+                                                                                                                                                                                                                                        };
+                                                                                                                                                                                                                                    } else {
+                                                                                                                                                                                                                                        if (old('pernah_menerima_bantuan') == $opsional_pernah_penerima) {
+                                                                                                                                                                                                                                            echo 'checked';
+                                                                                                                                                                                                                                        }
+                                                                                                                                                                                                                                    } ?> value="<?= $opsional_pernah_penerima; ?>">
+                                <label class="form-check-label" for="pernah_menerima_bantuan_<?= $opsional_pernah_penerima; ?>">
+                                    <?= ucfirst($opsional_pernah_penerima); ?>
+                                </label>
                             <?php endforeach; ?>
-                        </select>
+                        </div>
+
+                        <!-- </select> -->
                         <div class="invalid-feedback">
-                            <?= ($validation->getError('pernah_menerima_bantuan') == '') ? 'Bagian pernah menerimabantuan  wajib diisi' : str_replace('_', ' ', $validation->getError('pernah_menerima_bantuan')); ?>
+                            <?= ($validation->getError('pernah_menerima_bantuan') == '') ? 'Bagian pernah menerima bantuan  wajib diisi' : str_replace('_', ' ', $validation->getError('pernah_menerima_bantuan')); ?>
                         </div>
                     </div>
                     <!-- end pernah menerima bantuan -->
                     <div class="mb20">
                         <label for="menerima_bantuan_dari" class="form-label">Jika Ya, Menerima Bantuan
                             Dari</label>
-                        <input id="menerima_bantuan_dari" id="menerima_bantuan_dari" type="text" maxlength="16"
-                            class="form-control <?= ($validation->hasError('menerima_bantuan_dari')) ? 'is-invalid' : ''; ?>"
-                            value="<?= ($identitas != null) ? $identitas['menerima_bantuan_dari'] : old('menerima_bantuan_dari'); ?>"
-                            name="menerima_bantuan_dari" placeholder="" />
+                        <input id="menerima_bantuan_dari" id="menerima_bantuan_dari" type="text" maxlength="16" class="form-control <?= ($validation->hasError('menerima_bantuan_dari')) ? 'is-invalid' : ''; ?>" value="<?= ($identitas != null) ? $identitas['menerima_bantuan_dari'] : old('menerima_bantuan_dari'); ?>" name="menerima_bantuan_dari" placeholder="" />
                         <div class="invalid-feedback">
                             <?= ($validation->getError('menerima_bantuan_dari') == '') ? '' : str_replace('_', ' ', $validation->getError('menerima_bantuan_dari')) ?>
                         </div>
@@ -165,10 +158,7 @@
                 <div class="col-12 col-md-6">
                     <div class="mb20 has-validation">
                         <label for="no_telepon" class="form-label">Nomer Telepon </label>
-                        <input type="number" min="0" max="999999999999999" required
-                            class="form-control <?= ($validation->hasError('no_telepon')) ? 'is-invalid' : ''; ?>"
-                            value="<?= ($identitas != null) ? $identitas['no_telepon'] : old('no_telepon'); ?>"
-                            name="no_telepon" placeholder="" />
+                        <input type="number" min="0" max="999999999999999" required class="form-control <?= ($validation->hasError('no_telepon')) ? 'is-invalid' : ''; ?>" value="<?= ($identitas != null) ? $identitas['no_telepon'] : old('no_telepon'); ?>" name="no_telepon" placeholder="" />
                         <div class="invalid-feedback">
                             <?= ($validation->getError('no_telepon') == '') ? 'Bagian no telepon  wajib diisi dan kurang dari 15 angka' : str_replace('_', ' ', $validation->getError('no_telepon')) ?>
                         </div>
@@ -177,10 +167,7 @@
                     <div class="alamat mb20 has-validation">
                         <label for="alamat_rumah" class="form-label">Alamat Rumah </label>
                         <small>* Pengisian alamat rumah : jalan, dukuh, rt/rw, dan desa</small>
-                        <textarea required
-                            class="form-control mb-2 <?= ($validation->hasError('alamat_rumah')) ? 'is-invalid' : ''; ?>"
-                            name="alamat_rumah" id="alamat_rumah"
-                            rows="4"><?= ($identitas != null) ? $identitas['alamat_rumah'] : old('alamat_rumah'); ?></textarea>
+                        <textarea required class="form-control mb-2 <?= ($validation->hasError('alamat_rumah')) ? 'is-invalid' : ''; ?>" name="alamat_rumah" id="alamat_rumah" rows="4"><?= ($identitas != null) ? $identitas['alamat_rumah'] : old('alamat_rumah'); ?></textarea>
                         <div class="invalid-feedback">
                             <?= ($validation->getError('alamat_rumah') == '') ? 'Bagian alamat rumah  wajib diisi' : $validation->getError('alamat_rumah'); ?>
                         </div>
@@ -188,11 +175,10 @@
                     <!-- end alamat -->
                     <div class="mb20 has-validation">
                         <label for="kecamatan" class="form-label">Kecamatan </label>
-                        <select class="form-select <?= ($validation->hasError('kecamatan')) ? 'is-invalid' : ''; ?>"
-                            required aria-label="Default select example" name="kecamatan">
+                        <select class="form-select <?= ($validation->hasError('kecamatan')) ? 'is-invalid' : ''; ?>" required aria-label="Default select example" name="kecamatan">
                             <option value="" selected hidden></option>
                             <?php foreach ($kecamatan as $kecamatan) : ?>
-                            <option <?php if ($identitas != null) {
+                                <option <?php if ($identitas != null) {
                                             if ($identitas['id_kecamatan'] == $kecamatan['id_kecamatan']) {
                                                 echo 'selected';
                                             };
@@ -201,8 +187,8 @@
                                                 echo 'selected';
                                             }
                                         } ?> value="<?= $kecamatan['id_kecamatan']; ?>">
-                                <?= $kecamatan['nama_kecamatan']; ?>
-                            </option>
+                                    <?= $kecamatan['nama_kecamatan']; ?>
+                                </option>
                             <?php endforeach; ?>
                         </select>
                         <div class="invalid-feedback">
@@ -214,10 +200,7 @@
                     <div class="mb20 has-validation">
                         <label for="jarak_sekolah" class="form-label">Jarak dari Rumah ke Sekolah (Km)
                         </label>
-                        <input type="number" required
-                            class="form-control <?= ($validation->hasError('jarak_sekolah')) ? 'is-invalid' : ''; ?>"
-                            value="<?= ($identitas != null) ? $identitas['jarak_sekolah'] : old('jarak_sekolah'); ?>"
-                            name="jarak_sekolah" min="0" step=".1" placeholder="" />
+                        <input type="number" required class="form-control <?= ($validation->hasError('jarak_sekolah')) ? 'is-invalid' : ''; ?>" value="<?= ($identitas != null) ? $identitas['jarak_sekolah'] : old('jarak_sekolah'); ?>" name="jarak_sekolah" min="0" step=".1" placeholder="" />
                         <div class="invalid-feedback">
                             <?= ($validation->getError('jarak_sekolah') == '') ? 'Bagian jarak sekolah  wajib diisi' : str_replace('_', ' ', $validation->getError('jarak_rumah')) ?>
                         </div>
@@ -226,11 +209,10 @@
                     <div class="mb20 has-validation">
                         <label for="transportasi" class="form-label">Transportasi Siswa ke Sekolah
                         </label>
-                        <select class="form-select <?= ($validation->hasError('transportasi')) ? 'is-invalid' : ''; ?>"
-                            required aria-label="Default select example" name="transportasi">
+                        <select class="form-select <?= ($validation->hasError('transportasi')) ? 'is-invalid' : ''; ?>" required aria-label="Default select example" name="transportasi">
                             <option selected hidden></option>
                             <?php foreach ($transportasi as $transportasi) : ?>
-                            <option <?php if ($identitas != null) {
+                                <option <?php if ($identitas != null) {
                                             if ($identitas['id_transportasi'] == $transportasi['id_transportasi']) {
                                                 echo 'selected';
                                             };
@@ -239,8 +221,8 @@
                                                 echo 'selected';
                                             }
                                         } ?> value="<?= $transportasi['id_transportasi']; ?>">
-                                <?= ucfirst($transportasi['nama_transportasi']); ?>
-                            </option>
+                                    <?= ucfirst($transportasi['nama_transportasi']); ?>
+                                </option>
                             <?php endforeach; ?>
                         </select>
                         <div class="invalid-feedback">
@@ -250,11 +232,10 @@
                     <!-- end transportasi -->
                     <div class="mb20 has-validation">
                         <label for="sekolah" class="form-label">Sekolah </label>
-                        <select class="form-select <?= ($validation->hasError('sekolah')) ? 'is-invalid' : ''; ?>"
-                            required aria-label="Default select example" name="sekolah">
+                        <select class="form-select <?= ($validation->hasError('sekolah')) ? 'is-invalid' : ''; ?>" required aria-label="Default select example" name="sekolah">
                             <option selected hidden></option>
                             <?php foreach ($sekolah as $sekolah) : ?>
-                            <option <?php if ($identitas != null) {
+                                <option <?php if ($identitas != null) {
                                             if ($identitas['id_sekolah'] == $sekolah['id_sekolah']) {
                                                 echo 'selected';
                                             };
@@ -263,7 +244,7 @@
                                                 echo 'selected';
                                             }
                                         } ?> value="<?= $sekolah['id_sekolah']; ?>"><?= $sekolah['nama_sekolah']; ?>
-                            </option>
+                                </option>
                             <?php endforeach; ?>
                         </select>
                         <div class="invalid-feedback">
@@ -273,8 +254,7 @@
                     <!-- end sekolah -->
                     <div class="mb20 has-validation">
                         <label for="kelas" class="form-label">Kelas </label>
-                        <select class="form-select <?= ($validation->hasError('kelas')) ? 'is-invalid' : ''; ?>"
-                            required aria-label="Default select example" name="kelas">
+                        <select class="form-select <?= ($validation->hasError('kelas')) ? 'is-invalid' : ''; ?>" required aria-label="Default select example" name="kelas">
                             <option hidden></option>
                             <option <?php if ($identitas != null) {
                                         if ($identitas['kelas'] == '10') {
@@ -317,10 +297,7 @@
                 <div class="col-12 col-md-6">
                     <div class="mb20 has-validation">
                         <label for="nama_ayah" class="form-label">Nama Ayah / Wali</label>
-                        <input type="text" required
-                            class="form-control <?= ($validation->hasError('nama_ayah')) ? 'is-invalid' : ''; ?>"
-                            value="<?= ($keluarga != null) ? $keluarga['nama_ayah'] : old('nama_ayah'); ?>"
-                            name="nama_ayah" placeholder="" />
+                        <input type="text" required class="form-control <?= ($validation->hasError('nama_ayah')) ? 'is-invalid' : ''; ?>" value="<?= ($keluarga != null) ? $keluarga['nama_ayah'] : old('nama_ayah'); ?>" name="nama_ayah" placeholder="" />
                         <div class="invalid-feedback">
                             <?= ($validation->getError('nama_ayah') == '') ? 'Bagian nama_ayah  wajib diisi' : str_replace('_', ' ', $validation->getError('nama_ayah')); ?>
                         </div>
@@ -329,10 +306,7 @@
                     <div class="mb20 has-validation">
                         <label for="pekerjaan_ayah" class="form-label">Pekerjaan Ayah / Wali
                         </label>
-                        <input type="text" required
-                            class="form-control <?= ($validation->hasError('pekerjaan_ayah')) ? 'is-invalid' : ''; ?>"
-                            value="<?= ($keluarga != null) ? $keluarga['pekerjaan_ayah'] : old('pekerjaan_ayah'); ?>"
-                            name="pekerjaan_ayah" placeholder="" />
+                        <input type="text" required class="form-control <?= ($validation->hasError('pekerjaan_ayah')) ? 'is-invalid' : ''; ?>" value="<?= ($keluarga != null) ? $keluarga['pekerjaan_ayah'] : old('pekerjaan_ayah'); ?>" name="pekerjaan_ayah" placeholder="" />
                         <div class="invalid-feedback">
                             <?= ($validation->getError('pekerjaan_ayah') == '') ? 'Bagian nama  wajib diisi' : str_replace('_', ' ', $validation->getError('pekerjaan_ayah')); ?>
                         </div>
@@ -341,12 +315,10 @@
                     <div class="mb20 has-validation">
                         <label for="pendidikan_ayah" class="form-label">Pendidikan Terakhir Ayah / Wali
                         </label>
-                        <select required
-                            class="form-select <?= ($validation->hasError('pendidikan_ayah')) ? 'is-invalid' : ''; ?>"
-                            aria-label="Default select example" name="pendidikan_ayah">
+                        <select required class="form-select <?= ($validation->hasError('pendidikan_ayah')) ? 'is-invalid' : ''; ?>" aria-label="Default select example" name="pendidikan_ayah">
                             <option selected hidden></option>
                             <?php foreach ($pendidikan as $pendidikan_ayah) : ?>
-                            <option <?php if ($keluarga != null) {
+                                <option <?php if ($keluarga != null) {
                                             if ($keluarga['pendidikan_ayah'] == $pendidikan_ayah) {
                                                 echo 'selected';
                                             };
@@ -355,7 +327,7 @@
                                                 echo 'selected';
                                             }
                                         } ?> value="<?= $pendidikan_ayah; ?>">
-                                <?= $pendidikan_ayah; ?></option>
+                                    <?= $pendidikan_ayah; ?></option>
                             <?php endforeach; ?>
                         </select>
                         <div class="invalid-feedback">
@@ -366,10 +338,7 @@
                     <div class="mb20 has-validation">
                         <label for="penghasilan_ayah" class="form-label">Penghasilan per Bulan Ayah / Wali
                         </label>
-                        <input type="number" required
-                            class="form-control <?= ($validation->hasError('penghasilan_ayah')) ? 'is-invalid' : ''; ?>"
-                            value="<?= ($keluarga != null) ? $keluarga['penghasilan_ayah'] : old('penghasilan_ayah'); ?>"
-                            name="penghasilan_ayah" placeholder="" />
+                        <input type="number" required class="form-control <?= ($validation->hasError('penghasilan_ayah')) ? 'is-invalid' : ''; ?>" value="<?= ($keluarga != null) ? $keluarga['penghasilan_ayah'] : old('penghasilan_ayah'); ?>" name="penghasilan_ayah" placeholder="" />
                         <div class="invalid-feedback">
                             <?= ($validation->getError('penghasilan_ayah') == '') ? 'Bagian penghasilan_ayah  wajib diisi' : str_replace('_', ' ', $validation->getError('penghasilan_ayah')); ?>
                         </div>
@@ -378,10 +347,7 @@
                     <div class="mb20 has-validation">
                         <label for="alamat_ayah" class="form-label">Alamat Ayah / Wali
                         </label>
-                        <textarea required
-                            class="form-control <?= ($validation->hasError('alamat_ayah')) ? 'is-invalid' : ''; ?>"
-                            name="alamat_ayah" name="alamat_ayah"
-                            rows="5"><?= ($keluarga != null) ? $keluarga['alamat_ayah'] : old('alamat_ayah'); ?></textarea>
+                        <textarea required class="form-control <?= ($validation->hasError('alamat_ayah')) ? 'is-invalid' : ''; ?>" name="alamat_ayah" name="alamat_ayah" rows="5"><?= ($keluarga != null) ? $keluarga['alamat_ayah'] : old('alamat_ayah'); ?></textarea>
                         <div class="invalid-feedback">
                             <?= ($validation->getError('alamat_ayah') == '') ? 'Bagian alamat_ayah  wajib diisi' : str_replace('_', ' ', $validation->getError('alamat_ayah')); ?>
                         </div>
@@ -392,10 +358,7 @@
                 <div class="col-12 col-md-6">
                     <div class="mb20 has-validation">
                         <label for="nama_ibu" class="form-label">Nama Ibu / Wali </label>
-                        <input type="text" required
-                            class="form-control <?= ($validation->hasError('nama_ibu')) ? 'is-invalid' : ''; ?>"
-                            value="<?= ($keluarga != null) ? $keluarga['nama_ibu'] : old('nama_ibu'); ?>"
-                            name="nama_ibu" placeholder="" />
+                        <input type="text" required class="form-control <?= ($validation->hasError('nama_ibu')) ? 'is-invalid' : ''; ?>" value="<?= ($keluarga != null) ? $keluarga['nama_ibu'] : old('nama_ibu'); ?>" name="nama_ibu" placeholder="" />
                         <div class="invalid-feedback">
                             <?= ($validation->getError('nama_ibu') == '') ? 'Bagian nama_ibu  wajib diisi' : str_replace('_', ' ', $validation->getError('nama_ibu')); ?>
                         </div>
@@ -404,10 +367,7 @@
                     <div class="mb20 has-validation">
                         <label for="pekerjaan_ibu" class="form-label">Pekerjaan Ibu / Wali
                         </label>
-                        <input type="text" required
-                            class="form-control <?= ($validation->hasError('pekerjaan_ibu')) ? 'is-invalid' : ''; ?>"
-                            value="<?= ($keluarga != null) ? $keluarga['pekerjaan_ibu'] : old('pekerjaan_ibu'); ?>"
-                            name="pekerjaan_ibu" placeholder="" />
+                        <input type="text" required class="form-control <?= ($validation->hasError('pekerjaan_ibu')) ? 'is-invalid' : ''; ?>" value="<?= ($keluarga != null) ? $keluarga['pekerjaan_ibu'] : old('pekerjaan_ibu'); ?>" name="pekerjaan_ibu" placeholder="" />
                         <div class="invalid-feedback">
                             <?= ($validation->getError('pekerjaan_ibu') == '') ? 'Bagian pekerjaan_ibu  wajib diisi' : str_replace('_', ' ', $validation->getError('pekerjaan_ibu')); ?>
                         </div>
@@ -416,12 +376,10 @@
                     <div class="mb20 has-validation">
                         <label for="pendidikan_ibu" class="form-label">Pendidikan Terakhir Ibu / Wali
                         </label>
-                        <select required
-                            class="form-select <?= ($validation->hasError('pendidikan_ibu')) ? 'is-invalid' : ''; ?>"
-                            aria-label="Default select example" name="pendidikan_ibu">
+                        <select required class="form-select <?= ($validation->hasError('pendidikan_ibu')) ? 'is-invalid' : ''; ?>" aria-label="Default select example" name="pendidikan_ibu">
                             <option selected hidden></option>
                             <?php foreach ($pendidikan as $pendidikan_ibu) : ?>
-                            <option <?php if ($keluarga != null) {
+                                <option <?php if ($keluarga != null) {
                                             if ($keluarga['pendidikan_ibu'] == $pendidikan_ibu) {
                                                 echo 'selected';
                                             };
@@ -430,7 +388,7 @@
                                                 echo 'selected';
                                             }
                                         } ?> value="<?= $pendidikan_ibu; ?>">
-                                <?= $pendidikan_ibu; ?></option>
+                                    <?= $pendidikan_ibu; ?></option>
                             <?php endforeach; ?>
                         </select>
                         <div class="invalid-feedback">
@@ -441,10 +399,7 @@
                     <div class="mb20 has-validation">
                         <label for="penghasilan_ibu" class="form-label">Penghasilan per Bulan Ibu / Wali
                         </label>
-                        <input type="number" required
-                            class="form-control <?= ($validation->hasError('penghasilan_ibu')) ? 'is-invalid' : ''; ?>"
-                            value="<?= ($keluarga != null) ? $keluarga['penghasilan_ibu'] : old('penghasilan_ibu'); ?>"
-                            name="penghasilan_ibu" placeholder="" />
+                        <input type="number" required class="form-control <?= ($validation->hasError('penghasilan_ibu')) ? 'is-invalid' : ''; ?>" value="<?= ($keluarga != null) ? $keluarga['penghasilan_ibu'] : old('penghasilan_ibu'); ?>" name="penghasilan_ibu" placeholder="" />
                         <div class="invalid-feedback">
                             <?= ($validation->getError('penghasilan_ibu') == '') ? 'Bagian penghasilan_ibu  wajib diisi' : str_replace('_', ' ', $validation->getError('penghasilan_ibu')); ?>
                         </div>
@@ -453,9 +408,7 @@
                     <div class="mb20 has-validation">
                         <label for="alamat_ibu" class="form-label">Alamat Ibu / Wali
                         </label>
-                        <textarea class="form-control <?= ($validation->hasError('alamat_ibu')) ? 'is-invalid' : ''; ?>"
-                            required name="alamat_ibu" id="alamat_ibu"
-                            rows="5"><?= ($keluarga != null) ? $keluarga['alamat_ibu'] : old('alamat_ibu'); ?></textarea>
+                        <textarea class="form-control <?= ($validation->hasError('alamat_ibu')) ? 'is-invalid' : ''; ?>" required name="alamat_ibu" id="alamat_ibu" rows="5"><?= ($keluarga != null) ? $keluarga['alamat_ibu'] : old('alamat_ibu'); ?></textarea>
                         <div class="invalid-feedback">
                             <?= ($validation->getError('alamat_ibu') == '') ? 'Bagian alamat_ibu  wajib diisi' : str_replace('_', ' ', $validation->getError('alamat_ibu')); ?>
                         </div>
@@ -472,11 +425,10 @@
                     <div class="mb20">
                         <label for="rtsm_rtm" class="form-label">Rumah Tangga Sangat Miskin (RTSM) / Rumah Tangga Miskin
                             (RTM)? </label>
-                        <select class="form-select <?= ($validation->hasError('rtsm_rtm')) ? 'is-invalid' : ''; ?>"
-                            aria-label="Default select example" name="rtsm_rtm">
+                        <select class="form-select <?= ($validation->hasError('rtsm_rtm')) ? 'is-invalid' : ''; ?>" aria-label="Default select example" name="rtsm_rtm">
                             <option selected hidden></option>
                             <?php foreach ($opsional as $opsional_rstm) : ?>
-                            <option <?php if ($keluarga != null) {
+                                <option <?php if ($keluarga != null) {
                                             if ($keluarga['rtsm_rtm'] == $opsional_rstm) {
                                                 echo 'selected';
                                             };
@@ -497,11 +449,10 @@
                             Keluarga Sejahtera
                             (KKS) dan Kartu Batang Sehat (KBS)?
                         </label>
-                        <select class="form-select <?= ($validation->hasError('pkh_kks_kbs')) ? 'is-invalid' : ''; ?>"
-                            aria-label="Default select example" name="pkh_kks_kbs">
+                        <select class="form-select <?= ($validation->hasError('pkh_kks_kbs')) ? 'is-invalid' : ''; ?>" aria-label="Default select example" name="pkh_kks_kbs">
                             <option selected hidden></option>
                             <?php foreach ($opsional as $opsional_pkh) : ?>
-                            <option <?php if ($keluarga != null) {
+                                <option <?php if ($keluarga != null) {
                                             if ($keluarga['pkh_kks_kbs'] == $opsional_pkh) {
                                                 echo 'selected';
                                             };
@@ -523,11 +474,10 @@
                     <div class="mb20">
                         <label for="bsm_kip" class="form-label">Penerimaan BSM atau Kartu Indonesia Pintar (KIP)
                         </label>
-                        <select class="form-select <?= ($validation->hasError('bsm_kip')) ? 'is-invalid' : ''; ?>"
-                            aria-label="Default select example" name="bsm_kip">
+                        <select class="form-select <?= ($validation->hasError('bsm_kip')) ? 'is-invalid' : ''; ?>" aria-label="Default select example" name="bsm_kip">
                             <option selected hidden></option>
                             <?php foreach ($opsional as $opsional_bsm) : ?>
-                            <option <?php if ($keluarga != null) {
+                                <option <?php if ($keluarga != null) {
                                             if ($keluarga['bsm_kip'] == $opsional_bsm) {
                                                 echo 'selected';
                                             };
@@ -566,144 +516,129 @@
             </div>
             <div class="pb40">
                 <?php for ($i = 1; $i <= 3; $i++) { ?>
-                <div class="row">
-                    <!-- file prestasi -->
-                    <div class="col-6 col-sm-2">
-                        <div class="mb20">
-                            <label for="prestasi" class="form-label">Scan Prestasi
-                            </label>
-                            <input hidden
-                                class="custom-file-input  <?= ($validation->hasError('scan_prestasi_' . $i)) ? 'is-invalid' : ''; ?>"
-                                name="scan_prestasi_<?= $i; ?>" id="file_prestasi_<?= $i; ?>" type="file"
-                                accept="application/pdf" />
-                            <label class=" bg-white" style="cursor: pointer;" for="file_prestasi_<?= $i; ?>">
-                                <a class="btn btn-secondary">Pilih File</a>
-                                <?php if ($prestasi[$i - 1] != null) { ?>
-                                <?= $prestasi[$i - 1]['file_prestasi']; ?>
-                                <?php } else { ?>
-                                Tidak ada file yang dipilih
-                                <?php } ?>
-                            </label>
-                            <div class="invalid-feedback">
-                                <?= ($validation->getError('scan_prestasi_' . $i) == '') ? 'Bagian scan prestasi wajib diisi dan ukuran file tidak boleh lebih dari 2MB' : str_replace('_', ' ', $validation->getError('scan_prestasi_' . $i));
+                    <div class="row">
+                        <!-- file prestasi -->
+                        <div class="col-6 col-sm-2">
+                            <div class="mb20">
+                                <label for="prestasi" class="form-label">Scan Prestasi
+                                </label>
+                                <input hidden class="custom-file-input  <?= ($validation->hasError('scan_prestasi_' . $i)) ? 'is-invalid' : ''; ?>" name="scan_prestasi_<?= $i; ?>" id="file_prestasi_<?= $i; ?>" type="file" accept="application/pdf" />
+                                <label class=" bg-white" style="cursor: pointer;" for="file_prestasi_<?= $i; ?>">
+                                    <a class="btn btn-secondary">Pilih File</a>
+                                    <?php if ($prestasi[$i - 1] != null) { ?>
+                                        <?= $prestasi[$i - 1]['file_prestasi']; ?>
+                                    <?php } else { ?>
+                                        Tidak ada file yang dipilih
+                                    <?php } ?>
+                                </label>
+                                <div class="invalid-feedback">
+                                    <?= ($validation->getError('scan_prestasi_' . $i) == '') ? 'Bagian scan prestasi wajib diisi dan ukuran file tidak boleh lebih dari 2MB' : str_replace('_', ' ', $validation->getError('scan_prestasi_' . $i));
                                     ?>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- end file prestasi -->
-                    <div class="col-6 col-sm-2">
-                        <div class="mb20">
-                            <label for="nama_prestasi_<?= $i; ?>" class="form-label">Nama Prestasi
-                            </label>
-                            <input type="text"
-                                class="form-control <?= ($validation->hasError('nama_prestasi_' . $i)) ? 'is-invalid' : ''; ?>"
-                                value="<?= ($prestasi[$i - 1] != null) ? $prestasi[$i - 1]['nama_prestasi'] : old('nama_prestasi_' . $i); ?>"
-                                name="nama_prestasi_<?= $i; ?>" placeholder="" />
-                            <div class="invalid-feedback">
-                                <?= ($validation->getError('nama_prestasi_' . $i) == '') ? 'Bagian
+                        <!-- end file prestasi -->
+                        <div class="col-6 col-sm-2">
+                            <div class="mb20">
+                                <label for="nama_prestasi_<?= $i; ?>" class="form-label">Nama Prestasi
+                                </label>
+                                <input type="text" class="form-control <?= ($validation->hasError('nama_prestasi_' . $i)) ? 'is-invalid' : ''; ?>" value="<?= ($prestasi[$i - 1] != null) ? $prestasi[$i - 1]['nama_prestasi'] : old('nama_prestasi_' . $i); ?>" name="nama_prestasi_<?= $i; ?>" placeholder="" />
+                                <div class="invalid-feedback">
+                                    <?= ($validation->getError('nama_prestasi_' . $i) == '') ? 'Bagian
                                 nama_prestasi wajib diisi' : str_replace(
                                         '_',
                                         ' ',
                                         $validation->getError('nama_prestasi_' . $i)
                                     ); ?>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- end nama prestasi -->
-                    <div class="col-4 col-sm-2">
-                        <div class="mb20">
-                            <label for="kategori_<?= $i; ?>" class="form-label">Kategori Prestasi
-                            </label>
-                            <select
-                                class="form-select <?= ($validation->hasError('kategori_' . $i)) ? 'is-invalid' : ''; ?>"
-                                aria-label="Default select example" name="kategori_<?= $i; ?>" id="kategori_<?= $i; ?>">
-                                <?php foreach ($kategori as $data_kategori) : ?>
-                                <option onchange="kategori_prestasi()" <?php
+                        <!-- end nama prestasi -->
+                        <div class="col-4 col-sm-2">
+                            <div class="mb20">
+                                <label for="kategori_<?= $i; ?>" class="form-label">Kategori Prestasi
+                                </label>
+                                <select class="form-select <?= ($validation->hasError('kategori_' . $i)) ? 'is-invalid' : ''; ?>" aria-label="Default select example" name="kategori_<?= $i; ?>" id="kategori_<?= $i; ?>">
+                                    <?php foreach ($kategori as $data_kategori) : ?>
+                                        <option onchange="kategori_prestasi()" <?php
                                                                                 if (old('kategori_' . $i) == $data_kategori) {
                                                                                     echo 'selected';
                                                                                 } else if ($prestasi[$i - 1] != null && $prestasi[$i - 1]['kategori'] == $data_kategori) {
                                                                                     echo 'selected';
                                                                                 } ?> value="<?= $data_kategori; ?>">
-                                    <?= ucfirst($data_kategori); ?></option>
-                                <?php endforeach; ?>
-                            </select>
-                            <div class="invalid-feedback">
-                                <?= ($validation->getError('kategori_' . $i) == '') ? 'Bagian kategori prestasi wajib diisi' : str_replace('_', ' ', $validation->getError('kategori_' . $i)); ?>
+                                            <?= ucfirst($data_kategori); ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                                <div class="invalid-feedback">
+                                    <?= ($validation->getError('kategori_' . $i) == '') ? 'Bagian kategori prestasi wajib diisi' : str_replace('_', ' ', $validation->getError('kategori_' . $i)); ?>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- end kategori -->
-                    <div class="col-3 col-sm-2">
-                        <div class="mb20">
-                            <label for="tingkat_<?= $i; ?>" class="form-label">Tingkat Prestasi
-                            </label>
-                            <select
-                                class="form-select <?= ($validation->hasError('tingkat_' . $i)) ? 'is-invalid' : ''; ?>"
-                                aria-label="Default select example" name="tingkat_<?= $i; ?>" id="tingkat_<?= $i; ?>">
-                                <option selected hidden></option>
-                                <?php foreach ($tingkat as $data_tingkat) : ?>
-                                <option <?php
+                        <!-- end kategori -->
+                        <div class="col-3 col-sm-2">
+                            <div class="mb20">
+                                <label for="tingkat_<?= $i; ?>" class="form-label">Tingkat Prestasi
+                                </label>
+                                <select class="form-select <?= ($validation->hasError('tingkat_' . $i)) ? 'is-invalid' : ''; ?>" aria-label="Default select example" name="tingkat_<?= $i; ?>" id="tingkat_<?= $i; ?>">
+                                    <option selected hidden></option>
+                                    <?php foreach ($tingkat as $data_tingkat) : ?>
+                                        <option <?php
                                                 if ($prestasi[$i - 1] != null) {
                                                     if ($prestasi[$i - 1]['tingkat'] == $data_tingkat) {
                                                         echo 'selected';
                                                     }
                                                 } ?> value="<?= $data_tingkat; ?>">
-                                    <?= $data_tingkat; ?></option>
-                                <?php endforeach; ?>
-                            </select>
-                            <div class="invalid-feedback">
-                                <?= ($validation->getError('tingkat_' . $i) == '') ? 'Bagian tingkat prestasi wajib diisi' : str_replace('_', ' ', $validation->getError('tingkat_' . $i)); ?>
+                                            <?= $data_tingkat; ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                                <div class="invalid-feedback">
+                                    <?= ($validation->getError('tingkat_' . $i) == '') ? 'Bagian tingkat prestasi wajib diisi' : str_replace('_', ' ', $validation->getError('tingkat_' . $i)); ?>
+                                </div>
                             </div>
+                            <!-- end tingkat prestasi -->
                         </div>
-                        <!-- end tingkat prestasi -->
-                    </div>
-                    <!-- end tingkat -->
-                    <div class="col-3 col-sm-2">
-                        <div class="mb20">
-                            <label for="juara_<?= $i; ?>" class="form-label">Juara
+                        <!-- end tingkat -->
+                        <div class="col-3 col-sm-2">
+                            <div class="mb20">
+                                <label for="juara_<?= $i; ?>" class="form-label">Juara
 
-                            </label>
-                            <select
-                                class="form-select <?= ($validation->hasError('juara_' . $i)) ? 'is-invalid' : ''; ?>"
-                                aria-label="Default select example" id="juara_<?= $i; ?>" name="juara_<?= $i; ?>">
-                                <option selected hidden></option>
-                                <?php foreach ($juara as $data_juara) : ?>
-                                <option <?php
+                                </label>
+                                <select class="form-select <?= ($validation->hasError('juara_' . $i)) ? 'is-invalid' : ''; ?>" aria-label="Default select example" id="juara_<?= $i; ?>" name="juara_<?= $i; ?>">
+                                    <option selected hidden></option>
+                                    <?php foreach ($juara as $data_juara) : ?>
+                                        <option <?php
                                                 if ($prestasi[$i - 1] != null) {
                                                     if ($prestasi[$i - 1]['juara'] == $data_juara) {
                                                         echo 'selected';
                                                     }
                                                 } ?> value="<?= $data_juara; ?>">
-                                    <?= ucfirst($data_juara); ?></option>
-                                <?php endforeach; ?>
-                            </select>
-                            <div class="invalid-feedback">
-                                <?= ($validation->getError('juara_' . $i) == '') ? 'Bagian juara  wajib diisi' : str_replace('_', ' ', $validation->getError('juara_' . $i)); ?>
+                                            <?= ucfirst($data_juara); ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                                <div class="invalid-feedback">
+                                    <?= ($validation->getError('juara_' . $i) == '') ? 'Bagian juara  wajib diisi' : str_replace('_', ' ', $validation->getError('juara_' . $i)); ?>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- end juara -->
-                    <div class="col-2">
-                        <div class="mb20">
-                            <label for="tahun_prestasi_<?= $i; ?>" class="form-label">Tahun
+                        <!-- end juara -->
+                        <div class="col-2">
+                            <div class="mb20">
+                                <label for="tahun_prestasi_<?= $i; ?>" class="form-label">Tahun
 
-                            </label>
-                            <input type="number"
-                                class="form-control <?= ($validation->hasError('tahun_prestasi_' . $i)) ? 'is-invalid' : ''; ?>"
-                                value="<?= ($prestasi[$i - 1] != null) ? $prestasi[$i - 1]['tahun_prestasi'] : old('tahun_prestasi_' . $i); ?>"
-                                name="tahun_prestasi_<?= $i; ?>" placeholder="" min="2010" max="2022" />
-                            <div class="invalid-feedback">
-                                <?= ($validation->getError('tahun_prestasi_' . $i) == '') ? 'Bagian
+                                </label>
+                                <input type="number" class="form-control <?= ($validation->hasError('tahun_prestasi_' . $i)) ? 'is-invalid' : ''; ?>" value="<?= ($prestasi[$i - 1] != null) ? $prestasi[$i - 1]['tahun_prestasi'] : old('tahun_prestasi_' . $i); ?>" name="tahun_prestasi_<?= $i; ?>" placeholder="" min="2010" max="2022" />
+                                <div class="invalid-feedback">
+                                    <?= ($validation->getError('tahun_prestasi_' . $i) == '') ? 'Bagian
                                 tahun prestasi ' . $i . ' wajib diisi' : str_replace(
                                         '_',
                                         ' ',
                                         $validation->getError('tahun_prestasi_' . $i)
                                     ); ?>
+                                </div>
                             </div>
                         </div>
+                        <!-- end tahun_prestasi -->
                     </div>
-                    <!-- end tahun_prestasi -->
-                </div>
                 <?php } ?>
                 ?>
             </div>
@@ -716,11 +651,8 @@
             <div class="row pb40">
                 <div class="col-12 col-md-6">
                     <div class="mb20">
-                        <label for="label_scan_kk" class="form-label">Scan Kartu Keluarga (KK) <span
-                                style="color: red; font-size: 12px;">Format file .pdf</span></label>
-                        <input hidden
-                            class="form-control custom-file-input   <?= ($validation->hasError('scan_kk')) ? 'is-invalid' : ''; ?>"
-                            name="scan_kk" type="file" accept="application/pdf" id="kk" value=" <?= $file['kk']; ?>" />
+                        <label for="label_scan_kk" class="form-label">Scan Kartu Keluarga (KK) <span style="color: red; font-size: 12px;">Format file .pdf</span></label>
+                        <input hidden class="form-control custom-file-input   <?= ($validation->hasError('scan_kk')) ? 'is-invalid' : ''; ?>" name="scan_kk" type="file" accept="application/pdf" id="kk" value=" <?= $file['kk']; ?>" />
                         <label class=" bg-white" style="cursor: pointer;" for="kk">
                             <a class="btn btn-secondary">Pilih File</a>
                             <?= $file['kk']; ?>
@@ -731,12 +663,9 @@
                     </div>
                     <!-- end scan KK -->
                     <div class="mb20">
-                        <label for="label_scan_ktp" class="form-label">Scan Kartu Tanda Penduduk (KTP) <span
-                                style="color: red; font-size: 12px;">Format file .pdf</span>
+                        <label for="label_scan_ktp" class="form-label">Scan Kartu Tanda Penduduk (KTP) <span style="color: red; font-size: 12px;">Format file .pdf</span>
                         </label>
-                        <input hidden
-                            class="form-control <?= ($validation->hasError('scan_ktp')) ? 'is-invalid' : ''; ?>"
-                            name="scan_ktp" type="file" accept="application/pdf" id="ktp" />
+                        <input hidden class="form-control <?= ($validation->hasError('scan_ktp')) ? 'is-invalid' : ''; ?>" name="scan_ktp" type="file" accept="application/pdf" id="ktp" />
                         <label class=" bg-white" style="cursor: pointer;" for="ktp">
                             <a class="btn btn-secondary">Pilih File</a>
                             <?= $file['ktp']; ?>
@@ -747,12 +676,9 @@
                     </div>
                     <!-- end scan KTP -->
                     <div class="mb20">
-                        <label for="label_scan_kartu_pelajar" class="form-label">Scan Kartu Pelajar<span
-                                style="color: red; font-size: 12px;">Format file .pdf</span>
+                        <label for="label_scan_kartu_pelajar" class="form-label">Scan Kartu Pelajar<span style="color: red; font-size: 12px;">Format file .pdf</span>
                         </label>
-                        <input hidden
-                            class="form-control <?= ($validation->hasError('scan_kartu_pelajar')) ? 'is-invalid' : ''; ?>"
-                            name="scan_kartu_pelajar" type="file" accept="application/pdf" id="kartu_pelajar" />
+                        <input hidden class="form-control <?= ($validation->hasError('scan_kartu_pelajar')) ? 'is-invalid' : ''; ?>" name="scan_kartu_pelajar" type="file" accept="application/pdf" id="kartu_pelajar" />
                         <label class=" bg-white" style="cursor: pointer;" for="kartu_pelajar">
                             <a class="btn btn-secondary">Pilih File</a>
                             <?= $file['kartu_pelajar']; ?>
@@ -763,14 +689,9 @@
                     </div>
                     <!-- end scan Kartu pelajar -->
                     <div class="mb20">
-                        <label for="label_scan_pas_foto" class="form-label">Upload Foto Berwarna<span
-                                style="color: red; font-size: 12px;">Format file jpg,jpeg, atau png</span>
+                        <label for="label_scan_pas_foto" class="form-label">Upload Foto Berwarna<span style="color: red; font-size: 12px;">Format file jpg,jpeg, atau png</span>
                         </label>
-                        <input hidden
-                            class="form-control <?= ($validation->hasError('scan_pas_foto')) ? 'is-invalid' : ''; ?> lampiran-foto"
-                            data-allowed-file-extensions="jpg jpeg png " data-height="100" data-max-file-size="2M"
-                            name="scan_pas_foto" type="file" accept="image/*" id="pas_foto"
-                            data-default-file="<?= base_url(); ?>/assets/scan/<?= $identitas['no_induk']; ?>/file/<?= $file['pas_foto']; ?>" />
+                        <input hidden class="form-control <?= ($validation->hasError('scan_pas_foto')) ? 'is-invalid' : ''; ?> lampiran-foto" data-allowed-file-extensions="jpg jpeg png " data-height="100" data-max-file-size="2M" name="scan_pas_foto" type="file" accept="image/*" id="pas_foto" data-default-file="<?= base_url(); ?>/assets/scan/<?= $identitas['no_induk']; ?>/file/<?= $file['pas_foto']; ?>" />
                         <div class="invalid-feedback">
                             <?= ($validation->getError('scan_pas_foto') == '') ? 'Bagian scan pas foto  wajib diisi dan ukuran file tidak boleh lebih dari 2MB' : str_replace('_', ' ', $validation->getError('scan_pas_foto')); ?>
                         </div>
@@ -779,12 +700,9 @@
                 </div>
                 <div class="col-12 col-md-6">
                     <div class="mb20">
-                        <label for="label_scan_raport_smt" class="form-label">Scan Nilai Raport Semester Terakhir <span
-                                style="color: red; font-size: 12px;">Format file .pdf</span>
+                        <label for="label_scan_raport_smt" class="form-label">Scan Nilai Raport Semester Terakhir <span style="color: red; font-size: 12px;">Format file .pdf</span>
                         </label>
-                        <input hidden
-                            class="form-control <?= ($validation->hasError('scan_raport_smt')) ? 'is-invalid' : ''; ?>"
-                            name="scan_raport_smt" type="file" accept="application/pdf" id="raport_smt" />
+                        <input hidden class="form-control <?= ($validation->hasError('scan_raport_smt')) ? 'is-invalid' : ''; ?>" name="scan_raport_smt" type="file" accept="application/pdf" id="raport_smt" />
                         <label class=" bg-white" style="cursor: pointer;" for="raport_smt">
                             <a class="btn btn-secondary">Pilih File</a>
                             <?= $file['raport_smt']; ?>
@@ -801,9 +719,7 @@
                             </span>
                             <span style="color: red; font-size: 12px;">Format file .pdf</span>
                         </label>
-                        <input hidden
-                            class="form-control <?= ($validation->hasError('scan_raport')) ? 'is-invalid' : ''; ?>"
-                            name="scan_raport" type="file" accept="application/pdf" id="raport" />
+                        <input hidden class="form-control <?= ($validation->hasError('scan_raport')) ? 'is-invalid' : ''; ?>" name="scan_raport" type="file" accept="application/pdf" id="raport" />
                         <label class=" bg-white" style="cursor: pointer;" for="raport">
                             <a class="btn btn-secondary">Pilih File</a>
                             <?= $file['raport_legalisasi']; ?>
@@ -814,15 +730,12 @@
                     </div>
                     <!-- end scan raport legalisasi -->
                     <div class="mb20">
-                        <label for="label_scan_sktm" class="form-label">Scan Surat Keterangan Tidak Mampu <span
-                                style="color: red; font-size: 12px;">Format file .pdf</span>
+                        <label for="label_scan_sktm" class="form-label">Scan Surat Keterangan Tidak Mampu <span style="color: red; font-size: 12px;">Format file .pdf</span>
                         </label>
                         <p class="biru mb20">
                             RTSM/RTM, PKH, KIP, atau Surat desa yatim/piatu
                         </p>
-                        <input hidden
-                            class="form-control <?= ($validation->hasError('scan_sktm')) ? 'is-invalid' : ''; ?>"
-                            name="scan_sktm" accept="application/pdf" type="file" id="sktm" />
+                        <input hidden class="form-control <?= ($validation->hasError('scan_sktm')) ? 'is-invalid' : ''; ?>" name="scan_sktm" accept="application/pdf" type="file" id="sktm" />
                         <label class=" bg-white" style="cursor: pointer;" for="sktm">
                             <a class="btn btn-secondary">Pilih File</a>
                             <?= $file['sktm']; ?>
@@ -840,10 +753,8 @@
             <div class="row pb40">
                 <div class="row pb40">
                     <div class="col-12 text-end">
-                        <a href="<?= base_url(); ?>/home_pendaftar/pengumuman"
-                            class="btn btn-danger fs18 me-3 px-4 py-2">Batal</a>
-                        <button type="button" data-bs-toggle="modal" data-bs-target="#save_modal"
-                            class="btn btn-primary fs18 px-4 py-2">
+                        <a href="<?= base_url(); ?>/home_pendaftar/pengumuman" class="btn btn-danger fs18 me-3 px-4 py-2">Batal</a>
+                        <button type="button" data-bs-toggle="modal" data-bs-target="#save_modal" class="btn btn-primary fs18 px-4 py-2">
                             Simpan
                         </button>
                     </div>
@@ -864,7 +775,7 @@
                             Pastikan data yang anda masukkan sudah benar.
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                            <button type="button" class="btn btn_orange" data-bs-dismiss="modal">
                                 Batal
                             </button>
                             <button type="submit" class="btn btn-success">Simpan</button>
@@ -876,19 +787,19 @@
     </div>
 </div>
 <script>
-// dropify upload foto
-$(".lampiran-foto").dropify({
-    error: {
-        fileSize: "Ukuran gambar terlalu besar ({{ value }} maksimal).",
-        fileExtension: "format file tidak diperbolehkan, hanya ({{ value }} yang diperbolehkan).",
-    },
-    messages: {
-        default: "Tarik dan letakkan file disini atau pilih",
-        replace: "Tarik dan letakkan atau pilih gambar baru",
-        remove: "Hapus",
-        error: "Ooops, Terdapat kesalahan.",
-    },
-});
+    // dropify upload foto
+    $(".lampiran-foto").dropify({
+        error: {
+            fileSize: "Ukuran gambar terlalu besar ({{ value }} maksimal).",
+            fileExtension: "format file tidak diperbolehkan, hanya ({{ value }} yang diperbolehkan).",
+        },
+        messages: {
+            default: "Tarik dan letakkan file disini atau pilih",
+            replace: "Tarik dan letakkan atau pilih gambar baru",
+            remove: "Hapus",
+            error: "Ooops, Terdapat kesalahan.",
+        },
+    });
 </script>
 <!-- End form pendaftaran -->
 <?= $this->endSection(); ?>

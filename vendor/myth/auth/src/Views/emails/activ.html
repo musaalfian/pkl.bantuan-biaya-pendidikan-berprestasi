@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    .btn{
+           
+        padding: 5px 10px;
+        border-radius: 10px;
+    }
+    .bg-abu{
+        background-color: rgb(236, 236, 236);
+    }
+    p{
+        font-size: 12px;
+    }
+    a{
+        text-decoration: none;
+    }
+    .text-center{
+        text-align: center;
+    }
+    .p50{
+        padding-bottom: 50px;
+        padding-top: 50px;
+    }
+    .bg-white{
+        background-color: white;
+    }
+    .d-flex{
+        display: flex;
+    }
+    .align-items-center{
+        align-items: center;
+    }
+    .justify-content-center{
+        justify-content: center;
+    }
+    .p25{
+        padding-bottom: 25px;
+        padding-top: 25px;
+    }
+    .fa16{
+        font-size: 16px;
+    }
+    .bold{
+        font-weight: 800;
+    }
+    .mt5{
+        margin-top: 5px;
+    }
+    .btn-biru{
+        background-color: blue;
+        color: white;
+    }
+    .br20{
+        border-radius: 20px;
+    }
+    .px50{
+        padding-right: 50px;
+        padding-left: 50px;
+    }
+    .mx-auto{
+        margin: auto auto;
+    }
+</style>
+</head>
+<body>
+    <div class="bg-abu p50 d-flex">
+        <div class="text-center mx-auto br20 px50 p50 bg-white " style="width: 500px;">
+            <img class="" src="../../../../../../public/assets/img/logo-batang.png" height="70px" alt="" />
+            <p class="fa16 bold mt-3">Sistem Informasi Bantuan Biaya Pendidikan Bagi Peserta Didik Pendidikan Menengah dan Mahasiswa yang Berprestasi Dari Keluarga Miskin</p>
+            <p class="mt5">Silkahkan klik dibawah ini unuk melakukan aktivasi akun </p>
+            <div class="">
+                <a class="btn btn-biru" href="<?= site_url('activate-account') . '?token=' . $hash ?>">Aktivasi</a>
+            </div>
+            <p>Harap untuk tidak membalas pesan ini. <span style="font-weight: 700;color:blue ;">Semangat dan teruslah berprestasi</span></p>
+        </div>
+    </div>
+    
+
+<!-- <?php 
+ function encode_img_base64($img_path = false, $img_type = 'png')
+{
+    if ($img_path) {
+        //convert image into Binary data
+        $img_data = fopen($img_path, 'rb');
+        $img_size = filesize($img_path);
+        $binary_image = fread($img_data, $img_size);
+        fclose($img_data);
+
+        //Build the src string to place inside your img tag
+        $img_src = "data:image/" . $img_type . ";base64," . str_replace("\n", "", base64_encode($binary_image));
+
+        return $img_src;
+    }
+
+    return false;
+} 
+$img = "../logo-kabupaten-batang2.png";
+        $image = encode_img_base64($img);
+?> -->
+</body>
+</html>

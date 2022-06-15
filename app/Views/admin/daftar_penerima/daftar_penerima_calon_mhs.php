@@ -3,10 +3,10 @@
 <?= $this->section('content'); ?>
 <!-- Page content-->
 <div class=" bg-abu p40">
-    <div class=" admin-content p-4 mx-auto">
-        <h3>Data Penerima Beasiswa Calon Mahasiswa</h3>
-        <div class="p-4 bg-white mt20 ">
-            <p>Edit status pembayaran keseluruhan : <a href="" data-bs-toggle="modal"
+    <div class=" admin-content mx-auto">
+        <h3 class="biru">Data Penerima Beasiswa <span class="orange">Calon Mahasiswa</span> </h3>
+        <div class="p-4 br20 bg-white mt20 ">
+            <p class="fw-bold">Edit status pembayaran keseluruhan : <a href="" data-bs-toggle="modal"
                     data-bs-target="#ubahStatusPembayaranKeseluruhan">
                     Ubah
                 </a></p>
@@ -149,15 +149,15 @@
                 <form
                     action="<?php base_url() ?>/Admin_daftar_penerima/ubah_status_pembayaran/<?= $data['no_induk'] ?>/2"
                     method="POST">
-                    <select class="form-select mt-2" id="statusPembayaran" name="statusPembayaran">
-                        <option selected hidden>---</option>
+                    <!-- <select class="form-select mt-2" id="statusPembayaran" name="statusPembayaran">
+                        <option selected hidden>---</option> -->
                         <?php foreach ($status_pembayaran as $status_pembayarans) : ?>
-                        <option
+                        <input type="radio"
                             <?= ($status_pembayarans['id_status_pembayaran'] == $data['id_status_pembayaran']) ? 'selected' : ''; ?>
                             name="statusPembayaran" value="<?= $status_pembayarans['id_status_pembayaran']; ?>">
-                            <?= $status_pembayarans['nama_status_pembayaran']; ?></option>
+                            <?= $status_pembayarans['nama_status_pembayaran']; ?></input> <br>
                         <?php endforeach ?>
-                    </select>
+                    <!-- </select> -->
                     <div class="modal-footer">
 
                         <button type="submit" class="btn btn-primary">Simpan</button>
