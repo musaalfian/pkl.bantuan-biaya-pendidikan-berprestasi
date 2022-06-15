@@ -374,9 +374,10 @@ class Calon_mhs extends BaseController
                         'tingkat' => null,
                         'juara' => null,
                     ]);
-                } else if ($this->request->getVar('tingkat_' . $i) != null) {
+                } else if ($this->request->getVar('kategori_' . $i) == 'perlombaan') {
                     $this->MPrestasi->insert([
                         'file_prestasi' => $nama_scan_prestasi[$i - 1],
+                        'kategori' => $this->request->getVar('kategori_' . $i),
                         'nama_prestasi' => $this->request->getVar('nama_prestasi_' . $i),
                         'tahun_prestasi' => $this->request->getVar('tahun_prestasi_' . $i),
                         'tingkat' => $this->request->getVar('tingkat_' . $i),
@@ -824,7 +825,7 @@ class Calon_mhs extends BaseController
                     } else if ($this->request->getVar('kategori_' . $i) == 'perlombaan') {
                         $this->MPrestasi->insert([
                             'file_prestasi' => $nama_scan_prestasi[$i - 1],
-                            'kategori' => "perlombaan",
+                            'kategori' => $this->request->getVar('kategori_' . $i),
                             'nama_prestasi' => $this->request->getVar('nama_prestasi_' . $i),
                             'tahun_prestasi' => $this->request->getVar('tahun_prestasi_' . $i),
                             'tingkat' => $this->request->getVar('tingkat_' . $i),
