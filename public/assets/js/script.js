@@ -488,13 +488,31 @@ $(document).ready(function () {
   });
 });
 
-// show password
-$(".toggle-password").click(function () {
-  $(this).toggleClass("fa-eye fa-eye-slash");
-  var input = $($(this).attr("toggle"));
-  if (input.attr("type") == "password") {
-    input.attr("type", "text");
+// Show/hide password
+var state = false;
+
+function toogle() {
+  if (state) {
+    document.getElementById("sandi").setAttribute("type", "password");
+    document.getElementById("eye").style.color = "#000";
+    state = false;
   } else {
-    input.attr("type", "password");
+    document.getElementById("sandi").setAttribute("type", "text");
+    document.getElementById("eye").style.color = "#006AC2";
+    state = true;
   }
-});
+}
+
+function toogle2() {
+  if (state) {
+    document.getElementById("ulangiSandi").setAttribute("type", "password");
+    document.getElementById("eye2").style.color = "#000";
+    state = false;
+  } else {
+    document.getElementById("ulangiSandi").setAttribute("type", "text");
+    document.getElementById("eye2").style.color = "#006AC2";
+    state = true;
+  }
+}
+
+// End show/hide password

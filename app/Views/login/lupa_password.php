@@ -6,55 +6,54 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Lupa Password</title>
-  <!-- CSS only -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
-  <!-- JavaScript Bundle with Popper -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
 
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" />
-  <link rel="stylesheet" href="<?= base_url(); ?>/assets/css/style.css" />
+  <!-- Bootstrap Icon -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
+
+  <!-- Fontawesome Icon -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js" integrity="sha512-6PM0qYu5KExuNcKt5bURAoT6KCThUmHRewN3zUFNaoI6Di7XJPTMoT6K0nsagZKk2OB4L7E3q1uQKHNHd4stIQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/assets/css/style.css" />
 </head>
 
 <body>
-  <!-- Main section -->
-  <div class="login__section d-flex">
-    <div class="daftar__card">
-      <h3>Lupa Kata Sandi</h3>
-      <?= view('Myth\Auth\Views\_message_block') ?>
-      <p class="mt10 text-black">
-        Masukkan email Anda dan kami akan mengirimkan
-        instruksi untuk mengatur ulang kata sandi Anda.
-      </p>
-      <div class="daftar__content text-black">
-        <form action="<?= route_to('forgot') ?>" method="post" style="overflow: auto">
-          <?= csrf_field() ?>
-          <div class="mt60">
-            <label for="email">Email</label>
-            <input class="daftar__input <?php if (session('errors.email')) : ?>is-invalid<?php endif ?>" placeholder="Masukan email" type="email" id="email" name="email" aria-describedby="emailHelp" />
-            <div class="invalid-feedback">
-              <?= session('errors.email') ?>
+  <div class="awal row me-0 align-items-center">
+    <div class="awal__content col-md-6 col-12 bgwhite d-flex justify-content-center align-items-center">
+      <div class="p-3 px-sm-4 w-75">
+        <div class="nav__back mb40">
+          <a href="<?= route_to('login') ?>" class="fw-bold blue fs20"><i class="fa-solid fa-arrow-left-long"></i></a>
+        </div>
+        <div class="header text-center">
+          <h3 class="black fw-bold">Lupa Kata Sandi</h3>
+          <h6 class="grey mt-2">Masukkan email Anda dan kami akan mengirimkan
+            instruksi untuk mengatur ulang kata sandi Anda.
+          </h6>
+          <?= view('Myth\Auth\Views\_message_block') ?>
+        </div>
+        <div class="content">
+          <form action="<?= route_to('forgot') ?>" method="POST">
+            <?= csrf_field() ?>
+            <div class="mt40">
+              <label for="email">Email</label>
+              <input class=" form-control mt-2 <?php if (session('errors.email')) : ?>is-invalid<?php endif ?>" placeholder="Masukan email" type="email" id="email" name="email" aria-describedby="emailHelp" />
             </div>
-          </div>
-
-          <div class="mt50 daftar__button">
-            <button class="daftar__button fs14" style="float: right" type="submit">
-              Kirim
-            </button>
-          </div>
-        </form>
-        <div class="mt40 d-flex justify-content-end">
-          <p>
-            Belum punya akun?
-            <span><?php if ($config->allowRegistration) : ?>
-                <a href="<?= route_to('register') ?>" class="bold blue">Daftar</a>
-              <?php endif; ?></span>
-          </p>
+            <div class="daftar__button mt40">
+              <button type="submit" id="submit_login" class="btn btn-primary shadow-none fs14 btn__blue">Kirim</button>
+            </div>
+          </form>
         </div>
       </div>
     </div>
-    <div class="daftar__gambar"></div>
+    <div class="awal__gambar gambar__sandi col-md-6 col-12 px-4 bgblue align-items-center justify-content-center">
+      <img src="<?= base_url('assets/img/gambar-login.svg'); ?>" alt="Gambar Masuk">
+    </div>
   </div>
-  <!-- End main section -->
+  <script src="<?php base_url() ?>/assets/js/script.js"></script>
+
 </body>
 
 </html>

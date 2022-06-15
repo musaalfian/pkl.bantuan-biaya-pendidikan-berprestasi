@@ -27,28 +27,28 @@
 </head>
 
 <body>
-    <div class="awal d-flex align-items-center">
-        <div class="awal__content bgwhite d-flex justify-content-center align-items-center w-100">
-            <div class="p-3 px-md-5">
+    <div class="awal row me-0 align-items-center">
+        <div class="awal__content col-md-6 col-12 bgwhite d-flex justify-content-center align-items-center">
+            <div class="p-3 px-sm-5">
                 <div class="logo__dinas d-flex align-items-center">
-                    <img src="<?= base_url('assets/img/logo-batang.png'); ?>" width="8%" height="100%" alt="Logo Kabupaten Batang" class="me-2">
-                    <h6 class="fs14 black">Dinas Pendidikan dan Kebudayaan <br> Kabupaten Batang</h6>
+                    <img src="<?= base_url('assets/img/logo-batang.png'); ?>" width="30px" height="100%" alt="Logo Kabupaten Batang" class="me-2">
+                    <h6 class="fs14 black mb-0">Dinas Pendidikan dan Kebudayaan <br> Kabupaten Batang</h6>
                 </div>
                 <div class="tagline mt60">
                     <h4 class="fw-bold blue fs20">Sistem Informasi Bantuan Biaya Pendidikan
                         Bagi Peserta Didik Pendidikan Menengah dan
                         Mahasiswa yang Berprestasi
-                        Dari Keluarga Msikin
+                        Dari Keluarga Miskin
                     </h4>
                     <div class="d-flex mt40">
                         <div class="daftar">
                             <a href="/user/index" class="me-2">
-                                <button class="btn btn-primary bgorange shadow-none fs14 text-white">Daftar</button>
+                                <button class="btn btn-primary bgorange shadow-none fs14 text-white btn__orange">Daftar</button>
                             </a>
                         </div>
                         <div class="informasi">
                             <a href="/halaman_awal/informasi_pendaftaran/1">
-                                <button class="btn btn-primary shadow-none fs14">Informasi Pendaftaran</button>
+                                <button class="btn btn-primary shadow-none fs14 btn__blue">Informasi Pendaftaran</button>
                             </a>
                         </div>
                     </div>
@@ -56,7 +56,7 @@
                         <h6 class="fs14 black">Unduh informasi terkait data pendaftar dan data penerima :</h6>
                         <div class="d-flex mt-3">
                             <div class="pendaftar me-2">
-                                <button class="btn btn-primary bdr__none fw-normal bg-transparent black fs14 dropdown-toggle shadow-none d-flex align-items-center" type="button" id="daftar_pendaftar" data-bs-toggle="dropdown" aria-expanded="false">
+                                <button class="btn btn-primary btn__white fw-normal bg-transparent black fs14 dropdown-toggle shadow-none d-flex align-items-center" type="button" id="daftar_pendaftar" data-bs-toggle="dropdown" aria-expanded="false">
                                     Pendaftar <i class="fa-solid fa-angle-down ms-2"></i>
                                 </button>
                                 <ul class="dropdown-menu" aria-labelledby="daftar_pendaftar">
@@ -70,7 +70,7 @@
                             </div>
                             <div class="penerima">
                                 <div class="btn__lainnya">
-                                    <button class="penerima btn btn-primary bdr__none fw-normal bg-transparent black fs14 dropdown-toggle shadow-none d-flex align-items-center" type="button" id="daftar_penerima" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <button class="penerima btn btn-primary btn__white bdr__none fw-normal bg-transparent black fs14 dropdown-toggle shadow-none d-flex align-items-center" type="button" id="daftar_penerima" data-bs-toggle="dropdown" aria-expanded="false">
                                         Penerima <i class="fa-solid fa-angle-down ms-2"></i>
                                     </button>
                                     <ul class="dropdown-menu" aria-labelledby="daftar_penerima">
@@ -88,13 +88,10 @@
                 </div>
             </div>
         </div>
-        <div class="awal__gambar px-4 w-50 bgblue align-items-center justify-content-center">
-            <div class="gambar px-5 w-100 h-100">
-                <img src="<?= base_url('assets/img/gambar-login.svg'); ?>" alt="">
-            </div>
+        <div class="awal__gambar col-md-6 col-12 px-4 bgblue align-items-center justify-content-center">
+            <img src="<?= base_url('assets/img/gambar-login.svg'); ?>" alt="Gambar Masuk">
         </div>
     </div>
-
 
     <!-- JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
