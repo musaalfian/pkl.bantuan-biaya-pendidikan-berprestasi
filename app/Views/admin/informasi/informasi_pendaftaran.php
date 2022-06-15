@@ -3,8 +3,8 @@
 <?= $this->section('content'); ?>
 <!-- Main Section-->
 <div class=" bg-abu p40">
-    <div class=" admin-content p-4 mx-auto">
-        <h3 class="col-6 pb20">Daftar Informasi Terbaru </h3>
+    <div class=" admin-content  mx-auto">
+        <h3  class="col-6 biru pb20">Daftar <span class="orange">Informasi Terbaru </span> </h3>
         <!-- alert informasi terbaru -->
         <?php if (session()->getFlashdata('pesan-tambah-informasi-terbaru')) : ?>
         <div class="alert alert-success" role="alert">
@@ -22,7 +22,7 @@
         </div>
         <?php endif; ?>
         <!-- end alert informasi terbaru -->
-        <div class="p-4 bg-white mt20 ">
+        <div class="p-4 br20 bg-white mt20 ">
             <div class="sub-informasi mb20">
                 <h3 class="mb20">1. Persyaratan Penerima Bantuan</h3>
                 <div class="detail ms-4">

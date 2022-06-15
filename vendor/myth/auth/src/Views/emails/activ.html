@@ -63,12 +63,15 @@
         padding-right: 50px;
         padding-left: 50px;
     }
+    .mx-auto{
+        margin: auto auto;
+    }
 </style>
 </head>
 <body>
-    <div class="bg-abu p50 d-flex align-items-center justify-content-center">
-        <div class="text-center br20 px50 p50 bg-white " style="width: 500px;">
-            <img class="" src="../../../../../../public/assets/img/logo-kabupaten-batang 2-1.png" alt="" />
+    <div class="bg-abu p50 d-flex">
+        <div class="text-center mx-auto br20 px50 p50 bg-white " style="width: 500px;">
+            <img class="" src="../../../../../../public/assets/img/logo-batang.png" height="70px" alt="" />
             <p class="fa16 bold mt-3">Sistem Informasi Bantuan Biaya Pendidikan Bagi Peserta Didik Pendidikan Menengah dan Mahasiswa yang Berprestasi Dari Keluarga Miskin</p>
             <p class="mt5">Silkahkan klik dibawah ini unuk melakukan aktivasi akun </p>
             <div class="">
@@ -78,5 +81,27 @@
         </div>
     </div>
     
+
+<!-- <?php 
+ function encode_img_base64($img_path = false, $img_type = 'png')
+{
+    if ($img_path) {
+        //convert image into Binary data
+        $img_data = fopen($img_path, 'rb');
+        $img_size = filesize($img_path);
+        $binary_image = fread($img_data, $img_size);
+        fclose($img_data);
+
+        //Build the src string to place inside your img tag
+        $img_src = "data:image/" . $img_type . ";base64," . str_replace("\n", "", base64_encode($binary_image));
+
+        return $img_src;
+    }
+
+    return false;
+} 
+$img = "../logo-kabupaten-batang2.png";
+        $image = encode_img_base64($img);
+?> -->
 </body>
 </html>

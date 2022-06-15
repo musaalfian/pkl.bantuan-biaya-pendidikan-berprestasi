@@ -317,7 +317,7 @@ p {
   justify-content: center;
 }
 .bold {
-  font-weight: 800 !important;
+  font-weight: 700 !important;
 }
 .dropdown {
   text-decoration: none;
@@ -787,7 +787,8 @@ footer {
   height: 4px;
   bottom: 0;
   left: 0;
-  background-color: #ffffff;
+  color: var(--orange);
+  background-color: var(--orange);
   visibility: hidden;
   transition: all 0.5s ease-in-out;
 }
@@ -797,12 +798,12 @@ footer {
 }
 .navbarNav{
   position: relative;
-  font-size: 14px;
+  font-size: 18px;
   font-weight:600 ;
 }
 .navbarNav:hover{
   /* position: relative; */
-  color: white;
+  color: var(--orange);
   
 }
 /* .navbarNav:hover {
@@ -827,6 +828,8 @@ footer {
   border-radius: 2px;
   content: "";
   /* position: absolute; */
+  color: var(--orange);
+
 
   
 }
@@ -866,14 +869,20 @@ footer {
 
 .active-menu{
   background-color: white !important;
-  color: #000000 !important;
+  /* color: #000000 !important; */
+  color: var(--orange) !important;
+  font-weight: 800 !important;
   text-decoration: none !important;
+  border-radius: 10px;
+
 }
 .menu:hover {
   background-color: white;
+  border-radius: 10px;
 }
 .menu:hover a {
-  color: #000000;
+  /* color: #000000; */
+  color: var(--orange);
 }
 .menu a {
   color: white;

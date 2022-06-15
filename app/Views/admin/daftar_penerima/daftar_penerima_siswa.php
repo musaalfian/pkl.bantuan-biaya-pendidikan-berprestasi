@@ -4,9 +4,9 @@
 
 <!-- Page content-->
 <div class=" bg-abu p40">
-    <div class=" admin-content p-4 mx-auto">
-        <h3>Data Penerima Beasiswa Peserta Didik</h3>
-        <div class="p-4 bg-white mt20 ">
+    <div class=" admin-content mx-auto">
+        <h3 class="biru">Data Penerima Beasiswa <span class="orange">Peserta Didik</span> </h3>
+        <div class="p-4 br20 bg-white mt20 ">
             <p>Edit status pembayaran keseluruhan : <a href="" data-bs-toggle="modal"
                     data-bs-target="#ubahStatusPembayaranKeseluruhan">
                     Ubah
@@ -73,7 +73,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel">DETAIL PENERIMA</h5>
+                <h5 class="modal-title fw-bold" id="staticBackdropLabel">DETAIL PENERIMA</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
 
@@ -147,7 +147,8 @@
                 <form
                     action="<?php base_url() ?>/Admin_daftar_penerima/ubah_status_pembayaran/<?= $data['no_induk'] ?>/1"
                     method="POST">
-                    <select class="form-select mt-2" id="statusPembayaran" name="statusPembayaran">
+                    
+                    <!-- <select class="form-select mt-2" id="statusPembayaran" name="statusPembayaran">
                         <option hidden>---</option>
                         <?php foreach ($status_pembayaran as $status_pembayarans) : ?>
                         <option name="statusPembayaran"
@@ -155,7 +156,16 @@
                             value="<?= $status_pembayarans['id_status_pembayaran']; ?>">
                             <?= $status_pembayarans['nama_status_pembayaran']; ?></option>
                         <?php endforeach ?>
-                    </select>
+                    </select> -->
+                    <!-- <select class="form-select mt-2" id="statusPembayaran" name="statusPembayaran">
+                        <option hidden>---</option> -->
+                        <?php foreach ($status_pembayaran as $status_pembayarans) : ?>
+                        <input type="radio" name="statusPembayaran"
+                            <?= ($status_pembayarans['id_status_pembayaran'] == $data['id_status_pembayaran']) ? 'selected' : ''; ?>
+                            value="<?= $status_pembayarans['id_status_pembayaran']; ?>">
+                            <?= $status_pembayarans['nama_status_pembayaran']; ?></input> <br>
+                        <?php endforeach ?>
+                    <!-- </select> -->
                     <div class="modal-footer">
 
                         <button type="submit" class="btn btn-primary">Simpan</button>
