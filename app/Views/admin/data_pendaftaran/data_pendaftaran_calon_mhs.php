@@ -26,7 +26,7 @@
                         <td><?= $calon_mhs['nama_pt'];; ?></td>
                         <td><?= $calon_mhs['alamat_rumah']; ?></td>
                         <td><?= $calon_mhs['nama_status']; ?></td>
-                        <td><a href="<?= base_url(); ?>/Admin_Detail_Pendaftaran/detail_pendaftar/<?= $calon_mhs['no_induk']; ?>"
+                        <td><a href="<?= base_url(); ?>/admin_detail_pendaftaran/detail_pendaftar/<?= $calon_mhs['no_induk']; ?>"
                                 class="btn btn-primary">Detail</a></td>
                     </tr>
                     <?php $i++; ?>

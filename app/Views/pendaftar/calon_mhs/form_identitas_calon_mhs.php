@@ -5,8 +5,7 @@
 <!-- Form pendaftaran -->
 <div class="bg-abu py40">
     <div class="container form__calon">
-        <form action="<?= base_url(); ?>/calon_mhs/simpan_tambah_identitas_calon_mhs" method="post"
-            class="needs-validation" novalidate>
+        <form action="<?= base_url(); ?>/calon_mhs/simpan_tambah_identitas_calon_mhs" method="post" class="needs-validation" novalidate>
             <h3 class="mb20 biru fw-bold">Form Pendaftaran Beasiswa <span class="orange"> Calon Mahasiswa</span></h3>
             <!-- alert identitas -->
             <?php if (session()->getFlashdata('pesan-tambah-identitas-calon-mhs')) : ?>
@@ -29,38 +28,41 @@
                     </div>
                     <!-- end nama lengkap -->
                     <div class="mb20">
-                        <label for="jenis_kelamin" class="form-label">Jenis Kelamin <span
-                                class="required-label">*</span></label>
-                            <!-- radio button -->
-                            <!-- <select required <?= ($identitas != null) ? 'disabled' : ''; ?>
+                        <label for="jenis_kelamin" class="form-label">Jenis Kelamin</label>
+                        <!-- radio button -->
+                        <!-- <select required <?= ($identitas != null) ? 'disabled' : ''; ?>
                             class="form-select <?= ($validation->hasError('jenis_kelamin')) ? 'is-invalid' : ''; ?>"
                             aria-label="Default select example" name="jenis_kelamin">
                             <option hidden></option> -->
-                            <input type="radio" required <?= ($identitas != null) ? 'disabled' : ''; ?> name="jenis_kelamin" <?php if ($identitas != null) {
-                                        if ($identitas['jenis_kelamin'] == 'L') {
-                                            echo 'checked';
-                                        };
-                                    } else {
-                                        if (old('jenis_kelamin') == 'L') {
-                                            echo 'checked';
-                                        }
-                                    } ?> value="L">
-                                Laki-laki
-                            </input>
-                            <input type="radio" required <?= ($identitas != null) ? 'disabled' : ''; ?> name="jenis_kelamin"  <?php if ($identitas != null) {
-                                        if ($identitas['jenis_kelamin'] == 'P') {
-                                            echo 'checked';
-                                        };
-                                    } else {
-                                        if (old('jenis_kelamin') == 'P') {
-                                            echo 'checked';
-                                        }
-                                    } ?> value="P">
+                        <div class="form-check">
+                            <input <?= ($identitas != null) ? 'disabled' : ''; ?> required type="radio" class="form-check-input" name="jenis_kelamin" id="L" <?php if ($identitas != null) {
+                                                                                                                                                                    if ($identitas['jenis_kelamin'] == 'L') {
+                                                                                                                                                                        echo 'checked';
+                                                                                                                                                                    };
+                                                                                                                                                                } else {
+                                                                                                                                                                    if (old('jenis_kelamin') == 'L') {
+                                                                                                                                                                        echo 'checked';
+                                                                                                                                                                    }
+                                                                                                                                                                } ?> value="L">
+                            <label class="form-check-label" for="L">
+                                Laki - laki
+                            </label>
+                            <input <?= ($identitas != null) ? 'disabled' : ''; ?> required type="radio" class="form-check-input" name="jenis_kelamin" id="P" <?php if ($identitas != null) {
+                                                                                                                                                                    if ($identitas['jenis_kelamin'] == 'P') {
+                                                                                                                                                                        echo 'checked';
+                                                                                                                                                                    };
+                                                                                                                                                                } else {
+                                                                                                                                                                    if (old('jenis_kelamin') == 'P') {
+                                                                                                                                                                        echo 'checked';
+                                                                                                                                                                    }
+                                                                                                                                                                } ?> value="P">
+                            <label class="form-check-label" for="P">
                                 Perempuan
-                            </input>
-                        <!-- </select> -->
-                        <div class="invalid-feedback">
-                            <?= ($validation->getError('jenis_kelamin') == '') ? 'Bagian jenis kelamin  wajib diisi' : str_replace('_', ' ', $validation->getError('jenis_kelamin')) ?>
+                            </label>
+                            <!-- </select> -->
+                            <div class="invalid-feedback">
+                                <?= ($validation->getError('jenis_kelamin') == '') ? 'Bagian jenis kelamin  wajib diisi' : str_replace('_', ' ', $validation->getError('jenis_kelamin')) ?>
+                            </div>
                         </div>
                     </div>
                     <!-- end jenis kelamin -->
@@ -120,23 +122,28 @@
                     <!-- end Nomer Telepon -->
                     <div class="mb20">
                         <label for="pernah_menerima_bantuan" class="form-label">Apakah Calon Penerima Beasiswa Pernah
-                            Menerima Bantuan?
-                            <span class="required-label">*</span></label>
+                            Menerima Bantuan? </label>
                         <!-- <select required id="pernah_menerima_bantuan" <?= ($identitas != null) ? 'disabled' : ''; ?>
                             class="form-select <?= ($validation->hasError('pernah_menerima_bantuan')) ? 'is-invalid' : ''; ?>"
                             aria-label="Default select example" name="pernah_menerima_bantuan">
                             <option selected hidden></option> -->
+                        <div class="form-check">
                             <?php foreach ($opsional as $opsional) : ?>
-                            <input required <?= ($identitas != null) ? 'disabled' : ''; ?> name="pernah_menerima_bantuan" <?php if ($identitas != null) {
-                                            if ($identitas['pernah_menerima_bantuan'] == $opsional) {
-                                                echo 'checked';
-                                            };
-                                        } else {
-                                            if (old('pernah_menerima_bantuan') == $opsional) {
-                                                echo 'checked';
-                                            }
-                                        } ?> value="<?= $opsional; ?>"><?= ucfirst($opsional); ?></input>
+                                <input class="form-check-input" type="radio" required <?= ($identitas != null) ? 'disabled' : ''; ?> name="pernah_menerima_bantuan" id="pernah_menerima_bantuan_<?= $opsional; ?>" <?php if ($identitas != null) {
+                                                                                                                                                                                                                        if ($identitas['pernah_menerima_bantuan'] == $opsional) {
+                                                                                                                                                                                                                            echo 'checked';
+                                                                                                                                                                                                                        };
+                                                                                                                                                                                                                    } else {
+                                                                                                                                                                                                                        if (old('pernah_menerima_bantuan') == $opsional) {
+                                                                                                                                                                                                                            echo 'checked';
+                                                                                                                                                                                                                        }
+                                                                                                                                                                                                                    } ?> value="<?= $opsional; ?>">
+                                <label class="form-check-label" for="pernah_menerima_bantuan_<?= $opsional; ?>">
+                                    <?= ucfirst($opsional); ?>
+                                </label>
                             <?php endforeach; ?>
+
+                        </div>
                         <!-- </select> -->
                         <div class="invalid-feedback">
                             <?= ($validation->getError('pernah_menerima_bantuan') == '') ? 'Bagian pernah menerima bantuan  wajib diisi' : str_replace('_', ' ', $validation->getError('pernah_menerima_bantuan')); ?>
@@ -155,13 +162,9 @@
                 </div>
                 <div class="col-12 col-md-6">
                     <div class="alamat mb20">
-                        <label for="alamat_rumah" class="form-label">Alamat Rumah <span
-                                class="required-label">*</span></label>
-                        <small class="red">alamat berisi dukuh, rt, rw, desa, dan jalan</small>
-                        <textarea required <?= ($identitas != null) ? 'disabled' : ''; ?>
-                            class="form-control mb-2 <?= ($validation->hasError('alamat_rumah')) ? 'is-invalid' : ''; ?>"
-                            name="alamat_rumah" id="alamat_rumah"
-                            rows="4"><?= ($identitas != null) ? $identitas['alamat_rumah'] : old('alamat_rumah'); ?></textarea>
+                        <label for="alamat_rumah" class="form-label">Alamat Rumah </label>
+                        <small class="red">Contoh : alamat berisi dukuh, rt, rw, desa, dan jalan</small>
+                        <textarea required <?= ($identitas != null) ? 'disabled' : ''; ?> class="form-control mb-2 <?= ($validation->hasError('alamat_rumah')) ? 'is-invalid' : ''; ?>" name="alamat_rumah" id="alamat_rumah" rows="4"><?= ($identitas != null) ? $identitas['alamat_rumah'] : old('alamat_rumah'); ?></textarea>
                         <div class="invalid-feedback">
                             <?= ($validation->getError('alamat_rumah') == '') ? 'Bagian alamat rumah  wajib diisi' : str_replace('_', ' ', $validation->getError('alamat_rumah')); ?>
                         </div>
@@ -180,7 +183,7 @@
                                             if (old('kecamatan') == $kecamatan['id_kecamatan']) {
                                                 echo 'selected';
                                             }
-                                        } ?> value="<?= $kecamatan['id_kecamatan']; ?>">
+                                        } ?> value="<?= ucfirst($kecamatan['id_kecamatan']); ?>">
                                     <?= $kecamatan['nama_kecamatan']; ?>
                                 </option>
                             <?php endforeach; ?>

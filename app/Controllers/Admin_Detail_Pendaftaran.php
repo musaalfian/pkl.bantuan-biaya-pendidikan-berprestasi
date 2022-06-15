@@ -60,7 +60,7 @@ class Admin_detail_pendaftaran extends BaseController
         $status_pendaftaran = $this->MStatusPendaftaran->findAll();
         // $status_pembayaran = $this->MStatusPembayaran->findAll();
         $status_final = $this->MStatusFinal->findAll();
-        // dd($detail_pendaftar);
+        dd($prestasi);
         foreach ($prestasi as $prestasi_penilaian) {
             /* hafidz lgsung diterima dengan nilai 200*/
             if ($prestasi_penilaian['kategori'] == 'hafidz') {

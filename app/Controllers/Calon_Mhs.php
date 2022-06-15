@@ -58,6 +58,7 @@ class Calon_mhs extends BaseController
         session();
         $validation = \Config\Services::validation();
         $opsional = ['ya', 'tidak'];
+        // dd($kecamatan);
         $data = [
             'title'     => 'Beasiswa Batang | Daftar Beasiswa Calon Mahasiswa',
             'identitas' => $identitas,
@@ -820,7 +821,7 @@ class Calon_mhs extends BaseController
                             'tingkat' => null,
                             'juara' => null,
                         ]);
-                    } else if ($this->request->getVar('tingkat_' . $i) != null) {
+                    } else if ($this->request->getVar('kategori_' . $i) == 'perlombaan') {
                         $this->MPrestasi->insert([
                             'file_prestasi' => $nama_scan_prestasi[$i - 1],
                             'kategori' => "perlombaan",

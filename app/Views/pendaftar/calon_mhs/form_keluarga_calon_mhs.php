@@ -208,8 +208,11 @@
                             class="form-select <?= ($validation->hasError('rtsm_rtm')) ? 'is-invalid' : ''; ?>"
                             aria-label="Default select example" name="rtsm_rtm">
                             <option selected hidden></option> -->
+                        <div class="form-check">
+
                             <?php foreach ($opsional as $opsional_rstm) : ?>
-                            <input name="rtsm_rtm" required type="radio" <?= ($keluarga != null) ? 'disabled' : ''; ?> <?php if ($keluarga != null) {
+                            <input name="rtsm_rtm" required type="radio" class="form-check-input"
+                                <?= ($keluarga != null) ? 'disabled' : ''; ?> <?php if ($keluarga != null) {
                                             if ($keluarga['rtsm_rtm'] == $opsional_rstm) {
                                                 echo 'checked';
                                             };
@@ -217,9 +220,11 @@
                                             if (old('rtsm_rtm') == $opsional_rstm) {
                                                 echo 'checked';
                                             }
-                                        } ?> value="<?= $opsional_rstm; ?>"><?= ucfirst($opsional_rstm); ?></input> <br>
+                                        } ?> value="<?= $opsional_rstm; ?>"><?= ucfirst($opsional_rstm); ?></input>
+                            <br>
                             <?php endforeach; ?>
-                        <!-- </select> -->
+                            <!-- </select> -->
+                        </div>
                         <div class="invalid-feedback">
                             <?= ($validation->getError('rtsm_rtm') == '') ? 'Bagian Rumah Tangga Sangat Miskin (RTSM) / Rumah Tangga Miskin
                             (RTM) wajib diisi' : str_replace('_', ' ', $validation->getError('rtsm_rtm')); ?>
@@ -237,8 +242,10 @@
                             class="form-select <?= ($validation->hasError('pkh_kks_kbs')) ? 'is-invalid' : ''; ?>"
                             aria-label="Default select example" name="pkh_kks_kbs">
                             <option selected hidden></option> -->
+                        <div class="form-check">
                             <?php foreach ($opsional as $opsional_pkh) : ?>
-                            <input type="radio" required name="pkh_kks_kbs" <?= ($keluarga != null) ? 'disabled' : ''; ?> <?php if ($keluarga != null) {
+                            <input type="radio" class="form-check-input" required name="pkh_kks_kbs"
+                                <?= ($keluarga != null) ? 'disabled' : ''; ?> <?php if ($keluarga != null) {
                                             if ($keluarga['pkh_kks_kbs'] == $opsional_pkh) {
                                                 echo 'checked';
                                             };
@@ -248,7 +255,8 @@
                                             }
                                         } ?> value="<?= $opsional_pkh; ?>"><?= ucfirst($opsional_pkh); ?></input><br>
                             <?php endforeach; ?>
-                        <!-- </select> -->
+                            <!-- </select> -->
+                        </div>
                         <div class="invalid-feedback">
                             <?= ($validation->getError('pkh_kks_kbs') == '') ? 'Bagian Peserta Program Keluarga Harapan (PKH)/Kart
                             Keluarga Sejahtera
@@ -266,8 +274,10 @@
                             class="form-select <?= ($validation->hasError('bsm_kip')) ? 'is-invalid' : ''; ?>"
                             aria-label="Default select example" name="bsm_kip">
                             <option selected hidden></option> -->
+                        <div class="form-check">
                             <?php foreach ($opsional as $opsional_bsm) : ?>
-                            <input name="bsm_kip" type="radio" required <?= ($keluarga != null) ? 'disabled' : ''; ?> <?php if ($keluarga != null) {
+                            <input name="bsm_kip" type="radio" class="form-check-input" required
+                                <?= ($keluarga != null) ? 'disabled' : ''; ?> <?php if ($keluarga != null) {
                                             if ($keluarga['bsm_kip'] == $opsional_bsm) {
                                                 echo 'checked';
                                             };
@@ -277,6 +287,7 @@
                                             }
                                         } ?> value="<?= $opsional_bsm; ?>"><?= ucfirst($opsional_bsm); ?></input> <br>
                             <?php endforeach; ?>
+                        </div>
                         <!-- </select> -->
                         <div class="invalid-feedback">
                             <?= ($validation->getError('bsm_kip') == '') ? 'Bagian Penerimaan BSM atau Kartu Indonesia Pintar (KIP)  wajib diisi' : str_replace('_', ' ', $validation->getError('bsm_kip')); ?>
