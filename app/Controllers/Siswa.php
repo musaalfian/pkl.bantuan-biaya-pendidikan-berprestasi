@@ -70,7 +70,7 @@ class Siswa extends BaseController
             'identitas' => $identitas,
             'opsional'  => $opsional
         ];
-        return view('/pendaftar/siswa/form_siswa', $data);
+        return view('/pendaftar/siswa/form_identitas_siswa', $data);
     }
     public function simpan_tambah_identitas_siswa()
     {
