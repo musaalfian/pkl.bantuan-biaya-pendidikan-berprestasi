@@ -622,6 +622,10 @@ class Mahasiswa extends BaseController
 
         ]);
 
+        // merubah no induk terbaru
+        $no_induk = $input_no_induk;
+
+
         /*******************    KELUARGA    ********************/
         $keluarga = $this->MKeluarga->find_keluarga_noinduk($no_induk)->getFirstRow('array');
 

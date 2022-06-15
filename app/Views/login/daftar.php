@@ -7,13 +7,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Daftar</title>
     <!-- CSS only -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
     <!-- JavaScript Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
     </script>
     <script src="<?= base_url(); ?>/assets/js/captcha.js"></script>
     <!-- JQuery -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <!-- CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" />
     <link rel="stylesheet" href="<?= base_url(); ?>/assets/css/style.css" />
@@ -35,42 +38,59 @@
                         <?= csrf_field() ?>
                         <div class="mt40">
                             <label for="email">Email</label>
-                            <input class=" form-control mt-2 <?php if (session('errors.email')) : ?>is-invalid<?php endif ?>" placeholder="Masukan email" autofocus type="email" id="email" name="email" aria-describedby="emailHelp" value="<?= old('email') ?>" />
+                            <input
+                                class=" form-control mt-2 <?php if (session('errors.email')) : ?>is-invalid<?php endif ?>"
+                                placeholder="Masukan email" autofocus type="email" id="email" name="email"
+                                aria-describedby="emailHelp" value="<?= old('email') ?>" />
                         </div>
                         <div class="mt-3">
                             <label for="username">Nama pengguna</label>
-                            <input class="form-control mt-2 <?php if (session('errors.username')) : ?>is-invalid<?php endif ?>" placeholder="Masukan nama pengguna" type="text" id="username" name="username" value="<?= old('username') ?>" />
+                            <input
+                                class="form-control mt-2 <?php if (session('errors.username')) : ?>is-invalid<?php endif ?>"
+                                placeholder="Masukan nama pengguna" type="text" id="username" name="username"
+                                value="<?= old('username') ?>" />
                         </div>
                         <div class="mt-3">
                             <label for="sandi">Kata Sandi</label>
                             <div class="input__sandi position-relative mt-2">
-                                <input class="form-control <?php if (session('errors.password')) : ?>is-invalid<?php endif ?>" autocomplete="off" placeholder="Masukan kata sandi" type="password" id="password" name="password" autocomplete="off" />
-                                <span class="eye position-absolute"><i class="bi bi-eye-fill" area-hidden="true" onclick="toogle()" id="eye"></i></span>
+                                <input
+                                    class="form-control <?php if (session('errors.password')) : ?>is-invalid<?php endif ?>"
+                                    autocomplete="off" placeholder="Masukan kata sandi" type="password" id="password"
+                                    name="password" autocomplete="off" />
+                                <span class="eye position-absolute"><i class="bi bi-eye-fill" area-hidden="true"
+                                        onclick="toogle()" id="eye"></i></span>
                             </div>
-                            <span id="StrengthDisp" class="badge displayBadge mt-2" style="text-align: start !important ;"></span>
+                            <span id="StrengthDisp" class="badge displayBadge mt-2"
+                                style="text-align: start !important ;"></span>
 
                         </div>
                         <div class="mt-3">
                             <label for="sandi">Ulangi kata sandi</label>
                             <div class="input__sandi position-relative mt-2">
-                                <input class="form-control <?php if (session('errors.pass_confirm')) : ?>is-invalid<?php endif ?>" autocomplete="off" placeholder="Ulangi kata sandi" type="password" id="pass_confirm" name="pass_confirm" autocomplete="off" />
-                                <span class="eye2 position-absolute"><i class="bi bi-eye-fill" area-hidden="true" onclick="toogle()" id="eye"></i></span>
+                                <input
+                                    class="form-control <?php if (session('errors.pass_confirm')) : ?>is-invalid<?php endif ?>"
+                                    autocomplete="off" placeholder="Ulangi kata sandi" type="password" id="pass_confirm"
+                                    name="pass_confirm" autocomplete="off" />
+                                <span class="eye2 position-absolute"><i class="bi bi-eye-fill" area-hidden="true"
+                                        onclick="toogle()" id="eye"></i></span>
                             </div>
                         </div>
                         <div class="mt-3 captcha__section">
                             <label for="captcha">Captcha</label>
                             <div class="d-flex justify-content-between align-items-center mt-2">
                                 <div class="input w-50">
-                                    <input class="form-control" type="text" name="reCaptcha" id="reCaptcha" placeholder="Masukkan captcha" />
+                                    <input class="form-control" type="text" name="reCaptcha" id="reCaptcha"
+                                        placeholder="Masukkan captcha" />
                                 </div>
                                 <div class="captcha__content w-50 ms-2 position-relative">
                                     <div id="captcha" class="captcha form-control">
                                         <script>
-                                            createCaptcha();
+                                        createCaptcha();
                                         </script>
                                     </div>
                                     <div class="ubah__captcha position-absolute">
-                                        <a href="#" onclick="createCaptcha()" class="fs14 text-white"><i class="fa-solid fa-arrow-rotate-right"></i></a>
+                                        <a href="#" onclick="createCaptcha()" class="fs14 text-white"><i
+                                                class="fa-solid fa-arrow-rotate-right"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -81,10 +101,12 @@
                         </div>
                         <div class="mt40 form-check ceklis">
                             <input type="checkbox" class="form-check-input" id="flexCheckDefault" required>
-                            <label class="form-check-label" for="flexCheckDefault">Saya setuju dengan peraturan layanan</label>
+                            <label class="form-check-label" for="flexCheckDefault">Saya setuju dengan peraturan
+                                layanan</label>
                         </div>
                         <div class="daftar__button mt40">
-                            <button type="submit" id="submit_login" class="btn btn-primary shadow-none fs14 btn__blue">Masuk</button>
+                            <button type="submit" id="submit_login"
+                                class="btn btn-primary shadow-none fs14 btn__blue">Masuk</button>
                         </div>
                     </form>
                     <div class="mt40">
@@ -104,13 +126,13 @@
 <script src="<?php base_url() ?>/assets/js/script.js"></script>
 <script src="<?php base_url() ?>/assets/js/indicatorPass.js"></script>
 <script>
-    $('form').on('submit', function(e) {
-        e.preventDefault();
-        validateCaptcha();
-        if ($('#hasilCaptcha').val() == 'benar') {
-            this.submit();
-        }
-    });
+$('form').on('submit', function(e) {
+    e.preventDefault();
+    validateCaptcha();
+    if ($('#hasilCaptcha').val() == 'benar') {
+        this.submit();
+    }
+});
 </script>
 
 </html>
