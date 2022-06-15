@@ -5,38 +5,29 @@
 <!-- Form pendaftaran -->
 <div class="bg-abu p40">
     <div class="container">
-        <form action="<?= base_url(); ?>/mahasiswa/simpan_tambah_keluarga_mhs/<?= $identitas['no_induk']; ?>"
-            method="post" class="needs-validation" novalidate>
+        <form action="<?= base_url(); ?>/mahasiswa/simpan_tambah_keluarga_mhs/<?= $identitas['no_induk']; ?>" method="post" class="needs-validation" novalidate>
             <h3 class="mb20 biru fw-bold">Form Pendaftaran Beasiswa <span class="orange">Mahasiswa</span></h3>
             <!-- alert keluarga -->
             <?php if (session()->getFlashdata('pesan-tambah-keluarga-calon_mhs')) : ?>
-            <div class="alert alert-success" role="alert">
-                <?= session()->getFlashdata('pesan-tambah-keluarga-calon_mhs'); ?>
-            </div>
+                <div class="alert alert-success" role="alert">
+                    <?= session()->getFlashdata('pesan-tambah-keluarga-calon_mhs'); ?>
+                </div>
             <?php endif; ?>
             <!-- end alert keluarga -->
             <h3 class="mb20">B. Kondisi Keluarga</h3>
             <div class="row mb40">
                 <div class="col-12 col-md-6">
                     <div class="mb20">
-                        <label for="nama_ayah" class="form-label">Nama Ayah / Wali <span
-                                class="required-label">*</span></label>
-                        <input required <?= ($keluarga != null) ? 'disabled' : ''; ?> type="text"
-                            class="form-control <?= ($validation->hasError('nama_ayah')) ? 'is-invalid' : ''; ?>"
-                            value="<?= ($keluarga != null) ? $keluarga['nama_ayah'] : old('nama_ayah'); ?>"
-                            name="nama_ayah" placeholder="" />
+                        <label for="nama_ayah" class="form-label">Nama Ayah / Wali <span class="required-label">*</span></label>
+                        <input required <?= ($keluarga != null) ? 'disabled' : ''; ?> type="text" class="form-control <?= ($validation->hasError('nama_ayah')) ? 'is-invalid' : ''; ?>" value="<?= ($keluarga != null) ? $keluarga['nama_ayah'] : old('nama_ayah'); ?>" name="nama_ayah" placeholder="" />
                         <div class="invalid-feedback">
                             <?= ($validation->getError('nama_ayah') == '') ? 'Bagian nama ayah wajib diisi' : str_replace('_', ' ', $validation->getError('nama_ayah')); ?>
                         </div>
                     </div>
                     <!-- end nama ayah -->
                     <div class="mb20">
-                        <label for="usia" class="form-label">Usia Ayah / Wali <span
-                                class="required-label">*</span></label>
-                        <input required <?= ($keluarga != null) ? 'disabled' : ''; ?> type="number"
-                            class="form-control <?= ($validation->hasError('usia_ayah')) ? 'is-invalid' : ''; ?>"
-                            value="<?= ($keluarga != null) ? $keluarga['usia_ayah'] : old('usia_ayah'); ?>"
-                            id="usia_ayah" name="usia_ayah" max="100" />
+                        <label for="usia" class="form-label">Usia Ayah / Wali <span class="required-label">*</span></label>
+                        <input required <?= ($keluarga != null) ? 'disabled' : ''; ?> type="number" class="form-control <?= ($validation->hasError('usia_ayah')) ? 'is-invalid' : ''; ?>" value="<?= ($keluarga != null) ? $keluarga['usia_ayah'] : old('usia_ayah'); ?>" id="usia_ayah" name="usia_ayah" max="100" />
                         <div class="invalid-feedback">
                             <?= ($validation->getError('usia_ayah') == '') ? 'Bagian nama  wajib diisi' :  str_replace('_', ' ', $$validation->getError('usia_ayah')); ?>
                         </div>
@@ -45,10 +36,7 @@
                     <div class="mb20">
                         <label for="pekerjaan_ayah" class="form-label">Pekerjaan Ayah / Wali
                             <span class="required-label">*</span></label>
-                        <input required <?= ($keluarga != null) ? 'disabled' : ''; ?> type="text"
-                            class="form-control <?= ($validation->hasError('pekerjaan_ayah')) ? 'is-invalid' : ''; ?>"
-                            value="<?= ($keluarga != null) ? $keluarga['pekerjaan_ayah'] : old('pekerjaan_ayah'); ?>"
-                            name="pekerjaan_ayah" placeholder="" />
+                        <input required <?= ($keluarga != null) ? 'disabled' : ''; ?> type="text" class="form-control <?= ($validation->hasError('pekerjaan_ayah')) ? 'is-invalid' : ''; ?>" value="<?= ($keluarga != null) ? $keluarga['pekerjaan_ayah'] : old('pekerjaan_ayah'); ?>" name="pekerjaan_ayah" placeholder="" />
                         <div class="invalid-feedback">
                             <?= ($validation->getError('pekerjaan_ayah') == '') ? 'Bagian pekerjaan ayah  wajib diisi' : str_replace('_', ' ', $validation->getError('pekerjaan_ayah')); ?>
                         </div>
@@ -57,12 +45,10 @@
                     <div class="mb20">
                         <label for="pendidikan_ayah" class="form-label">Pendidikan Terakhir Ayah / Wali
                             <span class="required-label">*</span></label>
-                        <select required <?= ($keluarga != null) ? 'disabled' : ''; ?>
-                            class="form-select <?= ($validation->hasError('pendidikan_ayah')) ? 'is-invalid' : ''; ?>"
-                            aria-label="Default select example" name="pendidikan_ayah">
+                        <select required <?= ($keluarga != null) ? 'disabled' : ''; ?> class="form-select <?= ($validation->hasError('pendidikan_ayah')) ? 'is-invalid' : ''; ?>" aria-label="Default select example" name="pendidikan_ayah">
                             <option selected hidden></option>
                             <?php foreach ($pendidikan as $pendidikan_ayah) : ?>
-                            <option <?php if ($keluarga != null) {
+                                <option <?php if ($keluarga != null) {
                                             if ($keluarga['pendidikan_ayah'] == $pendidikan_ayah) {
                                                 echo 'selected';
                                             };
@@ -71,7 +57,7 @@
                                                 echo 'selected';
                                             }
                                         } ?> value="<?= $pendidikan_ayah; ?>">
-                                <?= $pendidikan_ayah; ?></option>
+                                    <?= $pendidikan_ayah; ?></option>
                             <?php endforeach; ?>
                         </select>
                         <div class="invalid-feedback">
@@ -82,10 +68,7 @@
                     <div class="mb20">
                         <label for="penghasilan_ayah" class="form-label">Penghasilan per Bulan Ayah / Wali
                             <span class="required-label">*</span></label>
-                        <input required <?= ($keluarga != null) ? 'disabled' : ''; ?> type="number" min="0"
-                            class="form-control <?= ($validation->hasError('penghasilan_ayah')) ? 'is-invalid' : ''; ?>"
-                            value="<?= ($keluarga != null) ? $keluarga['penghasilan_ayah'] : old('penghasilan_ayah'); ?>"
-                            name="penghasilan_ayah" placeholder="" />
+                        <input required <?= ($keluarga != null) ? 'disabled' : ''; ?> type="number" min="0" class="form-control <?= ($validation->hasError('penghasilan_ayah')) ? 'is-invalid' : ''; ?>" value="<?= ($keluarga != null) ? $keluarga['penghasilan_ayah'] : old('penghasilan_ayah'); ?>" name="penghasilan_ayah" placeholder="" />
                         <div class="invalid-feedback">
                             <?= ($validation->getError('penghasilan_ayah') == '') ? 'Bagian penghasilan ayah wajib diisi' : str_replace('_', ' ', $validation->getError('penghasilan_ayah')); ?>
                         </div>
@@ -94,10 +77,7 @@
                     <div class="mb20">
                         <label for="alamat_ayah" class="form-label">Alamat Ayah / Wali
                             <span class="required-label">*</span></label>
-                        <textarea required <?= ($keluarga != null) ? 'disabled' : ''; ?>
-                            class="form-control <?= ($validation->hasError('alamat_ayah')) ? 'is-invalid' : ''; ?>"
-                            name="alamat_ayah" name="alamat_ayah"
-                            rows="5"><?= ($keluarga != null) ? $keluarga['alamat_ayah'] : old('alamat_ayah'); ?></textarea>
+                        <textarea required <?= ($keluarga != null) ? 'disabled' : ''; ?> class="form-control <?= ($validation->hasError('alamat_ayah')) ? 'is-invalid' : ''; ?>" name="alamat_ayah" name="alamat_ayah" rows="5"><?= ($keluarga != null) ? $keluarga['alamat_ayah'] : old('alamat_ayah'); ?></textarea>
                         <div class="invalid-feedback">
                             <?= ($validation->getError('alamat_ayah') == '') ? 'Bagian alamat ayah wajib diisi' : str_replace('_', ' ', $validation->getError('alamat_ayah')); ?>
                         </div>
@@ -107,24 +87,16 @@
                 <!-- Ayah / Wali -->
                 <div class="col-12 col-md-6">
                     <div class="mb20">
-                        <label for="nama_ibu" class="form-label">Nama Ibu / Wali <span
-                                class="required-label">*</span></label>
-                        <input required <?= ($keluarga != null) ? 'disabled' : ''; ?> type="text"
-                            class="form-control <?= ($validation->hasError('nama_ibu')) ? 'is-invalid' : ''; ?>"
-                            value="<?= ($keluarga != null) ? $keluarga['nama_ibu'] : old('nama_ibu'); ?>"
-                            name="nama_ibu" placeholder="" />
+                        <label for="nama_ibu" class="form-label">Nama Ibu / Wali <span class="required-label">*</span></label>
+                        <input required <?= ($keluarga != null) ? 'disabled' : ''; ?> type="text" class="form-control <?= ($validation->hasError('nama_ibu')) ? 'is-invalid' : ''; ?>" value="<?= ($keluarga != null) ? $keluarga['nama_ibu'] : old('nama_ibu'); ?>" name="nama_ibu" placeholder="" />
                         <div class="invalid-feedback">
                             <?= ($validation->getError('nama_ibu') == '') ? 'Bagian nama ibu  wajib diisi' : str_replace('_', ' ', $validation->getError('nama_ibu')); ?>
                         </div>
                     </div>
                     <!-- end nama Ibu / Wali -->
                     <div class="mb20">
-                        <label for="usia_ibu" class="form-label">Usia Ibu / Wali <span
-                                class="required-label">*</span></label>
-                        <input required <?= ($keluarga != null) ? 'disabled' : ''; ?> type="number"
-                            class="form-control <?= ($validation->hasError('usia_ibu')) ? 'is-invalid' : ''; ?>"
-                            value="<?= ($keluarga != null) ? $keluarga['usia_ibu'] : old('usia_ibu'); ?>" id="usia_ibu"
-                            name="usia_ibu" max="100" />
+                        <label for="usia_ibu" class="form-label">Usia Ibu / Wali <span class="required-label">*</span></label>
+                        <input required <?= ($keluarga != null) ? 'disabled' : ''; ?> type="number" class="form-control <?= ($validation->hasError('usia_ibu')) ? 'is-invalid' : ''; ?>" value="<?= ($keluarga != null) ? $keluarga['usia_ibu'] : old('usia_ibu'); ?>" id="usia_ibu" name="usia_ibu" max="100" />
                         <div class="invalid-feedback">
                             <?= ($validation->getError('usia_ibu') == '') ? 'Bagian nama  wajib diisi' :  str_replace('_', ' ', $validation->getError('usia_ibu')); ?>
                         </div>
@@ -133,10 +105,7 @@
                     <div class="mb20">
                         <label for="pekerjaan_ibu" class="form-label">Pekerjaan Ibu / Wali
                             <span class="required-label">*</span></label>
-                        <input required <?= ($keluarga != null) ? 'disabled' : ''; ?> type="text"
-                            class="form-control <?= ($validation->hasError('pekerjaan_ibu')) ? 'is-invalid' : ''; ?>"
-                            value="<?= ($keluarga != null) ? $keluarga['pekerjaan_ibu'] : old('pekerjaan_ibu'); ?>"
-                            name="pekerjaan_ibu" placeholder="" />
+                        <input required <?= ($keluarga != null) ? 'disabled' : ''; ?> type="text" class="form-control <?= ($validation->hasError('pekerjaan_ibu')) ? 'is-invalid' : ''; ?>" value="<?= ($keluarga != null) ? $keluarga['pekerjaan_ibu'] : old('pekerjaan_ibu'); ?>" name="pekerjaan_ibu" placeholder="" />
                         <div class="invalid-feedback">
                             <?= ($validation->getError('pekerjaan_ibu') == '') ? 'Bagian pekerjaan ibu  wajib diisi' : str_replace('_', ' ', $validation->getError('pekerjaan_ibu')); ?>
                         </div>
@@ -145,12 +114,10 @@
                     <div class="mb20">
                         <label for="pendidikan_ibu" class="form-label">Pendidikan Terakhir Ibu / Wali
                             <span class="required-label">*</span></label>
-                        <select required <?= ($keluarga != null) ? 'disabled' : ''; ?>
-                            class="form-select <?= ($validation->hasError('pendidikan_ibu')) ? 'is-invalid' : ''; ?>"
-                            aria-label="Default select example" name="pendidikan_ibu">
+                        <select required <?= ($keluarga != null) ? 'disabled' : ''; ?> class="form-select <?= ($validation->hasError('pendidikan_ibu')) ? 'is-invalid' : ''; ?>" aria-label="Default select example" name="pendidikan_ibu">
                             <option selected hidden></option>
                             <?php foreach ($pendidikan as $pendidikan_ibu) : ?>
-                            <option <?php if ($keluarga != null) {
+                                <option <?php if ($keluarga != null) {
                                             if ($keluarga['pendidikan_ibu'] == $pendidikan_ibu) {
                                                 echo 'selected';
                                             };
@@ -159,7 +126,7 @@
                                                 echo 'selected';
                                             }
                                         } ?> value="<?= $pendidikan_ibu; ?>">
-                                <?= $pendidikan_ibu; ?></option>
+                                    <?= $pendidikan_ibu; ?></option>
                             <?php endforeach; ?>
                         </select>
                         <div class="invalid-feedback">
@@ -170,10 +137,7 @@
                     <div class="mb20">
                         <label for="penghasilan_ibu" class="form-label">Penghasilan per Bulan Ibu / Wali
                             <span class="required-label">*</span></label>
-                        <input required <?= ($keluarga != null) ? 'disabled' : ''; ?> type="number" min="0"
-                            class="form-control <?= ($validation->hasError('penghasilan_ibu')) ? 'is-invalid' : ''; ?>"
-                            value="<?= ($keluarga != null) ? $keluarga['penghasilan_ibu'] : old('penghasilan_ibu'); ?>"
-                            name="penghasilan_ibu" placeholder="" />
+                        <input required <?= ($keluarga != null) ? 'disabled' : ''; ?> type="number" min="0" class="form-control <?= ($validation->hasError('penghasilan_ibu')) ? 'is-invalid' : ''; ?>" value="<?= ($keluarga != null) ? $keluarga['penghasilan_ibu'] : old('penghasilan_ibu'); ?>" name="penghasilan_ibu" placeholder="" />
                         <div class="invalid-feedback">
                             <?= ($validation->getError('penghasilan_ibu') == '') ? 'Bagian penghasilan ibu  wajib diisi' : str_replace('_', ' ', $validation->getError('penghasilan_ibu')); ?>
                         </div>
@@ -182,10 +146,7 @@
                     <div class="mb20">
                         <label for="alamat_ibu" class="form-label">Alamat Ibu / Wali
                             <span class="required-label">*</span></label>
-                        <textarea required <?= ($keluarga != null) ? 'disabled' : ''; ?>
-                            class="form-control <?= ($validation->hasError('alamat_ibu')) ? 'is-invalid' : ''; ?>"
-                            name="alamat_ibu" id="alamat_ibu"
-                            rows="5"><?= ($keluarga != null) ? $keluarga['alamat_ibu'] : old('alamat_ibu'); ?></textarea>
+                        <textarea required <?= ($keluarga != null) ? 'disabled' : ''; ?> class="form-control <?= ($validation->hasError('alamat_ibu')) ? 'is-invalid' : ''; ?>" name="alamat_ibu" id="alamat_ibu" rows="5"><?= ($keluarga != null) ? $keluarga['alamat_ibu'] : old('alamat_ibu'); ?></textarea>
                         <div class="invalid-feedback">
                             <?= ($validation->getError('alamat_ibu') == '') ? 'Bagian alamat ibu  wajib diisi' : str_replace('_', ' ', $validation->getError('alamat_ibu')); ?>
                         </div>
@@ -208,18 +169,20 @@
                             class="form-select <?= ($validation->hasError('rtsm_rtm')) ? 'is-invalid' : ''; ?>"
                             aria-label="Default select example" name="rtsm_rtm">
                             <option selected hidden></option> -->
+                        <div class="form-check">
                             <?php foreach ($opsional as $opsional_rstm) : ?>
-                            <input type="radio" required name="rtsm_rtm" <?= ($keluarga != null) ? 'disabled' : ''; ?> <?php if ($keluarga != null) {
-                                            if ($keluarga['rtsm_rtm'] == $opsional_rstm) {
-                                                echo 'checked';
-                                            };
-                                        } else {
-                                            if (old('rtsm_rtm') == $opsional_rstm) {
-                                                echo 'checked';
-                                            }
-                                        } ?> value="<?= $opsional_rstm; ?>"><?= ucfirst($opsional_rstm); ?></input> <br>
+                                <input type="radio" class="form-check-input" required name="rtsm_rtm" <?= ($keluarga != null) ? 'disabled' : ''; ?> <?php if ($keluarga != null) {
+                                                                                                                                                        if ($keluarga['rtsm_rtm'] == $opsional_rstm) {
+                                                                                                                                                            echo 'checked';
+                                                                                                                                                        };
+                                                                                                                                                    } else {
+                                                                                                                                                        if (old('rtsm_rtm') == $opsional_rstm) {
+                                                                                                                                                            echo 'checked';
+                                                                                                                                                        }
+                                                                                                                                                    } ?> value="<?= $opsional_rstm; ?>"><?= ucfirst($opsional_rstm); ?></input> <br>
                             <?php endforeach; ?>
-                        <!-- </select> -->
+                            <!-- </select> -->
+                        </div>
                         <div class="invalid-feedback">
                             <?= ($validation->getError('rtsm_rtm') == '') ? 'Bagian Rumah Tangga Sangat Miskin (RTSM) / Rumah Tangga Miskin
                             (RTM)  wajib diisi' : str_replace('_', ' ', $validation->getError('rtsm_rtm')); ?>
@@ -232,23 +195,25 @@
                             (KKS) dan Kartu Batang Sehat (KBS)?
                             <span class="required-label">*</span></label>
 
-                            <!-- radio button -->
+                        <!-- radio button -->
                         <!-- <select required <?= ($keluarga != null) ? 'disabled' : ''; ?>
                             class="form-select <?= ($validation->hasError('pkh_kks_kbs')) ? 'is-invalid' : ''; ?>"
                             aria-label="Default select example" name="pkh_kks_kbs">
                             <option selected hidden></option> -->
+                        <div class="form-check">
                             <?php foreach ($opsional as $opsional_pkh) : ?>
-                            <input type="radio" name="pkh_kks_kbs" required <?= ($keluarga != null) ? 'disabled' : ''; ?>  <?php if ($keluarga != null) {
-                                            if ($keluarga['pkh_kks_kbs'] == $opsional_pkh) {
-                                                echo 'checked';
-                                            };
-                                        } else {
-                                            if (old('pkh_kks_kbs') == $opsional_pkh) {
-                                                echo 'checked';
-                                            }
-                                        } ?> value="<?= $opsional_pkh; ?>"><?= ucfirst($opsional_pkh); ?></input> <br>
+                                <input type="radio" class="form-check-input" name="pkh_kks_kbs" required <?= ($keluarga != null) ? 'disabled' : ''; ?> <?php if ($keluarga != null) {
+                                                                                                                                                            if ($keluarga['pkh_kks_kbs'] == $opsional_pkh) {
+                                                                                                                                                                echo 'checked';
+                                                                                                                                                            };
+                                                                                                                                                        } else {
+                                                                                                                                                            if (old('pkh_kks_kbs') == $opsional_pkh) {
+                                                                                                                                                                echo 'checked';
+                                                                                                                                                            }
+                                                                                                                                                        } ?> value="<?= $opsional_pkh; ?>"><?= ucfirst($opsional_pkh); ?></input> <br>
                             <?php endforeach; ?>
-                        <!-- </select> -->
+                            <!-- </select> -->
+                        </div>
                         <div class="invalid-feedback">
                             <?= ($validation->getError('pkh_kks_kbs') == '') ? 'Bagian Peserta Program Keluarga Harapan (PKH)/Kart
                             Keluarga Sejahtera
@@ -267,17 +232,19 @@
                             class="form-select <?= ($validation->hasError('bsm_kip')) ? 'is-invalid' : ''; ?>"
                             aria-label="Default select example" name="bsm_kip">
                             <option selected hidden></option> -->
+                        <div class="form-check">
                             <?php foreach ($opsional as $opsional_bsm) : ?>
-                            <input required name="bsm_kip" <?= ($keluarga != null) ? 'disabled' : ''; ?> type="radio"  <?php if ($keluarga != null) {
-                                            if ($keluarga['bsm_kip'] == $opsional_bsm) {
-                                                echo 'checked';
-                                            };
-                                        } else {
-                                            if (old('bsm_kip') == $opsional_bsm) {
-                                                echo 'checked';
-                                            }
-                                        } ?> value="<?= $opsional_bsm; ?>"><?= ucfirst($opsional_bsm); ?></input> <br>
+                                <input required name="bsm_kip" <?= ($keluarga != null) ? 'disabled' : ''; ?> type="radio" class="form-check-input" <?php if ($keluarga != null) {
+                                                                                                                                                        if ($keluarga['bsm_kip'] == $opsional_bsm) {
+                                                                                                                                                            echo 'checked';
+                                                                                                                                                        };
+                                                                                                                                                    } else {
+                                                                                                                                                        if (old('bsm_kip') == $opsional_bsm) {
+                                                                                                                                                            echo 'checked';
+                                                                                                                                                        }
+                                                                                                                                                    } ?> value="<?= $opsional_bsm; ?>"><?= ucfirst($opsional_bsm); ?></input> <br>
                             <?php endforeach; ?>
+                        </div>
                         <!-- </select> -->
                         <div class="invalid-feedback">
                             <?= ($validation->getError('bsm_kip') == '') ? 'Bagian Penerimaan BSM atau Kartu Indonesia Pintar (KIP) wajib diisi' : str_replace('_', ' ', $validation->getError('bsm_kip')); ?>
@@ -296,8 +263,7 @@
                     </button>'; ?>
 
                     <a <?= ($keluarga != null) ? 'href="' . base_url() . '/mahasiswa/tambah_lampiran_mhs/' .
-                            $identitas["no_induk"] . '"' : 'data-bs-toggle="modal" data-bs-target="#selanjutnya_modal"' ?>
-                        class="btn btn-primary text-white fs18 px-4 py-2">
+                            $identitas["no_induk"] . '"' : 'data-bs-toggle="modal" data-bs-target="#selanjutnya_modal"' ?> class="btn btn-primary text-white fs18 px-4 py-2">
                         Selanjutnya</a>
                 </div>
             </div>
@@ -324,8 +290,7 @@
                 </div>
             </div>
             <!-- Selanjutnya  Modal -->
-            <div class="modal fade" id="selanjutnya_modal" tabindex="-1" aria-labelledby="saveModalLabel"
-                aria-hidden="true">
+            <div class="modal fade" id="selanjutnya_modal" tabindex="-1" aria-labelledby="saveModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">

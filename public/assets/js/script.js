@@ -185,14 +185,18 @@ $("#file_informasi_terbaru").change(function () {
 /*                                    Pendaftar                                                                        */
 /***********************************************************************************************************************/
 /**************************** Identitas ****************************/
-$("#pernah_menerima_bantuan").change(function () {
-  if ($(this).val() == "ya") {
+
+$('input[name="pernah_menerima_bantuan"]').change(function () {
+  console.log($('input[name="pernah_menerima_bantuan"]:checked').val());
+  // console.log("adgwryhsfh");
+  //   console.log($('input[name="pernah_menerima_bantuan"]:checked').val());
+  if ($('input[name="pernah_menerima_bantuan"]:checked').val() == "ya") {
     $("#menerima_bantuan_dari").prop("disabled", false);
   } else {
     $("#menerima_bantuan_dari").prop("disabled", true);
   }
 });
-if ($("#pernah_menerima_bantuan").val() == "tidak") {
+if ($('input[name="pernah_menerima_bantuan"]:checked').val() == "tidak") {
   $("#menerima_bantuan_dari").prop("disabled", true);
 }
 /**************************** Form lampiran ****************************/
