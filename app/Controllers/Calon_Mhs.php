@@ -608,7 +608,7 @@ class Calon_mhs extends BaseController
             $menerima_bantuan = '';
         }
         // Update data identitas calon_mhs
-        $this->MIdentitas->update($identitas['no_induk'], [
+        $this->MIdentitas->update($input_no_induk, [
             'no_induk_pelajar'    => $this->request->getVar('no_induk_pelajar'),
             'nama_lengkap' => $this->request->getVar('nama_lengkap'),
             'jenis_kelamin' => $this->request->getVar('jenis_kelamin'),

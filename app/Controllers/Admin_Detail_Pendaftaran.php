@@ -173,7 +173,7 @@ class admin_detail_pendaftaran extends BaseController
         }
         // mengambil nilai maksimum dari database
         $penilaian_tertinggi = max($penilaian_prestasi_db);
-        // dd($penilaian_prestasi_db);
+        // dd($detail_pendaftar);
         $data = [
             'title'     => 'Beasiswa Batang | Data Pendaftar Admin',
             'detail_pendaftar'     => $detail_pendaftar,

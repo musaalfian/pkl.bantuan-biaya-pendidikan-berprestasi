@@ -410,24 +410,33 @@
             <div class="row mb40">
                 <div class="col-12 col-md-6">
                     <div class="mb20">
-                        <label for="rtsm_rtm" class="form-label">Rumah Tangga Sangat Miskin (RTSM) / Rumah Tangga Miskin
-                            (RTM)? </label>
-                        <select class="form-select <?= ($validation->hasError('rtsm_rtm')) ? 'is-invalid' : ''; ?>" aria-label="Default select example" name="rtsm_rtm">
-                            <option selected hidden></option>
+                        <label for="rtsm_rtm" class="form-label">Rumah Tangga Sangat Miskin (RTSM) / Rumah
+                            Tangga Miskin
+                            (RTM)? <span class="required-label">*</span></label>
+
+                        <!-- radio button -->
+                        <!-- <select required 
+                            class="form-select <?= ($validation->hasError('rtsm_rtm')) ? 'is-invalid' : ''; ?>"
+                            aria-label="Default select example" name="rtsm_rtm" id="rtsm_rtm">
+                            <option selected hidden></option> -->
+                        <div class="form-check">
+
                             <?php foreach ($opsional as $opsional_rstm) : ?>
-                                <option <?php if ($keluarga != null) {
-                                            if ($keluarga['rtsm_rtm'] == $opsional_rstm) {
-                                                echo 'selected';
-                                            };
-                                        } else {
-                                            if (old('rtsm_rtm') == $opsional_rstm) {
-                                                echo 'selected';
-                                            }
-                                        } ?> value="<?= $opsional_rstm; ?>"><?= ucfirst($opsional_rstm); ?></option>
+                                <input name="rtsm_rtm" id="rtsm_rtm_<?= ucfirst($opsional_rstm); ?>" required type="radio" class="form-check-input" <?php if ($keluarga != null) {
+                                                                                                                                                        if ($keluarga['rtsm_rtm'] == $opsional_rstm) {
+                                                                                                                                                            echo 'checked';
+                                                                                                                                                        };
+                                                                                                                                                    } else {
+                                                                                                                                                        if (old('rtsm_rtm') == $opsional_rstm) {
+                                                                                                                                                            echo 'checked';
+                                                                                                                                                        }
+                                                                                                                                                    } ?> value="<?= $opsional_rstm; ?>"><label for="rtsm_rtm_<?= ucfirst($opsional_rstm); ?>" class="form-check-label"><?= ucfirst($opsional_rstm); ?></label>
                             <?php endforeach; ?>
-                        </select>
+                            <!-- </select> -->
+                        </div>
                         <div class="invalid-feedback">
-                            <?= ($validation->getError('rtsm_rtm') == '') ? 'Bagian rtsm_rtm  wajib diisi' : str_replace('_', ' ', $validation->getError('rtsm_rtm')); ?>
+                            <?= ($validation->getError('rtsm_rtm') == '') ? 'Bagian Rumah Tangga Sangat Miskin (RTSM) / Rumah Tangga Miskin
+                            (RTM) wajib diisi' : str_replace('_', ' ', $validation->getError('rtsm_rtm')); ?>
                         </div>
                     </div>
                     <!-- end rtsm rtm -->
@@ -435,53 +444,65 @@
                         <label for="pkh_kks_kbs" class="form-label">Peserta Program Keluarga Harapan (PKH)/Kart
                             Keluarga Sejahtera
                             (KKS) dan Kartu Batang Sehat (KBS)?
-                        </label>
-                        <select class="form-select <?= ($validation->hasError('pkh_kks_kbs')) ? 'is-invalid' : ''; ?>" aria-label="Default select example" name="pkh_kks_kbs">
-                            <option selected hidden></option>
+                            <span class="required-label">*</span></label>
+
+                        <!-- radio button -->
+                        <!-- <select required 
+                            class="form-select <?= ($validation->hasError('pkh_kks_kbs')) ? 'is-invalid' : ''; ?>"
+                            aria-label="Default select example" name="pkh_kks_kbs" id="pkh_kks_kbs">
+                            <option selected hidden></option> -->
+                        <div class="form-check">
                             <?php foreach ($opsional as $opsional_pkh) : ?>
-                                <option <?php if ($keluarga != null) {
-                                            if ($keluarga['pkh_kks_kbs'] == $opsional_pkh) {
-                                                echo 'selected';
-                                            };
-                                        } else {
-                                            if (old('pkh_kks_kbs') == $opsional_pkh) {
-                                                echo 'selected';
-                                            }
-                                        } ?> value="<?= $opsional_pkh; ?>"><?= ucfirst($opsional_pkh); ?></option>
+                                <input type="radio" class="form-check-input" required name="pkh_kks_kbs" id="pkh_kks_kbs_<?= ucfirst($opsional_pkh); ?>" <?php if ($keluarga != null) {
+                                                                                                                                                                if ($keluarga['pkh_kks_kbs'] == $opsional_pkh) {
+                                                                                                                                                                    echo 'checked';
+                                                                                                                                                                };
+                                                                                                                                                            } else {
+                                                                                                                                                                if (old('pkh_kks_kbs') == $opsional_pkh) {
+                                                                                                                                                                    echo 'checked';
+                                                                                                                                                                }
+                                                                                                                                                            } ?> value="<?= $opsional_pkh; ?>"><label for="pkh_kks_kbs_<?= ucfirst($opsional_pkh); ?>" class="form-check-label"><?= ucfirst($opsional_pkh); ?></label>
                             <?php endforeach; ?>
-                        </select>
+                            <!-- </select> -->
+                        </div>
                         <div class="invalid-feedback">
-                            <?= ($validation->getError('pkh_kks_kbs') == '') ? 'Bagian nama  wajib diisi' : str_replace('_', ' ', $validation->getError('pkh_kks_kbs')); ?>
+                            <?= ($validation->getError('pkh_kks_kbs') == '') ? 'Bagian Peserta Program Keluarga Harapan (PKH)/Kart
+                            Keluarga Sejahtera
+                            (KKS) dan Kartu Batang Sehat (KBS)  wajib diisi' : str_replace('_', ' ', $validation->getError('pkh_kks_kbs')); ?>
                         </div>
                     </div>
                     <!-- end pkh kks kbs -->
                 </div>
-                <!-- end terdaftar sebagai kiri -->
                 <div class="col-12 col-md-6">
                     <div class="mb20">
-                        <label for="bsm_kip" class="form-label">Penerimaan BSM atau Kartu Indonesia Pintar (KIP)
-                        </label>
-                        <select class="form-select <?= ($validation->hasError('bsm_kip')) ? 'is-invalid' : ''; ?>" aria-label="Default select example" name="bsm_kip">
-                            <option selected hidden></option>
+                        <label for="bsm_kip" class="form-label">Penerimaan BSM atau Kartu Indonesia Pintar
+                            (KIP)?
+                            <span class="required-label">*</span></label>
+                        <!-- radio button -->
+                        <!-- <select required 
+                            class="form-select <?= ($validation->hasError('bsm_kip')) ? 'is-invalid' : ''; ?>"
+                            aria-label="Default select example" name="bsm_kip" id="bsm_kip">
+                            <option selected hidden></option> -->
+                        <div class="form-check">
                             <?php foreach ($opsional as $opsional_bsm) : ?>
-                                <option <?php if ($keluarga != null) {
-                                            if ($keluarga['bsm_kip'] == $opsional_bsm) {
-                                                echo 'selected';
-                                            };
-                                        } else {
-                                            if (old('bsm_kip') == $opsional_bsm) {
-                                                echo 'selected';
-                                            }
-                                        } ?> value="<?= $opsional_bsm; ?>"><?= ucfirst($opsional_bsm); ?></option>
+                                <input name="bsm_kip" id="bsm_kip_<?= ucfirst($opsional_bsm); ?>" type="radio" class="form-check-input" required <?php if ($keluarga != null) {
+                                                                                                                                                        if ($keluarga['bsm_kip'] == $opsional_bsm) {
+                                                                                                                                                            echo 'checked';
+                                                                                                                                                        };
+                                                                                                                                                    } else {
+                                                                                                                                                        if (old('bsm_kip') == $opsional_bsm) {
+                                                                                                                                                            echo 'checked';
+                                                                                                                                                        }
+                                                                                                                                                    } ?> value="<?= $opsional_bsm; ?>"><label for="bsm_kip_<?= ucfirst($opsional_bsm); ?>" class="form-check-label"><?= ucfirst($opsional_bsm); ?></label>
                             <?php endforeach; ?>
-                        </select>
+                        </div>
+                        <!-- </select> -->
                         <div class="invalid-feedback">
-                            <?= ($validation->getError('bsm_kip') == '') ? 'Bagian nama  wajib diisi' : str_replace('_', ' ', $validation->getError('bsm_kip')); ?>
+                            <?= ($validation->getError('bsm_kip') == '') ? 'Bagian Penerimaan BSM atau Kartu Indonesia Pintar (KIP)  wajib diisi' : str_replace('_', ' ', $validation->getError('bsm_kip')); ?>
                         </div>
                     </div>
                     <!-- end bsm kip -->
                 </div>
-                <!-- end terdaftar sebagai kanan -->
             </div>
             <!-- end terdaftar sebagai -->
             <!-- prestasi -->

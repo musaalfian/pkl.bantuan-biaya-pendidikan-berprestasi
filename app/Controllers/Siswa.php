@@ -538,7 +538,7 @@ class Siswa extends BaseController
             $menerima_bantuan = '';
         }
         // Update data identitas siswa
-        $this->MIdentitas->update($identitas['no_induk'], [
+        $this->MIdentitas->update($input_no_induk, [
             'nama_lengkap' => $this->request->getVar('nama_lengkap'),
             'jenis_kelamin' => $this->request->getVar('jenis_kelamin'),
             'ttl' => $this->request->getVar('ttl'),
