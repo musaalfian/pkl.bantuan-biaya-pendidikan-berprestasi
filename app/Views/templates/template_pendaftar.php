@@ -47,10 +47,10 @@
 
                 </a>
             </div>
-            <button class="navbar-toggler text-white border-0 bg-transparent" type="button" data-bs-toggle="collapse"
+            <button class="navbar-toggler text-white border-0 bg-transparent"  type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="true"
                 aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon bg-transparent border-0"><i class="fa-solid fa-sliders"></i></span>
+                <span class="navbar-toggler-icon bg-transparent border-0 " style="background-color: transparent !important;"><i class="fa-solid fa-sliders"></i></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul> -->
