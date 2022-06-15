@@ -3,8 +3,8 @@
 <?= $this->section('content'); ?>
 <!-- Main section-->
 <div class=" bg-abu p40">
-    <div class=" admin-content p-4 mx-auto">
-        <h3 class="mb20">Edit Informasi Pendaftaran</h3>
+    <div class=" admin-content mx-auto">
+        <h3 class="mb20 biru">Edit  <span class="orange">Informasi Pendaftaran</span></h3>
         <form action="<?= base_url(); ?>/admin_informasi/simpan_edit_informasi_pendaftaran" method="post" class="needs-validation" novalidate>
             <div class="row">
                 <div class="mb20">

@@ -2,10 +2,10 @@
 
 <?= $this->section('content'); ?>
 <!-- Main section-->
-<div class=" bg-abu p40">
+<div class="bg-abu p40">
     <div class="admin-content detail mx-auto">
-        <h3 class="pb20">Download File Pendaftar</h3>
-        <div class="bg-white p-lg-5 p-md-3">
+        <h3 class="pb20 biru">Download <span class="orange">File Pendaftar</span> </h3>
+        <div class="bg-white br20 p-lg-5 p-md-3">
             <form action="<?= base_url(); ?>/admin_download/print_download_pendaftaran" method="POST">
                 <div class="row mb20">
                     <div class="col-lg-6 col-12">
@@ -43,25 +43,38 @@
                         <div id="status_peserta">
                         </div>
                         <h4 class="mt-3">Status peserta</h4>
-                        <select class="form-select" id="inputGroupSelect01" name="id_status_peserta">
+                        <!-- <select class="form-select" id="inputGroupSelect01" name="id_status_peserta"> -->
                             <?php foreach ($status_peserta as $status_peserta) : ?>
-                            <option value="<?= $status_peserta['id_status_peserta']; ?>">
+                            <input type="radio" name="id_status_peserta" required value="<?= $status_peserta['id_status_peserta']; ?>">
                                 <?= $status_peserta['nama_peserta']; ?>
-                            </option>
+                            </input><br>
                             <?php endforeach ?>
-                        </select>
+                        <!-- </select> -->
 
                         <!-- end  publik atau non publik  -->
                         <div id="kegunaan">
                             <h4 class="mt-3">Digunakan untuk</h4>
-                            <select class="form-select" id="kegunaan" name="kegunaan">
+                            <!-- <select class="form-select" id="kegunaan" name="kegunaan">
                                 <option value="non_publik">
                                     Non Publik
                                 </option>
                                 <option value="publik">
                                     Publik
                                 </option>
-                            </select>
+                            </select> -->
+                            <!-- <select class="form-select" id="kegunaan" name="kegunaan"> -->
+                                <div class="">
+                                    <input type="radio" required name="kegunaan" value="non_publik">
+                                        Non Publik
+                                    </input>
+                                </div>
+                                
+                                <div class="">
+                                    <input type="radio" name="kegunaan" value="publik">
+                                        Publik
+                                    </input>
+                                </div>
+                            <!-- </select> -->
                         </div>
                         <!-- end  status peserta -->
                         <div id="status_pendaftaran">
