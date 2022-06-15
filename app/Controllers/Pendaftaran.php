@@ -91,7 +91,7 @@ class Pendaftaran extends BaseController
             'akreditasi_pt' =>   $akreditasi,
             'semester_ke'    => $semester_ke,
         ];
-        return view('/pendaftar/review_pendaftaran', $data);
+        return view('/pendaftar/pendaftaran/review_pendaftaran', $data);
     }
     public function simpanPendaftaran($no_induk)
     {

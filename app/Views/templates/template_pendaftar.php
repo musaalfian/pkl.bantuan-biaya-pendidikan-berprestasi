@@ -90,6 +90,7 @@
                             <i class="bi bi-person-circle" style="color: white;font-size: 30px !important;"></i>
                         </button>
                         <ul class="dropdown-menu p-3 br10" aria-labelledby="dropdownMenuButton1">
+                            <p><?= user()->username; ?></p>
                             <hr class="dropdown-divider" />
                             <p><?= user()->email; ?></p>
                             <hr class="dropdown-divider" />

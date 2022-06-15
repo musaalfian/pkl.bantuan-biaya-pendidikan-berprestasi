@@ -139,6 +139,17 @@
                         </div>
                     </div>
                     <!-- end anak ke -->
+                    <div class="mb20 has-validation">
+                        <label for="no_telepon" class="form-label">Nomer Telepon </label>
+                        <input disabled type="number" min="0" max="999999999999999" required
+                            class="form-control <?= ($validation->hasError('no_telepon')) ? 'is-invalid' : ''; ?>"
+                            value="<?= ($identitas != null) ? $identitas['no_telepon'] : old('no_telepon'); ?>"
+                            name="no_telepon" placeholder="" />
+                        <div class="invalid-feedback">
+                            <?= ($validation->getError('no_telepon') == '') ? 'Bagian no telepon  wajib diisi dan kurang dari 15 angka' : str_replace('_', ' ', $validation->getError('no_telepon')) ?>
+                        </div>
+                    </div>
+                    <!-- end Nomer Telepon -->
                     <?php endif ?>
                     <div class="mb20">
                         <label for="pernah_menerima_bantuan" class="form-label">Apakah Calon Penerima Beasiswa Pernah
@@ -180,17 +191,7 @@
                     <!-- end menerima_bantuan_dari -->
                 </div>
                 <div class="col-12 col-md-6">
-                    <div class="mb20 has-validation">
-                        <label for="no_telepon" class="form-label">Nomer Telepon </label>
-                        <input disabled type="number" min="0" max="999999999999999" required
-                            class="form-control <?= ($validation->hasError('no_telepon')) ? 'is-invalid' : ''; ?>"
-                            value="<?= ($identitas != null) ? $identitas['no_telepon'] : old('no_telepon'); ?>"
-                            name="no_telepon" placeholder="" />
-                        <div class="invalid-feedback">
-                            <?= ($validation->getError('no_telepon') == '') ? 'Bagian no telepon  wajib diisi dan kurang dari 15 angka' : str_replace('_', ' ', $validation->getError('no_telepon')) ?>
-                        </div>
-                    </div>
-                    <!-- end Nomer Telepon -->
+
                     <div class="alamat mb20 has-validation">
                         <label for="alamat_rumah" class="form-label">Alamat Rumah </label>
                         <small>* Pengisian alamat rumah : jalan, dukuh, rt/rw, dan desa</small>

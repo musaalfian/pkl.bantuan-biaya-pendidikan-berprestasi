@@ -148,20 +148,20 @@
                         <label for="rtsm_rtm" class="form-label">Rumah Tangga Sangat Miskin (RTSM) / Rumah Tangga Miskin
                             (RTM)? <span class="required-label"></span></label>
                         <!-- radio button -->
-                        <!-- <select required <?= ($keluarga != null) ? 'disabled' : ''; ?> class="form-select <?= ($validation->hasError('rtsm_rtm')) ? 'is-invalid' : ''; ?>" aria-label="Default select example" name="rtsm_rtm">
+                        <!-- <select required <?= ($keluarga != null) ? 'disabled' : ''; ?> class="form-select <?= ($validation->hasError('rtsm_rtm')) ? 'is-invalid' : ''; ?>" aria-label="Default select example" name="rtsm_rtm" id="rtsm_rtm">
                             <option selected hidden></option> -->
                         <div class="form-check">
 
                             <?php foreach ($opsional as $opsional_rstm) : ?>
-                                <input required type="radio" class="form-check-input" name="rtsm_rtm" <?= ($keluarga != null) ? 'disabled' : ''; ?> <?php if ($keluarga != null) {
-                                                                                                                                                        if ($keluarga['rtsm_rtm'] == $opsional_rstm) {
-                                                                                                                                                            echo 'checked';
-                                                                                                                                                        };
-                                                                                                                                                    } else {
-                                                                                                                                                        if (old('rtsm_rtm') == $opsional_rstm) {
-                                                                                                                                                            echo 'checked';
-                                                                                                                                                        }
-                                                                                                                                                    } ?> value="<?= $opsional_rstm; ?>"><?= ucfirst($opsional_rstm); ?></input> <br>
+                                <input required type="radio" class="form-check-input" name="rtsm_rtm" id="rtsm_rtm" <?= ($keluarga != null) ? 'disabled' : ''; ?> <?php if ($keluarga != null) {
+                                                                                                                                                                        if ($keluarga['rtsm_rtm'] == $opsional_rstm) {
+                                                                                                                                                                            echo 'checked';
+                                                                                                                                                                        };
+                                                                                                                                                                    } else {
+                                                                                                                                                                        if (old('rtsm_rtm') == $opsional_rstm) {
+                                                                                                                                                                            echo 'checked';
+                                                                                                                                                                        }
+                                                                                                                                                                    } ?> value="<?= $opsional_rstm; ?>"><label for="rtsm_rtm" class="form-check-label"><?= ucfirst($opsional_rstm); ?></label>
                             <?php endforeach; ?>
                         </div>
                         <!-- </select> -->
@@ -176,19 +176,19 @@
                             (KKS) dan Kartu Batang Sehat (KBS)?
                             <span class="required-label"></span></label>
                         <!-- radio button -->
-                        <!-- <select required <?= ($keluarga != null) ? 'disabled' : ''; ?> class="form-select <?= ($validation->hasError('pkh_kks_kbs')) ? 'is-invalid' : ''; ?>" aria-label="Default select example" name="pkh_kks_kbs">
+                        <!-- <select required <?= ($keluarga != null) ? 'disabled' : ''; ?> class="form-select <?= ($validation->hasError('pkh_kks_kbs')) ? 'is-invalid' : ''; ?>" aria-label="Default select example" name="pkh_kks_kbs" id="pkh_kks_kbs">
                             <option selected hidden></option> -->
                         <div class="form-check">
                             <?php foreach ($opsional as $opsional_pkh) : ?>
-                                <input required class="form-check-input" type="radio" name="pkh_kks_kbs" <?= ($keluarga != null) ? 'disabled' : ''; ?> <?php if ($keluarga != null) {
-                                                                                                                                                            if ($keluarga['pkh_kks_kbs'] == $opsional_pkh) {
-                                                                                                                                                                echo 'checked';
-                                                                                                                                                            };
-                                                                                                                                                        } else {
-                                                                                                                                                            if (old('pkh_kks_kbs') == $opsional_pkh) {
-                                                                                                                                                                echo 'checked';
-                                                                                                                                                            }
-                                                                                                                                                        } ?> value="<?= $opsional_pkh; ?>"><?= ucfirst($opsional_pkh); ?></input> <br>
+                                <input required class="form-check-input" type="radio" name="pkh_kks_kbs" id="pkh_kks_kbs" <?= ($keluarga != null) ? 'disabled' : ''; ?> <?php if ($keluarga != null) {
+                                                                                                                                                                            if ($keluarga['pkh_kks_kbs'] == $opsional_pkh) {
+                                                                                                                                                                                echo 'checked';
+                                                                                                                                                                            };
+                                                                                                                                                                        } else {
+                                                                                                                                                                            if (old('pkh_kks_kbs') == $opsional_pkh) {
+                                                                                                                                                                                echo 'checked';
+                                                                                                                                                                            }
+                                                                                                                                                                        } ?> value="<?= $opsional_pkh; ?>"><label for="rtsm_rtm" class="form-check-label"><?= ucfirst($opsional_pkh); ?></label>
                             <?php endforeach; ?>
                         </div>
                         <!-- </select> -->
@@ -204,19 +204,19 @@
                         <label for="bsm_kip" class="form-label">Penerimaan BSM atau Kartu Indonesia Pintar (KIP)?
                             <span class="required-label">*</span></label>
                         <!-- radio button -->
-                        <!-- <select required <?= ($keluarga != null) ? 'disabled' : ''; ?> class="form-select <?= ($validation->hasError('bsm_kip')) ? 'is-invalid' : ''; ?>" aria-label="Default select example" name="bsm_kip">
+                        <!-- <select required <?= ($keluarga != null) ? 'disabled' : ''; ?> class="form-select <?= ($validation->hasError('bsm_kip')) ? 'is-invalid' : ''; ?>" aria-label="Default select example" name="bsm_kip" id="bsm_kip">
                             <option selected hidden></option> -->
                         <div class="form-check">
                             <?php foreach ($opsional as $opsional_bsm) : ?>
-                                <input required class="form-check-input" type="radio" <?= ($keluarga != null) ? 'disabled' : ''; ?> name="bsm_kip" <?php if ($keluarga != null) {
-                                                                                                                                                        if ($keluarga['bsm_kip'] == $opsional_bsm) {
-                                                                                                                                                            echo 'checked';
-                                                                                                                                                        };
-                                                                                                                                                    } else {
-                                                                                                                                                        if (old('bsm_kip') == $opsional_bsm) {
-                                                                                                                                                            echo 'checked';
-                                                                                                                                                        }
-                                                                                                                                                    } ?> value="<?= $opsional_bsm; ?>"><?= ucfirst($opsional_bsm); ?></input> <br>
+                                <input required class="form-check-input" type="radio" <?= ($keluarga != null) ? 'disabled' : ''; ?> name="bsm_kip" id="bsm_kip" <?php if ($keluarga != null) {
+                                                                                                                                                                    if ($keluarga['bsm_kip'] == $opsional_bsm) {
+                                                                                                                                                                        echo 'checked';
+                                                                                                                                                                    };
+                                                                                                                                                                } else {
+                                                                                                                                                                    if (old('bsm_kip') == $opsional_bsm) {
+                                                                                                                                                                        echo 'checked';
+                                                                                                                                                                    }
+                                                                                                                                                                } ?> value="<?= $opsional_bsm; ?>"><label for="rtsm_rtm" class="form-check-label"><?= ucfirst($opsional_bsm); ?></label>
                             <?php endforeach; ?>
                             <!-- </select> -->
                         </div>

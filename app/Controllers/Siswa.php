@@ -149,7 +149,7 @@ class Siswa extends BaseController
             'pendidikan'    => $pendidikan,
             'opsional'  => $opsional
         ];
-        return view('/pendaftar/siswa/form_keluarga_siswa', $data);
+        return view('/pendaftar/pendaftaran/form_keluarga', $data);
     }
     public function simpan_tambah_keluarga_siswa($no_induk)
     {

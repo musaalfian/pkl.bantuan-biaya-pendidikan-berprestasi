@@ -166,7 +166,7 @@ class Mahasiswa extends BaseController
             'pendidikan'    => $pendidikan,
             'opsional'  => $opsional
         ];
-        return view('/pendaftar/mhs/form_keluarga_mhs', $data);
+        return view('/pendaftar/pendaftaran/form_keluarga', $data);
     }
     public function simpan_tambah_keluarga_mhs($no_induk)
     {

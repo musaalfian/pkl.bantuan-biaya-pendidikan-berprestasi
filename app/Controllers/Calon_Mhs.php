@@ -167,7 +167,7 @@ class Calon_mhs extends BaseController
             'pendidikan'    => $pendidikan,
             'opsional'  => $opsional
         ];
-        return view('/pendaftar/calon_mhs/form_keluarga_calon_mhs', $data);
+        return view('/pendaftar/pendaftaran/form_keluarga', $data);
     }
     public function simpan_tambah_keluarga_calon_mhs($no_induk)
     {

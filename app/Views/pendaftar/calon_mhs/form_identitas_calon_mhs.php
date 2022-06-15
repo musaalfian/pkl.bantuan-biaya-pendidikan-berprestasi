@@ -183,8 +183,8 @@
                                             if (old('kecamatan') == $kecamatan['id_kecamatan']) {
                                                 echo 'selected';
                                             }
-                                        } ?> value="<?= ucfirst($kecamatan['id_kecamatan']); ?>">
-                                    <?= $kecamatan['nama_kecamatan']; ?>
+                                        } ?> value="<?= $kecamatan['id_kecamatan']; ?>">
+                                    <?= ucfirst(strtolower($kecamatan['nama_kecamatan'])); ?>
                                 </option>
                             <?php endforeach; ?>
                         </select>
