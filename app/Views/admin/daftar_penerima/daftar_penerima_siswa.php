@@ -108,15 +108,19 @@
             </div>
             <div class="modal-body">
 
-                <form action="<?php base_url() ?>/Admin_daftar_penerima/ubah_status_pembayaran_keseluruhan/1"
+                <form action="<?php base_url() ?>/admin_daftar_penerima/ubah_status_pembayaran_keseluruhan/1"
                     method="POST">
-                    <select class="form-select mt-2" id="statusPembayaran" name="statusPembayaran">
-                        <option selected hidden>---</option>
+                    <div class="form-check">
+
                         <?php foreach ($status_pembayaran as $status_pembayarans) : ?>
-                        <option name="statusPembayaran" value="<?= $status_pembayarans['id_status_pembayaran']; ?>">
-                            <?= $status_pembayarans['nama_status_pembayaran']; ?></option>
+                        <input type="radio" id="statusPembayaran" class="form-check-input"
+                            <?= ($status_pembayarans['id_status_pembayaran'] == $data['id_status_pembayaran']) ? 'checked' : ''; ?>
+                            name="statusPembayaran" value="<?= $status_pembayarans['id_status_pembayaran']; ?>">
+                        <label class="form-check-label" for="statusPembayaran">
+                            <?= $status_pembayarans['nama_status_pembayaran']; ?>
+                        </label>
                         <?php endforeach ?>
-                    </select>
+                    </div>
                     <div class="modal-footer">
 
                         <button type="submit" class="btn btn-primary">Simpan</button>
@@ -145,9 +149,9 @@
                         <?= $data['nama_status_pembayaran']; ?></span>
                 </p>
                 <form
-                    action="<?php base_url() ?>/Admin_daftar_penerima/ubah_status_pembayaran/<?= $data['no_induk'] ?>/1"
+                    action="<?php base_url() ?>/admin_daftar_penerima/ubah_status_pembayaran/<?= $data['no_induk'] ?>/1"
                     method="POST">
-                    
+
                     <!-- <select class="form-select mt-2" id="statusPembayaran" name="statusPembayaran">
                         <option hidden>---</option>
                         <?php foreach ($status_pembayaran as $status_pembayarans) : ?>
@@ -159,12 +163,19 @@
                     </select> -->
                     <!-- <select class="form-select mt-2" id="statusPembayaran" name="statusPembayaran">
                         <option hidden>---</option> -->
+                    <div class="form-check">
+
                         <?php foreach ($status_pembayaran as $status_pembayarans) : ?>
-                        <input type="radio" name="statusPembayaran"
-                            <?= ($status_pembayarans['id_status_pembayaran'] == $data['id_status_pembayaran']) ? 'selected' : ''; ?>
+                        <input type="radio"
+                            id="statusPembayaranSemua_<?= $status_pembayarans['id_status_pembayaran']; ?>"
+                            class="form-check-input" name="statusPembayaran"
                             value="<?= $status_pembayarans['id_status_pembayaran']; ?>">
-                            <?= $status_pembayarans['nama_status_pembayaran']; ?></input> <br>
+                        <label class="form-check-label"
+                            for="statusPembayaranSemua_<?= $status_pembayarans['id_status_pembayaran']; ?>">
+                            <?= $status_pembayarans['nama_status_pembayaran']; ?>
+                        </label>
                         <?php endforeach ?>
+                    </div>
                     <!-- </select> -->
                     <div class="modal-footer">
 
@@ -188,7 +199,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="<?php base_url() ?>/Admin_daftar_penerima/ubah_nomor_rekening/<?= $datas['no_induk'] ?>/1"
+                <form action="<?php base_url() ?>/admin_daftar_penerima/ubah_nomor_rekening/<?= $datas['no_induk'] ?>/1"
                     method="POST">
                     <p class="bold">Nomor Rekening saat ini : <?= $datas['no_rek']; ?></p>
                     <label for="" class="mt-2">Ubah Nomor rekening</label>
@@ -214,7 +225,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="<?php base_url() ?>/Admin_daftar_penerima/ubah_nominal/<?= $datas['no_induk'] ?>/1"
+                <form action="<?php base_url() ?>/admin_daftar_penerima/ubah_nominal/<?= $datas['no_induk'] ?>/1"
                     method="POST">
                     <p class="bold">Nominal Beasiswa Saat Ini : Rp. <?= $datas['nominal']; ?></p>
                     <label for="" class="mt-2">Ubah Nominal Beasiswa</label>

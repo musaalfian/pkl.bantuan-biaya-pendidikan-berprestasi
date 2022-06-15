@@ -74,7 +74,7 @@ $(document).ready(function () {
 $(document).ready(function () {
   // Add Row
   $("#table_data_pendaftaran").DataTable({
-    pageLength: 5,
+    pageLength: 10,
     language: {
       info: "Menampilkan _END_ dari _TOTAL_ baris",
       infoEmpty: "Menampilkan 0 sampai 0 of 0 baris",

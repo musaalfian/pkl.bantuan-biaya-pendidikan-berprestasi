@@ -42,7 +42,7 @@
         <?php endif ?>
         <?php if ($identitas['id_status_pendaftaran'] == 3) { ?>
         <?php if ($identitas['id_status_peserta'] == 1) { ?>
-        <a href="<?= base_url(); ?>/siswa/edit_siswa/<?= $identitas['no_induk']; ?>" class="btn btn-primary">Ubah
+        <a href="<?= base_url(); ?>/siswa/edit_siswa/<?= $identitas['no_induk']; ?>" class="mt20 btn btn-primary">Ubah
             Data</a>
         <?php } else if ($identitas['id_status_peserta'] == 2) { ?>
 
