@@ -5,7 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => 'ab4d0647ba8b827dbeb5b01fa2e931f2fc57bf57',
+        'reference' => 'fb9e123374643e449de4972d15032e3c2e5a7842',
         'name' => 'codeigniter4/appstarter',
         'dev' => true,
     ),
@@ -16,7 +16,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => 'ab4d0647ba8b827dbeb5b01fa2e931f2fc57bf57',
+            'reference' => 'fb9e123374643e449de4972d15032e3c2e5a7842',
             'dev_requirement' => false,
         ),
         'codeigniter4/authentication-implementation' => array(
@@ -518,6 +518,15 @@
             'install_path' => __DIR__ . '/../symfony/polyfill-mbstring',
             'aliases' => array(),
             'reference' => '9344f9cb97f3b19424af1a21a3b0e75b0a7d8d7e',
+            'dev_requirement' => false,
+        ),
+        'techlab/smartwizard' => array(
+            'pretty_version' => 'v5.1.1',
+            'version' => '5.1.1.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../techlab/smartwizard',
+            'aliases' => array(),
+            'reference' => '14806a79eb4db75ad71723cb6cb5ccfd7e2f585f',
             'dev_requirement' => false,
         ),
         'theseer/tokenizer' => array(

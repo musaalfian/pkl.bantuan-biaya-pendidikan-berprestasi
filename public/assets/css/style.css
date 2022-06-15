@@ -698,6 +698,57 @@ small{
 }
 
 /*================ Pendaftaran =================*/
+/* Wizard */
+#smartwizard a {
+  overflow: visible !important;
+}
+#smartwizard a::before {
+  visibility: visible !important;
+  transition: none !important;
+}
+
+/* Garis none di mobile */
+.sw-theme-dots>.nav::before {
+  content: none !important;
+}
+
+/* Wizard color */
+.sw-theme-dots>.nav .nav-link.inactive::after {
+  background-color: lightgray !important;
+}
+.sw-theme-dots>.nav .nav-link.done::after {
+  background-color: #5cb85c !important;
+}
+.sw-theme-dots>.nav .nav-link.inactive {
+  color: lightgray !important;
+}
+.sw-theme-dots>.nav .nav-link.done {
+  color: #5cb85c !important;
+}
+#smartwizard.sw-theme-dots>.nav .nav-link.active {
+  color: var(--biru) !important;
+}
+#smartwizard.sw-theme-dots>.nav .nav-link.active::after {
+  background-color: var(--biru) !important;
+}
+
+/* Wizard button */
+.sw-theme-dots .toolbar>.btn {
+  background-color: var(--biru) !important;
+  border: 1px solid var(--biru) !important;
+  font-size: 14px !important;
+}
+#smartwizard .btn.sw-btn-prev {
+  background-color: transparent !important;
+  border: 1px solid var(--biru) !important;
+  color: var(--black) !important;
+
+}
+/* Font size */
+.pendaftaran span {
+  font-weight: 400;
+}
+
 .ps {
   position: relative;
 }
@@ -812,7 +863,7 @@ footer {
   position: sticky;
 
   /* position: fixed; */
-  z-index: 1;
+  z-index: 100;
   /* Make it stick/fixed */
   top: 0;
   /* Stay on top */
