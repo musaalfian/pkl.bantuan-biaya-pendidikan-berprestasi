@@ -35,6 +35,7 @@ window.onscroll = function () {
     );
   });
 })();
+
 // active pendaftar
 $(document).ready(function () {
   if (document.title == "Beasiswa Batang | Beranda") {

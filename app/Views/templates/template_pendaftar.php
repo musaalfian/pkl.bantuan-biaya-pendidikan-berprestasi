@@ -37,123 +37,62 @@
 
 <body>
     <!-- Navbar -->
-
-    <nav class="navbar navbar-expand-lg bg-biru" id="navbar">
+    <nav class="navbar navbar-expand-lg bgblue py-3" id="navbar">
         <div class="container">
-            <div class="navbar-brand">
-                <a href="<?= base_url(); ?>/home_pendaftar/index" class="logo d-flex text-decoration-none text-white">
-                    <img class="d-inline sm_none" src="<?= base_url(); ?>/assets/img/logo-kabupaten-batang 2.png" alt="" />
-                    <p class="d-flex   align-items-center ms-2 ">
-                        Dinas Pendidikan dan Kebudayaan <br />
-                        Kabupaten Batang
-                    </p>
-
+            <div class="navbar-brand logo">
+                <a href="<?= base_url(); ?>/home_pendaftar/index" class="d-flex align-items-center text-decoration-none text-white">
+                    <img src="<?= base_url(); ?>/assets/img/logo-kabupaten-batang 2.png" width="40px" alt="Logo Kabupaten Batang" />
+                    <h3 class="ms-2 fs14">Dinas Pendidikan dan Kebudayaan <br> Kabupaten Batang</h3>
                 </a>
             </div>
-            <button class="navbar-toggler text-white border-0 bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon bg-transparent border-0"><i class="fa-solid fa-sliders"></i></span>
+            <button class="navbar-toggler text-white border-0 bg-transparent" id="btnCollapse" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation">
+                <i class="fa-solid fa-bars"></i>
             </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <!-- <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul> -->
-                <div class="me-auto">
-                    <ul class="navbar-nav bl ">
-                        <li class="nav-item align-self-end ms-lg-4">
-                            <a class="nav-link navbarNav br5" id="nav__beranda" href="<?= base_url(); ?>/home_pendaftar/index">Beranda</a>
-                        </li>
-                        <li class="nav-item align-self-end">
-                            <a class="nav-link navbarNav br5" id="nav__informasi" href="<?= base_url(); ?>/home_pendaftar/informasi">Informasi Pendaftaran</a>
-                        </li>
-                        <li class="nav-item align-self-end position-relative">
-                            <?php if ($identitas != null && $identitas['pesan'] != null) : ?>
-                                <i class="fas fa-circle icon-notif position-absolute"></i>
-                            <?php endif; ?>
-                            <!-- cek apakah user sudah mendaftar atau belum. jika belum akan ditampilan view pendaftaran atau jika sudah maka akan ditampilkan menu pengumuman -->
-                            <?php if ($identitas == null || $identitas['id_status_pendaftaran'] == null) { ?>
-                                <a class="nav-link navbarNav  br5" id="nav__beasiswa" href="<?= base_url(); ?>/home_pendaftar/pendaftaran">Pendaftaran Beasiswa</a>
-                            <?php } else { ?>
-                                <a class="nav-link navbarNav  br5" id="nav__beasiswa" href="<?= base_url(); ?>/home_pendaftar/pengumuman">Pengumuman Beasiswa
-                                </a>
-                            <?php } ?>
-                        </li>
-                    </ul>
-                </div>
+            <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item align-self-end">
+                        <a class="nav-link navbarNav" id="nav__beranda" href="<?= base_url(); ?>/home_pendaftar/index">Beranda</a>
+                    </li>
+                    <li class="nav-item align-self-end">
+                        <a class="nav-link navbarNav mx-0 mx-lg-5" id="nav__informasi" href="<?= base_url(); ?>/home_pendaftar/informasi">Informasi Pendaftaran</a>
+                    </li>
+                    <li class="nav-item align-self-end position-relative">
+                        <?php if ($identitas != null && $identitas['pesan'] != null) : ?>
+                            <i class="fas fa-circle icon-notif position-absolute"></i>
+                        <?php endif; ?>
+                        <!-- cek apakah user sudah mendaftar atau belum. jika belum akan ditampilan view pendaftaran atau jika sudah maka akan ditampilkan menu pengumuman -->
+                        <?php if ($identitas == null || $identitas['id_status_pendaftaran'] == null) { ?>
+                            <a class="nav-link navbarNav " id="nav__beasiswa" href="<?= base_url(); ?>/home_pendaftar/pendaftaran">Pendaftaran Beasiswa</a>
+                        <?php } else { ?>
+                            <a class="nav-link navbarNav " id="nav__beasiswa" href="<?= base_url(); ?>/home_pendaftar/pengumuman">Pengumuman Beasiswa
+                            </a>
+                        <?php } ?>
+                    </li>
+                </ul>
 
                 <div class="nav-item align-self-end me-0">
-                    <div class="dropdown nav__icon d-flex justify-content-end ">
-                        <button class="dropdown-toggle " style=" background: none !important;border:none !important" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                            <!-- <button class="btn btn_orange">Masuk</button> -->
-                            <!-- <i class="fa-solid fa-user-gear fs-4"></i> -->
-                            <i class="bi bi-person-circle" style="color: white;font-size: 30px !important;"></i>
+                    <div class="dropdown d-flex justify-content-end ">
+                        <button class="dropdown-toggle bg-transparent border-0" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-person-circle text-white fs24"></i>
                         </button>
-                        <ul class="dropdown-menu p-3 br10" aria-labelledby="dropdownMenuButton1">
-                            <p><?= user()->username; ?></p>
+                        <ul class="dropdown-menu py-3 px-5 br10" aria-labelledby="dropdownMenuButton1">
+                            <h6 class="fs14 fw-bold"><?= ucwords(user()->username); ?></h6>
                             <hr class="dropdown-divider" />
                             <p><?= user()->email; ?></p>
                             <hr class="dropdown-divider" />
-                            <li>
+                            <li class="d-flex justify-content-end">
                                 <!-- Button trigger modal -->
-                                <button type="button" class="btn btn-red text " data-bs-toggle="modal" data-bs-target="#logoutModal">
-                                    Logout
+                                <button type="button" class="btn btn-red mt-3" data-bs-toggle="modal" data-bs-target="#logoutModal">
+                                    Keluar
                                 </button>
                             </li>
                         </ul>
                     </div>
                 </div>
-
-
             </div>
         </div>
     </nav>
-    <!-- End navbar -->
-
-    <!-- Main Content -->
-    <?= $this->renderSection('content'); ?>
-
-    <!-- end Main content -->
-
-    <!-- Footer -->
-
-    <footer class="pt50">
-        <div class="container bg-biru  p50 px50">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-7 col-12" style="height: 20vh;">
-
-                        <div class="d-flex">
-                            <img class="" src="<?= base_url(); ?>/assets/img/logo-kabupaten-batang 2.png" alt="" />
-                            <p class="bold ms-2"> Dinas Pendidikan dan Kebudayaan <br />
-                                Kabupaten Batang</p>
-                        </div>
-
-
-                    </div>
-                    <div class="col-lg-4 col-12 mt-md-3 mt-sm-3">
-                        <div class="">
-                            <div class="">
-                                <p class="fw-bold fs16">MENU</p>
-                            </div>
-                            <div class="">
-                                <a href="<?= base_url(); ?>/home_pendaftar/index" class="text-white me-2  ">Beranda</a>
-                                <a href="<?= base_url(); ?>/home_pendaftar/informasi" class=" text-white  me-2 ">Informasi</a>
-                                <!-- cek apakah user sudah mendaftar atau belum. jika belum akan ditampilan view pendaftaran atau jika sudah maka akan ditampilkan menu pengumuman -->
-                                <?php if ($identitas == null || $identitas['id_status_pendaftaran'] == null) { ?>
-                                    <a class="text-white  me-2" id="" href="<?= base_url(); ?>/home_pendaftar/pendaftaran">Pendaftaran Beasiswa</a>
-                                <?php } else { ?>
-                                    <a class=" text-white  me-2" href="<?= base_url(); ?>/home_pendaftar/pengumuman">Pengumuman Beasiswa
-                                    </a>
-                                <?php } ?>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <p class=" mt20"> <span class="orange fw-bold">©2022.</span> Dinas Pendidikan dan Kebudayaan Kabupaten
-                    Batang. All rights reserved</p>
-            </div>
-        </div>
-    </footer>
-    <!-- End footer -->
-
-    <!-- LOGOUT  Modal -->
+    <!-- Logout  Modal -->
     <div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -175,6 +114,81 @@
             </div>
         </div>
     </div>
+    <!-- End navbar -->
+
+    <!-- Main Content -->
+    <?= $this->renderSection('content'); ?>
+    <!-- end Main content -->
+
+    <!-- Footer -->
+    <footer class="bgblue pt40 text-white">
+        <div class="container user">
+            <div class="row mb40 justify-content-between">
+                <div class="col-md-6 col-12">
+                    <h2 class="fw-bold fs16">Sistem Informasi Bantuan Biaya <br>
+                        Pendidikan Berprestasi</h2>
+                    <div class="desc darklight mt-2 mt-md-3">
+                        <h3 class="fs14 fw-normal grey lh1">Merupakan sistem informasi berbasis website yang digunakan untuk melakukan
+                            pendaftaran program bantuan biaya pendidikan berprestasi bagi peserta didik pendidikan menengah dan mahasiswa dari
+                            keluarga miskin di Kabupaten Batang.</a>
+                        </h3>
+                    </div>
+                    <div class="logo__indo">
+                        <a href="https://indonesiamaju.or.id/" target="_blank">
+                            <img src="<?= base_url('assets/img/logo-2030.png'); ?>" alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-12">
+                    <div class="nav__footer d-flex justify-content-start justify-content-md-end">
+                        <div class="item me-3 me-sm-5">
+                            <h3 class="fw-bold fs16 mb-2 mb-md-3">Informasi</h3>
+                            <a href="<?= base_url(); ?>/home_pendaftar/kumpulan_informasi_terbaru" class="fs14 grey">
+                                Informasi terbaru
+                            </a>
+                            <br>
+                            <a href="/halaman_awal/informasi_pendaftaran/1" class="fs14 grey">
+                                Informasi pendaftaran
+                            </a>
+                        </div>
+                        <div class="item">
+                            <h3 class="fw-bold fs16 mb-2 mb-md-3">Program Beasiswa</h3>
+                            <a href="<?= base_url(); ?>/home_pendaftar/pendaftaran" class="fs14 grey">
+                                Peserta didik
+                            </a>
+                            <br>
+                            <a href="<?= base_url(); ?>/home_pendaftar/pendaftaran" class="fs14 grey">
+                                Calon mahasiswa
+                            </a>
+                            <br>
+                            <a href="<?= base_url(); ?>/home_pendaftar/pendaftaran" class="fs14 grey">
+                                Mahasiswa
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="sosmed mb20">
+                <div class="content d-flex">
+                    <a href="https://www.instagram.com/disdikbud_batang/" target="_blank">
+                        <div class="d-flex justify-content-center align-items-center icon">
+                            <i class="fa-brands fa-instagram" id="insta"></i>
+                        </div>
+                    </a>
+                    <a href="https://disdikbud.batangkab.go.id/index.html" class="ms-3">
+                        <div class="d-flex justify-content-center align-items-center icon">
+                            <i class="fa-solid fa-globe" id="web"></i>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="copyright text-center p-3 p-lg-4 border-top">
+                <h3 class="fs14 fw-normal"><i class="fa-solid fa-copyright me-2"></i>2022. Dinas Pendidikan dan Kebudayaan Kabupaten Batang. All Right Reserved.</h3>
+            </div>
+        </div>
+    </footer>
+    <!-- End footer -->
+
     <!-- Custom Js -->
     <script src="<?= base_url(); ?>/assets/js/script.js"></script>
 </body>
