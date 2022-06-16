@@ -8,19 +8,16 @@
     <title><?= $title; ?></title>
 
     <!-- CSS only -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
     <!-- JavaScript Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
     </script>
     <!-- ICON -->
     <script src="https://kit.fontawesome.com/5fbcc24921.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" />
 
     <!-- JQuery -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
     <!-- CSS Custom -->
     <link rel="stylesheet" href="<?= base_url(); ?>/assets/css/style.css" />
@@ -29,6 +26,13 @@
     <!-- Dropify -->
     <link rel="stylesheet" href="<?= base_url(); ?>/dropify/dist/css/dropify.css" />
     <script src="<?= base_url('dropify/dist/js/dropify.js') ?>" type="text/javascript"></script>
+
+    <!-- Form wizard -->
+    <!-- CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/smartwizard@5/dist/css/smart_wizard_all.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.jsdelivr.net/npm/smartwizard@5/dist/css/smart_wizard_all.min.css" rel="stylesheet" type="text/css" />
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/smartwizard@5/dist/js/jquery.smartWizard.min.js" type="text/javascript"></script>
 </head>
 
 <body>
@@ -38,8 +42,7 @@
         <div class="container">
             <div class="navbar-brand">
                 <a href="<?= base_url(); ?>/home_pendaftar/index" class="logo d-flex text-decoration-none text-white">
-                    <img class="d-inline sm_none" src="<?= base_url(); ?>/assets/img/logo-kabupaten-batang 2.png"
-                        alt="" />
+                    <img class="d-inline sm_none" src="<?= base_url(); ?>/assets/img/logo-kabupaten-batang 2.png" alt="" />
                     <p class="d-flex   align-items-center ms-2 ">
                         Dinas Pendidikan dan Kebudayaan <br />
                         Kabupaten Batang
@@ -57,25 +60,21 @@
                 <div class="me-auto">
                     <ul class="navbar-nav bl ">
                         <li class="nav-item align-self-end ms-lg-4">
-                            <a class="nav-link navbarNav br5" id="nav__beranda"
-                                href="<?= base_url(); ?>/home_pendaftar/index">Beranda</a>
+                            <a class="nav-link navbarNav br5" id="nav__beranda" href="<?= base_url(); ?>/home_pendaftar/index">Beranda</a>
                         </li>
                         <li class="nav-item align-self-end">
-                            <a class="nav-link navbarNav br5" id="nav__informasi"
-                                href="<?= base_url(); ?>/home_pendaftar/informasi">Informasi Pendaftaran</a>
+                            <a class="nav-link navbarNav br5" id="nav__informasi" href="<?= base_url(); ?>/home_pendaftar/informasi">Informasi Pendaftaran</a>
                         </li>
                         <li class="nav-item align-self-end position-relative">
                             <?php if ($identitas != null && $identitas['pesan'] != null) : ?>
-                            <i class="fas fa-circle icon-notif position-absolute"></i>
+                                <i class="fas fa-circle icon-notif position-absolute"></i>
                             <?php endif; ?>
                             <!-- cek apakah user sudah mendaftar atau belum. jika belum akan ditampilan view pendaftaran atau jika sudah maka akan ditampilkan menu pengumuman -->
                             <?php if ($identitas == null || $identitas['id_status_pendaftaran'] == null) { ?>
-                            <a class="nav-link navbarNav  br5" id="nav__beasiswa"
-                                href="<?= base_url(); ?>/home_pendaftar/pendaftaran">Pendaftaran Beasiswa</a>
+                                <a class="nav-link navbarNav  br5" id="nav__beasiswa" href="<?= base_url(); ?>/home_pendaftar/pendaftaran">Pendaftaran Beasiswa</a>
                             <?php } else { ?>
-                            <a class="nav-link navbarNav  br5" id="nav__beasiswa"
-                                href="<?= base_url(); ?>/home_pendaftar/pengumuman">Pengumuman Beasiswa
-                            </a>
+                                <a class="nav-link navbarNav  br5" id="nav__beasiswa" href="<?= base_url(); ?>/home_pendaftar/pengumuman">Pengumuman Beasiswa
+                                </a>
                             <?php } ?>
                         </li>
                     </ul>
@@ -83,8 +82,7 @@
 
                 <div class="nav-item align-self-end me-0">
                     <div class="dropdown nav__icon d-flex justify-content-end ">
-                        <button class="dropdown-toggle " style=" background: none !important;border:none !important"
-                            type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                        <button class="dropdown-toggle " style=" background: none !important;border:none !important" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                             <!-- <button class="btn btn_orange">Masuk</button> -->
                             <!-- <i class="fa-solid fa-user-gear fs-4"></i> -->
                             <i class="bi bi-person-circle" style="color: white;font-size: 30px !important;"></i>
@@ -96,8 +94,7 @@
                             <hr class="dropdown-divider" />
                             <li>
                                 <!-- Button trigger modal -->
-                                <button type="button" class="btn btn-red text " data-bs-toggle="modal"
-                                    data-bs-target="#logoutModal">
+                                <button type="button" class="btn btn-red text " data-bs-toggle="modal" data-bs-target="#logoutModal">
                                     Logout
                                 </button>
                             </li>
@@ -139,16 +136,13 @@
                             </div>
                             <div class="">
                                 <a href="<?= base_url(); ?>/home_pendaftar/index" class="text-white me-2  ">Beranda</a>
-                                <a href="<?= base_url(); ?>/home_pendaftar/informasi"
-                                    class=" text-white  me-2 ">Informasi</a>
+                                <a href="<?= base_url(); ?>/home_pendaftar/informasi" class=" text-white  me-2 ">Informasi</a>
                                 <!-- cek apakah user sudah mendaftar atau belum. jika belum akan ditampilan view pendaftaran atau jika sudah maka akan ditampilkan menu pengumuman -->
                                 <?php if ($identitas == null || $identitas['id_status_pendaftaran'] == null) { ?>
-                                <a class="text-white  me-2" id=""
-                                    href="<?= base_url(); ?>/home_pendaftar/pendaftaran">Pendaftaran Beasiswa</a>
+                                    <a class="text-white  me-2" id="" href="<?= base_url(); ?>/home_pendaftar/pendaftaran">Pendaftaran Beasiswa</a>
                                 <?php } else { ?>
-                                <a class=" text-white  me-2"
-                                    href="<?= base_url(); ?>/home_pendaftar/pengumuman">Pengumuman Beasiswa
-                                </a>
+                                    <a class=" text-white  me-2" href="<?= base_url(); ?>/home_pendaftar/pengumuman">Pengumuman Beasiswa
+                                    </a>
                                 <?php } ?>
                             </div>
                         </div>

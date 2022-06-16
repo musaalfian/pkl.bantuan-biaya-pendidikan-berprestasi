@@ -70,7 +70,7 @@ class Siswa extends BaseController
             'identitas' => $identitas,
             'opsional'  => $opsional
         ];
-        return view('/pendaftar/siswa/form_identitas_siswa', $data);
+        return view('/pendaftar/siswa/form_siswa', $data);
     }
     public function simpan_tambah_identitas_siswa()
     {
@@ -555,6 +555,9 @@ class Siswa extends BaseController
             'menerima_bantuan_dari' => $menerima_bantuan,
 
         ]);
+
+        // merubah no induk terbaru
+        $no_induk = $input_no_induk;
 
         /*******************    KELUARGA    ********************/
         $keluarga = $this->MKeluarga->find_keluarga_noinduk($no_induk)->getFirstRow('array');

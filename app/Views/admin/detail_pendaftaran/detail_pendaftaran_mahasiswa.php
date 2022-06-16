@@ -698,4 +698,20 @@
     </div>
 </div>
 <!-- end main section -->
+
+<script>
+    // pesan CKEditor
+    ClassicEditor
+        .create(document.querySelector('#pesan'), {
+            removePlugins: ['Heading', 'Link', 'CKFinder'],
+            toolbar: ['bold', 'italic', 'bulletedList', 'numberedList']
+        })
+        .then(newEditor => {
+            console.log(newEditor);
+            editor = newEditor;
+        })
+        .catch(error => {
+            console.error(error);
+        });
+</script>
 <?= $this->endSection(); ?>
