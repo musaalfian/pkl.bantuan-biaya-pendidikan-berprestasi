@@ -56,7 +56,7 @@ class Siswa extends BaseController
         $kecamatan = $this->MKecamatan->orderBy('nama_kecamatan', 'ASC')->findAll();
         $transportasi = $this->MTransportasi->findAll();
         $identitas = $this->MIdentitas->find_identitas_user(user_id())->getFirstRow('array');
-        // dd(user_id());
+        // dd($identitas);
         session();
         $validation = \Config\Services::validation();
         $opsional = ['ya', 'tidak'];
