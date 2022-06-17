@@ -675,9 +675,6 @@ footer .user a:hover {
 .carousel-indicators {
   display: none;
 }
-.height__scroll {
-  height: 482px;
-}
 
 /* Informasi terbaru */
 .blue {
@@ -692,12 +689,6 @@ footer .user a:hover {
 .info__baru .info__selengkapnya a:hover {
   text-decoration: underline !important;
 }
-/* .list__info a {
-  font-size: 14px;
-  padding: 10px 20px;
-  color: black;
-  border: .5px solid lightslategray;
-} */
 .info__terbaru .line {
   border: 1px solid var(--abu2);
 }

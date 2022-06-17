@@ -97,19 +97,19 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="logoutModalLabel">
+                    <h5 class="modal-title bold" id="logoutModalLabel">
                         Anda yakin akan keluar?
                     </h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    Pilih "Logout" dibawah jika anda ingin mengakhiri sesimu sekarang.
+                    Pilih "Keluar" dibawah jika anda ingin mengakhiri sesimu sekarang.
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
                         Batal
                     </button>
-                    <a href="<?= base_url(); ?>/logout" class="btn btn-danger">Logout</a>
+                    <a href="<?= base_url(); ?>/logout" class="btn btn-danger">Keluar</a>
                 </div>
             </div>
         </div>
