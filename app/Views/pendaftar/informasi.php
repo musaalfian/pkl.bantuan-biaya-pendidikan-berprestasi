@@ -2,45 +2,43 @@
 
 <?= $this->section('content'); ?>
 <!-- Main section -->
-<div class="bg-white py40 info_p_rangkum">
-    <div class="container informasi__pendaftaran">
-        <h3 class="biru">Informasi <span class="orange">Pendaftaran Beasiswa</span> </h3>
-        <div class="persyaratan__section mt20">
-            <p class="fs16 bold">Persyaratan Penerimaan Bantuan</p>
+<div class="bg-white py40 informasi__pendaftaran">
+    <div class="container">
+        <h3 class="blue fs20">Informasi Pendaftaran Bantuan Biaya Pendidikan</h3>
+        <div class="persyaratan__section mt-3">
+            <h4 class="fs18 bold">Persyaratan Penerimaan Bantuan</h4>
             <?php $i = 1;
             foreach ($persyaratan as $persyaratan) : ?>
 
-            <div class="persyaratan__content d-flex align-items-baseline mt10">
-                <div class="nomor d-flex justify-content-center align-items-center me10"><?= $i; ?></div>
-                <p class=""><?= $persyaratan; ?>.</p>
-            </div>
-            <?php $i++; ?>
+                <div class="persyaratan__content d-flex align-items-baseline mt-2">
+                    <div class="nomor d-flex justify-content-center align-items-center me10"><?= $i; ?></div>
+                    <p class=""><?= $persyaratan; ?>.</p>
+                </div>
+                <?php $i++; ?>
             <?php endforeach ?>
             <div class="persyaratan__content d-flex align-items-baseline mt10">
                 <div class="nomor d-flex justify-content-center align-items-center me10"><?= $i; ?></div>
-                <p class="">Informasi selengkapnya dapat diunduh <a
-                        href="<?= base_url(); ?>/assets/informasi/file/<?= $informasi_pengumuman_pendaftaran['file_informasi_terbaru']; ?>"
-                        class="blue text-decoration-underline"> disini </a> </p>
+                <p class="">Informasi selengkapnya dapat diunduh <a href="<?= base_url(); ?>/assets/informasi/file/<?= $informasi_pengumuman_pendaftaran['file_informasi_terbaru']; ?>" class="blue text-decoration-underline"> disini </a> </p>
             </div>
         </div>
-        <div class="persyaratan__section mt20">
-            <h3 class="fs16 bold" >Proses Seleksi</h3>
+        <div class="persyaratan__section mt-4">
+            <h4 class="fs18 bold">Proses Seleksi</h4>
             <?php $j = 1;
             foreach ($proses_seleksi as $proses_seleksi) : ?>
-            <div class="persyaratan__content d-flex align-items-baseline mt10">
-                <div class="nomor d-flex justify-content-center align-items-center me10"><?= $j; ?></div>
-                <p class=""><?= $proses_seleksi; ?></p>
-            </div>
-            <?php $j++; ?>
+                <div class="persyaratan__content d-flex align-items-baseline mt-2">
+                    <div class="nomor d-flex justify-content-center align-items-center me10"><?= $j; ?></div>
+                    <p class=""><?= $proses_seleksi; ?></p>
+                </div>
+                <?php $j++; ?>
             <?php endforeach ?>
 
         </div>
-        <div class="alur__section mt30">
-            <h3 class="fs16">Alur Pendaftaran</h3>
-            <div class="mt10">
-                <div class="persyaratan__content d-flex align-items-baseline mt10">
+        <div class="alur__section mt-4">
+            <h4 class="fs18 bold">Alur Pendaftaran</h4>
+            <div class="mt-2">
+                <div class="persyaratan__content d-flex align-items-baseline mt-2">
                     <div class="nomor d-flex justify-content-center align-items-center me10">1</div>
-                    <p class="">Daftar Beasiswa</p>
+                    <p class="bold">Daftar Beasiswa</p>
                 </div>
                 <div class="mt5 me2rem daftar__beasiswa__section">
                     <div class="d-flex">
@@ -71,10 +69,10 @@
                     </div>
                 </div>
             </div>
-            <div class="mt10">
-                <div class="persyaratan__content d-flex align-items-baseline mt10">
+            <div class="mt-2">
+                <div class="persyaratan__content d-flex align-items-baseline mt-2">
                     <div class="nomor d-flex justify-content-center align-items-center me10">2</div>
-                    <p class="">Proses Seleksi</p>
+                    <p class="bold">Proses Seleksi</p>
                 </div>
                 <div class="mt5 me2rem daftar__beasiswa__section">
                     <div class="d-flex">
@@ -105,10 +103,10 @@
                     </div>
                 </div>
             </div>
-            <div class="mt10">
-                <div class="persyaratan__content d-flex align-items-baseline mt10">
+            <div class="mt-2">
+                <div class="persyaratan__content d-flex align-items-baseline mt-2">
                     <div class="nomor d-flex justify-content-center align-items-center me10">3</div>
-                    <p class="">Pengumuman Penerimaan Bantuan</p>
+                    <p class="bold">Pengumuman Penerimaan Bantuan</p>
                 </div>
                 <div class="mt5 me2rem daftar__beasiswa__section">
                     <div class="">
@@ -136,10 +134,10 @@
                     </div>
                 </div>
             </div>
-            <div class="mt10">
-                <div class="persyaratan__content d-flex align-items-baseline mt10">
+            <div class="mt-2">
+                <div class="persyaratan__content d-flex align-items-baseline mt-2">
                     <div class="nomor d-flex justify-content-center align-items-center me10">4</div>
-                    <p class="">Laporan penggunaan Dana</p>
+                    <p class="bold">Laporan penggunaan Dana</p>
                 </div>
                 <div class="mt5 me2rem daftar__beasiswa__section">
                     <div class="d-flex">
@@ -170,28 +168,28 @@
                 </div>
             </div>
         </div>
-        <div class="jadwal__section mt30">
-            <h3 class="fs16 bold">Jadwal Kegiatan</h3>
-            <div class="mt10 jadwal__tabel">
-                <table class="">
+        <div class="jadwal mt-4">
+            <h4 class="fs18 bold">Jadwal Kegiatan</h4>
+            <div class="mt-2 w-100">
+                <table class="table table-striped" id="jadwalPendaftaran">
                     <thead>
                         <tr>
-                            <th scope="col" class="text-center">No</th>
-                            <th scope="col">Kegiatan</th>
-                            <th scope="col">Tanggal</th>
+                            <th scope="col" class="text-center bold fs14">No</th>
+                            <th scope="col" class="fs14">Kegiatan</th>
+                            <th scope="col" class="fs14">Tanggal</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php $i = 1; ?>
                         <?php foreach ($jadwal as $jadwal) : ?>
-                        <tr>
-                            <?php if ($jadwal['jadwal_kegiatan'] != null) : ?>
-                            <th scope="row"><?= $i; ?></th>
-                            <td><?= $jadwal['jadwal_kegiatan']; ?></td>
-                            <td><?= $jadwal['jadwal_pelaksanaan']; ?></td>
-                            <?php endif; ?>
-                        </tr>
-                        <?php $i++; ?>
+                            <tr>
+                                <?php if ($jadwal['jadwal_kegiatan'] != null) : ?>
+                                    <th scope="row" class="text-center fs14"><?= $i; ?></th>
+                                    <td class="fs14"><?= $jadwal['jadwal_kegiatan']; ?></td>
+                                    <td class="fs14"><?= $jadwal['jadwal_pelaksanaan']; ?></td>
+                                <?php endif; ?>
+                            </tr>
+                            <?php $i++; ?>
                         <?php endforeach; ?>
                     </tbody>
                 </table>
