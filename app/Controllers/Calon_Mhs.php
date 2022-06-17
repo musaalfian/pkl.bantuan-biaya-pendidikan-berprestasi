@@ -72,7 +72,7 @@ class Calon_mhs extends BaseController
         ];
         return view('/pendaftar/calon_mhs/form_identitas_calon_mhs', $data);
     }
-    public function simpan_tambah_identitas_calon_mhs()
+    public function simpan_tambah_identitas_calon_mhs($id_peserta)
     {
         $user_id = user_id();
         if (!$this->validate([
@@ -117,7 +117,7 @@ class Calon_mhs extends BaseController
             'semester_ke'    => 'required',
             'pernah_menerima_bantuan'    => 'required',
         ])) {
-            return redirect()->to('calon_mhs/tambah_identitas_calon_mhs')->withInput();
+            return redirect()->to('pendaftaran/tambah_pendaftar/'. $id_peserta)->withInput();
         }
         if ($this->request->getVar('pernah_menerima_bantuan') == 'ya') {
             $menerima_bantuan = $this->request->getVar('menerima_bantuan_dari');
@@ -141,13 +141,13 @@ class Calon_mhs extends BaseController
             'tahun_masuk_pt' => $this->request->getVar('tahun_masuk_pt'),
             'semester_ke' => $this->request->getVar('semester_ke'),
             'alamat_pt' => $this->request->getVar('alamat_pt'),
-            'id_status_peserta'    => 2,
+            'id_status_peserta'    => $id_peserta,
             'pernah_menerima_bantuan' => $this->request->getVar('pernah_menerima_bantuan'),
             'menerima_bantuan_dari' => $menerima_bantuan,
         ]);
         $this->db->query("UPDATE `users` SET `no_induk`='$no_induk' WHERE `users`.`id` = $user_id");
         session()->setFlashdata('pesan-tambah-identitas-calon-mhs', 'Data identitas diri berhasil ditambahkan.');
-        return redirect()->to('calon_mhs/tambah_identitas_calon_mhs');
+        return redirect()->to('pendaftaran/tambah_pendaftar/'. $id_peserta);
     }
     // Keluarga calon mahacalon_mhs
     public function tambah_keluarga_calon_mhs($no_induk)
@@ -171,6 +171,8 @@ class Calon_mhs extends BaseController
     }
     public function simpan_tambah_keluarga_calon_mhs($no_induk)
     {
+        $id_peserta = $this->MIdentitas->where('no_induk', $no_induk)->findColumn('id_status_peserta');
+
         if (!$this->validate([
             'nama_ayah'    => 'required|alpha_space',
             'usia_ayah'    => 'required|numeric',
@@ -188,7 +190,7 @@ class Calon_mhs extends BaseController
             'pkh_kks_kbs'    => 'required',
             'bsm_kip'    => 'required',
         ])) {
-            return redirect()->to('calon_mhs/tambah_keluarga_calon_mhs/' . $no_induk)->withInput();
+            return redirect()->to('pendaftaran/tambah_pendaftar/'. $id_peserta[0])->withInput();
         }
         // dd($no_induk);
         // memasukkan data keluarga ke database
@@ -211,7 +213,7 @@ class Calon_mhs extends BaseController
             'bsm_kip' => $this->request->getVar('bsm_kip'),
         ]);
         session()->setFlashdata('pesan-tambah-keluarga-calon_mhs', 'Data kondisi keluarga berhasil ditambahkan.');
-        return redirect()->to('calon_mhs/tambah_keluarga_calon_mhs/' . $no_induk);
+        return redirect()->to('pendaftaran/tambah_pendaftar/'. $id_peserta[0]);
     }
     public function tambah_lampiran_calon_mhs($no_induk)
     {
@@ -236,6 +238,8 @@ class Calon_mhs extends BaseController
     }
     public function simpan_tambah_lampiran_calon_mhs($no_induk)
     {
+        $id_peserta = $this->MIdentitas->where('no_induk', $no_induk)->findColumn('id_status_peserta');
+
         // juara
         $juara_1 = $this->request->getVar('juara_1');
         $juara_2 = $this->request->getVar('juara_2');
@@ -265,7 +269,7 @@ class Calon_mhs extends BaseController
                 'scan_prestasi_2' => 'uploaded[scan_prestasi_2]|max_size[scan_prestasi_2,2048]|mime_in[scan_prestasi_2,application/pdf]',
             ])) {
                 session()->setFlashdata('pesan-gagal-lampiran-pendaftar', 'Data lampiran gagal ditambahkan, pendaftar harus mengunggah kembali seluruh file.');
-                return redirect()->to('calon_mhs/tambah_lampiran_calon_mhs/' . $no_induk)->withInput();
+                return redirect()->to('pendaftaran/tambah_pendaftar/'. $id_peserta[0])->withInput();
             }
         } else if ($scan_prestasi['prestasi_2']->getError() != 4 || $juara_2 != null || $tingkat_2 != null) {
             if (!$this->validate([
@@ -276,7 +280,7 @@ class Calon_mhs extends BaseController
                 'tahun_prestasi_2' => 'required',
             ])) {
                 session()->setFlashdata('pesan-gagal-lampiran-pendaftar', 'Data lampiran gagal ditambahkan, pendaftar harus mengunggah kembali seluruh file.');
-                return redirect()->to('calon_mhs/tambah_lampiran_calon_mhs/' . $no_induk)->withInput();
+                return redirect()->to('pendaftaran/tambah_pendaftar/'. $id_peserta[0])->withInput();
             }
         }
         // Validasi Prestasi 3
@@ -287,7 +291,7 @@ class Calon_mhs extends BaseController
                 'tahun_prestasi_3' => 'required',
             ])) {
                 session()->setFlashdata('pesan-gagal-lampiran-pendaftar', 'Data lampiran gagal ditambahkan, pendaftar harus mengunggah kembali seluruh file.');
-                return redirect()->to('calon_mhs/tambah_lampiran_calon_mhs/' . $no_induk)->withInput();
+                return redirect()->to('pendaftaran/tambah_pendaftar/'. $id_peserta[0])->withInput();
             }
         } else if ($scan_prestasi['prestasi_3']->getError() != 4 || $juara_3 != null || $tingkat_3 != null) {
             if (!$this->validate([
@@ -298,7 +302,7 @@ class Calon_mhs extends BaseController
                 'tahun_prestasi_3' => 'required',
             ])) {
                 session()->setFlashdata('pesan-gagal-lampiran-pendaftar', 'Data lampiran gagal ditambahkan, pendaftar harus mengunggah kembali seluruh file.');
-                return redirect()->to('calon_mhs/tambah_lampiran_calon_mhs/' . $no_induk)->withInput();
+                return redirect()->to('pendaftaran/tambah_pendaftar/'. $id_peserta[0])->withInput();
             }
         }
         // Validasi Lampiran file
@@ -317,7 +321,7 @@ class Calon_mhs extends BaseController
                 'scan_pas_foto' => 'uploaded[scan_pas_foto]|max_size[scan_pas_foto,2048]|mime_in[scan_pas_foto,image/jpg,image/jpeg,image/png]',
             ])) {
                 session()->setFlashdata('pesan-gagal-lampiran-pendaftar', 'Data lampiran gagal ditambahkan, pendaftar harus mengunggah kembali seluruh file.');
-                return redirect()->to('calon_mhs/tambah_lampiran_calon_mhs/' . $no_induk)->withInput();
+                return redirect()->to('pendaftaran/tambah_pendaftar/'. $id_peserta[0])->withInput();
             }
         } else {
             if (!$this->validate([
@@ -335,7 +339,7 @@ class Calon_mhs extends BaseController
                 'scan_pas_foto' => 'uploaded[scan_pas_foto]|max_size[scan_pas_foto,2048]|mime_in[scan_pas_foto,image/jpg,image/jpeg,image/png]',
             ])) {
                 session()->setFlashdata('pesan-gagal-lampiran-pendaftar', 'Data lampiran gagal ditambahkan, pendaftar harus mengunggah kembali seluruh file.');
-                return redirect()->to('calon_mhs/tambah_lampiran_calon_mhs/' . $no_induk)->withInput();
+                return redirect()->to('pendaftaran/tambah_pendaftar/'. $id_peserta[0])->withInput();
             }
         }
         // dd($scan_prestasi);
@@ -429,10 +433,11 @@ class Calon_mhs extends BaseController
             'pas_foto' => $nama_scan[6],
         ]);
         // session()->setFlashdata('pesan-tambah-keluarga-calon_mhs', 'Data kondisi keluarga berhasil ditambahkan.');
-        return redirect()->to('calon_mhs/tambah_lampiran_calon_mhs/' . $no_induk);
+        return redirect()->to('pendaftaran/tambah_pendaftar/'. $id_peserta[0]);
     }
     public function simpan_formulir_pendaftaran($no_induk)
     {
+        $id_peserta = $this->MIdentitas->where('no_induk', $no_induk)->findColumn('id_status_peserta');
         $formulir_pendaftaran = $this->request->getFile('scan_formulir_pendaftaran');
         if ($formulir_pendaftaran->getError() != 4) {
             // mengambil nama file scan dan dimasukkan ke array
@@ -447,7 +452,7 @@ class Calon_mhs extends BaseController
         $this->MFile->update($file['id_file'], [
             'formulir_pendaftaran' => $nama_formulir_pendaftaran
         ]);
-        return redirect()->to('pendaftaran/review_pendaftaran/' . $no_induk);
+        return redirect()->to('pendaftaran/tambah_pendaftar/'. $id_peserta[0]);
     }
     public function edit_calon_mhs($no_induk)
     {
