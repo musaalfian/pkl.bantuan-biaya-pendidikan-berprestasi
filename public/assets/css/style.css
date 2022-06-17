@@ -735,9 +735,9 @@ footer .user a:hover {
   color: var(--biru);
 }
 .informasi__pendaftaran .nomor {
-  min-width: 24px;
-  min-height: 24px;
-  font-size: 14px;
+  min-width: 20px;
+  min-height: 20px;
+  font-size: 12px;
   border-radius: 50%;
   color: white;
   background-color: var(--biru);
@@ -750,7 +750,23 @@ footer .user a:hover {
 }
 
 /* Jadwal kegiatan */
-.jadwal__section table {
+#jadwalPendaftaran {
+  border-color: lightgrey !important;
+  border-style: solid !important;
+  border-width: 1.1px;
+}
+#jadwalPendaftaran tbody {
+  border-top: 1.1px solid lightgray !important;
+}
+#jadwalPendaftaran tr th:first-child {
+  font-weight: 400;
+}
+/* #jadwalPendaftaran tr {
+  border-color: red !important;
+} */
+
+/* Jadwal kegiatan */
+/* .jadwal__section table {
   width: fit-content !important;
   overflow: auto;
 }
@@ -766,7 +782,7 @@ footer .user a:hover {
 }
 .jadwal__section th {
   text-align: left;
-}
+} */
 
 /* Detail informasi */
 .detail__header {
@@ -982,14 +998,14 @@ footer {
 .admin-content {
   width: 90%;
 }
-.detail tbody,
+/* .detail tbody,
 td,
 tfoot,
 th,
 thead,
 tr {
   border-style: none;
-}
+} */
 .detail table > :not(caption) > * > * {
   padding: 3px;
 }
@@ -1167,11 +1183,6 @@ tr {
 
 /* Tablet */
 @media (min-width: 768px) {
-  /* kumpulan informasi */
-  .col-md-4 {
-    width: 30% !important;
-  }
-
   /* detail informasi */
   .detail__info__section .col-md-4 {
     margin-top: 0px;
@@ -1217,6 +1228,9 @@ tr {
   }
 
   /*================ Informasi Awal =================*/
+  .informasi__awal {
+    min-height: 100vh;
+  }
   .informasi__awal h3 {
     font-size: 24px !important;
   } 
@@ -1234,17 +1248,58 @@ tr {
   .beranda h3 {
     font-size: 28px !important;
   }
+  .beranda .info__baru h4 {
+  font-size: 24px !important; 
+  }
+  .beranda .hero span i {
+    font-size: 32px !important;
+  }
 
+  /*================ Kumpulan informasi =================*/
+  .kumpulan__informasi .navigasi a {
+    font-size: 16px !important;
+  }
+  /* .kumpulan__informasi h3 {
+    font-size: 24px !important;
+  }
+  .kumpulan__informasi .row a {
+    font-size: 20px !important;
+  } */
   
+  /*================ Informasi pendaftaran =================*/
+  .informasi__pendaftaran h3 {
+    font-size: 24px !important;
+  }
+  .informasi__pendaftaran h4 {
+    font-size: 20px !important;
+  }
+  .informasi__pendaftaran p {
+    font-size: 16px !important;
+  }
+  .informasi__pendaftaran th, td {
+    font-size: 16px !important;
+  }
+  /* Nomor */
+  .informasi__pendaftaran .nomor {
+    min-width: 22px;
+    min-height: 22px;
+    font-size: 12px;
+  }
+
+  /*================ Pendaftaran =================*/
+  .pendaftaran__beasiswa h3 {
+    font-size: 28px !important;
+  }
+
+
 }
 
-/* Large */
 @media (min-width: 992px) {
-  .jalur_beasiswa .col-lg-4 {
-    width: 30% !important;
+  /*================ Informasi pendaftaran =================*/
+  /* Tabel */
+  .informasi__pendaftaran .jadwal {
+    width: 50% !important;
   }
-  
-
 }
 
 /* Desktop */

@@ -34,7 +34,7 @@ $tanggal_pendaftaran_tanggal = date_format($tanggal, 'd');
                             <img src="<?= base_url(); ?>/assets/img/paskibra.png" class="d-block w-100 br10" alt="..." />
                         </div>
                     </div>
-                    <div class="arrow justify-content-end d-flex mt15">
+                    <div class="arrow justify-content-end d-flex mt-3">
                         <span class="carousel-control me-2" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
                             <span class="carousel-control-prev-icon-hidden" aria-hidden="true"><i class="bi bi-arrow-left-circle-fill blue fs20"></i></span>
                             <span class="visually-hidden">Previous</span>
@@ -50,7 +50,7 @@ $tanggal_pendaftaran_tanggal = date_format($tanggal, 'd');
             <!-- Informasi terbaru -->
             <div class="info__baru col-xl-4 col-12" data-bs-spy="scroll" data-bs-offset="0" class="scrollspy-example" tabindex="0">
                 <div class="border px-4 br20 p25 overflow-auto height__scroll bg-white">
-                    <h4 class="black fw-bold fs24">Informasi Terbaru</h3>
+                    <h4 class="black fw-bold fs20">Informasi Terbaru</h3>
                         <?php foreach ($informasi as $informasi) : ?>
                             <div class="border-bottom pb-2 mt20">
                                 <div class="info__section">

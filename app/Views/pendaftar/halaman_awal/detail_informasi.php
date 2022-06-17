@@ -28,56 +28,58 @@
 </head>
 
 <body>
-    <div class="container p40">
-        <div class="informasi__awal row">
-            <div class="nav__back mb40 d-flex align-items-center">
-                <a href="/" class="fw-bold blue fs20"><i class="fa-solid fa-arrow-left-long"></i></a>
-                <h3 class="fw-bold ms-3 fs20">Informasi Pendaftaran</h3>
-            </div>
-            <div class="col-md-8 col-12 mb-4 mb-md-0">
-                <div class="gambar">
-                    <div class="bg">
-                        <img src="" alt="Gambar Informasi">
+    <div class="informasi__awal bglight2">
+        <div class="container p40">
+            <div class="row">
+                <div class="nav__back mb40 d-flex align-items-center">
+                    <a href="/" class="fw-bold blue fs20"><i class="fa-solid fa-arrow-left-long"></i></a>
+                    <h3 class="fw-bold ms-3 fs20">Informasi Pendaftaran</h3>
+                </div>
+                <div class="col-md-8 col-12 mb-4 mb-md-0">
+                    <div class="gambar">
+                        <div class="bg">
+                            <img src="" alt="Gambar Informasi">
+                        </div>
+                        <h6 class="fs14 abu mt-3">
+                            <?= $informasi['tanggal_indo_informasi']; ?> WIB
+                        </h6>
                     </div>
-                    <h6 class="fs14 abu mt-3">
-                        <?= $informasi['tanggal_indo_informasi']; ?> WIB
-                    </h6>
+                    <div class="content mt-3">
+                        <h2 class="fw-bold fs24 blue">
+                            <?= $informasi['judul_informasi_terbaru']; ?>
+                        </h2>
+                        <p class="mt-2">
+                            <?= $informasi['deskripsi_informasi_terbaru']; ?>
+                        </p>
+                        <p class="mt-2">
+                            Edaran dapat diunduh <span><a href="<?php base_url(); ?>/assets/informasi/file/<?= $informasi['file_informasi_terbaru']; ?>" class="fs16">Disini</a></span>
+                        </p>
+                        <p class="mt-2">
+                            Terima kasih.
+                        </p>
+                    </div>
                 </div>
-                <div class="content mt-3">
-                    <h2 class="fw-bold fs24 blue">
-                        <?= $informasi['judul_informasi_terbaru']; ?>
-                    </h2>
-                    <p class="mt-2">
-                        <?= $informasi['deskripsi_informasi_terbaru']; ?>
-                    </p>
-                    <p class="mt-2">
-                        Edaran dapat diunduh <span><a href="<?php base_url(); ?>/assets/informasi/file/<?= $informasi['file_informasi_terbaru']; ?>" class="fs16">Disini</a></span>
-                    </p>
-                    <p class="mt-2">
-                        Terima kasih.
-                    </p>
-                </div>
-            </div>
-            <div class="col-md-4 col-12">
-                <div class="info__lainnya border px-3 p20 overflow-auto bg-white">
-                    <h3 class="fs20">Informasi Lainnya</h3>
-                    <?php foreach ($kumpulan_3_informasi as $kumpulan_3_informasi) : ?>
-                        <div class="border-bottom pb-2 mt20">
-                            <div class="info__section">
-                                <a href="<?= base_url(); ?>/halaman_awal/informasi_pendaftaran/<?= $kumpulan_3_informasi['id_informasi_terbaru']; ?>" class="fw-bold blue fs16">
-                                    <?= $kumpulan_3_informasi['judul_informasi_terbaru']; ?>
-                                </a>
-                                <div class="mt5">
-                                    <p class="">
-                                        <?= $kumpulan_3_informasi['deskripsi_singkat']; ?>
-                                    </p>
-                                </div>
-                                <div class="tanggal">
-                                    <p class="mt5"><?= $kumpulan_3_informasi['tanggal_indo_informasi']; ?> WIB</p>
+                <div class="col-md-4 col-12">
+                    <div class="info__lainnya border px-3 p20 overflow-auto bg-white">
+                        <h3 class="fs20">Informasi Lainnya</h3>
+                        <?php foreach ($kumpulan_3_informasi as $kumpulan_3_informasi) : ?>
+                            <div class="border-bottom pb-2 mt20">
+                                <div class="info__section">
+                                    <a href="<?= base_url(); ?>/halaman_awal/informasi_pendaftaran/<?= $kumpulan_3_informasi['id_informasi_terbaru']; ?>" class="fw-bold blue fs16">
+                                        <?= $kumpulan_3_informasi['judul_informasi_terbaru']; ?>
+                                    </a>
+                                    <div class="mt5">
+                                        <p class="">
+                                            <?= $kumpulan_3_informasi['deskripsi_singkat']; ?>
+                                        </p>
+                                    </div>
+                                    <div class="tanggal">
+                                        <p class="mt5"><?= $kumpulan_3_informasi['tanggal_indo_informasi']; ?> WIB</p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    <?php endforeach; ?>
+                        <?php endforeach; ?>
+                    </div>
                 </div>
             </div>
         </div>
