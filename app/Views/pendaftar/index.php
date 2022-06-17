@@ -146,7 +146,7 @@ $tanggal_pendaftaran_tanggal = date_format($tanggal, 'd');
                                         $tanggal_sekarang['mday'] >= 1))
                             ) : ?>
                                 <?php if ($identitas == null || ($identitas['id_status_peserta'] == 1 && $identitas['id_status_pendaftaran'] == null)) { ?>
-                                    <a class="btn btn-primary d-block mt25" href="<?= base_url(); ?>/siswa/tambah_identitas_siswa">Daftar</a>
+                                    <a class="btn btn-primary d-block mt25" href="<?= base_url(); ?>/pendaftaran/tambah_pendaftar/1">Daftar</a>
                                 <?php }  ?>
                             <?php endif;  ?>
                         </div>
@@ -170,7 +170,7 @@ $tanggal_pendaftaran_tanggal = date_format($tanggal, 'd');
                                         $tanggal_sekarang['mday'] >= 1))
                             ) : ?>
                                 <?php if ($identitas == null || ($identitas['id_status_peserta'] == 2 && $identitas['id_status_pendaftaran'] == null)) { ?>
-                                    <a class="btn btn-primary d-block mt25" href="<?= base_url(); ?>/calon_mhs/tambah_identitas_calon_mhs">Daftar</a>
+                                    <a class="btn btn-primary d-block mt25" href="<?= base_url(); ?>/pendaftaran/tambah_pendaftar/2">Daftar</a>
                                 <?php }  ?>
                             <?php endif ?>
                         </div>
@@ -195,7 +195,7 @@ $tanggal_pendaftaran_tanggal = date_format($tanggal, 'd');
                                         $tanggal_sekarang['mday'] >= 1))
                             ) : ?>
                                 <?php if ($identitas == null || ($identitas['id_status_peserta'] == 3 && $identitas['id_status_pendaftaran'] == null)) { ?>
-                                    <a class="btn btn-primary d-block mt25" href="<?= base_url(); ?>/mahasiswa/tambah_identitas_mhs">Daftar</a>
+                                    <a class="btn btn-primary d-block mt25" href="<?= base_url(); ?>/pendaftaran/tambah_pendaftar/3">Daftar</a>
                                 <?php }  ?>
                             <?php endif  ?>
                         </div>
