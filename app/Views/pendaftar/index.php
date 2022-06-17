@@ -11,7 +11,7 @@ $tanggal_pendaftaran_bulan = date_format($tanggal, 'm');
 $tanggal_pendaftaran_tanggal = date_format($tanggal, 'd');
 ?>
 
-<div class="py40">
+<div class="py40 bglight2 beranda">
     <div class="container">
         <!-- Hero -->
         <div class="hero row">
@@ -50,30 +50,30 @@ $tanggal_pendaftaran_tanggal = date_format($tanggal, 'd');
             <!-- Informasi terbaru -->
             <div class="info__baru col-xl-4 col-12" data-bs-spy="scroll" data-bs-offset="0" class="scrollspy-example" tabindex="0">
                 <div class="border px-4 br20 p25 overflow-auto height__scroll bg-white">
-                    <h3 class="black fs24">Informasi Terbaru</h3>
-                    <?php foreach ($informasi as $informasi) : ?>
-                        <div class="border-bottom pb-2 mt20">
-                            <div class="info__section">
-                                <a href="<?php base_url(); ?>/home_pendaftar/detail_informasi/<?= $informasi['id_informasi_terbaru']; ?>" class="fw-bold blue fs16">
-                                    <?= $informasi['judul_informasi_terbaru']; ?>
-                                </a>
-                                <div class="mt5">
-                                    <p class="fs14">
-                                        <?= $informasi['deskripsi_singkat']; ?>
-                                    </p>
-                                </div>
-                                <div class="tanggal">
-                                    <p class="mt5 fs12"><?= $informasi['tanggal_indo_informasi']; ?> WIB</p>
+                    <h4 class="black fw-bold fs24">Informasi Terbaru</h3>
+                        <?php foreach ($informasi as $informasi) : ?>
+                            <div class="border-bottom pb-2 mt20">
+                                <div class="info__section">
+                                    <a href="<?php base_url(); ?>/home_pendaftar/detail_informasi/<?= $informasi['id_informasi_terbaru']; ?>" class="fw-bold blue fs16">
+                                        <?= $informasi['judul_informasi_terbaru']; ?>
+                                    </a>
+                                    <div class="mt5">
+                                        <p class="fs14">
+                                            <?= $informasi['deskripsi_singkat']; ?>
+                                        </p>
+                                    </div>
+                                    <div class="tanggal">
+                                        <p class="mt5 fs12"><?= $informasi['tanggal_indo_informasi']; ?> WIB</p>
+                                    </div>
                                 </div>
                             </div>
+                        <?php endforeach; ?>
+                        <div class="mt-4 info__selengkapnya">
+                            <a href="<?= base_url(); ?>/home_pendaftar/kumpulan_informasi_terbaru" class="d-flex align-items-center fs16">
+                                Lihat informasi selengkapnya
+                                <i class="bi bi-arrow-right ms-2"></i>
+                            </a>
                         </div>
-                    <?php endforeach; ?>
-                    <div class="mt-4 info__selengkapnya">
-                        <a href="<?= base_url(); ?>/home_pendaftar/kumpulan_informasi_terbaru" class="d-flex align-items-center fs16">
-                            Lihat informasi selengkapnya
-                            <i class="bi bi-arrow-right ms-2"></i>
-                        </a>
-                    </div>
                 </div>
             </div>
             <!-- End informasi terbaru -->
@@ -81,133 +81,127 @@ $tanggal_pendaftaran_tanggal = date_format($tanggal, 'd');
         <!-- End hero -->
 
         <!-- Kuota -->
-        <h3 class="fw-bold text-center mx-auto mt40 orange">Kuota dan Alokasi</h3>
-        <div class="row mt justify-content-center">
-            <div class="col-md-4 mb20 mb-md-0 col-sm-5 col-12 mb-lg-0 mb-md-0 mb-sm-4">
-                <div class="p25 bs1 br10 bg-white">
-                    <div class="tengah">
-                        <img src="<?= base_url(); ?>/assets/img/kuota/sma.png" alt="" />
-                    </div>
-                    <div class="tengah mt-4">
-                        <h4>Peserta Didik</h4>
-                    </div>
-                    <div class="tengah">
-                        <p><span id="jumlahpesertadidik">200</span> orang</p>
-                    </div>
-                </div>
-            </div>
-            <!-- end peserta didik -->
-            <div class="col-md-4 mb20 mb-md-0 col-sm-5 col-12 mb-lg-0 mb-md-0 mb-sm-2">
-                <div class="p25 bs1 br10 bg-white">
-                    <div class="tengah">
-                        <img src="<?= base_url(); ?>/assets/img/kuota/calon-mahasiswa.png" alt="" />
-                    </div>
-                    <div class="tengah mt-4">
-                        <h4>Calon Mahasiswa</h4>
-                    </div>
-                    <div class="tengah">
-                        <p><span id="jumlahpesertadidik">10 s.d 15</span> orang</p>
+        <h3 class="fw-bold text-center mx-auto mt40 mb40 blue">Kuota dan Alokasi</h3>
+        <div class="row">
+            <div class="col-md-6 col-lg-4 col-12 mb-3 mb-lg-0">
+                <div class="p-5 br25 bgwhite m-auto d-flex justify-content-center align-items-center">
+                    <div class="">
+                        <img src="<?= base_url(); ?>/assets/img/kuota/sma.png" alt="" class="br25" />
+                        <div class="mt-3 text-center">
+                            <h4 class="fw-bold">Peserta Didik</h4>
+                            <h6 class="mb-0 mt-1 lightgrey" id="jumlahpesertadidik">
+                                200 orang
+                            </h6>
+                        </div>
                     </div>
                 </div>
             </div>
-            <!-- end calon mahasiswa -->
-            <div class="col-md-4 mb20 mb-md-0 col-sm-5 col-12">
-                <div class="p25 bs1 br10 bg-white">
-                    <div class="tengah">
-                        <img src="<?= base_url(); ?>/assets/img/kuota/mahasiswa.png" alt="" />
+            <div class="col-md-6 col-lg-4 col-12 mb-3 mb-lg-0">
+                <div class="p-5 br25 bgwhite m-auto d-flex justify-content-center align-items-center">
+                    <div class="">
+                        <img src="<?= base_url(); ?>/assets/img/kuota/calon-mahasiswa.png" alt="" class="br25" />
+                        <div class="mt-3 text-center">
+                            <h4 class="fw-bold">Calon Mahasiswa</h4>
+                            <h6 class="mb-0 mt-1 lightgrey" id="jumlahpesertadidik">
+                                10 s.d 15 orang
+                            </h6>
+                        </div>
                     </div>
-                    <div class="tengah mt-4">
-                        <h4>Mahasiswa</h4>
-                    </div>
-                    <div class="tengah">
-                        <p><span id="jumlahpesertadidik">10 s.d 20</span> orang</p>
-                    </div>
-
                 </div>
             </div>
-            <!-- end mahasiswa -->
+            <div class="col-md-6 col-lg-4 col-12 mb-3 mb-lg-0">
+                <div class="p-5 br25 bgwhite m-auto d-flex justify-content-center align-items-center">
+                    <div class="">
+                        <img src="<?= base_url(); ?>/assets/img/kuota/mahasiswa.png" alt="" class="br25" />
+                        <div class="mt-3 text-center">
+                            <h4 class="fw-bold">Mahasiswa</h4>
+                            <h6 class="mb-0 mt-1 lightgrey" id="jumlahpesertadidik">
+                                10 s.d 20 orang
+                            </h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <!-- End kuota -->
 
         <!-- Jalur beasiswa -->
-        <h3 class="text-center biru">Jalur <span class="orange">Beasiswa</span></h3>
-        <div class="row mt40 justify-content-lg-between justify-content-around jalur_beasiswa">
-            <!-- Peserta didik -->
-            <div class="card__beasiswa br20 bs2  col-lg-4 mb20 mb-lg-0 col-md-5 col-12 border gx-1 p-5 bg-white">
-                <div class="text-center">
-                    <img src="<?= base_url(); ?>/assets/img/tut wuri handayani.png" alt="" />
-                </div>
-                <div class="deskripsi text-center">
-                    <h4 class="mt-5 bold biru mb-2 ">Peserta Didik</h4>
-                    <p class="">
-                        Beasiswa bagi peserta didik <br />
-                        SMA/SMK/MA sederajat
-                    </p>
-                    <?php if (
-                        $tanggal_sekarang['year'] >= $tanggal_pendaftaran_tahun &&
-                        $tanggal_sekarang['mon'] >= $tanggal_pendaftaran_bulan &&
-                        ($tanggal_sekarang['mday'] >= $tanggal_pendaftaran_tanggal ||
-                            ($tanggal_sekarang['mon'] >= $tanggal_pendaftaran_bulan + 1 &&
-                                $tanggal_sekarang['mday'] >= 1))
-                    ) : ?>
-                        <?php if ($identitas == null || ($identitas['id_status_peserta'] == 1 && $identitas['id_status_pendaftaran'] == null)) { ?>
-                            <a class="btn btn-primary d-block mt25" href="<?= base_url(); ?>/siswa/tambah_identitas_siswa">Daftar</a>
-                        <?php }  ?>
-                    <?php endif;  ?>
-                </div>
-            </div>
-            <!-- End peserta didik -->
-
-            <!-- Calon mahasiswa -->
-            <div class="card__beasiswa br20 bs2 col-lg-4 mb20 mb-lg-0 col-md-5 col-12 border gx-1 p-5 bg-white">
-                <div class="text-center">
-                    <img src="<?= base_url(); ?>/assets/img/tut wuri handayani.png" alt="" />
-                </div>
-                <div class="deskripsi text-center">
-                    <h4 class="mt-5 bold biru mb-2">Calon Mahasiwa</h4>
-                    <p class="">
-                        Beasiswa bagi peserta didik lulusan SMA/SMK/MA dari daerah
-                    </p>
-                    <?php if (
-                        $tanggal_sekarang['year'] >= $tanggal_pendaftaran_tahun &&
-                        $tanggal_sekarang['mon'] >= $tanggal_pendaftaran_bulan &&
-                        ($tanggal_sekarang['mday'] >= $tanggal_pendaftaran_tanggal ||
-                            ($tanggal_sekarang['mon'] >= $tanggal_pendaftaran_bulan + 1 &&
-                                $tanggal_sekarang['mday'] >= 1))
-                    ) : ?>
-                        <?php if ($identitas == null || ($identitas['id_status_peserta'] == 2 && $identitas['id_status_pendaftaran'] == null)) { ?>
-                            <a class="btn btn-primary d-block mt25" href="<?= base_url(); ?>/calon_mhs/tambah_identitas_calon_mhs">Daftar</a>
-                        <?php }  ?>
-                    <?php endif ?>
+        <h3 class="kuota fw-bold text-center mx-auto mt40 mb40 blue">Jalur Beasiswa</h3>
+        <div class="row">
+            <div class="col-md-6 col-lg-4 col-12 mb-3 mb-lg-0">
+                <div class="p-5 br25 bgwhite">
+                    <div class="text-center">
+                        <img src="<?= base_url(); ?>/assets/img/tut wuri handayani.png" alt="" class="br25" />
+                        <div class="mt-4">
+                            <h4 class="fw-bold">Peserta Didik</h4>
+                            <h6 class="mb-0 mt-2 lightgrey" id="jumlahpesertadidik">
+                                Beasiswa bagi peserta didik <br />
+                                SMA/SMK/MA sederajat
+                            </h6>
+                            <?php if (
+                                $tanggal_sekarang['year'] >= $tanggal_pendaftaran_tahun &&
+                                $tanggal_sekarang['mon'] >= $tanggal_pendaftaran_bulan &&
+                                ($tanggal_sekarang['mday'] >= $tanggal_pendaftaran_tanggal ||
+                                    ($tanggal_sekarang['mon'] >= $tanggal_pendaftaran_bulan + 1 &&
+                                        $tanggal_sekarang['mday'] >= 1))
+                            ) : ?>
+                                <?php if ($identitas == null || ($identitas['id_status_peserta'] == 1 && $identitas['id_status_pendaftaran'] == null)) { ?>
+                                    <a class="btn btn-primary d-block mt25" href="<?= base_url(); ?>/siswa/tambah_identitas_siswa">Daftar</a>
+                                <?php }  ?>
+                            <?php endif;  ?>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <!-- End calon mahasiswa -->
-
-            <!-- Mahasiswa -->
-            <div class="card__beasiswa br20 bs2 col-lg-4 mb20 mb-lg-0 col-md-5 col-12 border gx-1 p-5 bg-white">
-                <div class="text-center">
-                    <img src="<?= base_url(); ?>/assets/img/tut wuri handayani.png" alt="" />
-                </div>
-                <div class="deskripsi text-center">
-                    <h4 class="mt-5 bold biru mb-2">Mahasiswa</h4>
-                    <p class="">
-                        Beasiswa bagi mahasiswa <br />
-                        dari Kabupaten Batang
-                    </p>
-                    <?php if (
-                        $tanggal_sekarang['year'] >= $tanggal_pendaftaran_tahun &&
-                        $tanggal_sekarang['mon'] >= $tanggal_pendaftaran_bulan &&
-                        ($tanggal_sekarang['mday'] >= $tanggal_pendaftaran_tanggal ||
-                            ($tanggal_sekarang['mon'] >= $tanggal_pendaftaran_bulan + 1 &&
-                                $tanggal_sekarang['mday'] >= 1))
-                    ) : ?>
-                        <?php if ($identitas == null || ($identitas['id_status_peserta'] == 3 && $identitas['id_status_pendaftaran'] == null)) { ?>
-                            <a class="btn btn-primary d-block mt25" href="<?= base_url(); ?>/mahasiswa/tambah_identitas_mhs">Daftar</a>
-                        <?php }  ?>
-                    <?php endif  ?>
+            <div class="col-md-6 col-lg-4 col-12 mb-3 mb-lg-0">
+                <div class="p-5 br25 bgwhite">
+                    <div class="text-center">
+                        <img src="<?= base_url(); ?>/assets/img/tut wuri handayani.png" alt="" class="br25" />
+                        <div class="mt-4">
+                            <h4 class="fw-bold">Calon Mahasiswa</h4>
+                            <h6 class="mb-0 mt-2 lightgrey" id="jumlahpesertadidik">
+                                Beasiswa bagi peserta didik lulusan SMA/SMK/MA dari daerah
+                            </h6>
+                            <?php if (
+                                $tanggal_sekarang['year'] >= $tanggal_pendaftaran_tahun &&
+                                $tanggal_sekarang['mon'] >= $tanggal_pendaftaran_bulan &&
+                                ($tanggal_sekarang['mday'] >= $tanggal_pendaftaran_tanggal ||
+                                    ($tanggal_sekarang['mon'] >= $tanggal_pendaftaran_bulan + 1 &&
+                                        $tanggal_sekarang['mday'] >= 1))
+                            ) : ?>
+                                <?php if ($identitas == null || ($identitas['id_status_peserta'] == 2 && $identitas['id_status_pendaftaran'] == null)) { ?>
+                                    <a class="btn btn-primary d-block mt25" href="<?= base_url(); ?>/calon_mhs/tambah_identitas_calon_mhs">Daftar</a>
+                                <?php }  ?>
+                            <?php endif ?>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <!-- End mahasiswa -->
+            <div class="col-md-6 col-lg-4 col-12 mb-3 mb-lg-0">
+                <div class="p-5 br25 bgwhite">
+                    <div class="text-center">
+                        <img src="<?= base_url(); ?>/assets/img/tut wuri handayani.png" alt="" class="br25" />
+                        <div class="mt-4 text-center">
+                            <h4 class="fw-bold">Mahasiswa</h4>
+                            <h6 class="mb-0 mt-2 lightgrey" id="jumlahpesertadidik">
+                                Beasiswa bagi mahasiswa <br />
+                                dari Kabupaten Batang
+                            </h6>
+                            <?php if (
+                                $tanggal_sekarang['year'] >= $tanggal_pendaftaran_tahun &&
+                                $tanggal_sekarang['mon'] >= $tanggal_pendaftaran_bulan &&
+                                ($tanggal_sekarang['mday'] >= $tanggal_pendaftaran_tanggal ||
+                                    ($tanggal_sekarang['mon'] >= $tanggal_pendaftaran_bulan + 1 &&
+                                        $tanggal_sekarang['mday'] >= 1))
+                            ) : ?>
+                                <?php if ($identitas == null || ($identitas['id_status_peserta'] == 3 && $identitas['id_status_pendaftaran'] == null)) { ?>
+                                    <a class="btn btn-primary d-block mt25" href="<?= base_url(); ?>/mahasiswa/tambah_identitas_mhs">Daftar</a>
+                                <?php }  ?>
+                            <?php endif  ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <!-- End jalur beasiswa -->
     </div>

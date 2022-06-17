@@ -309,6 +309,10 @@ p {
 ::-webkit-input-placeholder {
   color: lightslategray;
 }
+.bdblue {
+  border: 1px solid var(--biru);
+  border-radius: 25px;
+}
 .btn:hover{
   transition: 0.3s;
 }
@@ -321,6 +325,9 @@ p {
 }
 .br20{
   border-radius: 20px !important;
+}
+.br25{
+  border-radius: 25px;
 }
 .bs1{
   box-shadow: 0.2px 0.2px 30px 0.2px var(--biru) ;
@@ -469,6 +476,9 @@ small{
 .bglight {
   background-color: #E9F0F5;
 }
+.bglight2 {
+  background-color: #f5f4f8;
+}
 
 
 /******************************************/
@@ -579,10 +589,6 @@ footer .user a:hover {
 /* Gambar login */
 .awal__content, .awal__gambar {
   min-height: 100vh;
-}
-/* Fix width gambar */
-.awal__gambar img {
-  width: 100%;
 }
 /* Gambar login */
 .bglogin {
@@ -712,6 +718,11 @@ footer .user a:hover {
 
 #file-upload-button {
   background-color: white !important;
+}
+
+/* Jalur beasiswa */
+.beranda .row div:last-child {
+  margin-bottom: 0 !important;
 }
 
 /*================ Informasi pendaftaran =================*/
@@ -1218,6 +1229,12 @@ tr {
   .informasi__awal .info__lainnya .tanggal p {
     font-size: 14px;
   }
+
+  /*================ Index =================*/
+  .beranda h3 {
+    font-size: 28px !important;
+  }
+
   
 }
 
@@ -1226,6 +1243,8 @@ tr {
   .jalur_beasiswa .col-lg-4 {
     width: 30% !important;
   }
+  
+
 }
 
 /* Desktop */

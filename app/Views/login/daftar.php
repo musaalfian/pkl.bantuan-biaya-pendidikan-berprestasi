@@ -25,7 +25,7 @@
         <div class="awal__content login col-md-6 col-12 bgwhite d-flex justify-content-center align-items-center">
             <div class="py-5 px-3 px-sm-5 px-md-0">
                 <div class="nav__back mb40">
-                    <a href="/" class="fw-bold blue fs20"><i class="fa-solid fa-arrow-left-long"></i></a>
+                    <a href="/user/index" class="fw-bold blue fs20"><i class="fa-solid fa-arrow-left-long"></i></a>
                 </div>
                 <div class="header text-center">
                     <h3 class="black fw-bold">Daftar</h3>
