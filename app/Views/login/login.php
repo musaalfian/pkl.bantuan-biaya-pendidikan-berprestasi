@@ -29,15 +29,15 @@
 </head>
 
 <body>
-    <div class="awal row me-0 align-items-center">
-        <div class="awal__content col-md-6 col-12 bgwhite d-flex justify-content-center align-items-center">
-            <div class="p-3 px-sm-4">
+    <div class="awal row m-0">
+        <div class="awal__content login col-md-6 col-12 bgwhite d-flex justify-content-center align-items-center">
+            <div class="py-5 px-3 px-sm-5 px-md-0">
                 <div class="nav__back mb40">
                     <a href="/" class="fw-bold blue fs20"><i class="fa-solid fa-arrow-left-long"></i></a>
                 </div>
                 <div class="header text-center">
                     <h3 class="black fw-bold">Masuk</h3>
-                    <h6 class="grey mt-2">Silahkan masuk dengan akun
+                    <h6 class="lightgrey mt-2">Silahkan masuk dengan akun
                         yang sudah Anda buat
                     </h6>
                     <?= view('Myth\Auth\Views\_message_block') ?>
@@ -100,7 +100,7 @@
                                 layanan</label>
                         </div>
                         <div class="daftar__button mt40">
-                            <button type="submit" id="submit_login" class="btn btn-primary shadow-none fs14 btn__blue">Masuk</button>
+                            <button type="submit" id="submit_login" class="btn btn-primary shadow-none fs14 btn__blue w-100">Masuk</button>
                         </div>
                     </form>
                     <div class="d-flex mt40 flex-wrap justify-content-between align-items-end">
@@ -121,11 +121,14 @@
                 </div>
             </div>
         </div>
-        <div class="awal__gambar col-md-6 col-12 px-4 bgblue align-items-center justify-content-center">
-            <img src="<?= base_url('assets/img/gambar-login.svg'); ?>" alt="Gambar Masuk">
+        <div class="awal__gambar col-md-6 col-12 bgblue align-items-center d-flex justify-content-center">
+            <div class="">
+                <img src="<?= base_url('assets/img/gambar-login.svg'); ?>" alt="Gambar Masuk">
+            </div>
         </div>
     </div>
 </body>
+
 <script src="<?php base_url() ?>/assets/js/script.js"></script>
 <script>
     $('form').on('submit', function(e) {

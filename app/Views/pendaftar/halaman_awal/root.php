@@ -27,9 +27,9 @@
 </head>
 
 <body>
-    <div class="awal row me-0 align-items-center">
+    <div class="awal row me-0">
         <div class="awal__content col-md-6 col-12 bgwhite d-flex justify-content-center align-items-center">
-            <div class="p-3 px-sm-5">
+            <div class="py-5 px-3 px-sm-5 px-md-0">
                 <div class="logo__dinas d-flex align-items-center">
                     <img src="<?= base_url('assets/img/logo-batang.png'); ?>" width="30px" height="100%" alt="Logo Kabupaten Batang" class="me-2">
                     <h6 class="fs14 black mb-0">Dinas Pendidikan dan Kebudayaan <br> Kabupaten Batang</h6>
@@ -88,10 +88,13 @@
                 </div>
             </div>
         </div>
-        <div class="awal__gambar col-md-6 col-12 px-4 bgblue align-items-center justify-content-center">
-            <img src="<?= base_url('assets/img/gambar-login.svg'); ?>" alt="Gambar Masuk">
+        <div class="awal__gambar col-md-6 col-12 bgblue align-items-center justify-content-center">
+            <div class="">
+                <img src="<?= base_url('assets/img/gambar-login.svg'); ?>" alt="Gambar Masuk">
+            </div>
         </div>
     </div>
+
 
     <!-- JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>

@@ -253,11 +253,14 @@ p {
 .grey {
   color: rgba(255, 255, 255, .8);
 }
+.lightgrey {
+  color: lightslategray;
+}
 /* End color */
 
 /* Background color */
 .bgblue {
-  background-color: var(--biru) !important;
+  background-color: var(--biru);
 }
 .bgorange {
   background-color: var(--orange) !important;
@@ -273,6 +276,7 @@ p {
 /* Button */
 .btn__orange {
   border-color: var(--orange2) !important;
+  background-color: var(--orange) !important;
 }
 .btn__blue {
   border-color: var(--blue2) !important;
@@ -294,7 +298,7 @@ p {
 }
 .btn__blue:hover {
   background-color: var(--biru2) !important;
-  border-color: var(--biru) !important;
+  border-color: var(--biru2) !important;
 }
 .btn__blue:focus {
   box-shadow: 0 0 0 0.25rem rgb(0, 86, 174, .3) !important;
@@ -561,29 +565,34 @@ footer .user a:hover {
 
 
 /*================ Halaman awal =================*/
-/* Main */
-.bdorange {
-  border-color: var(--orange);
+/* Fix width kanan kiri */
+.awal__content > div {
+  width: 100%;
 }
-
-/* Kiri */
-.awal, .awal__content, .awal__gambar {
-  min-height: 100vh;
+/* Mobile none */
+.awal__gambar > div {
+  width: 80%;
 }
-
-/* Kanan */
 .awal .awal__gambar {
-  display: none;
+  display: none !important;
 }
-.awal__gambar img {
-  max-width: 100%;
-  min-height: 112vh;
-}
-.awal__gambar.besar img {
-  min-height: 143vh;
-}
-.awal__gambar.gambar__sandi img {
+/* Gambar login */
+.awal__content, .awal__gambar {
   min-height: 100vh;
+}
+/* Fix width gambar */
+.awal__gambar img {
+  width: 100%;
+}
+/* Gambar login */
+.bglogin {
+  background: var(--biru) url("../img/circle-element-hero.svg") no-repeat;
+  background-position-x: 15rem;
+}
+
+/*================ Login =================*/
+.awal__content.login > div, .awal__content.daftar > div {
+  width: 100%;
 }
 
 /*================ Informasi Awal =================*/
@@ -643,8 +652,7 @@ footer .user a:hover {
 }
 .errmsg {
   color: red;
-  font-size: 12px;
-  transition: 0.5s ease;
+  font-size: 14px;
 }
 
 /* Lupa sandi */
@@ -652,7 +660,7 @@ footer .user a:hover {
   font-size: 14px;
 }
 .pesan__error {
-  font-size: 12px;
+  font-size: 14px;
   color: red;
 }
 
@@ -1170,6 +1178,11 @@ tr {
   }
 
   /*================ Halaman awal =================*/
+  /* Fix width kanan kiri */
+  .awal__content > div {
+    width: 80%;
+  }
+
   /* Font */
   .awal h6 {
     font-size: 16px;
@@ -1185,6 +1198,11 @@ tr {
   /* Display */
   .awal .awal__gambar {
     display: flex !important;
+  }
+
+  /*================ Login =================*/
+  .awal__content.login > div, .awal__content.daftar > div {
+    width: 60%;
   }
 
   /*================ Informasi Awal =================*/

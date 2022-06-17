@@ -49,7 +49,7 @@ $tanggal_pendaftaran_tanggal = date_format($tanggal, 'd');
             </div>
             <!-- Informasi terbaru -->
             <div class="info__baru col-xl-4 col-12" data-bs-spy="scroll" data-bs-offset="0" class="scrollspy-example" tabindex="0">
-                <div class="border px-4 br20 p25 overflow-scroll height__scroll bg-white">
+                <div class="border px-4 br20 p25 overflow-auto height__scroll bg-white">
                     <h3 class="black fs24">Informasi Terbaru</h3>
                     <?php foreach ($informasi as $informasi) : ?>
                         <div class="border-bottom pb-2 mt20">

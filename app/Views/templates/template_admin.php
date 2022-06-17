@@ -55,69 +55,6 @@
 </head>
 
 <body>
-    <!-- End backup navbar user -->
-    <nav class="navbar navbar-expand-lg bgblue py-3" id="navbar">
-        <div class="container">
-            <div class="navbar-brand logo">
-                <a href="<?= base_url(); ?>/home_pendaftar/index" class="d-flex align-items-center text-decoration-none text-white">
-                    <img src="<?= base_url(); ?>/assets/img/logo-kabupaten-batang 2.png" width="40px" alt="Logo Kabupaten Batang" />
-                    <h3 class="ms-2 fs14">Dinas Pendidikan dan Kebudayaan <br> Kabupaten Batang</h3>
-                </a>
-            </div>
-            <button class="navbar-toggler text-white border-0 bg-transparent" id="btnCollapse" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation">
-                <i class="fa-solid fa-bars"></i>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <div class="me-auto">
-                    <ul class="navbar-nav bl ">
-                        <li class="nav-item align-self-end ms-lg-4">
-                            <a class="nav-link navbarNav br5" id="nav__beranda" href="<?= base_url(); ?>/home_pendaftar/index">Beranda</a>
-                        </li>
-                        <li class="nav-item align-self-end">
-                            <a class="nav-link navbarNav br5" id="nav__informasi" href="<?= base_url(); ?>/home_pendaftar/informasi">Informasi Pendaftaran</a>
-                        </li>
-                        <li class="nav-item align-self-end position-relative">
-                            <?php if ($identitas != null && $identitas['pesan'] != null) : ?>
-                                <i class="fas fa-circle icon-notif position-absolute"></i>
-                            <?php endif; ?>
-                            <!-- cek apakah user sudah mendaftar atau belum. jika belum akan ditampilan view pendaftaran atau jika sudah maka akan ditampilkan menu pengumuman -->
-                            <?php if ($identitas == null || $identitas['id_status_pendaftaran'] == null) { ?>
-                                <a class="nav-link navbarNav  br5" id="nav__beasiswa" href="<?= base_url(); ?>/home_pendaftar/pendaftaran">Pendaftaran Beasiswa</a>
-                            <?php } else { ?>
-                                <a class="nav-link navbarNav  br5" id="nav__beasiswa" href="<?= base_url(); ?>/home_pendaftar/pengumuman">Pengumuman Beasiswa
-                                </a>
-                            <?php } ?>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="nav-item align-self-end me-0">
-                    <div class="dropdown nav__icon d-flex justify-content-end ">
-                        <button class="dropdown-toggle " style=" background: none !important;border:none !important" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                            <!-- <button class="btn btn_orange">Masuk</button> -->
-                            <!-- <i class="fa-solid fa-user-gear fs-4"></i> -->
-                            <i class="bi bi-person-circle" style="color: white;font-size: 30px !important;"></i>
-                        </button>
-                        <ul class="dropdown-menu p-3 br10" aria-labelledby="dropdownMenuButton1">
-                            <p><?= user()->username; ?></p>
-                            <hr class="dropdown-divider" />
-                            <p><?= user()->email; ?></p>
-                            <hr class="dropdown-divider" />
-                            <li>
-                                <!-- Button trigger modal -->
-                                <button type="button" class="btn btn-red text " data-bs-toggle="modal" data-bs-target="#logoutModal">
-                                    Logout
-                                </button>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-
-            </div>
-        </div>
-    </nav>
-    <!-- Backup navbar user -->
 
     <div class="admin d-flex" id="wrapper">
         <!-- Sidebar-->
