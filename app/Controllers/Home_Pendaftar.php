@@ -104,7 +104,7 @@ class Home_pendaftar extends BaseController
         // mengambil data informasi pendaftar
         $identitas = $this->MIdentitas->find_identitas_user(user_id())->getFirstRow('array');
         // mengambil data informasi terbaru
-        $informasi_terbaru = $this->MInformasiTerbaru->ambil_informasi(3)->getResultArray();
+        $informasi_terbaru = $this->MInformasiTerbaru->ambil_informasi(4)->getResultArray();
         foreach ($informasi_terbaru as $informasi_terbaru) {
             $informasi_terbaru['deskripsi_singkat'] = limit_text($informasi_terbaru['deskripsi_informasi_terbaru'], 10);
             $jam = date_create($informasi_terbaru['updated_at']);

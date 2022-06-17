@@ -791,9 +791,9 @@ footer .user a:hover {
 }
 
 /* Garis none di mobile */
-.sw-theme-dots>.nav::before {
+/* .sw-theme-dots>.nav::before {
   content: none !important;
-}
+} */
 
 /* Wizard color */
 .sw-theme-dots>.nav .nav-link.inactive::after {
@@ -825,6 +825,9 @@ footer .user a:hover {
   background-color: transparent !important;
   border: 1px solid var(--biru) !important;
   color: var(--black) !important;
+}
+#smartwizard .btn-simpan{
+  background-color: green !important;
 
 }
 /* Font size */

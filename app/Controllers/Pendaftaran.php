@@ -48,6 +48,77 @@ class Pendaftaran extends BaseController
         $this->db = \Config\Database::connect();
         // $UsersModel = new \Myth\Auth\Models\UserModel();
     }
+    public function tambah_pendaftar($id_peserta)
+    {
+        // form identitas
+        $agama = $this->MAgama->findAll();
+        $sekolah = $this->MSekolah->findAll();
+        $kecamatan = $this->MKecamatan->orderBy('nama_kecamatan', 'ASC')->findAll();
+        $transportasi = $this->MTransportasi->findAll();
+        $akreditasi = ['A', 'B', 'C'];
+        $semester_ke = ['1', '2', '3', '4', '5', '6', '7', '8'];
+        $identitas = $this->MIdentitas->find_identitas_user(user_id())->getFirstRow('array');
+        // dd($identitas);
+        // form keluarga
+        if ($identitas != null) {
+            $keluarga = $this->MKeluarga->find_keluarga_noinduk($identitas['no_induk'])->getFirstRow('array');
+        } else {
+            $keluarga = null;
+        }
+        $pendidikan = ['SD', 'SMP', 'SMA', 'D1', 'D3', 'D4', 'S1', 'S2', 'S3', 'Lainnya'];
+        // form lampiran
+        if ($identitas != null) {
+            $file = $this->MFile->find_file_noinduk($identitas['no_induk'])->getFirstRow('array');
+        } else {
+            $file = null;
+        }
+        if ($id_peserta == 1) {
+            $kategori = ['perlombaan', 'hafidz', 'lainnya'];
+        } elseif ($id_peserta == 2){
+            $kategori = ['perlombaan', 'ujian sekolah', 'hafidz', 'lainnya'];
+        }else {
+            $kategori = ['perlombaan', 'KHS', 'hafidz', 'lainnya'];
+        }
+        $tingkat = ['internasional', 'nasional', 'provinsi', 'karesidenan', 'kabupaten'];
+        $juara = ['juara 1', 'juara 2', 'juara 3', 'paskibra', 'peserta'];
+        if ($identitas != null) {
+            $prestasi = $this->MPrestasi->find_prestasi_noinduk($identitas['no_induk'])->getResultArray();
+            // for ($i = count($prestasi) + 1; $i <= 3; $i++) {
+            //     $prestasi[] = null;
+            // }
+        } else {
+            $prestasi = null;
+        }
+        // validasi form
+        session();
+        $validation = \Config\Services::validation();
+        $opsional = ['ya', 'tidak'];
+        // dd($prestasi);
+        $data = [
+            'title'     => 'Beasiswa Batang | Daftar Beasiswa',
+            'validation'    => $validation,
+            'opsional'  => $opsional,
+            'id_peserta'  => $id_peserta,
+            'akreditasi_pt'    => $akreditasi,
+            'semester_ke'    => $semester_ke,
+            // form identitas
+            'agama'     => $agama,
+            'sekolah'     => $sekolah,
+            'kecamatan' => $kecamatan,
+            'transportasi'  => $transportasi,
+            'identitas' => $identitas,
+            // form keluarga
+            'keluarga'    => $keluarga,
+            'pendidikan'    => $pendidikan,
+            // form lampiran
+            'kategori'      => $kategori,
+            'tingkat'   => $tingkat,
+            'juara'     => $juara,
+            'file'      => $file,
+            'prestasi'      => $prestasi
+        ];
+        return view('/pendaftar/pendaftaran/form_pendaftaran', $data);
+    }
     public function review_pendaftaran($no_induk)
     {
         session();
