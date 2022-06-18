@@ -398,17 +398,18 @@ p {
 .main-shadow{
   box-shadow: 0px 4px 25px 0px rgba(0,0,0,0.05);
 }
-.required-label {
-  color: var(--merah);
-  font-size: 12px;
-  margin-left: 10px;
-}
 .min-height-admin{
   min-height: 141px;
 }
 tr {
   border-color: var(--abu2);
 }
+
+/* Form */
+/* .pendaftaran input {
+  bor
+} */
+/* End form */
 
 /* Unknown */
 .topi {
@@ -436,7 +437,7 @@ tr {
   background-image: url("../img/4025514\ 1.png");
   height: 400px;
 }
-input,
+/* input,
 textarea,
 select {
   outline: none;
@@ -450,7 +451,7 @@ label {
 }
 small{
   font-size: 12px;
-}
+} */
 /* .daftarbeasiswa small {
   color: var(--biru);
   display: block;
@@ -791,9 +792,9 @@ footer .user a:hover {
 }
 
 /* Garis none di mobile */
-/* .sw-theme-dots>.nav::before {
+.sw-theme-dots>.nav::before {
   content: none !important;
-} */
+}
 
 /* Wizard color */
 .sw-theme-dots>.nav .nav-link.inactive::after {
@@ -819,7 +820,8 @@ footer .user a:hover {
 .sw-theme-dots .toolbar>.btn {
   background-color: var(--biru) !important;
   border: 1px solid var(--biru) !important;
-  font-size: 14px !important;
+  font-size: 16px !important;
+  margin-bottom: .5rem;
 }
 #smartwizard .btn.sw-btn-prev {
   background-color: transparent !important;
@@ -828,8 +830,48 @@ footer .user a:hover {
 }
 #smartwizard .btn-simpan{
   background-color: green !important;
-
 }
+
+/* Wizard direction */
+#smartwizard.sw>.nav {
+  flex-direction: column !important;
+}
+
+/* Input pendaftaran */
+#smartwizard.sw>.tab-content {
+  overflow: visible;
+}
+/* Tab content */
+#smartwizard div {
+  height: unset !important;
+}
+/* Input jenis kelamin */
+#smartwizard .form-check {
+  display: flex !important;
+}
+/* Input pertanyaan */
+#smartwizard .form-check label {
+  margin-left: 0.5rem !important;
+}
+/* Input textarea */
+#smartwizard .alamat textarea {
+  min-height: unset !important;
+}
+/* Button */
+#smartwizard.sw .toolbar {
+  padding: 0;
+  margin-top: 1rem;
+}
+/* Icon bintang wajib */
+#smartwizard .required-label {
+  color: red !important;
+}
+/* Form alamat review */
+/* #smartwizard .review .alamat textarea {
+  minh
+} */
+
+
 /* Font size */
 .pendaftaran span {
   font-weight: 400;
@@ -842,9 +884,9 @@ footer .user a:hover {
 
 
 /* Form sma */
-.alamat textarea{
+/* .alamat textarea{
   min-height: 129px;
-}
+} */
 
 /* Form calon mahasiswa */
 .form__calon textarea{
@@ -874,6 +916,10 @@ footer .user a:hover {
   font-size: 12px;
   right: 1px;
   bottom: 20px;
+}
+#pengumuman .content ol {
+  padding-left: 1rem !important;
+  margin-bottom: 0 !important;
 }
 
 /*================ Footer =================*/
@@ -908,12 +954,11 @@ footer {
   /* border-radius: 10px; */
   box-shadow: 2px 2px 10px 2px var(--biru);
 }
-.nav-link {
+/* .nav-link {
   color: rgb(255, 255, 255);
   overflow: hidden;
   /* font-weight: 700;
   transition: color 0.4s, background-color 0.4s, border-radius 0.4s; */
-}
 
 
 
@@ -1173,6 +1218,9 @@ tr {
   nav .nav-item p, nav .nav-item h6 {
     font-size: 16px;
   }
+  nav .pendaftar a:focus {
+    color: var(--orange) !important;
+  }
 }
 
 /* Tablet */
@@ -1285,7 +1333,14 @@ tr {
     font-size: 28px !important;
   }
 
-
+  /* Wizard direction */
+  #smartwizard.sw>.nav {
+    flex-direction: row !important;
+  }
+  /* Input jenis kelamin */
+  #smartwizard .form-check {
+    margin-bottom: 2.125rem !important;
+  }
 }
 
 @media (min-width: 992px) {
@@ -1294,7 +1349,30 @@ tr {
   .informasi__pendaftaran .jadwal {
     width: 50% !important;
   }
+
+  /*================ Form Pendaftaran =================*/
+  #step-4 .upload__ulang input {
+    width: 50% !important;
+  }
+  #step-5 h2 {
+    font-size: 30px !important;
+  }
+
+  /*================ Pengumuman =================*/
+  .pengumuman h3 {
+    font-size: 30px !important;
+  }
+  .pengumuman h4 {
+    font-size: 20px !important;
+  }
+  .pengumuman .alert {
+    font-size: 16px !important;
+  }
+  .pengumuman p {
+    font-size: 16px !important;
+  }
 }
+
 
 /* Desktop */
 @media (min-width: 1200px) {
@@ -1310,4 +1388,10 @@ tr {
     font-size: 16px;
   }
   /* End font */
+
+  /*================ Form pendaftaran =================*/
+  #step-3 .tambah__prestasi div {
+    text-align: center !important;
+  }
+
 }

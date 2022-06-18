@@ -37,8 +37,8 @@
     <script src="<?= base_url('ckeditor5-build-classic/ckeditor.js') ?>" type="text/javascript"></script>
 
     <!-- Dropify -->
-    <link rel="stylesheet" href="<?= base_url(); ?>/dropify/dist/css/dropify.css" />
-    <script src="<?= base_url('dropify/dist/js/dropify.js') ?>" type="text/javascript"></script>
+    <link rel="stylesheet" href="<?= base_url(); ?>/dropify/src/css/dropify.css" />
+    <script src="<?= base_url('dropify/src/js/dropify.js') ?>" type="text/javascript"></script>
 
     <!-- toolstip -->
     <script>
