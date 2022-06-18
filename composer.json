@@ -9,7 +9,8 @@
         "codeigniter4/framework": "^4.0",
         "myth/auth": "^1.0",
         "phpoffice/phpspreadsheet": "^1.23",
-        "dompdf/dompdf": "^1.2"
+        "dompdf/dompdf": "^1.2",
+        "techlab/smartwizard": "^5.1"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9",

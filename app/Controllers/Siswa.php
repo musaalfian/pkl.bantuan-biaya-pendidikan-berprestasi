@@ -70,7 +70,7 @@ class Siswa extends BaseController
             'identitas' => $identitas,
             'opsional'  => $opsional
         ];
-        return view('/pendaftar/siswa/form_siswa', $data);
+        return view('/pendaftar/siswa/form_identitas_siswa', $data);
     }
     public function simpan_tambah_identitas_siswa()
     {
@@ -538,7 +538,7 @@ class Siswa extends BaseController
             $menerima_bantuan = '';
         }
         // Update data identitas siswa
-        $this->MIdentitas->update($identitas['no_induk'], [
+        $this->MIdentitas->update($input_no_induk, [
             'nama_lengkap' => $this->request->getVar('nama_lengkap'),
             'jenis_kelamin' => $this->request->getVar('jenis_kelamin'),
             'ttl' => $this->request->getVar('ttl'),

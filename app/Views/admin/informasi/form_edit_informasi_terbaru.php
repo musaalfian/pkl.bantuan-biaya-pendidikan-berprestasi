@@ -46,13 +46,11 @@
             <!-- end file _informasi_terbaru -->
             <div class="mb20">
                 <label for="label_gambar_informasi_terbaru" class="form-label">Gambar</label>
-                <input id="gambar_informasi_terbaru" type="file" hidden
+                <input id="gambar_informasi_terbaru" type="file"
                     class="form-control dropify <?= ($validation->hasError('gambar_informasi_terbaru')) ? 'is-invalid' : ''; ?>"
                     name="gambar_informasi_terbaru" accept="image/*" data-max-file-size="5M"
+                    data-default-file="<?= base_url('assets/informasi/img/' . $data_informasi_terbaru['gambar_informasi_terbaru']); ?>"
                     data-allowed-file-extensions="jpg jpeg png">
-                <label class="bg-white" style="cursor: pointer;" for="gambar_informasi_terbaru">
-                    <a class="btn btn-secondary">Pilih File</a>
-                    <?= $data_informasi_terbaru['gambar_informasi_terbaru']; ?>
                 </label>
                 <!-- <div class="invalid-feedback"> -->
                 <div class="invalid-feedback">

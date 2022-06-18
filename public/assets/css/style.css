@@ -91,6 +91,11 @@ p {
 }
 /* End font size */
 
+/* Line height */
+.lh1 {
+  line-height: 1.5rem;
+}
+
 /* Margin */
 .mt100 {
   margin-top: 100px;
@@ -172,6 +177,9 @@ p {
 .pt100 {
   padding-top: 100px;
 }
+.pt40 {
+  padding-top: 40px;
+}
 .pb100 {
   padding-bottom: 100px;
 }
@@ -242,6 +250,9 @@ p {
 .black {
   color: var(--black);
 }
+.grey {
+  color: rgba(255, 255, 255, .8);
+}
 /* End color */
 
 /* Background color */
@@ -291,6 +302,9 @@ p {
 /* End button */
 
 /* Etc */
+::-webkit-input-placeholder {
+  color: lightslategray;
+}
 .btn:hover{
   transition: 0.3s;
 }
@@ -431,22 +445,6 @@ small{
   display: block;
 } */
 
-.arrow i {
-  font-size: 40px;
-}
-
-
-/* Navbar icon */
-.nav__icon {
-  margin-right: 20px;
-}
-/* .nav__icon button{
-  border: none !important;
-  background-color: unset !important;
-} */
-/* .nav__icon ul {
-  border-radius: 0 !important;
-} */
 .dropdown-toggle::after {
   display: none !important;
 }
@@ -454,16 +452,6 @@ small{
   right: 0 !important;
   left: auto;
 }
-/* .dropdown-menu {
-  position: absolute !important;
-} */
-
-/* .sidebar__item a {
-  color: lightgray !important;
-}
-.item__active {
-  color: white !important;
-} */
 
 .fa-eye,.fa-fw{
   color: #9a9a9a;
@@ -479,10 +467,98 @@ small{
 }
 
 
-
 /******************************************/
 /*                  USER                  */
 /******************************************/
+
+/*================ Template user =================*/
+/* Navbar */
+#btnCollapse:focus {
+  box-shadow: none;
+  border: 1px solid white !important;
+}
+nav {
+  box-shadow: none !important;
+}
+nav .logo h3 {
+  display: none;
+  font-weight: 400 !important;
+}
+nav a {
+  font-size: 16px !important;
+  font-weight: 400 !important;
+}
+nav .navbar-nav a {
+  color: rgba(255, 255, 255, .7);
+}
+nav .navbar-nav a:hover {
+  color: var(--orange);
+}
+.navbarNav.active {
+  color: white;
+}
+nav .nav-item p {
+  color: grey;
+}
+nav .dropdown-menu button {
+  font-weight: 400;
+}
+nav .dropdown-menu button:hover {
+  color: white;
+}
+
+/* Hover effect */
+nav li a {
+  position: relative;
+}
+nav li a::after {
+  content: "";
+  position: absolute;
+  background-color: var(--orange);
+  height: 3px;
+  width: 0;
+  left: 0;
+  bottom: -2px;
+  transition: .3s;   
+}
+nav li a:hover::after {
+  width: 100%;
+}
+
+/* Footer */
+#insta, #facebook, #twitter {
+  transition: .5s;
+}
+.sosmed .icon {
+  position: relative;
+  display: block;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background-color: white;
+  text-align: center;
+  transition: 0.5s;
+  transform: translate(0,0px);
+}
+#insta, #web {
+  color: black;
+}
+.icon:hover #web, .icon:hover #insta {
+  color: white;
+}
+.sosmed .icon:hover {
+  transform: rotate(0deg) skew(0deg) translate(0, -10px);
+}
+.sosmed a:nth-child(1) .icon:hover {
+  background: radial-gradient(circle farthest-corner at 35% 90%, #fec564, transparent 50%), radial-gradient(circle farthest-corner at 0 140%, #fec564, transparent 50%), radial-gradient(ellipse farthest-corner at 0 -25%, #5258cf, transparent 50%), radial-gradient(ellipse farthest-corner at 20% -50%, #5258cf, transparent 50%), radial-gradient(ellipse farthest-corner at 100% 0, #893dc2, transparent 50%), radial-gradient(ellipse farthest-corner at 60% -20%, #893dc2, transparent 50%), radial-gradient(ellipse farthest-corner at 100% 100%, #d9317a, transparent), linear-gradient(#6559ca, #bc318f 30%, #e33f5f 50%, #f77638 70%, #fec66d 100%);
+}
+.sosmed a:nth-child(2) .icon:hover {
+  background-color: #4267B2;
+}
+footer .user a:hover {
+  color: white;
+}
+
 
 /*================ Halaman awal =================*/
 /* Main */
@@ -494,7 +570,6 @@ small{
 .awal, .awal__content, .awal__gambar {
   min-height: 100vh;
 }
-
 
 /* Kanan */
 .awal .awal__gambar {
@@ -509,20 +584,6 @@ small{
 }
 .awal__gambar.gambar__sandi img {
   min-height: 100vh;
-}
-
-.bg-root{
-  background-image: url("../img/bg-root.png") !important;
-  background-position: center center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  
-}
-.field-icon {
-  float: right;
-  margin-top: -25px;
-  position: relative;
-  z-index: 2;
 }
 
 /*================ Informasi Awal =================*/
@@ -548,7 +609,6 @@ small{
 .informasi__awal .info__lainnya .tanggal p {
   font-size: 12px;
 }
-
 
 /*================ Masuk =================*/
 /* Kata sandi */
@@ -615,18 +675,15 @@ small{
 .info__section .tanggal p {
   color: lightslategray;
 }
+.info__baru .info__selengkapnya a:hover {
+  text-decoration: underline !important;
+}
 /* .list__info a {
   font-size: 14px;
   padding: 10px 20px;
   color: black;
   border: .5px solid lightslategray;
 } */
-.list__info a:hover {
-  background-color: var(--biru);
-  color: white;
-  border: .5px solid var(--biru);
-  transition: .3s;
-}
 .info__terbaru .line {
   border: 1px solid var(--abu2);
 }
@@ -641,9 +698,9 @@ small{
 .deskripsi a {
   font-size: 12px !important;
 }
-/* .card__beasiswa a {
-  font-size: 14px !important;
-} */
+.card__beasiswa img {
+  max-width: 100%;
+}
 
 #file-upload-button {
   background-color: white !important;
@@ -698,63 +755,62 @@ small{
 }
 
 /*================ Pendaftaran =================*/
+/* Wizard */
+#smartwizard a {
+  overflow: visible !important;
+}
+#smartwizard a::before {
+  visibility: visible !important;
+  transition: none !important;
+}
+
+/* Garis none di mobile */
+.sw-theme-dots>.nav::before {
+  content: none !important;
+}
+
+/* Wizard color */
+.sw-theme-dots>.nav .nav-link.inactive::after {
+  background-color: lightgray !important;
+}
+.sw-theme-dots>.nav .nav-link.done::after {
+  background-color: #5cb85c !important;
+}
+.sw-theme-dots>.nav .nav-link.inactive {
+  color: lightgray !important;
+}
+.sw-theme-dots>.nav .nav-link.done {
+  color: #5cb85c !important;
+}
+#smartwizard.sw-theme-dots>.nav .nav-link.active {
+  color: var(--biru) !important;
+}
+#smartwizard.sw-theme-dots>.nav .nav-link.active::after {
+  background-color: var(--biru) !important;
+}
+
+/* Wizard button */
+.sw-theme-dots .toolbar>.btn {
+  background-color: var(--biru) !important;
+  border: 1px solid var(--biru) !important;
+  font-size: 14px !important;
+}
+#smartwizard .btn.sw-btn-prev {
+  background-color: transparent !important;
+  border: 1px solid var(--biru) !important;
+  color: var(--black) !important;
+
+}
+/* Font size */
+.pendaftaran span {
+  font-weight: 400;
+}
+
 .ps {
   position: relative;
 }
-.daftar__card {
-  background-color: #E9F0F5;
-  /* min-width: 550px; */
-  padding: 50px 90px;
-  box-sizing: border-box;
-}
-.daftar__gambar {
-  background-image: url('../img/gambar-login-fix.png');
-  background-size: cover;
-  background-position: 80%;
-  width: 100%;
-  min-height: 100vh;
-  /* margin: auto; */
-}
 
-.daftar__content input {
-  width: 100%;
-  font-size: 12px;
-  color: lightslategray;
-}
 
-.check__setuju input {
-  width: 20px;
-  margin-top: 0px;
-  border: none !important;
-}
-
-.check__setuju label {
-  color: black;
-}
-
-.daftar__content label {
-  font-size: 14px;
-}
-
-.daftar__content input[type="checkbox"] {
-  height: 20px;
-  width: 20px;
-}
-
-.daftar__button button {
-  background-color: var(--biru);
-  color: white;
-  border: none;
-  padding: 10px 0;
-  width: 100%;
-}
-
-::-webkit-input-placeholder {
-  color: lightslategray;
-}
-/* :focus::-webkit-input-placeholder {
-  opacity: .5;
-} */
 
 /* Form sma */
 .alamat textarea{
@@ -812,7 +868,7 @@ footer {
   position: sticky;
 
   /* position: fixed; */
-  z-index: 1;
+  z-index: 100;
   /* Make it stick/fixed */
   top: 0;
   /* Stay on top */
@@ -829,72 +885,11 @@ footer {
   /* font-weight: 700;
   transition: color 0.4s, background-color 0.4s, border-radius 0.4s; */
 }
-/* .nav-link:focus {
-  color: white !important;
-} */
-/* .nav-link:hover {
-  color: #ffffff;
-} */
-
-.nav-item a::before {
-  border-radius: 2px;
-  content: "";
-  position: absolute;
-  width: 0;
-  height: 4px;
-  bottom: 0;
-  left: 0;
-  color: var(--orange);
-  background-color: var(--orange);
-  visibility: hidden;
-  transition: all 0.5s ease-in-out;
-}
-.nav-item a:hover::before {
-  visibility: visible;
-  width: 100%;
-}
-.navbarNav{
-  position: relative;
-  font-size: 18px;
-  font-weight:600 ;
-}
-.navbarNav:hover{
-  /* position: relative; */
-  color: var(--orange);
-  
-}
-/* .navbarNav:hover {
-  color: black !important;
-  background-color: white !important;
-  transition: color 0.4s, background-color 0.4s, border-radius 0.4s;
-} */
-.bl{
-  border-left:2px solid #ffffff;
-  margin-left: 10px;
-}
-/* .nav-item {
-  margin-left: 25px;
-  margin-right: 8px;
-} */
-/* .nav-item a {
-  padding: 3px 10px !important;
-} */
-.navbarNav.active {
-  visibility: visible;
-  width: 100%;
-  border-radius: 2px;
-  content: "";
-  /* position: absolute; */
-  color: var(--orange);
 
 
-  
-}
-/* .navbar-nav .dropdown:hover .dropdown-menu {
-  display: block;
-  transition: display 0.5s;
-} */
-/* background img */
+
+
+
 
 #wrapper {
   overflow-x: hidden;
@@ -1137,6 +1132,18 @@ tr {
   .kotaklogin {
     width: 600px;
   }
+
+  /*================ Template user =================*/
+  /* Navbar */
+  nav .logo h3 {
+    display: inline;
+  }
+  nav a, nav h3 {
+    font-size: 16px !important;
+  }
+  nav .nav-item p, nav .nav-item h6 {
+    font-size: 16px;
+  }
 }
 
 /* Tablet */
@@ -1152,6 +1159,14 @@ tr {
   }
   .daftar__card{
     min-width: 550px !important;
+  }
+
+  /*================ Template user =================*/
+  footer .user h2 {
+    font-size: 20px !important;
+  }
+  footer .user h3, footer .user a {
+    font-size: 16px !important;
   }
 
   /*================ Halaman awal =================*/
@@ -1185,21 +1200,13 @@ tr {
   .informasi__awal .info__lainnya .tanggal p {
     font-size: 14px;
   }
+  
 }
 
 /* Large */
 @media (min-width: 992px) {
   .jalur_beasiswa .col-lg-4 {
     width: 30% !important;
-  }
-
-  /* navbar */
-  .nav-item {
-    /* align-self: center !important; */
-    margin-right: 10px;
-  }
-  .nav__icon {
-    margin-right: 0;
   }
 }
 
