@@ -754,7 +754,6 @@
                     <!-- end tahun_prestasi -->
                 </div>
                 <?php } ?>
-                ?>
             </div>
             <!-- end prestasi -->
             <!-- lampiran dokumen -->

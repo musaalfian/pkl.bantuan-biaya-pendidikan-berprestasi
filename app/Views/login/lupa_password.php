@@ -21,15 +21,15 @@
 </head>
 
 <body>
-  <div class="awal row me-0 align-items-center">
-    <div class="awal__content col-md-6 col-12 bgwhite d-flex justify-content-center align-items-center">
-      <div class="p-3 px-sm-4 w-75">
+  <div class="awal row me-0">
+    <div class="awal__content login col-md-6 col-12 bgwhite d-flex justify-content-center align-items-center position-relative">
+      <div class="py-5 px-3 px-sm-5 px-md-0">
         <div class="nav__back mb40">
           <a href="<?= route_to('login') ?>" class="fw-bold blue fs20"><i class="fa-solid fa-arrow-left-long"></i></a>
         </div>
         <div class="header text-center">
           <h3 class="black fw-bold">Lupa Kata Sandi</h3>
-          <h6 class="grey mt-2">Masukkan email Anda dan kami akan mengirimkan
+          <h6 class="lightgrey mt-2">Masukkan email Anda dan kami akan mengirimkan
             instruksi untuk mengatur ulang kata sandi Anda.
           </h6>
           <?= view('Myth\Auth\Views\_message_block') ?>
@@ -42,14 +42,16 @@
               <input class=" form-control mt-2 <?php if (session('errors.email')) : ?>is-invalid<?php endif ?>" placeholder="Masukan email" type="email" id="email" name="email" aria-describedby="emailHelp" />
             </div>
             <div class="daftar__button mt40">
-              <button type="submit" id="submit_login" class="btn btn-primary shadow-none fs14 btn__blue">Kirim</button>
+              <button type="submit" id="submit_login" class="btn btn-primary shadow-none fs14 btn__blue w-100">Kirim</button>
             </div>
           </form>
         </div>
       </div>
     </div>
-    <div class="awal__gambar gambar__sandi col-md-6 col-12 px-4 bgblue align-items-center justify-content-center">
-      <img src="<?= base_url('assets/img/gambar-login.svg'); ?>" alt="Gambar Masuk">
+    <div class="awal__gambar col-md-6 col-12 bgblue d-flex align-items-center justify-content-center">
+      <div class="">
+        <img src="<?= base_url('assets/img/gambar-login.svg'); ?>" alt="Gambar Masuk">
+      </div>
     </div>
   </div>
   <script src="<?php base_url() ?>/assets/js/script.js"></script>
