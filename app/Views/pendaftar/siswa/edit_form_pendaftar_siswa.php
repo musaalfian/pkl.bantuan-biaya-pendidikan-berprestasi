@@ -2,7 +2,7 @@
 
 <?= $this->section('content'); ?>
 <!-- Form pendaftaran -->
-<div class="bg-abu py40">
+<div class="bg-abu py40 edit__pendaftaran">
     <div class="container">
         <form action="<?= base_url(); ?>/siswa/simpan_edit_siswa/<?= $identitas['no_induk']; ?>" method="post"
             enctype="multipart/form-data" class="needs-validation" novalidate>

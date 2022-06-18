@@ -904,6 +904,12 @@ footer .user a:hover {
   min-height: 130px;
 }
 
+/*================ Edit form pendaftaran =================*/
+.edit__pendaftaran label {
+  display: block !important;
+}
+
+
 /*================ Pengumuman =================*/
 .pengumuman_lolos{
   background-color: #0cc23f;
@@ -1369,6 +1375,9 @@ tr {
     font-size: 16px !important;
   }
   .pengumuman p {
+    font-size: 16px !important;
+  }
+  .pengumuman .content a {
     font-size: 16px !important;
   }
 }
