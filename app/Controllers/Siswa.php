@@ -630,20 +630,17 @@ class Siswa extends BaseController
         for ($i = count($prestasi) + 1; $i <= 3; $i++) {
             $prestasi[] = null;
         }
-        // dd($scan_prestasi);
-
-
-        // dd($scan_prestasi);
         if ($scan_prestasi['prestasi_2']->getError() != 4) {
             if ($kategori_2 == 'hafidz' || $kategori_2 == 'lainnya') {
                 if (!$this->validate([
-                    'scan_prestasi_2' => 'uploaded[scan_prestasi_2]|max_size[scan_prestasi_2,2048]|mime_in[scan_prestasi_2,application/pdf]',
+                    'scan_prestasi_2' => 'uploaded[scan_prestasi_2]|max_size[scan_prestasi_2,2048]',
                 ])) {
                     return redirect()->to('pendaftaran/edit_pendaftaran/'.$identitas['no_induk'].'/'.$identitas['id_status_peserta'])->withInput();
                 }
+                // dd($kategori_2);
             } else {
                 if (!$this->validate([
-                    'scan_prestasi_2' => 'uploaded[scan_prestasi_2]|max_size[scan_prestasi_2,2048]|mime_in[scan_prestasi_2,application/pdf]',
+                    'scan_prestasi_2' => 'uploaded[scan_prestasi_2]|max_size[scan_prestasi_2,2048]',
                     'tingkat_2' => 'required',
                     'juara_2' => 'required',
                     'nama_prestasi_2' => 'required',
@@ -653,8 +650,8 @@ class Siswa extends BaseController
                 }
             }
         }
-        // Validasi Prestasi 3
         if ($scan_prestasi['prestasi_3']->getError() != 4) {
+        // Validasi Prestasi 3
             if ($kategori_3 == 'hafidz' || $kategori_3 == 'lainnya') {
                 if (!$this->validate([
                     'scan_prestasi_3' => 'uploaded[scan_prestasi_3]|max_size[scan_prestasi_3,2048]|mime_in[scan_prestasi_3,application/pdf]',

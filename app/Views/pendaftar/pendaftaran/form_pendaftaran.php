@@ -2286,7 +2286,7 @@
                                         </label>
                                         <input disabled
                                             class="form-control  <?= ($validation->hasError('scan_prestasi_' . $i)) ? 'is-invalid' : ''; ?>"
-                                            name="scan_prestasi_<?= $i; ?>" id="file_prestasi_<?= $i; ?>" type="text"
+                                            name="scan_prestasi_review<?= $i; ?>" id="file_prestasi_review<?= $i; ?>" type="text"
                                             accept="application/pdf"
                                             value="<?= $prestasi[$i - 1]['file_prestasi']; ?>" />
                                     </div>
@@ -2294,12 +2294,12 @@
                                 <!-- end file prestasi -->
                                 <div class="col-6 col-md-2">
                                     <div class="mb20">
-                                        <label for="nama_prestasi_<?= $i; ?>" class="form-label">Nama Prestasi
+                                        <label for="nama_prestasi_review<?= $i; ?>" class="form-label">Nama Prestasi
                                         </label>
                                         <input disabled type="text"
-                                            class="form-control <?= ($validation->hasError('nama_prestasi_' . $i)) ? 'is-invalid' : ''; ?>"
-                                            value="<?= ($prestasi[$i - 1] != null) ? $prestasi[$i - 1]['nama_prestasi'] : old('nama_prestasi_' . $i); ?>"
-                                            name="nama_prestasi_<?= $i; ?>" placeholder="" />
+                                            class="form-control <?= ($validation->hasError('nama_prestasi_review' . $i)) ? 'is-invalid' : ''; ?>"
+                                            value="<?= ($prestasi[$i - 1] != null) ? $prestasi[$i - 1]['nama_prestasi'] : old('nama_prestasi_review' . $i); ?>"
+                                            name="nama_prestasi_review<?= $i; ?>" placeholder="" />
                                     </div>
                                 </div>
                                 <!-- end nama prestasi -->
@@ -2370,13 +2370,13 @@
                                 <!-- end juara -->
                                 <div class="col-2">
                                     <div class="mb20">
-                                        <label for="tahun_prestasi_<?= $i; ?>" class="form-label">Tahun
+                                        <label for="tahun_prestasi_review<?= $i; ?>" class="form-label">Tahun
 
                                         </label>
                                         <input disabled type="number"
-                                            class="form-control <?= ($validation->hasError('tahun_prestasi_' . $i)) ? 'is-invalid' : ''; ?>"
-                                            value="<?= ($prestasi[$i - 1] != null) ? $prestasi[$i - 1]['tahun_prestasi'] : old('tahun_prestasi_' . $i); ?>"
-                                            name="tahun_prestasi_<?= $i; ?>" placeholder="" min="2010" max="2022" />
+                                            class="form-control <?= ($validation->hasError('tahun_prestasi_review' . $i)) ? 'is-invalid' : ''; ?>"
+                                            value="<?= ($prestasi[$i - 1] != null) ? $prestasi[$i - 1]['tahun_prestasi'] : old('tahun_prestasi_review' . $i); ?>"
+                                            name="tahun_prestasi_review<?= $i; ?>" placeholder="" min="2010" max="2022" />
                                     </div>
                                 </div>
                                 <!-- end tahun_prestasi -->
@@ -2568,8 +2568,29 @@
 
 <!-- Wizard -->
 <script type="text/javascript">
-// Inisiailasi button
+// jika terdapat error dalam input prestasi 2
+<?php if ($validation->getError('scan_prestasi_2') != null || $validation->getError('nama_prestasi_2') != null || $validation->getError('kategori_2') != null || $validation->getError('tahun_prestasi_2') != null) :?>
+$(document).ready(function() {
 
+    $("#prestasi_2").show();
+    // $("#prestasi_2_modal").show();
+    $("#icon-tambah-1").hide();
+    $("#label-tambah-1").hide();
+});
+<?php endif ?>
+
+// jika terdapat error dalam input prestasi 3
+<?php if ($validation->getError('scan_prestasi_3') != null || $validation->getError('nama_prestasi_3') != null || $validation->getError('kategori_3') != null || $validation->getError('tahun_prestasi_3') != null) :?>
+$(document).ready(function() {
+
+    $("#prestasi_3").show();
+    // $("#prestasi_2_modal").show();
+    $("#icon-tambah-2").hide();
+    $("#label-tambah-2").hide();
+});
+<?php endif ?>
+
+// Smartwizard
 $(document).ready(function() {
     $('#smartwizard').smartWizard({
         selected: 0, // Initial selected step, 0 = first step

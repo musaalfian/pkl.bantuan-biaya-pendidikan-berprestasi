@@ -1252,22 +1252,40 @@ $(document).ready(function() {
     $("#prestasi_3_modal").hide();
 });
 <?php endif ?>
-
+// fungsi menambah prestasi 2
 function tambah_edit_prestasi_2() {
     $("#edit_prestasi_2").show();
     // $("#prestasi_2_modal").show();
     $("#icon-tambah-1").hide();
     $("#label-tambah-1").hide();
 }
+// jika terdapat error dalam input prestasi 2
+<?php if ($validation->getError('scan_prestasi_2') != null || $validation->getError('nama_prestasi_2') != null || $validation->getError('kategori_2') != null || $validation->getError('tahun_prestasi_2') != null) :?>
+$(document).ready(function() {
 
-
-function tambah_edit_prestasi_3() {
-    console.log('loogag');
-    $("#edit_prestasi_3").show();
+    $("#edit_prestasi_2").show();
+    // $("#prestasi_2_modal").show();
+    $("#icon-tambah-1").hide();
+    $("#label-tambah-1").hide();
+});
+    <?php endif ?>
+    function tambah_edit_prestasi_3() {
+        console.log('loogag');
+        $("#edit_prestasi_3").show();
     // $("#prestasi_3_modal").show();
     $("#icon-tambah-2").hide();
     $("#label-tambah-2").hide();
 }
+// jika terdapat error dalam input prestasi 2
+<?php if ($validation->getError('scan_prestasi_3') != null || $validation->getError('nama_prestasi_3') != null || $validation->getError('kategori_3') != null || $validation->getError('tahun_prestasi_3') != null) :?>
+$(document).ready(function() {
+
+    $("#edit_prestasi_3").show();
+    // $("#prestasi_2_modal").show();
+    $("#icon-tambah-2").hide();
+    $("#label-tambah-2").hide();
+});
+<?php endif ?>
 
 // dropify upload foto
 $(".lampiran-foto").dropify({

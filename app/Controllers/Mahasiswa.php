@@ -709,7 +709,7 @@ class Mahasiswa extends BaseController
 
         // dd($scan_prestasi);
         // Validasi Prestasi 2
-        if ($scan_prestasi['prestasi_2']->getError() != 4) {
+        if ($scan_prestasi['prestasi_2']->getError() != 4 || $kategori_2 != null) {
             if ($kategori_2 == 'KHS' || $kategori_2 == 'hafidz' || $kategori_2 == 'lainnya') {
                 if (!$this->validate([
                     'scan_prestasi_2' => 'uploaded[scan_prestasi_2]|max_size[scan_prestasi_2,2048]|mime_in[scan_prestasi_2,application/pdf]',
@@ -728,8 +728,8 @@ class Mahasiswa extends BaseController
                 }
             }
         }
+        if ($scan_prestasi['prestasi_3']->getError() != 4 || $kategori_3 != null) {
         // Validasi Prestasi 3
-        if ($scan_prestasi['prestasi_3']->getError() != 4) {
             if ($kategori_3 == 'KHS' || $kategori_3 == 'hafidz' || $kategori_3 == 'lainnya') {
                 if (!$this->validate([
                     'scan_prestasi_3' => 'uploaded[scan_prestasi_3]|max_size[scan_prestasi_3,2048]|mime_in[scan_prestasi_3,application/pdf]',

@@ -209,7 +209,7 @@ class Pendaftaran extends BaseController
             $prestasi[] = null;
         }
         $opsional = ['ya', 'tidak'];
-        // dd($prestasi);
+        // dd($validation->getError('scan_prestasi_2'));
         $data = [
             'title'     => 'Beasiswa Batang | Daftar Beasiswa',
             'validation'    => $validation,

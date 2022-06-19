@@ -708,9 +708,8 @@ class Calon_mhs extends BaseController
             $prestasi[] = null;
         }
         // dd($prestasi);
-
-        // Validasi Prestasi 2
         if ($scan_prestasi['prestasi_2']->getError() != 4) {
+        // Validasi Prestasi 2
             if ($kategori_2 == 'ujian sekolah' || $kategori_2 == 'hafidz' || $kategori_2 == 'lainnya') {
                 if (!$this->validate([
                     'scan_prestasi_2' => 'uploaded[scan_prestasi_2]|max_size[scan_prestasi_2,2048]|mime_in[scan_prestasi_2,application/pdf]',
@@ -729,8 +728,8 @@ class Calon_mhs extends BaseController
                 }
             }
         }
-        // Validasi Prestasi 3
         if ($scan_prestasi['prestasi_3']->getError() != 4) {
+        // Validasi Prestasi 3
             if ($kategori_3 == 'ujian sekolah' || $kategori_3 == 'hafidz' || $kategori_3 == 'lainnya') {
                 if (!$this->validate([
                     'scan_prestasi_3' => 'uploaded[scan_prestasi_3]|max_size[scan_prestasi_3,2048]|mime_in[scan_prestasi_3,application/pdf]',
@@ -747,8 +746,8 @@ class Calon_mhs extends BaseController
                 ])) {
                     return redirect()->to('pendaftaran/edit_pendaftaran/'.$identitas['no_induk'].'/'.$identitas['id_status_peserta'])->withInput();
                 }
-            }
         }
+    }
         // Validasi Lampiran file
 
         // dd($juara_1);
