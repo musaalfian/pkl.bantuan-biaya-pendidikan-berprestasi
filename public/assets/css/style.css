@@ -856,12 +856,15 @@ footer .user a:hover {
 #smartwizard div {
   height: unset !important;
 }
+#smartwizard .lampiran-foto-pendaftaran input {
+  height: 100%;
+}
 /* Input jenis kelamin */
-#smartwizard .form-check {
+#smartwizard .form-check, #edit__pendaftaran .form-check {
   display: flex !important;
 }
 /* Input pertanyaan */
-#smartwizard .form-check label {
+#smartwizard .form-check label, #edit__pendaftaran .form-check label {
   margin-left: 0.5rem !important;
 }
 /* Input textarea */
@@ -874,7 +877,7 @@ footer .user a:hover {
   margin-top: 1rem;
 }
 /* Icon bintang wajib */
-#smartwizard .required-label {
+#smartwizard .required-label, #edit__pendaftaran .required-label {
   color: red !important;
 }
 /* Form alamat review */
@@ -884,7 +887,7 @@ footer .user a:hover {
 
 
 /* Font size */
-.pendaftaran span {
+.pendaftaran , #edit__pendaftaran span{
   font-weight: 400;
 }
 
@@ -1088,6 +1091,18 @@ tr {
 }
 .fa-sack-dollar:hover{
   color: rgb(242, 29, 29);
+}
+/* Informasi Terbaru */
+.form-informasi-content label{
+  /* display block */
+  display: block !important;
+  
+}
+/* Daftar penerima */
+#daftar-penerima-content .form-check label{
+  /* display block */
+  margin-left: 0.5 rem !important;
+  
 }
 
 /******************************************/
@@ -1360,7 +1375,7 @@ tr {
     flex-direction: row !important;
   }
   /* Input jenis kelamin */
-  #smartwizard .form-check {
+  #smartwizard .form-check, #edit__pendaftaran .form-check {
     margin-bottom: 2.125rem !important;
   }
 
