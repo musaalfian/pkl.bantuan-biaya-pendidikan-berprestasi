@@ -7,9 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><?= $title; ?></title>
     <!-- CSS only -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
     <!-- JavaScript Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
     </script>
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
@@ -21,7 +23,8 @@
     <link rel="stylesheet" href="<?= base_url(); ?>/assets/css/style.css" />
 
     <!-- JQuery -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
@@ -37,20 +40,20 @@
     <script src="<?= base_url('ckeditor5-build-classic/ckeditor.js') ?>" type="text/javascript"></script>
 
     <!-- Dropify -->
-    <link rel="stylesheet" href="<?= base_url(); ?>/dropify/src/css/dropify.css" />
-    <script src="<?= base_url('dropify/src/js/dropify.js') ?>" type="text/javascript"></script>
+    <link rel="stylesheet" href="<?= base_url(); ?>/dropify/dist/css/dropify.css" />
+    <script src="<?= base_url('dropify/dist/js/dropify.js') ?>" type="text/javascript"></script>
 
     <!-- toolstip -->
     <script>
-        $(function() {
-            $('[data-toggle="tooltip"]').tooltip()
-        })
+    $(function() {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
     </script>
     <script>
-        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-        var tooltipList = tooltipTriggerList.map(function(tooltipTriggerEl) {
-            return new bootstrap.Tooltip(tooltipTriggerEl)
-        })
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipList = tooltipTriggerList.map(function(tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl)
+    })
     </script>
 </head>
 
@@ -67,30 +70,36 @@
             </div>
             <div class="sidebar__item list-group px-3 mt15">
                 <div class="p-2 menu nav_admin_dashboard" id="">
-                    <a class="nav_admin_dashboard item__active" href="<?= base_url(); ?>/home_admin/index"><i class="bi bi-house-door-fill"></i>
+                    <a class="nav_admin_dashboard item__active" href="<?= base_url(); ?>/home_admin/index"><i
+                            class="bi bi-house-door-fill"></i>
                         Dashboard</a>
                 </div>
                 <div class="p-2 menu nav_admin_data_pendaftaran">
                     <div class="dropdown nav_admin_data_pendaftaran" id="">
-                        <a class="dropdown-toggle nav_admin_data_pendaftaran" href="#" role="button" id="" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="dropdown-toggle nav_admin_data_pendaftaran" href="#" role="button" id=""
+                            data-bs-toggle="dropdown" aria-expanded="false">
                             <i class="bi bi-card-text"></i>Data Pendaftaran
                         </a>
 
                         <ul class="dropdown-menu " aria-labelledby="dropdownMenuLink">
-                            <li><a class="dropdown-item" href="<?= base_url(); ?>/admin_data_pendaftaran/data_pendaftaran_siswa">Peserta
+                            <li><a class="dropdown-item"
+                                    href="<?= base_url(); ?>/admin_data_pendaftaran/data_pendaftaran_siswa">Peserta
                                     Didik</a></li>
-                            <li><a class="dropdown-item" href="<?= base_url(); ?>/admin_data_pendaftaran/data_pendaftaran_calon_mhs">Calon
+                            <li><a class="dropdown-item"
+                                    href="<?= base_url(); ?>/admin_data_pendaftaran/data_pendaftaran_calon_mhs">Calon
                                     Mahasiswa</a>
                             </li>
                             <li>
-                                <a class="dropdown-item" href="<?= base_url(); ?>/admin_data_pendaftaran/data_pendaftaran_mahasiswa">Mahasiswa</a>
+                                <a class="dropdown-item"
+                                    href="<?= base_url(); ?>/admin_data_pendaftaran/data_pendaftaran_mahasiswa">Mahasiswa</a>
                             </li>
                         </ul>
                     </div>
                 </div>
                 <div class="p-2 menu nav_admin_data_penerima">
                     <div class="dropdown nav_admin_data_penerima">
-                        <a class="dropdown-toggle nav_admin_data_penerima" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="dropdown-toggle nav_admin_data_penerima" href="#" role="button" id="dropdownMenuLink"
+                            data-bs-toggle="dropdown" aria-expanded="false">
                             <i class="bi bi-check-circle-fill"></i></i>Daftar Penerima
                         </a>
 
@@ -107,16 +116,21 @@
                     </div>
                 </div>
                 <div class="p-2 menu nav_admin_download">
-                    <a class="nav_admin_download" href="<?= base_url(); ?>/admin_download/view_download_file"><i class="bi bi-box-arrow-in-down"></i>Download</a>
+                    <a class="nav_admin_download" href="<?= base_url(); ?>/admin_download/view_download_file"><i
+                            class="bi bi-box-arrow-in-down"></i>Download</a>
                 </div>
                 <div class="p-2 menu nav_admin_informasi_pendaftaran">
-                    <a class="nav_admin_informasi_pendaftaran" href="<?= base_url(); ?>/admin_informasi/informasi_pendaftaran"><i class="bi bi-info-circle-fill"></i>Informasi Pendaftaran</a>
+                    <a class="nav_admin_informasi_pendaftaran"
+                        href="<?= base_url(); ?>/admin_informasi/informasi_pendaftaran"><i
+                            class="bi bi-info-circle-fill"></i>Informasi Pendaftaran</a>
                 </div>
                 <div class="p-2 menu nav_admin_informasi_terbaru">
-                    <a class="nav_admin_informasi_terbaru" href="<?= base_url(); ?>/admin_informasi/daftar_informasi"><i class="bi bi-info-circle-fill"></i>Informasi Terbaru</a>
+                    <a class="nav_admin_informasi_terbaru" href="<?= base_url(); ?>/admin_informasi/daftar_informasi"><i
+                            class="bi bi-info-circle-fill"></i>Informasi Terbaru</a>
                 </div>
                 <div class="p-2 menu ">
-                    <a class="" href="#" data-bs-toggle="modal" data-bs-target="#logoutModal"><i class="bi bi-door-open-fill"></i>Logout</a>
+                    <a class="" href="#" data-bs-toggle="modal" data-bs-target="#logoutModal"><i
+                            class="bi bi-door-open-fill"></i>Logout</a>
                 </div>
             </div>
         </div>
@@ -126,7 +140,8 @@
             <nav class="navbar nav-admin navbar-expand-lg border-bottom bg-biru p-2 py-3 border-s" id="navbar">
                 <div class="icon-navbar">
                     <!-- <i class="bi bi-list icon_list" style="cursor: pointer; font-size: 20px" id="sidebarToggle"></i> -->
-                    <i class="bi bi-three-dots-vertical icon_dot" style="cursor: pointer; font-size: 20px" id="sidebarToggle"></i>
+                    <i class="bi bi-three-dots-vertical icon_dot" style="cursor: pointer; font-size: 20px"
+                        id="sidebarToggle"></i>
                 </div>
                 <div class="logo-admin d-flex align-items-center mx-auto">
                     <img class="me-2" src="<?= base_url(); ?>/assets/img/logo-kabupaten-batang 2.png" alt="">
@@ -180,32 +195,32 @@
     <!-- JS Custom -->
     <script src="<?= base_url(); ?>/assets/js/script.js"></script>
     <script>
-        // sidebar
-        window.addEventListener("DOMContentLoaded", (event) => {
-            // Toggle the side navigation
-            const sidebarToggle = document.body.querySelector("#sidebarToggle");
-            if (sidebarToggle) {
-                sidebarToggle.addEventListener("click", (event) => {
-                    event.preventDefault();
-                    document.body.classList.toggle("sb-sidenav-toggled");
-                    localStorage.setItem(
-                        "sb|sidebar-toggle",
-                        document.body.classList.contains("sb-sidenav-toggled")
-                    );
-                });
-            }
-        });
+    // sidebar
+    window.addEventListener("DOMContentLoaded", (event) => {
+        // Toggle the side navigation
+        const sidebarToggle = document.body.querySelector("#sidebarToggle");
+        if (sidebarToggle) {
+            sidebarToggle.addEventListener("click", (event) => {
+                event.preventDefault();
+                document.body.classList.toggle("sb-sidenav-toggled");
+                localStorage.setItem(
+                    "sb|sidebar-toggle",
+                    document.body.classList.contains("sb-sidenav-toggled")
+                );
+            });
+        }
+    });
     </script>
     <script>
-        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-        var tooltipList = tooltipTriggerList.map(function(tooltipTriggerEl) {
-            return new bootstrap.Tooltip(tooltipTriggerEl)
-        })
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipList = tooltipTriggerList.map(function(tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl)
+    })
     </script>
     <script>
-        $(function() {
-            $('[data-toggle="tooltip"]').tooltip()
-        })
+    $(function() {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
     </script>
 </body>
 
