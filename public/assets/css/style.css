@@ -884,7 +884,7 @@ footer .user a:hover {
 
 
 /* Font size */
-.pendaftaran span {
+.pendaftaran , #edit__pendaftaran span{
   font-weight: 400;
 }
 

@@ -633,7 +633,7 @@ class Siswa extends BaseController
         // dd($scan_prestasi);
 
 
-        dd($scan_prestasi);
+        // dd($scan_prestasi);
         if ($scan_prestasi['prestasi_2']->getError() != 4) {
             if ($kategori_2 == 'hafidz' || $kategori_2 == 'lainnya') {
                 if (!$this->validate([
