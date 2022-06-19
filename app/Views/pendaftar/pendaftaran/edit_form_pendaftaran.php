@@ -889,7 +889,7 @@
                                                     if ($prestasi[$i - 1]['tingkat'] == $data_tingkat) {
                                                         echo 'selected';
                                                     }
-                                                } ?> value=" <?= $data_tingkat; ?>">
+                                                } ?> value="<?= $data_tingkat; ?>">
                                                 <?= $data_tingkat; ?></option>
                                             <?php endforeach; ?>
                                         </select>
