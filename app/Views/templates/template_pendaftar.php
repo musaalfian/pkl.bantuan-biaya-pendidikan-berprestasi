@@ -24,8 +24,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 
     <!-- Dropify -->
-    <link rel="stylesheet" href="<?= base_url(); ?>/dropify/dist/css/dropify.css" />
-    <script src="<?= base_url('dropify/dist/js/dropify.js') ?>" type="text/javascript"></script>
+    <link rel="stylesheet" href="<?= base_url(); ?>/dropify/src/css/dropify.css" />
+    <script src="<?= base_url('dropify/src/js/dropify.js') ?>" type="text/javascript"></script>
 
     <!-- Form wizard -->
     <!-- CSS -->
@@ -38,7 +38,7 @@
 <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg bgblue py-3" id="navbar">
-        <div class="container">
+        <div class="container pendaftar">
             <div class="navbar-brand logo">
                 <a href="<?= base_url(); ?>/home_pendaftar/index" class="d-flex align-items-center text-decoration-none text-white">
                     <img src="<?= base_url(); ?>/assets/img/logo-kabupaten-batang 2.png" width="40px" alt="Logo Kabupaten Batang" />
@@ -99,19 +99,19 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="logoutModalLabel">
+                    <h5 class="modal-title bold" id="logoutModalLabel">
                         Anda yakin akan keluar?
                     </h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    Pilih "Logout" dibawah jika anda ingin mengakhiri sesimu sekarang.
+                    Pilih "Keluar" dibawah jika anda ingin mengakhiri sesimu sekarang.
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
                         Batal
                     </button>
-                    <a href="<?= base_url(); ?>/logout" class="btn btn-danger">Logout</a>
+                    <a href="<?= base_url(); ?>/logout" class="btn btn-danger">Keluar</a>
                 </div>
             </div>
         </div>

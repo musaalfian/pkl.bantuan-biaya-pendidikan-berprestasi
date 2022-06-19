@@ -74,9 +74,9 @@ class Pendaftaran extends BaseController
         }
         if ($id_peserta == 1) {
             $kategori = ['perlombaan', 'hafidz', 'lainnya'];
-        } elseif ($id_peserta == 2){
+        } elseif ($id_peserta == 2) {
             $kategori = ['perlombaan', 'ujian sekolah', 'hafidz', 'lainnya'];
-        }else {
+        } else {
             $kategori = ['perlombaan', 'KHS', 'hafidz', 'lainnya'];
         }
         $tingkat = ['internasional', 'nasional', 'provinsi', 'karesidenan', 'kabupaten'];
@@ -93,7 +93,7 @@ class Pendaftaran extends BaseController
         session();
         $validation = \Config\Services::validation();
         $opsional = ['ya', 'tidak'];
-        // dd($prestasi);
+        // dd($id_peserta);
         $data = [
             'title'     => 'Beasiswa Batang | Daftar Beasiswa',
             'validation'    => $validation,
