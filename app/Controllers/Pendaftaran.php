@@ -83,9 +83,6 @@ class Pendaftaran extends BaseController
         $juara = ['juara 1', 'juara 2', 'juara 3', 'paskibra', 'peserta'];
         if ($identitas != null) {
             $prestasi = $this->MPrestasi->find_prestasi_noinduk($identitas['no_induk'])->getResultArray();
-            // for ($i = count($prestasi) + 1; $i <= 3; $i++) {
-            //     $prestasi[] = null;
-            // }
         } else {
             $prestasi = null;
         }
@@ -171,5 +168,61 @@ class Pendaftaran extends BaseController
         ];
         $this->MIdentitas->update($no_induk, $data);
         return redirect()->to('home_pendaftar/pengumuman');
+    }
+    public function edit_pendaftaran($no_induk, $id_peserta)
+    {
+        session();
+        $validation = \Config\Services::validation();
+        // Form identitas
+        $identitas = $this->MIdentitas->find_identitas_user(user_id())->getFirstRow('array');
+        $agama = $this->MAgama->findAll();
+        $kecamatan = $this->MKecamatan->orderBy('nama_kecamatan', 'ASC')->findAll();
+        // Form keluarga
+        $keluarga = $this->MKeluarga->find_keluarga_noinduk($no_induk)->getFirstRow('array');
+        $pendidikan = ['SD', 'SMP', 'SMA', 'D1', 'D3', 'D4', 'S1', 'S2', 'S3', 'Lainnya'];
+        // Form lampiran
+        $prestasi = $this->MPrestasi->find_prestasi_noinduk($no_induk)->getResultArray();
+        $file = $this->MFile->find_file_noinduk($no_induk)->getFirstRow('array');
+        $tingkat = ['internasional', 'nasional', 'provinsi', 'karesidenan', 'kabupaten'];
+
+        // Siswa
+        if ($id_peserta == 1) {
+            $sekolah = $this->MSekolah->findAll();
+            $transportasi = $this->MTransportasi->findAll();
+            $kategori = ['perlombaan', 'hafidz', 'lainnya'];
+            $juara = ['juara 1', 'juara 2', 'juara 3', 'paskibra', 'peserta'];
+        } // Calom mahasiswa
+        elseif ($id_peserta == 2) {
+            $kategori = ['perlombaan', 'hafidz', 'lainnya'];
+            $kategori = ['perlombaan', 'ujian sekolah', 'hafidz', 'lainnya'];
+        } // Mahasiswa 
+        else {
+            $kategori = ['perlombaan', 'KHS', 'hafidz', 'lainnya'];
+        }
+        for ($i = count($prestasi) + 1; $i <= 3; $i++) {
+            $prestasi[] = null;
+        }
+        $opsional = ['ya', 'tidak'];
+        // dd($prestasi);
+        $data = [
+            'title'     => 'Beasiswa Batang | Daftar Beasiswa',
+            'validation'    => $validation,
+            'identitas' => $identitas,
+            'id_peserta' => $id_peserta,
+            'kategori'  => $kategori,
+            'agama'     => $agama,
+            'sekolah'     => $sekolah,
+            'kecamatan' => $kecamatan,
+            'transportasi'  => $transportasi,
+            'identitas' => $identitas,
+            'keluarga'    => $keluarga,
+            'prestasi'  => $prestasi,
+            'file'      => $file,
+            'pendidikan'    => $pendidikan,
+            'tingkat'   => $tingkat,
+            'juara'     => $juara,
+            'opsional'  => $opsional
+        ];
+        return view('/pendaftar/pendaftaran/edit_form_pendaftaran', $data);
     }
 }

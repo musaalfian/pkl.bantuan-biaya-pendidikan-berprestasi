@@ -271,6 +271,12 @@ p {
 .bgwhite {
   background-color: white;
 }
+.bggreen {
+  background-color: #0cc23f;
+}
+.bgred {
+  background-color: #c20c0c;
+}
 /* End background color */
 
 /* Button */
@@ -308,6 +314,11 @@ p {
 /* Etc */
 ::-webkit-input-placeholder {
   color: lightslategray;
+}
+.bd50 {
+  border-radius: 50%;
+  min-width: 20px;
+  min-height: 20px;
 }
 .bdblue {
   border: 1px solid var(--biru);
@@ -846,11 +857,11 @@ footer .user a:hover {
   height: unset !important;
 }
 /* Input jenis kelamin */
-#smartwizard .form-check {
+#smartwizard .form-check, #edit__pendaftaran .form-check {
   display: flex !important;
 }
 /* Input pertanyaan */
-#smartwizard .form-check label {
+#smartwizard .form-check label, #edit__pendaftaran .form-check label {
   margin-left: 0.5rem !important;
 }
 /* Input textarea */
@@ -863,7 +874,7 @@ footer .user a:hover {
   margin-top: 1rem;
 }
 /* Icon bintang wajib */
-#smartwizard .required-label {
+#smartwizard .required-label, #edit__pendaftaran .required-label {
   color: red !important;
 }
 /* Form alamat review */
@@ -1078,7 +1089,12 @@ tr {
 .fa-sack-dollar:hover{
   color: rgb(242, 29, 29);
 }
-
+/* Informasi Terbaru */
+.form-informasi-content label{
+  /* display block */
+  display: block !important;
+  
+}
 /******************************************/
 /*              END ADMIN                 */
 /******************************************/
@@ -1227,6 +1243,11 @@ tr {
   nav .pendaftar a:focus {
     color: var(--orange) !important;
   }
+
+  /*================ Pengumuman =================*/
+  .laporan__dana .content {
+    width: 75% !important;
+  }
 }
 
 /* Tablet */
@@ -1344,9 +1365,15 @@ tr {
     flex-direction: row !important;
   }
   /* Input jenis kelamin */
-  #smartwizard .form-check {
+  #smartwizard .form-check, #edit__pendaftaran .form-check {
     margin-bottom: 2.125rem !important;
   }
+
+  /*================ Pengumuman =================*/
+  .laporan__dana .content {
+    width: 50% !important;
+  }
+
 }
 
 @media (min-width: 992px) {
@@ -1378,6 +1405,19 @@ tr {
     font-size: 16px !important;
   }
   .pengumuman .content a {
+    font-size: 16px !important;
+  }
+  .laporan__dana label {
+    font-size: 16px !important;
+  }
+  .laporan__dana .bd50 {
+    min-width: 24px;
+    min-height: 24px;
+  }
+  .laporan__dana h6 {
+    font-size: 14px !important;
+  }
+  .laporan__dana h5 {
     font-size: 16px !important;
   }
 }

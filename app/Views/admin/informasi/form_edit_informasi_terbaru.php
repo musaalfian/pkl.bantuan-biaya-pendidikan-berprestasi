@@ -7,26 +7,26 @@
         <h3 class="mb20 biru">Edit <span class="orange">Informasi Terbaru</span> </h3>
         <form
             action="<?= base_url(); ?>/admin_informasi/simpan_edit_informasi_terbaru/<?= $data_informasi_terbaru['id_informasi_terbaru']; ?>"
-            method="post" enctype="multipart/form-data">
+            method="post" enctype="multipart/form-data" class="form-informasi-content needs-validation" novalidate>
             <div class="mb20">
                 <label for="judul_informasi_terbaru" class="form-label">Judul <span
                         class="required-label">*</span></label>
-                <input id="judul_informasi_terbaru" type="text"
+                <input id="judul_informasi_terbaru" type="text" required
                     class="form-control <?= ($validation->hasError('judul_informasi_terbaru')) ? 'is-invalid' : ''; ?>"
                     name="judul_informasi_terbaru" value="<?= $data_informasi_terbaru['judul_informasi_terbaru']; ?>">
                 <div class="invalid-feedback">
-                    <?= ($validation->getError('judul_informasi_terbaru') == '') ? 'Bagian judul_informasi_terbaru wajib diisi' : str_replace('_', ' ', $validation->getError('judul_informasi_terbaru')) ?>
+                    <?= ($validation->getError('judul_informasi_terbaru') == '') ? 'Bagian judul informasi terbaru wajib diisi' : str_replace('_', ' ', $validation->getError('judul_informasi_terbaru')) ?>
                 </div>
             </div>
             <!-- end judul _informasi_terbaru -->
             <div class="mb20">
                 <label for="deskripsi_informasi_terbaru" class="form-label">Deskripsi <span
                         class="required-label">*</span></label>
-                <textarea id="deskripsi_informasi_terbaru" cols="30" rows="10"
+                <textarea id="deskripsi_informasi_terbaru" cols="30" rows="10" required
                     class="form-control <?= ($validation->hasError('deskripsi_informasi_terbaru')) ? 'is-invalid' : ''; ?>"
                     name="deskripsi_informasi_terbaru"><?= $data_informasi_terbaru['deskripsi_informasi_terbaru']; ?></textarea>
                 <div class="invalid-feedback">
-                    <?= ($validation->getError('deskripsi_informasi_terbaru') == '') ? 'Bagian deskripsi_informasi_terbaru wajib diisi' : str_replace('_', ' ', $validation->getError('deskripsi_informasi_terbaru')) ?>
+                    <?= ($validation->getError('deskripsi_informasi_terbaru') == '') ? 'Bagian deskripsi informasi terbaru wajib diisi' : str_replace('_', ' ', $validation->getError('deskripsi_informasi_terbaru')) ?>
                 </div>
             </div>
             <!-- end deskripsi _informasi_terbaru -->
