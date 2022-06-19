@@ -376,12 +376,13 @@ p {
   background-color: white;
   /* font-family: 700; */
   color: var(--biru);
-  box-shadow: 2px 2px 10px 2px var(--biru);
+  /* box-shadow: 2px 2px 5px 2px var(--biru); */
   border: 2px solid var(--biru);
 }
 .btn-white:hover {
   background-color: var(--biru);
   box-shadow: none !important;
+  color:white;
 }
 .bg-abu {
   background-color: var(--abu);
@@ -614,12 +615,13 @@ footer .user a:hover {
 }
 
 /*================ Informasi Awal =================*/
-.informasi__awal .bg {
+.informasi__awal .bg img {
   max-width: 100%;
   min-height: 300px;
   max-height: 400px;
   background-color: lightgray;
   border-radius: 10px;
+  object-fit: contain;
 }
 .informasi__awal p {
   font-size: 16px;
@@ -982,9 +984,9 @@ footer {
 
 
 
-
-
-
+.outline-n{
+  outline:none;
+}
 #wrapper {
   overflow-x: hidden;
 }

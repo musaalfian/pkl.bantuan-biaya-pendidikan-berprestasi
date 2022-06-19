@@ -19,7 +19,7 @@
                 <li>Untuk nilai 200 artinya diterima langsung</li>
             </ol>
         </div>
-        <div class="bg-white p-lg-5 p-md-3">
+        <div class="bg-white p-lg-5 p-md-3 br10">
             <div class="row gx-5">
                 <!-- alert nilai -->
                 <?php if (session()->getFlashdata('pesan-edit-nilai-pendaftar')) : ?>
@@ -36,7 +36,7 @@
                 <?php endif; ?>
                 <!-- end alert verifikasi -->
                 <div class="mb20">
-                    <h4 class="">A. Identitas Diri</h4>
+                    <h3 class="fw-bold">A. Identitas Diri</h4>
                 </div>
                 <div class="col-lg-6 col-md-12">
                     <table class="table">
@@ -208,7 +208,7 @@
             <!-- end identitas  -->
             <div class="row m20 ">
                 <div class="mb20">
-                    <h4>B. Kondisi Orang Tua </h4>
+                    <h3 class="fw-bold">B. Kondisi Orang Tua </h3>
                 </div>
                 <div class="col-lg-6 col-md-12">
                     <table class="table">
@@ -360,7 +360,7 @@
             <!-- end keluarga -->
             <div class="row m20 ">
                 <div class="mb20">
-                    <h4>C. Apakah Calon Penerima Bantuan Terdaftar Sebegai </h4>
+                    <h3 class="fw-bold">C. Apakah Calon Penerima Bantuan Terdaftar Sebegai </h3>
                 </div>
                 <div class="col-lg-6 col-md-12">
                     <table class="table">
@@ -411,7 +411,7 @@
             <!-- end terdaftar sebagai  -->
             <div class="row m20 border-bottom">
                 <div class="m20">
-                    <h4>D. Prestasi </h4>
+                    <h3 class="fw-bold">D. Prestasi </h3>
                 </div>
                 <form action="<?= base_url(); ?>/admin_detail_pendaftaran/simpan_penilaian/<?= $detail_pendaftar['no_induk']; ?>" method="post">
                     <?php $i = 1; ?>
@@ -516,7 +516,7 @@
             <!-- end prestasi -->
             <div class="row m20 border-bottom">
                 <div class="m20">
-                    <h4>D. Lampiran Dokumen </h4>
+                    <h3 class="fw-bold">E. Lampiran Dokumen </h3>
                 </div>
                 <div class="row pb-4">
                     <div class="col-lg-10 col-12">
