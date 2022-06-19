@@ -9,9 +9,9 @@
     </div>
     <div class="informasi__awal row">
         <div class="col-md-8 col-12 mb-4 mb-md-0">
-            <div class="gambar">
-                <div class="bg">
-                    <img src="" alt="Gambar Informasi">
+            <div class="gambar ">
+                <div class="bg ">
+                    <img class="w-100"  src="<?php base_url() ?>/assets/informasi/img/<?= $informasi['gambar_informasi_terbaru']; ?>" alt="Gambar Informasi">
                 </div>
                 <h6 class="fs14 abu mt-3">
                     <?= $informasi['tanggal_indo_informasi']; ?> WIB

@@ -3,16 +3,10 @@
 <?= $this->section('content'); ?>
 <!-- Main section-->
 <div class=" bg-abu p40">
-<<<<<<< HEAD
     <div class=" admin-content mx-auto">
         <h3 class="mb20 biru">Tambah <span class="orange">Informasi Terbaru</span> </h3>
         <form action="<?= base_url(); ?>/admin_informasi/simpan_tambah_informasi_terbaru" method="post"
             enctype="multipart/form-data" class="needs-validation" novalidate>
-=======
-    <div class=" admin-content p-4 mx-auto">
-        <h3 class="mb20">Tambah Informasi Terbaru</h3>
-        <form action="<?= base_url(); ?>/admin_informasi/simpan_tambah_informasi_terbaru" method="post" enctype="multipart/form-data" class="needs-validation form-informasi-content" novalidate>
->>>>>>> b3ed032def7a54765a6fe836ca001c2f997835c0
             <div class="mb20">
                 <label for="judul_informasi_terbaru" class="form-label">Judul<span class="required-label">*</span></label>
                 <input id="judul_informasi_terbaru" type="text" required class="form-control <?= ($validation->hasError('judul_informasi_terbaru')) ? 'is-invalid' : ''; ?>" name="judul_informasi_terbaru" value="<?= old('judul_informasi_terbaru'); ?>">
