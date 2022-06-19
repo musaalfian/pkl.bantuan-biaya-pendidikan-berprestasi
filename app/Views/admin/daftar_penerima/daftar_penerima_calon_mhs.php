@@ -98,10 +98,8 @@
     </div>
 </div>
 <?php endforeach ?>
-
 <!-- modal edir status pembayaran keseluruhan -->
-<div class="modal fade" id="ubahStatusPembayaranKeseluruhan" tabindex="-1" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
+<div class="modal fade" id="ubahStatusPembayaranKeseluruhan" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -110,22 +108,18 @@
             </div>
             <div class="modal-body">
 
-                <form action="<?php base_url() ?>/admin_daftar_penerima/ubah_status_pembayaran_keseluruhan/2"
-                    method="POST">
+                <form action="<?php base_url() ?>/admin_daftar_penerima/ubah_status_pembayaran_keseluruhan/3" method="POST">
                     <div class="form-check">
 
                         <?php foreach ($status_pembayaran as $status_pembayarans) : ?>
-                        <input type="radio"
-                            id="statusPembayaranSemua_<?= $status_pembayarans['id_status_pembayaran']; ?>"
-                            class="form-check-input" name="statusPembayaran"
-                            value="<?= $status_pembayarans['id_status_pembayaran']; ?>">
-                        <label class="form-check-label"
-                            for="statusPembayaranSemua_<?= $status_pembayarans['id_status_pembayaran']; ?>">
-                            <?= $status_pembayarans['nama_status_pembayaran']; ?>
-                        </label>
+                            <input type="radio" id="statusPembayaranSemua_<?= $status_pembayarans['id_status_pembayaran']; ?>" class="form-check-input" name="statusPembayaran" value="<?= $status_pembayarans['id_status_pembayaran']; ?>">
+                            <label class="form-check-label" for="statusPembayaranSemua_<?= $status_pembayarans['id_status_pembayaran']; ?>">
+                                <?= $status_pembayarans['nama_status_pembayaran']; ?>
+                            </label>
                         <?php endforeach ?>
                     </div>
                     <div class="modal-footer">
+
                         <button type="submit" class="btn btn-primary">Simpan</button>
                     </div>
                 </form>

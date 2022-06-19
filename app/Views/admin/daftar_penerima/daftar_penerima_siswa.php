@@ -97,12 +97,12 @@
             </div>
             <div class="modal-body">
 
-                <form action="<?php base_url() ?>/admin_daftar_penerima/ubah_status_pembayaran_keseluruhan/1" method="POST">
+                <form action="<?php base_url() ?>/admin_daftar_penerima/ubah_status_pembayaran_keseluruhan/3" method="POST">
                     <div class="form-check">
 
                         <?php foreach ($status_pembayaran as $status_pembayarans) : ?>
-                            <input type="radio" id="statusPembayaran" class="form-check-input" <?= ($status_pembayarans['id_status_pembayaran'] == $data['id_status_pembayaran']) ? 'checked' : ''; ?> name="statusPembayaran" value="<?= $status_pembayarans['id_status_pembayaran']; ?>">
-                            <label class="form-check-label" for="statusPembayaran">
+                            <input type="radio" id="statusPembayaranSemua_<?= $status_pembayarans['id_status_pembayaran']; ?>" class="form-check-input" name="statusPembayaran" value="<?= $status_pembayarans['id_status_pembayaran']; ?>">
+                            <label class="form-check-label ms-3" for="statusPembayaranSemua_<?= $status_pembayarans['id_status_pembayaran']; ?>">
                                 <?= $status_pembayarans['nama_status_pembayaran']; ?>
                             </label>
                         <?php endforeach ?>
@@ -134,17 +134,6 @@
                     </p>
                     <form action="<?php base_url() ?>/admin_daftar_penerima/ubah_status_pembayaran/<?= $data['no_induk'] ?>/1" method="POST">
 
-                        <!-- <select class="form-select mt-2" id="statusPembayaran" name="statusPembayaran">
-                        <option hidden>---</option>
-                        <?php foreach ($status_pembayaran as $status_pembayarans) : ?>
-                        <option name="statusPembayaran"
-                            <?= ($status_pembayarans['id_status_pembayaran'] == $data['id_status_pembayaran']) ? 'selected' : ''; ?>
-                            value="<?= $status_pembayarans['id_status_pembayaran']; ?>">
-                            <?= $status_pembayarans['nama_status_pembayaran']; ?></option>
-                        <?php endforeach ?>
-                    </select> -->
-                        <!-- <select class="form-select mt-2" id="statusPembayaran" name="statusPembayaran">
-                        <option hidden>---</option> -->
                         <div class="form-check">
 
                             <?php foreach ($status_pembayaran as $status_pembayarans) : ?>
