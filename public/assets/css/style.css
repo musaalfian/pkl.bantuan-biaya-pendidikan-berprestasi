@@ -271,6 +271,12 @@ p {
 .bgwhite {
   background-color: white;
 }
+.bggreen {
+  background-color: #0cc23f;
+}
+.bgred {
+  background-color: #c20c0c;
+}
 /* End background color */
 
 /* Button */
@@ -308,6 +314,11 @@ p {
 /* Etc */
 ::-webkit-input-placeholder {
   color: lightslategray;
+}
+.bd50 {
+  border-radius: 50%;
+  min-width: 20px;
+  min-height: 20px;
 }
 .bdblue {
   border: 1px solid var(--biru);
@@ -1232,6 +1243,11 @@ tr {
   nav .pendaftar a:focus {
     color: var(--orange) !important;
   }
+
+  /*================ Pengumuman =================*/
+  .laporan__dana .content {
+    width: 75% !important;
+  }
 }
 
 /* Tablet */
@@ -1352,6 +1368,12 @@ tr {
   #smartwizard .form-check, #edit__pendaftaran .form-check {
     margin-bottom: 2.125rem !important;
   }
+
+  /*================ Pengumuman =================*/
+  .laporan__dana .content {
+    width: 50% !important;
+  }
+
 }
 
 @media (min-width: 992px) {
@@ -1383,6 +1405,19 @@ tr {
     font-size: 16px !important;
   }
   .pengumuman .content a {
+    font-size: 16px !important;
+  }
+  .laporan__dana label {
+    font-size: 16px !important;
+  }
+  .laporan__dana .bd50 {
+    min-width: 24px;
+    min-height: 24px;
+  }
+  .laporan__dana h6 {
+    font-size: 14px !important;
+  }
+  .laporan__dana h5 {
     font-size: 16px !important;
   }
 }

@@ -158,17 +158,7 @@
                 </div>
                 <div class="col-md-6 col-12">
                     <div class="nav__footer d-flex justify-content-start justify-content-md-end">
-                        <div class="item me-3 me-sm-5">
-                            <h3 class="fw-bold fs16 mb-2 mb-md-3">Informasi</h3>
-                            <a href="<?= base_url(); ?>/home_pendaftar/kumpulan_informasi_terbaru" class="fs14 grey">
-                                Informasi terbaru
-                            </a>
-                            <br>
-                            <a href="/halaman_awal/informasi_pendaftaran/1" class="fs14 grey">
-                                Informasi pendaftaran
-                            </a>
-                        </div>
-                        <div class="item">
+                        <div class="item me-3 me-sm-5 me-md-3 me-lg-5">
                             <h3 class="fw-bold fs16 mb-2 mb-md-3">Program Beasiswa</h3>
                             <a href="<?= base_url(); ?>/home_pendaftar/pendaftaran" class="fs14 grey">
                                 Peserta didik
@@ -180,6 +170,16 @@
                             <br>
                             <a href="<?= base_url(); ?>/home_pendaftar/pendaftaran" class="fs14 grey">
                                 Mahasiswa
+                            </a>
+                        </div>
+                        <div class="item">
+                            <h3 class="fw-bold fs16 mb-2 mb-md-3">Informasi</h3>
+                            <a href="<?= base_url(); ?>/home_pendaftar/kumpulan_informasi_terbaru" class="fs14 grey">
+                                Informasi terbaru
+                            </a>
+                            <br>
+                            <a href="/halaman_awal/informasi_pendaftaran/1" class="fs14 grey">
+                                Informasi pendaftaran
                             </a>
                         </div>
                     </div>
