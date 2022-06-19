@@ -1038,7 +1038,7 @@
                                     </label>
                                 </div>
                                 <!-- end scan KTP -->
-                                <?php if ($identitas['id_status_peserta'] == 1) : ?>
+                                <?php if ($identitas['id_status_peserta'] == 1 || $identitas['id_status_peserta'] == 2) : ?>
                                 <div class="mb20">
                                     <label for="label_scan_kartu_pelajar" class="form-label bold">Scan Kartu Pelajar
                                         <span class="fs14 lightgrey ms-2"> Contoh penamaan file : (no
