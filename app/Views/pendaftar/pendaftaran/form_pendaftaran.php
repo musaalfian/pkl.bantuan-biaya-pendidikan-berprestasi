@@ -1324,7 +1324,7 @@
                                                 class="form-control lampiran-foto-pendaftaran <?= ($validation->hasError('scan_pas_foto')) ? 'is-invalid' : ''; ?>"
                                                 name="scan_pas_foto" accept="image/*" data-max-file-size="2M"
                                                 <?= ($file != null) ? 'disabled hidden data-default-file="' . base_url() . '/assets/scan/' . $identitas["no_induk"] . '/file/' . $file["pas_foto"] . '"' : ''; ?>
-                                                data-allowed-file-extensions="jpg jpeg png" data-height="200" />
+                                                data-allowed-file-extensions="jpg jpeg png" />
                                             <div class="invalid-feedback">
                                                 <?= ($validation->getError('scan_pas_foto') == '') ? 'Bagian pas foto  wajib diisi dan ukuran file tidak boleh lebih dari 2MB' : str_replace('_', ' ', $validation->getError('scan_pas_foto')); ?>
                                             </div>
