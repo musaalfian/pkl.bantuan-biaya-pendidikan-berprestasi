@@ -184,22 +184,26 @@ class Pendaftaran extends BaseController
         $prestasi = $this->MPrestasi->find_prestasi_noinduk($no_induk)->getResultArray();
         $file = $this->MFile->find_file_noinduk($no_induk)->getFirstRow('array');
         $tingkat = ['internasional', 'nasional', 'provinsi', 'karesidenan', 'kabupaten'];
+        $juara = ['juara 1', 'juara 2', 'juara 3', 'paskibra', 'peserta'];
+        $akreditasi = ['A', 'B', 'C'];
+        $semester_ke = ['1', '2', '3', '4', '5', '6', '7', '8'];
 
         // Siswa
         if ($id_peserta == 1) {
             $sekolah = $this->MSekolah->findAll();
             $transportasi = $this->MTransportasi->findAll();
             $kategori = ['perlombaan', 'hafidz', 'lainnya'];
-            $juara = ['juara 1', 'juara 2', 'juara 3', 'paskibra', 'peserta'];
         } // Calom mahasiswa
         elseif ($id_peserta == 2) {
+            $kategori = ['perlombaan', 'hafidz', 'lainnya'];
             $sekolah = null;
             $transportasi = null;
-            $kategori = ['perlombaan', 'hafidz', 'lainnya'];
             $kategori = ['perlombaan', 'ujian sekolah', 'hafidz', 'lainnya'];
         } // Mahasiswa 
         else {
             $kategori = ['perlombaan', 'KHS', 'hafidz', 'lainnya'];
+            $sekolah = null;
+            $transportasi = null;
         }
         for ($i = count($prestasi) + 1; $i <= 3; $i++) {
             $prestasi[] = null;
@@ -223,6 +227,9 @@ class Pendaftaran extends BaseController
             'pendidikan'    => $pendidikan,
             'tingkat'   => $tingkat,
             'juara'     => $juara,
+            'akreditasi_pt'     => $akreditasi,
+            'semester_ke'     => $semester_ke,
+            
             'opsional'  => $opsional
         ];
         return view('/pendaftar/pendaftaran/edit_form_pendaftaran', $data);

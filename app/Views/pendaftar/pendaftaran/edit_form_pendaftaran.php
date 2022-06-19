@@ -177,8 +177,21 @@
                                     </div>
                                 </div>
                                 <!-- end kecamatan -->
+                                <?php if ($id_peserta == 2 || $id_peserta == 3) : ?>
+                                    <div class="mb20 ">
+                                    <label for="no_telepon" class="form-label bold">Nomer Telepon </label>
+                                    <input type="number" min="0" max="999999999999999" required
+                                        class="form-control <?= ($validation->hasError('no_telepon')) ? 'is-invalid' : ''; ?>"
+                                        value="<?= ($identitas != null) ? $identitas['no_telepon'] : old('no_telepon'); ?>"
+                                        name="no_telepon" placeholder="" />
+                                    <div class="invalid-feedback">
+                                        <?= ($validation->getError('no_telepon') == '') ? 'Bagian no telepon  wajib diisi dan kurang dari 15 angka' : str_replace('_', ' ', $validation->getError('no_telepon')) ?>
+                                    </div>
+                                </div>
+                                <?php endif; ?>
                             </div>
                             <div class="col-12 col-md-6">
+                            <?php if ($id_peserta == 1) : ?>
                                 <div class="mb20 ">
                                     <label for="no_telepon" class="form-label bold">Nomer Telepon </label>
                                     <input type="number" min="0" max="999999999999999" required
@@ -189,6 +202,7 @@
                                         <?= ($validation->getError('no_telepon') == '') ? 'Bagian no telepon  wajib diisi dan kurang dari 15 angka' : str_replace('_', ' ', $validation->getError('no_telepon')) ?>
                                     </div>
                                 </div>
+                                <?php endif; ?>
                                 <!-- end Nomer Telepon -->
 
                                 <?php if ($identitas['id_status_peserta'] == 3) : ?>

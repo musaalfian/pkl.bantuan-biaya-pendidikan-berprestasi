@@ -547,7 +547,7 @@ class Mahasiswa extends BaseController
                 'pernah_menerima_bantuan'    => 'required',
 
             ])) {
-                return redirect()->to('mahasiswa/edit_mhs/' . $no_induk)->withInput();
+                return redirect()->to('/pendaftaran/edit_pendaftaran/'.$identitas['no_induk'].'/'. $identitas['id_status_peserta'])->withInput();
             }
             // update no induk pendaftar
             $builder = $this->db->table('identitas');
@@ -600,7 +600,7 @@ class Mahasiswa extends BaseController
                 'pernah_menerima_bantuan'    => 'required',
 
             ])) {
-                return redirect()->to('mahasiswa/edit_mhs/' . $no_induk)->withInput();
+                return redirect()->to('/pendaftaran/edit_pendaftaran/'.$identitas['no_induk'].'/'. $identitas['id_status_peserta'] )->withInput();
             }
         }
         if ($this->request->getVar('pernah_menerima_bantuan') == 'ya') {
@@ -653,7 +653,7 @@ class Mahasiswa extends BaseController
             'pkh_kks_kbs'    => 'required',
             'bsm_kip'    => 'required',
         ])) {
-            return redirect()->to('mahasiswa/edit_mhs/' . $no_induk)->withInput();
+            return redirect()->to('/pendaftaran/edit_pendaftaran/'.$identitas['no_induk'].'/'. $identitas['id_status_peserta'])->withInput();
         }
         // dd($no_induk);
         // update data keluarga ke database
@@ -714,7 +714,7 @@ class Mahasiswa extends BaseController
                 if (!$this->validate([
                     'scan_prestasi_2' => 'uploaded[scan_prestasi_2]|max_size[scan_prestasi_2,2048]|mime_in[scan_prestasi_2,application/pdf]',
                 ])) {
-                    return redirect()->to('mahasiswa/edit_mhs/' . $no_induk)->withInput();
+                    return redirect()->to('/pendaftaran/edit_pendaftaran/'.$identitas['no_induk'].'/'. $identitas['id_status_peserta'])->withInput();
                 }
             } else {
                 if (!$this->validate([
@@ -724,7 +724,7 @@ class Mahasiswa extends BaseController
                     'nama_prestasi_2' => 'required',
                     'tahun_prestasi_2' => 'required',
                 ])) {
-                    return redirect()->to('mahasiswa/edit_mhs/' . $no_induk)->withInput();
+                    return redirect()->to('/pendaftaran/edit_pendaftaran/'.$identitas['no_induk'].'/'. $identitas['id_status_peserta'])->withInput();
                 }
             }
         }
@@ -734,7 +734,7 @@ class Mahasiswa extends BaseController
                 if (!$this->validate([
                     'scan_prestasi_3' => 'uploaded[scan_prestasi_3]|max_size[scan_prestasi_3,2048]|mime_in[scan_prestasi_3,application/pdf]',
                 ])) {
-                    return redirect()->to('mahasiswa/edit_mhs/' . $no_induk)->withInput();
+                    return redirect()->to('/pendaftaran/edit_pendaftaran/'.$identitas['no_induk'].'/'. $identitas['id_status_peserta'])->withInput();
                 }
             } else {
                 if (!$this->validate([
@@ -744,7 +744,7 @@ class Mahasiswa extends BaseController
                     'nama_prestasi_3' => 'required',
                     'tahun_prestasi_3' => 'required',
                 ])) {
-                    return redirect()->to('mahasiswa/edit_mhs/' . $no_induk)->withInput();
+                    return redirect()->to('/pendaftaran/edit_pendaftaran/'.$identitas['no_induk'].'/'. $identitas['id_status_peserta'])->withInput();
                 }
             }
         }
@@ -763,7 +763,7 @@ class Mahasiswa extends BaseController
                 'scan_proposal' => 'max_size[scan_proposal,5120]|mime_in[scan_proposal,application/pdf]',
                 'scan_pas_foto' => 'max_size[scan_pas_foto,2048]|mime_in[scan_pas_foto,image/jpg,image/jpeg,image/png]',
             ])) {
-                return redirect()->to('mahasiswa/edit_mhs/' . $no_induk)->withInput();
+                return redirect()->to('/pendaftaran/edit_pendaftaran/'.$identitas['no_induk'].'/'. $identitas['id_status_peserta'])->withInput();
             }
         } else {
             if (!$this->validate([
@@ -780,7 +780,7 @@ class Mahasiswa extends BaseController
                 'scan_proposal' => 'max_size[scan_proposal,5120]|mime_in[scan_proposal,application/pdf]',
                 'scan_pas_foto' => 'max_size[scan_pas_foto,2048]|mime_in[scan_pas_foto,image/jpg,image/jpeg,image/png]',
             ])) {
-                return redirect()->to('mahasiswa/edit_mhs/' . $no_induk)->withInput();
+                return redirect()->to('/pendaftaran/edit_pendaftaran/'.$identitas['no_induk'].'/'. $identitas['id_status_peserta'])->withInput();
             }
         }
 
