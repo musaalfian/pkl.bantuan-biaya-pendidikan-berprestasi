@@ -856,6 +856,9 @@ footer .user a:hover {
 #smartwizard div {
   height: unset !important;
 }
+#smartwizard .lampiran-foto-pendaftaran input {
+  height: 100%;
+}
 /* Input jenis kelamin */
 #smartwizard .form-check, #edit__pendaftaran .form-check {
   display: flex !important;
@@ -1095,6 +1098,13 @@ tr {
   display: block !important;
   
 }
+/* Daftar penerima */
+#daftar-penerima-content .form-check label{
+  /* display block */
+  margin-left: 0.5 rem !important;
+  
+}
+
 /******************************************/
 /*              END ADMIN                 */
 /******************************************/

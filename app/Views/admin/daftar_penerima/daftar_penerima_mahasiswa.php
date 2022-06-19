@@ -6,7 +6,7 @@
     <div class=" admin-content  mx-auto">
         <h3 class="biru">Data Penerima Beasiswa <span class="orange">Mahasiswa</span> </h3>
 
-        <div class="p-4 br20 bg-white mt20 ">
+        <div class="p-4 br20 bg-white mt20 " id="daftar-penerima-content">
             <p>Edit status pembayaran keseluruhan : <a href="" data-bs-toggle="modal" data-bs-target="#ubahStatusPembayaranKeseluruhan">
                     Ubah
                 </a></p>
