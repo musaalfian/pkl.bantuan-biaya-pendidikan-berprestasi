@@ -239,7 +239,7 @@ class admin_detail_pendaftaran extends BaseController
             'id_status_pendaftaran' => $status_pendaftaran,
             'id_status_final' => $status_final,
             'pesan' => $pesan,
-            'id_status_pembayaran' => $id_status_pembayaran
+            'id_status_pembayaran' => $id_status_pembayaran,
         ];
         // dd($update_identitas);
         $this->MIdentitas->update($no_induk, $update_identitas);

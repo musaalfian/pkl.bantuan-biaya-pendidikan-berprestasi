@@ -912,7 +912,7 @@ footer .user a:hover {
   min-height: 130px;
 }
 
-/* Edit form calon mahasiswa */
+/* Edit form pendaftaran */
 .edit__calon textarea{
   border-radius: 0 !important;
 }
@@ -921,7 +921,7 @@ footer .user a:hover {
 }
 
 /*================ Edit form pendaftaran =================*/
-.edit__pendaftaran label {
+.edit__pendaftaran label, .upload__ulang label {
   display: block !important;
 }
 

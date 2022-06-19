@@ -474,6 +474,7 @@ const scan = [
   "proposal",
   "diterima_pt",
   "akreditasi_pt",
+  "formulir_pendaftaran",
 ];
 // scan lampiran
 $(document).ready(function () {

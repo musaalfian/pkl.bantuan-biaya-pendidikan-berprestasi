@@ -4,6 +4,8 @@
 <!-- Form pendaftaran -->
 <div class="bgwhite py40" id="edit__pendaftaran">
     <div class="container">
+        <!-- form edit pendaftaran -->
+        <?php if ($identitas['status_edit_pendaftaran'] == null) : ?>
         <div class="tab-content bdblue br25 p-4 p-sm-5">
             <?php if ($id_peserta == 1) : ?>
             <form action="<?= base_url(); ?>/siswa/simpan_edit_siswa/<?= $identitas['no_induk']; ?>" method="post"
@@ -42,14 +44,14 @@
                                         <input required type="radio" class="form-check-input" name="jenis_kelamin"
                                             id="L"
                                             <?php if ($identitas != null) {
-                                                                                                                                                                                            if ($identitas['jenis_kelamin'] == 'L') {
-                                                                                                                                                                                                echo 'checked';
-                                                                                                                                                                                            };
-                                                                                                                                                                                        } else {
-                                                                                                                                                                                            if (old('jenis_kelamin') == 'L') {
-                                                                                                                                                                                                echo 'checked';
-                                                                                                                                                                                            }
-                                                                                                                                                                                        } ?>
+                                                                                                                                    if ($identitas['jenis_kelamin'] == 'L') {
+                                                                                                                                        echo 'checked';
+                                                                                                                                    };
+                                                                                                                                } else {
+                                                                                                                                    if (old('jenis_kelamin') == 'L') {
+                                                                                                                                        echo 'checked';
+                                                                                                                                    }
+                                                                                                                                } ?>
                                             value="L">
                                         <label class="form-check-label ms-2" for="L">
                                             Laki - laki
@@ -57,14 +59,14 @@
                                         <input required type="radio" class="form-check-input ms-3" name="jenis_kelamin"
                                             id="P"
                                             <?php if ($identitas != null) {
-                                                                                                                                                                                                if ($identitas['jenis_kelamin'] == 'P') {
-                                                                                                                                                                                                    echo 'checked';
-                                                                                                                                                                                                };
-                                                                                                                                                                                            } else {
-                                                                                                                                                                                                if (old('jenis_kelamin') == 'P') {
-                                                                                                                                                                                                    echo 'checked';
-                                                                                                                                                                                                }
-                                                                                                                                                                                            } ?>
+                                                                                                                                        if ($identitas['jenis_kelamin'] == 'P') {
+                                                                                                                                            echo 'checked';
+                                                                                                                                        };
+                                                                                                                                    } else {
+                                                                                                                                        if (old('jenis_kelamin') == 'P') {
+                                                                                                                                            echo 'checked';
+                                                                                                                                        }
+                                                                                                                                    } ?>
                                             value="P">
                                         <label class="form-check-label ms-2" for="P">
                                             Perempuan
@@ -178,7 +180,7 @@
                                 </div>
                                 <!-- end kecamatan -->
                                 <?php if ($id_peserta == 2 || $id_peserta == 3) : ?>
-                                    <div class="mb20 ">
+                                <div class="mb20 ">
                                     <label for="no_telepon" class="form-label bold">Nomer Telepon </label>
                                     <input type="number" min="0" max="999999999999999" required
                                         class="form-control <?= ($validation->hasError('no_telepon')) ? 'is-invalid' : ''; ?>"
@@ -191,7 +193,7 @@
                                 <?php endif; ?>
                             </div>
                             <div class="col-12 col-md-6">
-                            <?php if ($id_peserta == 1) : ?>
+                                <?php if ($id_peserta == 1) : ?>
                                 <div class="mb20 ">
                                     <label for="no_telepon" class="form-label bold">Nomer Telepon </label>
                                     <input type="number" min="0" max="999999999999999" required
@@ -436,14 +438,14 @@
                                             type="radio" name="pernah_menerima_bantuan"
                                             id="pernah_menerima_bantuan_<?= $opsional_menerima_bantuan; ?>"
                                             <?php if ($identitas != null) {
-                                                                                                                                                                                                                                                                                                                                if ($identitas['pernah_menerima_bantuan'] == $opsional_menerima_bantuan) {
-                                                                                                                                                                                                                                                                                                                                    echo 'checked';
-                                                                                                                                                                                                                                                                                                                                };
-                                                                                                                                                                                                                                                                                                                            } else {
-                                                                                                                                                                                                                                                                                                                                if (old('pernah_menerima_bantuan') == $opsional_menerima_bantuan) {
-                                                                                                                                                                                                                                                                                                                                    echo 'checked';
-                                                                                                                                                                                                                                                                                                                                }
-                                                                                                                                                                                                                                                                                                                            } ?>
+                                                                                                                                                                                                                                                                        if ($identitas['pernah_menerima_bantuan'] == $opsional_menerima_bantuan) {
+                                                                                                                                                                                                                                                                            echo 'checked';
+                                                                                                                                                                                                                                                                        };
+                                                                                                                                                                                                                                                                    } else {
+                                                                                                                                                                                                                                                                        if (old('pernah_menerima_bantuan') == $opsional_menerima_bantuan) {
+                                                                                                                                                                                                                                                                            echo 'checked';
+                                                                                                                                                                                                                                                                        }
+                                                                                                                                                                                                                                                                    } ?>
                                             value="<?= $opsional_menerima_bantuan; ?>">
                                         <label class="form-check-label"
                                             for="pernah_menerima_bantuan_<?= $opsional_menerima_bantuan; ?>">
@@ -671,14 +673,14 @@
                                             type="radio"
                                             class="form-check-input <?= ($opsional_rstm == 'tidak') ? 'ms-3' : ''; ?>"
                                             <?php if ($keluarga != null) {
-                                                                                                                                                                                                                                                                                if ($keluarga['rtsm_rtm'] == $opsional_rstm) {
-                                                                                                                                                                                                                                                                                    echo 'checked';
-                                                                                                                                                                                                                                                                                };
-                                                                                                                                                                                                                                                                            } else {
-                                                                                                                                                                                                                                                                                if (old('rtsm_rtm') == $opsional_rstm) {
-                                                                                                                                                                                                                                                                                    echo 'checked';
-                                                                                                                                                                                                                                                                                }
-                                                                                                                                                                                                                                                                            } ?>
+                                                                                                                                                                                                                            if ($keluarga['rtsm_rtm'] == $opsional_rstm) {
+                                                                                                                                                                                                                                echo 'checked';
+                                                                                                                                                                                                                            };
+                                                                                                                                                                                                                        } else {
+                                                                                                                                                                                                                            if (old('rtsm_rtm') == $opsional_rstm) {
+                                                                                                                                                                                                                                echo 'checked';
+                                                                                                                                                                                                                            }
+                                                                                                                                                                                                                        } ?>
                                             value="<?= $opsional_rstm; ?>"><label
                                             for="rtsm_rtm_<?= ucfirst($opsional_rstm); ?>"
                                             class="form-check-label"><?= ucfirst($opsional_rstm); ?></label>
@@ -703,14 +705,14 @@
                                             class="form-check-input <?= ($opsional_pkh == 'tidak') ? 'ms-3' : ''; ?>"
                                             required name="pkh_kks_kbs" id="pkh_kks_kbs_<?= ucfirst($opsional_pkh); ?>"
                                             <?php if ($keluarga != null) {
-                                                                                                                                                                                                                                                                                    if ($keluarga['pkh_kks_kbs'] == $opsional_pkh) {
-                                                                                                                                                                                                                                                                                        echo 'checked';
-                                                                                                                                                                                                                                                                                    };
-                                                                                                                                                                                                                                                                                } else {
-                                                                                                                                                                                                                                                                                    if (old('pkh_kks_kbs') == $opsional_pkh) {
-                                                                                                                                                                                                                                                                                        echo 'checked';
-                                                                                                                                                                                                                                                                                    }
-                                                                                                                                                                                                                                                                                } ?>
+                                                                                                                                                                                                                                if ($keluarga['pkh_kks_kbs'] == $opsional_pkh) {
+                                                                                                                                                                                                                                    echo 'checked';
+                                                                                                                                                                                                                                };
+                                                                                                                                                                                                                            } else {
+                                                                                                                                                                                                                                if (old('pkh_kks_kbs') == $opsional_pkh) {
+                                                                                                                                                                                                                                    echo 'checked';
+                                                                                                                                                                                                                                }
+                                                                                                                                                                                                                            } ?>
                                             value="<?= $opsional_pkh; ?>"><label
                                             for="pkh_kks_kbs_<?= ucfirst($opsional_pkh); ?>"
                                             class="form-check-label"><?= ucfirst($opsional_pkh); ?></label>
@@ -735,14 +737,14 @@
                                             class="form-check-input <?= ($opsional_bsm == 'tidak') ? 'ms-3' : ''; ?>"
                                             required
                                             <?php if ($keluarga != null) {
-                                                                                                                                                                                                                                                                            if ($keluarga['bsm_kip'] == $opsional_bsm) {
-                                                                                                                                                                                                                                                                                echo 'checked';
-                                                                                                                                                                                                                                                                            };
-                                                                                                                                                                                                                                                                        } else {
-                                                                                                                                                                                                                                                                            if (old('bsm_kip') == $opsional_bsm) {
-                                                                                                                                                                                                                                                                                echo 'checked';
-                                                                                                                                                                                                                                                                            }
-                                                                                                                                                                                                                                                                        } ?>
+                                                                                                                                                                                                                        if ($keluarga['bsm_kip'] == $opsional_bsm) {
+                                                                                                                                                                                                                            echo 'checked';
+                                                                                                                                                                                                                        };
+                                                                                                                                                                                                                    } else {
+                                                                                                                                                                                                                        if (old('bsm_kip') == $opsional_bsm) {
+                                                                                                                                                                                                                            echo 'checked';
+                                                                                                                                                                                                                        }
+                                                                                                                                                                                                                    } ?>
                                             value="<?= $opsional_bsm; ?>"><label
                                             for="bsm_kip_<?= ucfirst($opsional_bsm); ?>"
                                             class="form-check-label"><?= ucfirst($opsional_bsm); ?></label>
@@ -768,14 +770,14 @@
                                 2. Semua file di upload dan ukuran file tidak boleh lebih dari
                                 <strong>2MB</strong>
                             </p>
-                            <?php if ($id_peserta == 1): ?>
+                            <?php if ($id_peserta == 1) : ?>
                             <p class="fs14">
                                 3. Prestasi yang dapat di upload antara lain : prestasi akademik, non akademik,
                                 paskibra, peserta lomba perorangan, peserta lomba kelompok,
                                 surat keterangan tahfidz / lulus tahfidz Al Quran dengan
                                 minimal 4 juz
                             </p>
-                            <?php elseif ($id_peserta == 2): ?>
+                            <?php elseif ($id_peserta == 2) : ?>
                             <p class="fs14">
                                 3. Prestasi yang dapat di upload antara lain : prestasi akademik, non akademik,
                                 peserta lomba perorangan, peserta lomba kelompok, surat
@@ -783,7 +785,7 @@
                                 juz, nilai ujian sekolah, sertifikat bahasa inggris atau
                                 bahasa arab yang masih berlaku
                             </p>
-                            <?php else: ?>
+                            <?php else : ?>
                             <p class="fs14">
                                 3. Prestasi yang dapat di upload antara lain : prestasi akademik, non akademik,
                                 peserta lomba perorangan, peserta lomba kelompok, surat
@@ -812,14 +814,14 @@
                                             for="file_prestasi_<?= $i; ?>">
                                             <a class="btn btn-secondary">Pilih File</a>
                                             <?php if ($prestasi[$i - 1] != null) { ?>
-                                            <?= substr($prestasi[$i - 1]['file_prestasi'],0,15); ?>
+                                            <?= substr($prestasi[$i - 1]['file_prestasi'], 0, 15); ?>
                                             <?php } else { ?>
                                             Tidak ada file yang dipilih
                                             <?php } ?>
                                         </label>
                                         <div class="invalid-feedback">
                                             <?= ($validation->getError('scan_prestasi_' . $i) == '') ? 'Bagian scan prestasi wajib diisi dan ukuran file tidak boleh lebih dari 2MB' : str_replace('_', ' ', $validation->getError('scan_prestasi_' . $i));
-                                                            ?>
+                                                    ?>
                                         </div>
                                     </div>
                                 </div>
@@ -838,10 +840,10 @@
                                             placeholder="" />
                                         <div class="invalid-feedback">
                                             <?= ($validation->getError('nama_prestasi_' . $i) == '') ? 'Bagian nama prestasi wajib diisi' : str_replace(
-                                                                '_',
-                                                                ' ',
-                                                                $validation->getError('nama_prestasi' . $i)
-                                                            ); ?>
+                                                        '_',
+                                                        ' ',
+                                                        $validation->getError('nama_prestasi' . $i)
+                                                    ); ?>
                                         </div>
                                     </div>
                                 </div>
@@ -858,13 +860,13 @@
                                             <?php foreach ($kategori as $data_kategori) : ?>
                                             <option hidden></option>
                                             <option onchange="kategori_prestasi()" <?php
-                                                                                                        if (old('kategori_' . $i) == $data_kategori) {
-                                                                                                            echo 'selected';
-                                                                                                        } elseif ($prestasi[$i - 1] != null) {
-                                                                                                            if ($prestasi[$i - 1]['kategori'] == $data_kategori) {
-                                                                                                                echo 'selected';
-                                                                                                            }
-                                                                                                        } ?>
+                                                                                                if (old('kategori_' . $i) == $data_kategori) {
+                                                                                                    echo 'selected';
+                                                                                                } elseif ($prestasi[$i - 1] != null) {
+                                                                                                    if ($prestasi[$i - 1]['kategori'] == $data_kategori) {
+                                                                                                        echo 'selected';
+                                                                                                    }
+                                                                                                } ?>
                                                 value="<?= $data_kategori; ?>">
                                                 <?= ucfirst($data_kategori); ?></option>
                                             <?php endforeach; ?>
@@ -885,11 +887,11 @@
                                             <option selected></option>
                                             <?php foreach ($tingkat as $data_tingkat) : ?>
                                             <option <?php
-                                                if ($prestasi[$i - 1] != null) {
-                                                    if ($prestasi[$i - 1]['tingkat'] == $data_tingkat) {
-                                                        echo 'selected';
-                                                    }
-                                                } ?> value="<?= $data_tingkat; ?>">
+                                                                if ($prestasi[$i - 1] != null) {
+                                                                    if ($prestasi[$i - 1]['tingkat'] == $data_tingkat) {
+                                                                        echo 'selected';
+                                                                    }
+                                                                } ?> value="<?= $data_tingkat; ?>">
                                                 <?= $data_tingkat; ?></option>
                                             <?php endforeach; ?>
                                         </select>
@@ -908,11 +910,11 @@
                                             <option selected></option>
                                             <?php foreach ($juara as $data_juara) : ?>
                                             <option <?php
-                                                if ($prestasi[$i - 1] != null) {
-                                                    if ($prestasi[$i - 1]['juara'] == $data_juara) {
-                                                        echo 'selected';
-                                                    }
-                                                } ?> value="<?= $data_juara; ?>">
+                                                                if ($prestasi[$i - 1] != null) {
+                                                                    if ($prestasi[$i - 1]['juara'] == $data_juara) {
+                                                                        echo 'selected';
+                                                                    }
+                                                                } ?> value="<?= $data_juara; ?>">
                                                 <?= ucfirst($data_juara); ?></option>
                                             <?php endforeach; ?>
                                         </select>
@@ -932,10 +934,10 @@
                                             name="tahun_prestasi_<?= $i; ?>" placeholder="" min="2010" max="2022" />
                                         <div class="invalid-feedback">
                                             <?= ($validation->getError('tahun_prestasi_' . $i) == '') ? 'Bagian tahun prestasi ' . $i . ' wajib diisi' : str_replace(
-                                                                '_',
-                                                                ' ',
-                                                                $validation->getError('tahun_prestasi_' . $i)
-                                                            ); ?>
+                                                        '_',
+                                                        ' ',
+                                                        $validation->getError('tahun_prestasi_' . $i)
+                                                    ); ?>
                                         </div>
                                     </div>
                                 </div>
@@ -1019,8 +1021,11 @@
                                         value=" <?= $file['kk']; ?>" />
                                     <label class=" bg-white" style="cursor: pointer;" for="kk">
                                         <a class="btn btn-secondary">Pilih File</a>
-                                        <?= substr($file['kk'],0,30); ?>
+                                        <?= substr($file['kk'], 0, 30); ?>
                                     </label>
+                                    <div class="invalid-feedback">
+                                        <?= ($validation->getError('scan_kk') == '') ? 'Bagian kategori prestasi wajib diisi' : str_replace('_', ' ', $validation->getError('scan_kk')); ?>
+                                    </div>
                                 </div>
                                 <!-- end scan KK -->
                                 <div class="mb20">
@@ -1034,8 +1039,11 @@
                                         value="<?= $file['ktp']; ?>" />
                                     <label class=" bg-white" style="cursor: pointer;" for="ktp">
                                         <a class="btn btn-secondary">Pilih File</a>
-                                        <?= substr($file['ktp'],0,30); ?>
+                                        <?= substr($file['ktp'], 0, 30); ?>
                                     </label>
+                                    <div class="invalid-feedback">
+                                        <?= ($validation->getError('scan_ktp') == '') ? 'Bagian kategori prestasi wajib diisi' : str_replace('_', ' ', $validation->getError('scan_ktp')); ?>
+                                    </div>
                                 </div>
                                 <!-- end scan KTP -->
                                 <?php if ($identitas['id_status_peserta'] == 1 || $identitas['id_status_peserta'] == 2) : ?>
@@ -1050,8 +1058,11 @@
                                         id="kartu_pelajar" value="<?= $file['kartu_pelajar']; ?>" />
                                     <label class=" bg-white" style="cursor: pointer;" for="kartu_pelajar">
                                         <a class="btn btn-secondary">Pilih File</a>
-                                        <?= substr($file['kartu_pelajar'],0,30); ?>
+                                        <?= substr($file['kartu_pelajar'], 0, 30); ?>
                                     </label>
+                                    <div class="invalid-feedback">
+                                        <?= ($validation->getError('scan_kartu_pelajar') == '') ? 'Bagian kategori prestasi wajib diisi' : str_replace('_', ' ', $validation->getError('scan_kartu_pelajar')); ?>
+                                    </div>
                                 </div>
                                 <!-- end scan Kartu pelajar -->
                                 <?php else : ?>
@@ -1066,8 +1077,11 @@
                                         accept="application/pdf" id="kartu_pelajar" />
                                     <label class=" bg-white" style="cursor: pointer;" for="kartu_pelajar">
                                         <a class="btn btn-secondary">Pilih File</a>
-                                        <?= substr($file['kartu_pelajar'],0,30); ?>
+                                        <?= substr($file['kartu_pelajar'], 0, 30); ?>
                                     </label>
+                                    <div class="invalid-feedback">
+                                        <?= ($validation->getError('scan_kartu_pelajar') == '') ? 'Bagian kategori prestasi wajib diisi' : str_replace('_', ' ', $validation->getError('scan_kartu_pelajar')); ?>
+                                    </div>
                                 </div>
                                 <!-- end scan Kartu Mahasiswa -->
                                 <?php endif ?>
@@ -1100,8 +1114,11 @@
                                         accept="application/pdf" id="raport_smt" />
                                     <label class=" bg-white" style="cursor: pointer;" for="raport_smt">
                                         <a class="btn btn-secondary">Pilih File</a>
-                                        <?= substr($file['raport_smt'],0,30); ?>
+                                        <?= substr($file['raport_smt'], 0, 30); ?>
                                     </label>
+                                    <div class="invalid-feedback">
+                                        <?= ($validation->getError('scan_raport_smt') == '') ? 'Bagian kategori prestasi wajib diisi' : str_replace('_', ' ', $validation->getError('scan_raport_smt')); ?>
+                                    </div>
                                 </div>
                                 <!-- end scan raport smt terakhir -->
                                 <div class="mb20">
@@ -1115,8 +1132,11 @@
                                         accept="application/pdf" id="raport" />
                                     <label class=" bg-white" style="cursor: pointer;" for="raport">
                                         <a class="btn btn-secondary">Pilih File</a>
-                                        <?= substr($file['raport_legalisasi'],0,30); ?>
+                                        <?= substr($file['raport_legalisasi'], 0, 30); ?>
                                     </label>
+                                    <div class="invalid-feedback">
+                                        <?= ($validation->getError('scan_raport') == '') ? 'Bagian kategori prestasi wajib diisi' : str_replace('_', ' ', $validation->getError('scan_raport')); ?>
+                                    </div>
                                 </div>
                                 <!-- end scan raport legalisasi -->
                                 <?php endif ?>
@@ -1132,8 +1152,11 @@
                                         value="<?= $file['sktm']; ?>" id="sktm" />
                                     <label class=" bg-white" style="cursor: pointer;" for="sktm">
                                         <a class="btn btn-secondary">Pilih File</a>
-                                        <?= substr($file['sktm'],0,30); ?>
+                                        <?= substr($file['sktm'], 0, 30); ?>
                                     </label>
+                                    <div class="invalid-feedback">
+                                        <?= ($validation->getError('scan_sktm') == '') ? 'Bagian kategori prestasi wajib diisi' : str_replace('_', ' ', $validation->getError('scan_sktm')); ?>
+                                    </div>
                                 </div>
                                 <!-- end SKTM -->
                                 <?php if ($identitas['id_status_peserta'] == 2) : ?>
@@ -1149,8 +1172,11 @@
                                         accept="application/pdf" id="diterima_pt" />
                                     <label class=" bg-white" style="cursor: pointer;" for="diterima_pt">
                                         <a class="btn btn-secondary">Pilih File</a>
-                                        <?= substr($file['diterima_pt'],0,30); ?>
+                                        <?= substr($file['diterima_pt'], 0, 30); ?>
                                     </label>
+                                    <div class="invalid-feedback">
+                                        <?= ($validation->getError('scan_diterima_pt') == '') ? 'Bagian kategori prestasi wajib diisi' : str_replace('_', ' ', $validation->getError('scan_diterima_pt')); ?>
+                                    </div>
                                 </div>
                                 <!-- end scan diterima perguruan tinggi-->
                                 <?php elseif ($identitas['id_status_peserta'] == 3) : ?>
@@ -1168,8 +1194,11 @@
                                         accept="application/pdf" id="akreditasi_pt" />
                                     <label class=" bg-white" style="cursor: pointer;" for="akreditasi_pt">
                                         <a class="btn btn-secondary">Pilih File</a>
-                                        <?= substr($file['akreditasi_pt'],0,30); ?>
+                                        <?= substr($file['akreditasi_pt'], 0, 30); ?>
                                     </label>
+                                    <div class="invalid-feedback">
+                                        <?= ($validation->getError('scan_akreditasi_pt') == '') ? 'Bagian kategori prestasi wajib diisi' : str_replace('_', ' ', $validation->getError('scan_akreditasi_pt')); ?>
+                                    </div>
                                 </div>
                                 <!-- end scan akreditasi perguruan tinggi-->
                                 <?php endif ?>
@@ -1185,8 +1214,11 @@
                                         accept="application/pdf" id="proposal" />
                                     <label class=" bg-white" style="cursor: pointer;" for="proposal">
                                         <a class="btn btn-secondary">Pilih File</a>
-                                        <?= substr($file['proposal'],0,30); ?>
+                                        <?= substr($file['proposal'], 0, 30); ?>
                                     </label>
+                                    <div class="invalid-feedback">
+                                        <?= ($validation->getError('scan_proposal') == '') ? 'Bagian kategori prestasi wajib diisi' : str_replace('_', ' ', $validation->getError('scan_proposal')); ?>
+                                    </div>
                                 </div>
                                 <!-- end scan_proposal -->
                                 <?php endif ?>
@@ -1235,10 +1267,92 @@
                         </div>
                     </form>
         </div>
+        <?php else : ?>
+        <!-- kirim ulang formulir pendaftaran -->
+        <div class="tab-content bdblue br25 p-4 p-sm-5">
+            <form action="<?= base_url(); ?>/pendaftaran/simpanEditPendaftaran/<?= $identitas['no_induk']; ?>"
+                method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
+                <input type="text" hidden name="scan_formulir_pendaftaran_lama"
+                    value="<?= $file['formulir_pendaftaran']; ?>">
+                <div class="alert alert-primary">
+                    <h6 class="bold">Ketentuan :</h6>
+                    <p class="fs14">
+                        1. Silahkan download formulir pendaftaran <a class="text-decoration-underline"
+                            href="<?= base_url(); ?>/home_pendaftar/download_detail_pendaftar/<?= $identitas['no_induk']; ?>"
+                            target="_blank">Disini</a>
+                    </p>
+                    <p class="fs14">
+                        2. Formulir pendaftaran ditandatangani oleh orang tua/wali
+                    </p>
+                    <p class="fs14">
+                        3. Setelah ditandatangani, unggah formulir pendaftaran melalui kolom unggahan
+                        dibawah ini <strong>(Format file .pdf dan ukuran file tidak boleh lebih dari
+                            8MB)</strong>
+                    </p>
+                </div>
+                <!-- <button class="btn btn-primary mx-3"> -->
+
+                <div class="mb-3"></div>
+                <!-- </button> -->
+                <div class="mb20 upload__ulang">
+                    <label for="scan_formulir_pendaftaran" class="form-label bold">Formulir Pendaftaran
+                        <span class="fs14 lightgrey ms-2"> Contoh penamaan file : (no
+                            induk)_scan_formulir_pendaftaran<strong>.pdf</strong></span></label>
+                    <input hidden required id="formulir_pendaftaran"
+                        class="form-control w-100 <?= ($validation->hasError('scan_formulir_pendaftaran')) ? 'is-invalid' : ''; ?>"
+                        name="scan_formulir_pendaftaran" type="file" accept="application/pdf" />
+                    <label class=" bg-white" style="cursor: pointer;" for="formulir_pendaftaran">
+                        <a class="btn btn-secondary">Pilih File</a>
+                        <?= $file['formulir_pendaftaran']; ?>
+                    </label>
+                    <div class="invalid-feedback">
+                        <?= ($validation->getError('scan_formulir_pendaftaran') == '') ? 'Bagian scan formulir pendaftaran wajib diisi dan ukuran file tidak boleh lebih dari 8MB' : str_replace('_', ' ', $validation->getError('scan_formulir_pendaftaran')); ?>
+                    </div>
+                </div>
+                <!-- end scan Kartu pelajar -->
+                <!-- Submit -->
+                <div class="row pb40">
+                    <div class="row pb40">
+                        <div class="col-12 text-end">
+                            <button type="button" data-bs-toggle="modal" data-bs-target="#save_formulir_modal"
+                                class="btn btn-primary fs18 px-4 py-2">
+                                Simpan
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- end submit -->
+                <!-- SAVE  Modal -->
+                <div class="modal fade" id="save_formulir_modal" tabindex="-1" aria-labelledby="saveModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title bold" id="saveModalLabel">
+                                    Yakin ingin mengirim data?
+                                </h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                Pastikan data yang anda masukkan sudah benar.
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary fw-normal" data-bs-dismiss="modal">
+                                    Batal
+                                </button>
+                                <button type="submit" class="btn btn-success fw-normal">Simpan</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <?php endif; ?>
+
     </div>
 </div>
 <script>
-
 // hide prestasi
 <?php if ($prestasi[1] == null) : ?>
 $(document).ready(function() {
@@ -1260,7 +1374,7 @@ function tambah_edit_prestasi_2() {
     $("#label-tambah-1").hide();
 }
 // jika terdapat error dalam input prestasi 2
-<?php if ($validation->getError('scan_prestasi_2') != null || $validation->getError('nama_prestasi_2') != null || $validation->getError('kategori_2') != null || $validation->getError('tahun_prestasi_2') != null) :?>
+<?php if ($validation->getError('scan_prestasi_2') != null || $validation->getError('nama_prestasi_2') != null || $validation->getError('kategori_2') != null || $validation->getError('tahun_prestasi_2') != null) : ?>
 $(document).ready(function() {
 
     $("#edit_prestasi_2").show();
@@ -1268,16 +1382,17 @@ $(document).ready(function() {
     $("#icon-tambah-1").hide();
     $("#label-tambah-1").hide();
 });
-    <?php endif ?>
-    function tambah_edit_prestasi_3() {
-        console.log('loogag');
-        $("#edit_prestasi_3").show();
+<?php endif ?>
+
+function tambah_edit_prestasi_3() {
+    console.log('loogag');
+    $("#edit_prestasi_3").show();
     // $("#prestasi_3_modal").show();
     $("#icon-tambah-2").hide();
     $("#label-tambah-2").hide();
 }
 // jika terdapat error dalam input prestasi 2
-<?php if ($validation->getError('scan_prestasi_3') != null || $validation->getError('nama_prestasi_3') != null || $validation->getError('kategori_3') != null || $validation->getError('tahun_prestasi_3') != null) :?>
+<?php if ($validation->getError('scan_prestasi_3') != null || $validation->getError('nama_prestasi_3') != null || $validation->getError('kategori_3') != null || $validation->getError('tahun_prestasi_3') != null) : ?>
 $(document).ready(function() {
 
     $("#edit_prestasi_3").show();
