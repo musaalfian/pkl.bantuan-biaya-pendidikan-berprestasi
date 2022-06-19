@@ -83,6 +83,12 @@
                 Maaf, anda dinyatakan belum lolos seleksi pendaftaran bantuan biaya pendidikan.
             </h2>
         </div>
+        <?php if ($identitas['pesan'] != null) : ?>
+        <p class="fs16 fw-bold mb-2">Alasan :</p>
+        <div class="alert alert-primary bg-transparent" role="alert">
+            <?= $identitas['pesan']; ?>
+        </div>
+        <?php endif ?>
         <?php } ?>
 
         <!-- pengumuman bagi yang lulus -->
