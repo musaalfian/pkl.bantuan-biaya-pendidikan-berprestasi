@@ -1224,19 +1224,7 @@
     </div>
 </div>
 <script>
-// dropify upload foto
-$(".lampiran-foto").dropify({
-    error: {
-        fileSize: "Ukuran gambar terlalu besar ({{ value }} maksimal).",
-        fileExtension: "format file tidak diperbolehkan, hanya ({{ value }} yang diperbolehkan).",
-    },
-    messages: {
-        default: "Tarik dan letakkan file disini atau pilih",
-        replace: "Tarik dan letakkan atau pilih gambar baru",
-        remove: "Hapus",
-        error: "Ooops, Terdapat kesalahan.",
-    },
-});
+
 // hide prestasi
 <?php if ($prestasi[1] == null) : ?>
 $(document).ready(function() {
@@ -1266,6 +1254,20 @@ function tambah_edit_prestasi_3() {
     $("#icon-tambah-2").hide();
     $("#label-tambah-2").hide();
 }
+
+// dropify upload foto
+$(".lampiran-foto").dropify({
+    error: {
+        fileSize: "Ukuran gambar terlalu besar ({{ value }} maksimal).",
+        fileExtension: "format file tidak diperbolehkan, hanya ({{ value }} yang diperbolehkan).",
+    },
+    messages: {
+        default: "Tarik dan letakkan file disini atau pilih",
+        replace: "Tarik dan letakkan atau pilih gambar baru",
+        remove: "Hapus",
+        error: "Ooops, Terdapat kesalahan.",
+    },
+});
 </script>
 <!-- End form pendaftaran -->
 <?= $this->endSection(); ?>
