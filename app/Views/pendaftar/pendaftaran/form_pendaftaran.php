@@ -989,14 +989,14 @@
                                         2. Semua file di upload dan ukuran file tidak boleh lebih dari
                                         <strong>2MB</strong>
                                     </p>
-                                    <?php if ($id_peserta == 1): ?>
+                                    <?php if ($id_peserta == 1) : ?>
                                     <p class="fs14">
                                         3. Prestasi yang dapat di upload antara lain : prestasi akademik, non akademik,
                                         paskibra, peserta lomba perorangan, peserta lomba kelompok,
                                         surat keterangan tahfidz / lulus tahfidz Al Quran dengan
                                         minimal 4 juz
                                     </p>
-                                    <?php elseif ($id_peserta == 2): ?>
+                                    <?php elseif ($id_peserta == 2) : ?>
                                     <p class="fs14">
                                         3. Prestasi yang dapat di upload antara lain : prestasi akademik, non akademik,
                                         peserta lomba perorangan, peserta lomba kelompok, surat
@@ -1004,7 +1004,7 @@
                                         juz, nilai ujian sekolah, sertifikat bahasa inggris atau
                                         bahasa arab yang masih berlaku
                                     </p>
-                                    <?php else: ?>
+                                    <?php else : ?>
                                     <p class="fs14">
                                         3. Prestasi yang dapat di upload antara lain : prestasi akademik, non akademik,
                                         peserta lomba perorangan, peserta lomba kelompok, surat
@@ -1222,7 +1222,9 @@
                                 <!-- lampiran dokumen -->
                                 <h3 class="mb20 fs20">E. Lampiran Dokumen</h3>
                                 <?php if ($id_peserta == 2 || $id_peserta == 3) : ?>
-                                    <p>Sistematika proposal bantuan biaya pendidikan : <a href="<?= base_url(); ?>/assets/informasi/file/Sistematika Proposal.pdf">Unduh disini</a> </p>
+                                <p>Sistematika proposal bantuan biaya pendidikan : <a
+                                        href="<?= base_url(); ?>/assets/informasi/file/Sistematika Proposal.pdf">Unduh
+                                        disini</a> </p>
                                 <?php endif ?>
                                 <div class="alert alert-primary">
                                     <h6 class="bold">Ketentuan :</h6>
@@ -1238,11 +1240,11 @@
                                         3. Untuk "Scan Surat Keterangan Tidak Mampu", dokumen berupa : <strong>RTSM/RTM,
                                             PKH, KIP, atau Surat desa yatim/piatu</strong>
                                     </p>
-                                <?php if ($id_peserta == 1) : ?>
+                                    <?php if ($id_peserta == 1) : ?>
                                     <p class="fs14">
                                         4. Untuk "Scan Raport Legalisasi", Raport sudah dilegalisasi oleh Kepala Sekolah
                                     </p>
-                                <?php endif ?>
+                                    <?php endif ?>
                                 </div>
                                 <div class="row">
                                     <div class="col-12 col-md-6">
@@ -1335,7 +1337,8 @@
                                         <div class="mb20">
                                             <label for="scan_diterima_pt" class="form-label bold">Scan Keterangan
                                                 Diterima Perguruan Tinggi <span class="fs14 lightgrey ms-2"> Contoh
-                                                    penamaan file : (no induk)_scan_kk<strong>.pdf</strong></span>
+                                                    penamaan file : (no
+                                                    induk)_scan_diteima_pt<strong>.pdf</strong></span>
                                             </label>
                                             <input required id="diterima_pt"
                                                 class="form-control <?= ($validation->hasError('scan_diterima_pt')) ? 'is-invalid' : ''; ?>"
@@ -1352,7 +1355,8 @@
                                         <div class="mb20">
                                             <label for="scan_akreditasi_pt" class="form-label bold">Scan Surat
                                                 Akreditasi Perguruan Tinggi <span class="fs14 lightgrey ms-2"> Contoh
-                                                    penamaan file : (no induk)_scan_kk<strong>.pdf</strong></span>
+                                                    penamaan file : (no
+                                                    induk)_scan_akreditasi_pt<strong>.pdf</strong></span>
                                             </label>
 
                                             <input required id="akreditasi_pt"

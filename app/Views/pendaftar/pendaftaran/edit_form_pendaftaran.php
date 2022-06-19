@@ -782,7 +782,7 @@
                         <div class="mb20">
 
                             <?php for ($i = 1; $i <= 3; $i++) : ?>
-                            <div class="row" id="prestasi_<?= $i ?>">
+                            <div class="row" id="edit_prestasi_<?= $i ?>">
                                 <!-- file prestasi -->
                                 <div class="col-6 col-xl-2">
                                     <div class="mb20">
@@ -798,7 +798,7 @@
                                             for="file_prestasi_<?= $i; ?>">
                                             <a class="btn btn-secondary">Pilih File</a>
                                             <?php if ($prestasi[$i - 1] != null) { ?>
-                                            <?= $prestasi[$i - 1]['file_prestasi']; ?>
+                                            <?= substr($prestasi[$i - 1]['file_prestasi'],0,15); ?>
                                             <?php } else { ?>
                                             Tidak ada file yang dipilih
                                             <?php } ?>
@@ -961,7 +961,7 @@
                                                 data-bs-dismiss="modal">
                                                 Batal
                                             </button>
-                                            <a class="btn btn-primary" onclick="tambah_prestasi_<?= $i + 1; ?>()"
+                                            <a class="btn btn-primary" onclick="tambah_edit_prestasi_<?= $i + 1; ?>()"
                                                 data-bs-dismiss="modal">Tambah</a>
                                         </div>
                                     </div>
@@ -992,16 +992,21 @@
                             </p>
                             <?php endif ?>
                         </div>
-                        <div class="row pb40">
+                        <div class="row pb40" id="edit_lampiran">
                             <div class="col-12 col-md-6">
                                 <div class="mb20">
                                     <label for="label_scan_kk" class="form-label bold">Scan Kartu Keluarga (KK) <span
                                             class="fs14 lightgrey ms-2"> Contoh penamaan file : (no
                                             induk)_scan_kk<strong>.pdf</strong></span></label>
-                                    <input
+
+                                    <input hidden
                                         class="form-control custom-file-input   <?= ($validation->hasError('scan_kk')) ? 'is-invalid' : ''; ?>"
                                         name="scan_kk" type="file" accept="application/pdf" id="kk"
                                         value=" <?= $file['kk']; ?>" />
+                                    <label class=" bg-white" style="cursor: pointer;" for="kk">
+                                        <a class="btn btn-secondary">Pilih File</a>
+                                        <?= substr($file['kk'],0,30); ?>
+                                    </label>
                                 </div>
                                 <!-- end scan KK -->
                                 <div class="mb20">
@@ -1009,10 +1014,14 @@
                                         <span class="fs14 lightgrey ms-2"> Contoh penamaan file : (no
                                             induk)_scan_ktp<strong>.pdf</strong></span>
                                     </label>
-                                    <input
+                                    <input hidden
                                         class="form-control <?= ($validation->hasError('scan_ktp')) ? 'is-invalid' : ''; ?>"
                                         name="scan_ktp" type="file" accept="application/pdf" id="ktp"
                                         value="<?= $file['ktp']; ?>" />
+                                    <label class=" bg-white" style="cursor: pointer;" for="ktp">
+                                        <a class="btn btn-secondary">Pilih File</a>
+                                        <?= substr($file['ktp'],0,30); ?>
+                                    </label>
                                 </div>
                                 <!-- end scan KTP -->
                                 <?php if ($identitas['id_status_peserta'] == 1) : ?>
@@ -1021,10 +1030,14 @@
                                         <span class="fs14 lightgrey ms-2"> Contoh penamaan file : (no
                                             induk)_scan_kartu_pelajar<strong>.pdf</strong></span>
                                     </label>
-                                    <input
+                                    <input hidden
                                         class="form-control <?= ($validation->hasError('scan_kartu_pelajar')) ? 'is-invalid' : ''; ?>"
                                         name="scan_kartu_pelajar" type="file" accept="application/pdf"
                                         id="kartu_pelajar" value="<?= $file['kartu_pelajar']; ?>" />
+                                    <label class=" bg-white" style="cursor: pointer;" for="kartu_pelajar">
+                                        <a class="btn btn-secondary">Pilih File</a>
+                                        <?= substr($file['kartu_pelajar'],0,30); ?>
+                                    </label>
                                 </div>
                                 <!-- end scan Kartu pelajar -->
                                 <?php else : ?>
@@ -1033,16 +1046,20 @@
                                         <span class="fs14 lightgrey ms-2"> Contoh penamaan file : (no
                                             induk)_scan_ktm<strong>.pdf</strong></span>
                                     </label>
-                                    <input
+                                    <input hidden
                                         class="form-control <?= ($validation->hasError('scan_kartu_pelajar')) ? 'is-invalid' : ''; ?>"
                                         name="scan_kartu_pelajar" type="file" value="<?= $file['kartu_pelajar']; ?>"
                                         accept="application/pdf" id="kartu_pelajar" />
+                                    <label class=" bg-white" style="cursor: pointer;" for="kartu_pelajar">
+                                        <a class="btn btn-secondary">Pilih File</a>
+                                        <?= substr($file['kartu_pelajar'],0,30); ?>
+                                    </label>
                                 </div>
                                 <!-- end scan Kartu Mahasiswa -->
                                 <?php endif ?>
                                 <div class="mb20">
-                                    <label for="label_scan_pas_foto" class="form-label bold">Upload Foto Berwarna <span
-                                            class="fs14 lightgrey ms-2"> Contoh penamaan file : (no
+                                    <label for="label_scan_pas_foto" class="form-label bold">Upload Foto Berwarna
+                                        <span class="fs14 lightgrey ms-2"> Contoh penamaan file : (no
                                             induk)_pas_foto<strong>.jpg/.jpeg/.png</strong></span>
                                     </label>
                                     <input
@@ -1060,42 +1077,66 @@
                                     <label for="label_scan_raport_smt" class="form-label bold">Scan Nilai Raport
                                         Semester
                                         Terakhir
+                                        <span class="fs14 lightgrey ms-2"> Contoh penamaan
+                                            file : (no induk)_scan_raport_smt<strong>.pdf</strong></span>
                                     </label>
-                                    <input
+                                    <input hidden
                                         class="form-control <?= ($validation->hasError('scan_raport_smt')) ? 'is-invalid' : ''; ?>"
                                         name="scan_raport_smt" type="file" value="<?= $file['raport_smt']; ?>"
                                         accept="application/pdf" id="raport_smt" />
+                                    <label class=" bg-white" style="cursor: pointer;" for="raport_smt">
+                                        <a class="btn btn-secondary">Pilih File</a>
+                                        <?= substr($file['raport_smt'],0,30); ?>
+                                    </label>
                                 </div>
                                 <!-- end scan raport smt terakhir -->
                                 <div class="mb20">
                                     <label for="label_scan_raport" class="form-label bold">Scan Raport Legalisasi
+                                        <span class="fs14 lightgrey ms-2"> Contoh penamaan file : (no
+                                            induk)_scan_raport_legalisasi<strong>.pdf</strong></span>
                                     </label>
-                                    <input
+                                    <input hidden
                                         class="form-control <?= ($validation->hasError('scan_raport')) ? 'is-invalid' : ''; ?>"
                                         name="scan_raport" type="file" value="<?= $file['raport_legalisasi']; ?>"
                                         accept="application/pdf" id="raport" />
+                                    <label class=" bg-white" style="cursor: pointer;" for="raport">
+                                        <a class="btn btn-secondary">Pilih File</a>
+                                        <?= substr($file['raport_legalisasi'],0,30); ?>
+                                    </label>
                                 </div>
                                 <!-- end scan raport legalisasi -->
                                 <?php endif ?>
                                 <div class="mb20">
                                     <label for="label_scan_sktm" class="form-label bold">Scan Surat Keterangan Tidak
                                         Mampu
+                                        <span class="fs14 lightgrey ms-2"> Contoh penamaan file : (no
+                                            induk)_scan_sktm<strong>.pdf</strong></span>
                                     </label>
-                                    <input
+                                    <input hidden
                                         class="form-control <?= ($validation->hasError('scan_sktm')) ? 'is-invalid' : ''; ?>"
                                         name="scan_sktm" accept="application/pdf" type="file"
                                         value="<?= $file['sktm']; ?>" id="sktm" />
+                                    <label class=" bg-white" style="cursor: pointer;" for="sktm">
+                                        <a class="btn btn-secondary">Pilih File</a>
+                                        <?= substr($file['sktm'],0,30); ?>
+                                    </label>
                                 </div>
                                 <!-- end SKTM -->
                                 <?php if ($identitas['id_status_peserta'] == 2) : ?>
                                 <div class="mb20">
                                     <label for="label_scan_diterima_pt" class="form-label bold">Scan Keterangan Diterima
                                         Perguruan Tinggi
+                                        <span class="fs14 lightgrey ms-2"> Contoh
+                                            penamaan file : (no induk)_scan_diteima_pt<strong>.pdf</strong></span>
                                     </label>
-                                    <input
+                                    <input hidden
                                         class="form-control <?= ($validation->hasError('scan_diterima_pt')) ? 'is-invalid' : ''; ?>"
                                         name="scan_diterima_pt" type="file" value="<?= $file['diterima_pt']; ?>"
                                         accept="application/pdf" id="diterima_pt" />
+                                    <label class=" bg-white" style="cursor: pointer;" for="diterima_pt">
+                                        <a class="btn btn-secondary">Pilih File</a>
+                                        <?= substr($file['diterima_pt'],0,30); ?>
+                                    </label>
                                 </div>
                                 <!-- end scan diterima perguruan tinggi-->
                                 <?php elseif ($identitas['id_status_peserta'] == 3) : ?>
@@ -1104,22 +1145,34 @@
                                         Akreditasi
                                         Perguruan
                                         Tinggi
+                                        <span class="fs14 lightgrey ms-2"> Contoh
+                                            penamaan file : (no induk)_scan_akreditasi_pt<strong>.pdf</strong></span>
                                     </label>
-                                    <input
+                                    <input hidden
                                         class="form-control <?= ($validation->hasError('scan_akreditasi_pt')) ? 'is-invalid' : ''; ?>"
                                         name="scan_akreditasi_pt" type="file" value="<?= $file['akreditasi_pt']; ?>"
                                         accept="application/pdf" id="akreditasi_pt" />
+                                    <label class=" bg-white" style="cursor: pointer;" for="akreditasi_pt">
+                                        <a class="btn btn-secondary">Pilih File</a>
+                                        <?= substr($file['akreditasi_pt'],0,30); ?>
+                                    </label>
                                 </div>
                                 <!-- end scan akreditasi perguruan tinggi-->
                                 <?php endif ?>
                                 <?php if ($identitas['id_status_peserta'] != 1) : ?>
                                 <div class="mb20">
                                     <label for="label_scan_proposal" class="form-label bold">Scan Proposal Bantuan
+                                        <span class="fs14 lightgrey ms-2"> Contoh penamaan file : (no
+                                            induk)_scan_proposal<strong>.pdf</strong></span>
                                     </label>
-                                    <input
+                                    <input hidden
                                         class="form-control <?= ($validation->hasError('scan_proposal')) ? 'is-invalid' : ''; ?>"
-                                        value="<?= $file['proposal']; ?>" name="scan_proposal" type="file"
-                                        value="<?= $file['proposal']; ?>" accept="application/pdf" id="proposal" />
+                                        name="scan_proposal" type="file" value="<?= $file['proposal']; ?>"
+                                        accept="application/pdf" id="proposal" />
+                                    <label class=" bg-white" style="cursor: pointer;" for="proposal">
+                                        <a class="btn btn-secondary">Pilih File</a>
+                                        <?= substr($file['proposal'],0,30); ?>
+                                    </label>
                                 </div>
                                 <!-- end scan_proposal -->
                                 <?php endif ?>
@@ -1184,6 +1237,35 @@ $(".lampiran-foto").dropify({
         error: "Ooops, Terdapat kesalahan.",
     },
 });
+// hide prestasi
+<?php if ($prestasi[1] == null) : ?>
+$(document).ready(function() {
+    $("#edit_prestasi_2").hide();
+    $("#prestasi_2_modal").hide();
+});
+<?php endif ?>
+<?php if ($prestasi[2] == null) : ?>
+$(document).ready(function() {
+    $("#edit_prestasi_3").hide();
+    $("#prestasi_3_modal").hide();
+});
+<?php endif ?>
+
+function tambah_edit_prestasi_2() {
+    $("#edit_prestasi_2").show();
+    // $("#prestasi_2_modal").show();
+    $("#icon-tambah-1").hide();
+    $("#label-tambah-1").hide();
+}
+
+
+function tambah_edit_prestasi_3() {
+    console.log('loogag');
+    $("#edit_prestasi_3").show();
+    // $("#prestasi_3_modal").show();
+    $("#icon-tambah-2").hide();
+    $("#label-tambah-2").hide();
+}
 </script>
 <!-- End form pendaftaran -->
 <?= $this->endSection(); ?>

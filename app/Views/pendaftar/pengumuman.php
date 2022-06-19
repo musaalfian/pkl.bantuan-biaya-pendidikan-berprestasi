@@ -93,30 +93,32 @@
 
         <!-- pengumuman bagi yang lulus -->
         <?php if ($status_final['id_status_final'] == 1) { ?>
-        <?php if ($identitas['no_rek'] == null) : ?>
         <div class="mt40 bdblue br10 p-3 p-lg-5 laporan__dana">
-            <h4 class="black bold">Segera isi laporan rencana penggunaan dana dan nomor rekening dibawah ini
-            </h4>
-            <div class="alert alert-primary mt-3">
-                <h5 class="bold fs14 mb-2">Ketentuan :</h5>
-                <p>1. Semua formulir wajib diisi</p>
-                <p>2. Rekening wajib menggunakan rekening bank BPD Jateng</p>
-                <p>3. Scan rekening tidak lebih dari 2MB dengan format penamaan file : <strong>(no
-                        induk)_scan_bpd.pdf</strong></p>
-            </div>
+
             <!-- laporan penggunaan dana -->
             <div class="mt-3 w-100 content">
                 <!-- jika pndaftar sudah mengisi nomer rekening dan laporan -->
                 <?php if ($file['laporan'] != null) : ?>
+                <div class="mt40">
+                    <h3>Terima kasih telah mengirim laporan rencana penggunaan dan informasi rekening</h3>
+                </div>
                 <div class="alert alert-success">
                     Status pengiriman dana :
                     <span><?= ($identitas['id_status_pembayaran'] == 1) ? 'Belum di transfer' : 'Sudah di transfer'; ?></span>
                 </div>
                 <?php else : ?>
                 <!-- jika pndaftar belum mengisi nomer rekening dan laporan -->
-                <form action="" method="post"></form>
                 <div class="mt15">
                     <?php if ($identitas['no_rek'] == null) : ?>
+                    <h4 class="black bold">Segera isi laporan rencana penggunaan dana dan nomor rekening dibawah ini
+                    </h4>
+                    <div class="alert alert-primary mt-3">
+                        <h5 class="bold fs14 mb-2">Ketentuan :</h5>
+                        <p>1. Semua formulir wajib diisi</p>
+                        <p>2. Rekening wajib menggunakan rekening bank BPD Jateng</p>
+                        <p>3. Scan rekening tidak lebih dari 2MB dengan format penamaan file : <strong>(no
+                                induk)_scan_bpd.pdf</strong></p>
+                    </div>
                     <div class="d-flex align-items-xl-baseline align-items-start">
                         <h6
                             class="text-white fs12 bgblue bd50 d-flex justify-content-center align-items-center mb-0 me-2">
@@ -184,12 +186,15 @@
                     <form action="<?= base_url(); ?>/penerima/simpan_tambah_laporan/<?= $identitas['no_induk']; ?>"
                         class="needs-validation" method="POST" id="tambah_laporan" enctype="multipart/form-data"
                         novalidate>
-                        <label for="laporan" class="mt15">
-                            Isi dan upload scan laporan instrumen penggunaan dana
-                        </label>
-                        <small class="text-red">Format nama file :
-                            (noinduk)_scan_laporan, Contoh: 240601191_scan_laporan</small> <br>
-                        <small class="text-red">*Wajib diisi dan tidak lebih dari 5 MB</small>
+                        <h4 class="black bold">Segera isi dan upload scan laporan instrumen penggunaan dana
+                        </h4>
+                        <div class="alert alert-primary mt-3">
+                            <h5 class="bold fs14 mb-2">Ketentuan :</h5>
+                            <p>1. Berkas wajib diunggah</p>
+                            <p>2. Format nama file :
+                                (noinduk)_scan_laporan, <br> Contoh: 240601191_scan_laporan</p>
+                            <p>3. Berkas tidak lebih dari 5 MB</p>
+                        </div> <br>
                         <div class="mt15">
                             <input class="form-control" id="laporan" name="laporan" type="File" required
                                 accept="application/pdf" />
@@ -206,11 +211,6 @@
                 <?php endif; ?>
             </div>
         </div>
-        <?php else : ?>
-        <div class="mt40">
-            <h3>Terima kasih telah mengirim laporan rencana penggunaan dan informasi rekening</h3>
-        </div>
-        <?php endif; ?>
 
 
         <?php } ?>
