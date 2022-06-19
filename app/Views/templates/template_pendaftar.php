@@ -38,6 +38,8 @@
     <!-- JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/smartwizard@5/dist/js/jquery.smartWizard.min.js" type="text/javascript">
     </script>
+    <script>
+    </script>
 </head>
 
 <body>
