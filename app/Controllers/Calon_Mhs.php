@@ -759,12 +759,12 @@ class Calon_mhs extends BaseController
                 'scan_kk' => 'max_size[scan_kk,2048]|mime_in[scan_kk,application/pdf]',
                 'scan_ktp' => 'max_size[scan_ktp,2048]|mime_in[scan_ktp,application/pdf]',
                 'scan_kartu_pelajar' => 'max_size[scan_kartu_pelajar,2048]|mime_in[scan_kartu_pelajar,application/pdf]',
+                'scan_sktm' => 'max_size[scan_sktm,2048]|mime_in[scan_sktm,application/pdf]',
                 'scan_diterima_pt' => 'max_size[scan_diterima_pt,2048]|mime_in[scan_diterima_pt,application/pdf]',
                 'scan_proposal' => 'max_size[scan_proposal,5120]|mime_in[scan_proposal,application/pdf]',
-                'scan_pas_foto' => 'max_size[scan_pas_foto,2048]|mime_in[scan_pas_foto,image/jpg,image/jpeg,image/png',
-                'scan_sktm' => 'max_size[scan_sktm,2048]|mime_in[scan_sktm,application/pdf]',
+                'scan_pas_foto' => 'max_size[scan_pas_foto,2048]|mime_in[scan_pas_foto,image/jpg,image/jpeg,image/png]',
             ])) {
-                return redirect()->to('pendaftaran/edit_pendaftaran/' . $identitas['no_induk'] . '/' . $identitas['id_status_peserta'])->withInput();
+                return redirect()->to('/pendaftaran/edit_pendaftaran/' . $identitas['no_induk'] . '/' . $identitas['id_status_peserta'])->withInput();
             }
         } else {
             if (!$this->validate([
