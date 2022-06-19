@@ -193,6 +193,8 @@ class Pendaftaran extends BaseController
             $juara = ['juara 1', 'juara 2', 'juara 3', 'paskibra', 'peserta'];
         } // Calom mahasiswa
         elseif ($id_peserta == 2) {
+            $sekolah = null;
+            $transportasi = null;
             $kategori = ['perlombaan', 'hafidz', 'lainnya'];
             $kategori = ['perlombaan', 'ujian sekolah', 'hafidz', 'lainnya'];
         } // Mahasiswa 
