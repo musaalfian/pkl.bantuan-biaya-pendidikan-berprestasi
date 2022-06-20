@@ -14,19 +14,19 @@ return [
 
     // Registration
     'registerDisabled'          => 'Maaf, akun pengguna baru tidak diperbolehkan untuk saat ini.',
-    'registerSuccess'           => 'Selamat bergabung! Harap masuk dengan kredensial baru Anda.',
+    'registerSuccess'           => 'Pendaftaran berhasil! Silahkan masuk dengan akun yang Anda buat.',
     'registerCLI'               => 'Pengguna baru dibuat: {0}, #{1}',
 
     // Activation
     'activationNoUser'          => 'Tidak dapat menemukan pengguna dengan kode aktivasi tersebut.',
     'activationSubject'         => 'Aktivasi akun anda',
-    'activationSuccess'         => 'Silahkan konfirmasi akun anda dengan mengklik tombol aktivasi yang kami kirimkan di email anda.',
+    'activationSuccess'         => 'Silahkan konfirmasi akun Anda dengan mengklik tombol aktivasi yang kami kirimkan di email Anda.',
     'activationResend'          => 'Kirim ulang pesan aktivasi sekali lagi.',
     'notActivated'              => 'Akun pengguna ini belum diaktifkan.',
     'errorSendingActivation'    => 'Gagal mengirim pesan aktivasi ke: {0}',
 
     // Login
-    'badAttempt'                => 'Tidak dapat memasukkan Anda. Harap periksa kredensial Anda.',
+    'badAttempt'                => 'Masuk gagal. Periksa kembali akun Anda dan pastikan data yang Anda masukkan benar.',
     'loginSuccess'              => 'Selamat datang kembali!',
     'invalidPassword'           => 'Tidak dapat memasukkan Anda. Harap periksa kata sandi Anda.',
 

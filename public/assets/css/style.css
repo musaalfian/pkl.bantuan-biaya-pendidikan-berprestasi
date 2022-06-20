@@ -642,7 +642,7 @@ footer .user a:hover {
 /*================ Masuk =================*/
 /* Kata sandi */
 .awal .input__sandi span {
-  top: 10%;
+  top: 20%;
   right: 5%;
 }
 .awal .input__sandi i {
@@ -660,7 +660,7 @@ footer .user a:hover {
   background-clip: padding-box;
   border: 1px solid var(--orange);
   background-color: var(--orange);
-  border-radius: 10px;
+  border-radius: .25rem;
 }
 .ubah__captcha {
   top: 20%;
@@ -673,6 +673,11 @@ footer .user a:hover {
 .errmsg {
   color: red;
   font-size: 14px;
+}
+
+/* Daftar */
+.badge {
+  padding: .375rem .75rem !important;
 }
 
 /* Lupa sandi */
