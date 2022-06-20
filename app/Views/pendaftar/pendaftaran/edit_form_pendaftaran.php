@@ -800,7 +800,7 @@
                             <?php for ($i = 1; $i <= 3; $i++) : ?>
                             <div class="row" id="edit_prestasi_<?= $i ?>">
                                 <!-- file prestasi -->
-                                <div class="col-6 col-xl-2">
+                                <div class="col-6 col-xxl-2">
                                     <div class="mb20">
                                         <label for="scan_prestasi_<?= $i; ?>" class="form-label bold">Scan
                                             Prestasi
@@ -826,7 +826,7 @@
                                     </div>
                                 </div>
                                 <!-- end file prestasi -->
-                                <div class="col-6 col-xl-2">
+                                <div class="col-6 col-xxl-2">
                                     <div class="mb20">
                                         <label for="nama_prestasi_<?= $i; ?>" class="form-label bold">Nama
                                             Prestasi
@@ -835,20 +835,20 @@
                                             value="<?= ($prestasi[$i - 1] != null) ? $prestasi[$i - 1]['nama_prestasi'] : old('nama_prestasi_' . $i); ?>"
                                             <?= ($i == 1) ? 'required' : ''; ?> type="text"
                                             id="nama_prestasi_<?= $i; ?>"
-                                            class="form-control <?= ($validation->hasError('nama_prestasi' . $i)) ? 'is-invalid' : ''; ?>"
-                                            value="<?= old('nama_prestasi' . $i); ?>" name="nama_prestasi_<?= $i; ?>"
+                                            class="form-control <?= ($validation->hasError('nama_prestasi_' . $i)) ? 'is-invalid' : ''; ?>"
+                                            value="<?= old('nama_prestasi_' . $i); ?>" name="nama_prestasi_<?= $i; ?>"
                                             placeholder="" />
                                         <div class="invalid-feedback">
                                             <?= ($validation->getError('nama_prestasi_' . $i) == '') ? 'Bagian nama prestasi wajib diisi' : str_replace(
                                                         '_',
                                                         ' ',
-                                                        $validation->getError('nama_prestasi' . $i)
+                                                        $validation->getError('nama_prestasi_' . $i)
                                                     ); ?>
                                         </div>
                                     </div>
                                 </div>
                                 <!-- end nama prestasi -->
-                                <div class="col-6 col-xl-2">
+                                <div class="col-6 col-xxl-2">
                                     <div class="mb20">
                                         <label for="kategori_<?= $i; ?>" class="form-label bold">Kategori
                                             Prestasi
@@ -877,7 +877,7 @@
                                     </div>
                                 </div>
                                 <!-- end kategori -->
-                                <div class="col-6 col-xl-2">
+                                <div class="col-6 col-xxl-2">
                                     <div class="mb20">
                                         <label for="tingkat_<?= $i; ?>" class="form-label bold">Tingkat Prestasi
                                             <?= ($i == 1) ? '<span class="required-label"></span>' : ''; ?></label>
@@ -899,7 +899,7 @@
                                     <!-- end tingkat prestasi -->
                                 </div>
                                 <!-- end tingkat -->
-                                <div class="col-6 col-xl-2">
+                                <div class="col-6 col-xxl-2">
                                     <div class="mb20">
                                         <label for="juara_<?= $i; ?>" class="form-label bold">Juara
                                             <?= ($i == 1) ? '<span class="required-label"></span>' : ''; ?>
@@ -922,7 +922,7 @@
                                     <!-- end Juara -->
                                 </div>
                                 <!-- end juara -->
-                                <div class="col-6 col-xl-1">
+                                <div class="col-6 col-xxl-1">
                                     <div class="mb20">
                                         <label for="tahun_prestasi_<?= $i; ?>" class="form-label bold">Tahun
                                             <span class="required-label"></span>
@@ -942,7 +942,7 @@
                                     </div>
                                 </div>
                                 <!-- end tahun_prestasi -->
-                                <div class="col-6 col-xl-1 tambah__prestasi">
+                                <div class="col-6 col-xxl-1 tambah__prestasi">
                                     <div class="mb20 text-start">
                                         <?php if ($i != 3 && $prestasi[$i] == null) : ?>
                                         <label for="juara_<?= $i; ?>" id="label-tambah-<?= $i; ?>"
@@ -955,6 +955,7 @@
                                         <?php endif; ?>
                                     </div>
                                 </div>
+                                <hr>
                                 <!-- end tambah prestasi -->
                             </div>
                             <!-- Tambah Prestasi  Modal -->

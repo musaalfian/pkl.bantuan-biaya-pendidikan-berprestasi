@@ -1450,6 +1450,9 @@ tr {
   }
   /* End font */
 
+
+}
+@media (min-width: 1400px) {
   /*================ Form pendaftaran =================*/
   #step-3 .tambah__prestasi div {
     text-align: center !important;
