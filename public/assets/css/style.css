@@ -859,7 +859,7 @@ footer .user a:hover {
   height: unset !important;
 }
 #smartwizard .lampiran-foto-pendaftaran input {
-  height: 100%;
+  height: 100% !important;
 }
 /* Input jenis kelamin */
 #smartwizard .form-check, #edit__pendaftaran .form-check {

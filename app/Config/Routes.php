@@ -31,24 +31,26 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'halaman_awal::halaman_awal');
-$routes->get('/user', 'user::index', ['filter' => 'role:admin,pendaftar']);
+$routes->get('/', 'Halaman_awal::halaman_awal');
+$routes->get('/user', 'User::index', ['filter' => 'role:admin,pendaftar']);
 // $routes->get('/', 'Home_Pendaftar::index');
 
 /**** ADMIN ****/
-$routes->add('/admin_daftar_penerima/(:any)', 'admin_daftar_penerima::$1',  ['filter' => 'role:admin']);
-$routes->add('/admin_data_pendaftaran/(:any)', 'admin_data_pendaftaran::$1',  ['filter' => 'role:admin']);
-$routes->add('/admin_detail_pendaftaran/(:any)', 'admin_detail_pendaftaran::$1',  ['filter' => 'role:admin']);
-$routes->add('/admin_download/(:any)', 'admin_download::$1',  ['filter' => 'role:admin']);
-$routes->add('/admin_informasi/(:any)', 'admin_informasi::$1',  ['filter' => 'role:admin']);
-$routes->add('/home_admin/(:any)', 'home_admin::$1',  ['filter' => 'role:admin']);
+$routes->add('/admin_daftar_penerima/(:any)', 'Admin_daftar_penerima::$1',  ['filter' => 'role:admin']);
+$routes->add('/admin_data_pendaftaran/(:any)', 'Admin_data_pendaftaran::$1',  ['filter' => 'role:admin']);
+$routes->add('/admin_detail_pendaftaran/(:any)', 'Admin_detail_pendaftaran::$1',  ['filter' => 'role:admin']);
+$routes->add('/admin_download/(:any)', 'Admin_download::$1',  ['filter' => 'role:admin']);
+$routes->add('/admin_informasi/(:any)', 'Admin_informasi::$1',  ['filter' => 'role:admin']);
+$routes->add('/home_admin/(:any)', 'Home_admin::$1',  ['filter' => 'role:admin']);
 
 /**** Pendaftar ****/
 // $routes->add('/home_pendaftar/download_detail_pendaftar/(:num)', 'home_pendaftar::download_detail_pendaftar/$1',  ['filter' => 'role: pendaftar']);
-$routes->add('/calon_mhs/(:any)', 'calon_mhs::$1',  ['filter' => 'role:pendaftar']);
-$routes->add('/mahasiswa/(:any)', 'mahasiswa::$1',  ['filter' => 'role:pendaftar']);
-$routes->add('/siswa/(:any)', 'siswa::$1',  ['filter' => 'role:pendaftar']);
-$routes->add('/penerima/(:any)', 'penerima::$1',  ['filter' => 'role:pendaftar']);
+$routes->add('/calon_mhs/(:any)', 'Calon_mhs::$1',  ['filter' => 'role:pendaftar']);
+$routes->add('/mahasiswa/(:any)', 'Mahasiswa::$1',  ['filter' => 'role:pendaftar']);
+$routes->add('/siswa/(:any)', 'Siswa::$1',  ['filter' => 'role:pendaftar']);
+$routes->add('/penerima/(:any)', 'Penerima::$1',  ['filter' => 'role:pendaftar']);
+$routes->add('/home_pendaftar/(:any)', 'Home_pendaftar::$1',  ['filter' => 'role:pendaftar']);
+$routes->add('/pendaftaran/(:any)', 'Pendaftaran::$1',  ['filter' => 'role:pendaftar']);
 
 /*
  * --------------------------------------------------------------------
