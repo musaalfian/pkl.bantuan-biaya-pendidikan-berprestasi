@@ -29,4 +29,5 @@ return [
     'max_size'          => "Ukuran gambar {field} terlalu besar",
     'is_image'          => "Bagian {field} bukan sebuah gambar",
     "mime_in"           => "Bagian {field} bukan sebuah gambar",
+    "uploaded"           => "Bagian {field} wajib diunggah",
 ];

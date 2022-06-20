@@ -48,6 +48,7 @@ class Pendaftaran extends BaseController
         $this->db = \Config\Database::connect();
         // $UsersModel = new \Myth\Auth\Models\UserModel();
     }
+    // menampilkan form tambah data pendaftaran
     public function tambah_pendaftar($id_peserta)
     {
         // form identitas
@@ -116,6 +117,7 @@ class Pendaftaran extends BaseController
         ];
         return view('/pendaftar/pendaftaran/form_pendaftaran', $data);
     }
+    // menampilkan form review data pendaftaran
     public function review_pendaftaran($no_induk)
     {
         session();
@@ -161,6 +163,7 @@ class Pendaftaran extends BaseController
         ];
         return view('/pendaftar/pendaftaran/review_pendaftaran', $data);
     }
+    // menyimpan data pendaftaran
     public function simpanPendaftaran($no_induk)
     {
         $data = [
@@ -169,6 +172,7 @@ class Pendaftaran extends BaseController
         $this->MIdentitas->update($no_induk, $data);
         return redirect()->to('home_pendaftar/pengumuman');
     }
+    // menampilkan form edit pendaftaran
     public function edit_pendaftaran($no_induk, $id_peserta)
     {
         session();
@@ -184,26 +188,32 @@ class Pendaftaran extends BaseController
         $prestasi = $this->MPrestasi->find_prestasi_noinduk($no_induk)->getResultArray();
         $file = $this->MFile->find_file_noinduk($no_induk)->getFirstRow('array');
         $tingkat = ['internasional', 'nasional', 'provinsi', 'karesidenan', 'kabupaten'];
+        $juara = ['juara 1', 'juara 2', 'juara 3', 'paskibra', 'peserta'];
+        $akreditasi = ['A', 'B', 'C'];
+        $semester_ke = ['1', '2', '3', '4', '5', '6', '7', '8'];
 
         // Siswa
         if ($id_peserta == 1) {
             $sekolah = $this->MSekolah->findAll();
             $transportasi = $this->MTransportasi->findAll();
             $kategori = ['perlombaan', 'hafidz', 'lainnya'];
-            $juara = ['juara 1', 'juara 2', 'juara 3', 'paskibra', 'peserta'];
         } // Calom mahasiswa
         elseif ($id_peserta == 2) {
             $kategori = ['perlombaan', 'hafidz', 'lainnya'];
+            $sekolah = null;
+            $transportasi = null;
             $kategori = ['perlombaan', 'ujian sekolah', 'hafidz', 'lainnya'];
         } // Mahasiswa 
         else {
             $kategori = ['perlombaan', 'KHS', 'hafidz', 'lainnya'];
+            $sekolah = null;
+            $transportasi = null;
         }
         for ($i = count($prestasi) + 1; $i <= 3; $i++) {
             $prestasi[] = null;
         }
         $opsional = ['ya', 'tidak'];
-        // dd($prestasi);
+        // dd($validation->getError('scan_prestasi_2'));
         $data = [
             'title'     => 'Beasiswa Batang | Daftar Beasiswa',
             'validation'    => $validation,
@@ -221,8 +231,50 @@ class Pendaftaran extends BaseController
             'pendidikan'    => $pendidikan,
             'tingkat'   => $tingkat,
             'juara'     => $juara,
+            'akreditasi_pt'     => $akreditasi,
+            'semester_ke'     => $semester_ke,
+            
             'opsional'  => $opsional
         ];
         return view('/pendaftar/pendaftaran/edit_form_pendaftaran', $data);
+    }
+    // simpan edit formulir pendaftaran
+    public function simpanEditPendaftaran($no_induk)
+    {
+        $id_peserta = $this->MIdentitas->where('no_induk', $no_induk)->findColumn('id_status_peserta');
+        $formulir_pendaftaran = $this->request->getFile('scan_formulir_pendaftaran');
+        $formulir_pendaftaran_lama = $this->request->getVar('scan_formulir_pendaftaran_lama');
+        if (!$this->validate(
+            [
+                'scan_formulir_pendaftaran' => 'uploaded[scan_formulir_pendaftaran]|mime_in[scan_formulir_pendaftaran,application/pdf]',
+            ],
+            [   // Errors
+                'scan_formulir_pendaftaran' => [
+                    'mime_in' => 'Scan prestasi harus berupa file PDF',
+                ],
+            ]
+        )) {
+            return redirect()->to('pendaftaran/tambah_pendaftar/' . $id_peserta[0])->withInput();
+        }
+        if ($formulir_pendaftaran->getError() != 4) {
+            // mengambil nama file scan dan dimasukkan ke array
+            $nama_formulir_pendaftaran = $formulir_pendaftaran->getName();
+            // memindahkan file scan ke folder scan
+            $formulir_pendaftaran->move('assets/scan/' . $no_induk . '/file');
+            unlink('assets/scan/' . $no_induk . '/file/' . $formulir_pendaftaran_lama);
+        } else {
+            $nama_formulir_pendaftaran = null;
+        }
+        $file = $this->MFile->find_file_noinduk($no_induk)->getFirstRow('array');
+        $this->MFile->update($file['id_file'], [
+            'formulir_pendaftaran' => $nama_formulir_pendaftaran
+        ]);
+        // update status pendaftaran
+        $data = [
+            'id_status_pendaftaran'    => 4,
+            'status_edit_pendaftaran'    => null
+        ];
+        $this->MIdentitas->update($no_induk, $data);
+        return redirect()->to('home_pendaftar/pengumuman');
     }
 }

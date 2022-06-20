@@ -23,9 +23,11 @@
                     $tanggal_sekarang['mday'] <= 31))
         ) { ?>
         <div class="bg-white br25 p-4 p-sm-5 content">
-            <h3 class="biru fs24">Terima kasih!</h3>
-            <h4 class="mt-3 blue fs16">Anda telah mendaftar, bantuan biaya pendidikan
-                berprestasi sedang diproses. Untuk lebih lanjut, silahkan tunggu informasi selanjutnya.</h4>
+            <h3 class="biru">Terima kasih!</h3>
+            <h4 class="mt-3 biru">Pengumuman akan disampaikan pada tanggal : <?= date_format($tanggal, 'd-m-Y'); ?>
+            </h4>
+            <h5 class="mt-3 blue">Anda telah mendaftar, bantuan biaya pendidikan
+                berprestasi sedang diproses. Untuk lebih lanjut, silahkan tunggu informasi selanjutnya.</h5>
             <div
                 class="alert mt-3 fs14 <?= ($status_pendaftaran['id_status_pendaftaran'] == 4) ? 'alert-primary' : (($status_pendaftaran['id_status_pendaftaran'] == 3) ? 'alert-warning' : (($status_pendaftaran['id_status_pendaftaran'] == 2) ? 'alert-danger' : 'alert-success')); ?>">
                 Status pendaftaran : <span><?= $status_pendaftaran['nama_status']; ?></span>

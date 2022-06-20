@@ -134,10 +134,10 @@
                     </p>
                     <form action="<?php base_url() ?>/admin_daftar_penerima/ubah_status_pembayaran/<?= $data['no_induk'] ?>/1" method="POST">
 
-                        <div class="form-check">
+                        <div class="form-checks  mt-3 mb-3">
 
                             <?php foreach ($status_pembayaran as $status_pembayarans) : ?>
-                                <input type="radio" id="statusPembayaranSemua_<?= $status_pembayarans['id_status_pembayaran']; ?>" class="form-check-input" name="statusPembayaran" value="<?= $status_pembayarans['id_status_pembayaran']; ?>">
+                                <input type="radio" id="statusPembayaranSemua_<?= $status_pembayarans['id_status_pembayaran']; ?>" class="form-check-input ms-2" name="statusPembayaran" value="<?= $status_pembayarans['id_status_pembayaran']; ?>">
                                 <label class="form-check-label" for="statusPembayaranSemua_<?= $status_pembayarans['id_status_pembayaran']; ?>">
                                     <?= $status_pembayarans['nama_status_pembayaran']; ?>
                                 </label>
@@ -168,7 +168,7 @@
                     <form action="<?php base_url() ?>/admin_daftar_penerima/ubah_nomor_rekening/<?= $datas['no_induk'] ?>/1" method="POST">
                         <p class="bold">Nomor Rekening saat ini : <?= $datas['no_rek']; ?></p>
                         <label for="" class="mt-2">Ubah Nomor rekening</label>
-                        <input type="number" value="<?= $datas['no_rek']; ?>" class="border w-100" name="nomorRekening">
+                        <input type="number" value="<?= $datas['no_rek']; ?>" class="rounded mt-2 p-2 w-100" name="nomorRekening">
                         <div class="modal-footer">
                             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
                             <button type="submit" class="btn btn-primary">Simpan</button>
@@ -194,7 +194,7 @@
                         <label for="" class="mt-2">Ubah Nominal Beasiswa</label>
                         <span>
                             Rp.
-                            <input type="number" value="<?= $datas['nominal']; ?>" class="d-inline border-0 w-75 ml-2" name="nominal">
+                            <input type="number" value="<?= $datas['nominal']; ?>" placeholder="Masukkan Nominal Angka" class="d-inline p-2  mt-2 rounded w-100 ml-2" name="nominal">
                         </span>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>

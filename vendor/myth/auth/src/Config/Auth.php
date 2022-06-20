@@ -38,13 +38,13 @@ class Auth extends BaseConfig
 	 */
 	public $views = [
 		// 'login'		   => 'Myth\Auth\Views\login',
-		'login'		   => '\App\Views\Login\login',
+		'login'		   => 'Myth\Auth\Views\login',
 		// 'register'		=> 'Myth\Auth\Views\register',
-		'register'		=> '\App\Views\Login\daftar',
+		'register'		=> 'Myth\Auth\Views\daftar',
 		// 'forgot'		  => 'Myth\Auth\Views\forgot',
-		'forgot'		  => '\App\Views\Login\lupa_password',
+		'forgot'		  => 'Myth\Auth\Views\lupa_password',
 		// 'reset'		   => 'Myth\Auth\Views\reset',
-		'reset'		   => '\App\Views\Login\ganti-sandi',
+		'reset'		   => 'Myth\Auth\Views\ganti-sandi',
 		'emailForgot'	 => 'Myth\Auth\Views\emails\forgot',
 		'emailActivation' => 'Myth\Auth\Views\emails\activation',
 	];

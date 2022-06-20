@@ -9,14 +9,14 @@ class MIdentitas extends Model
         protected $table = 'identitas';
 
         protected $primaryKey = 'no_induk';
-        protected $allowedFields = ['no_induk', 'no_induk_pelajar', 'nama_lengkap', 'jenis_kelamin', 'ttl', 'id_agama', 'anak_ke', 'no_telepon', 'alamat_rumah', 'id_kecamatan', 'jarak_sekolah', 'no_rek', 'nama_pemilik_rekening', 'id_transportasi', 'id_sekolah', 'kelas', 'nama_pt', 'akreditasi_pt', 'tahun_masuk_pt', 'semester_ke', 'alamat_pt', 'id_status_peserta', 'id_status_pendaftaran', 'id_status_pembayaran', 'id_status_final', 'id_keluarga',  'id_file', 'pesan', 'pernah_menerima_bantuan', 'menerima_bantuan_dari', 'nominal', 'nama_pemilik_rekening'];
+        protected $allowedFields = ['no_induk', 'no_induk_pelajar', 'nama_lengkap', 'jenis_kelamin', 'ttl', 'id_agama', 'anak_ke', 'no_telepon', 'alamat_rumah', 'id_kecamatan', 'jarak_sekolah', 'no_rek', 'nama_pemilik_rekening', 'id_transportasi', 'id_sekolah', 'kelas', 'nama_pt', 'akreditasi_pt', 'tahun_masuk_pt', 'semester_ke', 'alamat_pt', 'id_status_peserta', 'id_status_pendaftaran','status_edit_pendaftaran', 'id_status_pembayaran', 'id_status_final', 'id_keluarga',  'id_file', 'pesan', 'pernah_menerima_bantuan', 'menerima_bantuan_dari', 'nominal', 'nama_pemilik_rekening'];
 
 
         // mencari identitas berdasarkan user id
         public function find_identitas_user($user_id)
         {
                 $builder = $this->db->table('identitas');
-                $builder->select('identitas.no_induk,no_induk_pelajar, nama_lengkap,jenis_kelamin,ttl, id_agama, anak_ke, no_telepon, alamat_rumah, id_kecamatan,jarak_sekolah, id_transportasi,id_sekolah, kelas,nama_pt,akreditasi_pt,tahun_masuk_pt,semester_ke, alamat_pt, id_status_peserta,id_status_pendaftaran, id_status_pembayaran, id_status_final, pesan, pernah_menerima_bantuan, menerima_bantuan_dari, no_rek');
+                $builder->select('identitas.no_induk,no_induk_pelajar, nama_lengkap,jenis_kelamin,ttl, id_agama, anak_ke, no_telepon, alamat_rumah, id_kecamatan,jarak_sekolah, id_transportasi,id_sekolah, kelas,nama_pt,akreditasi_pt,tahun_masuk_pt,semester_ke, alamat_pt, id_status_peserta,id_status_pendaftaran, id_status_pembayaran, id_status_final,status_edit_pendaftaran, pesan, pernah_menerima_bantuan, menerima_bantuan_dari, no_rek');
                 $builder->join('users', 'users.no_induk = identitas.no_induk');
                 $builder->where('id', $user_id);
                 $query = $builder->get();

@@ -673,7 +673,8 @@
                                             <label for="penghasilan_ayah" class="form-label bold">Penghasilan per Bulan
                                                 Ayah
                                                 / Wali
-                                                <span class="required-label">*</span></label>
+                                                <span class="required-label">* </span></label>
+                                            <p>Contoh : 2000000 (tanpa menggunakan titik)</p>
                                             <input required <?= ($keluarga != null) ? 'disabled' : ''; ?> type="number"
                                                 min="0"
                                                 class="form-control <?= ($validation->hasError('penghasilan_ayah')) ? 'is-invalid' : ''; ?>"
@@ -768,7 +769,8 @@
                                             <label for="penghasilan_ibu" class="form-label bold">Penghasilan per Bulan
                                                 Ibu /
                                                 Wali
-                                                <span class="required-label">*</span></label>
+                                                <span class="required-label">* </span> </label>
+                                            <p>Contoh : 2000000 (tanpa menggunakan titik)</p>
                                             <input required <?= ($keluarga != null) ? 'disabled' : ''; ?> type="number"
                                                 min="0"
                                                 class="form-control <?= ($validation->hasError('penghasilan_ibu')) ? 'is-invalid' : ''; ?>"
@@ -1025,7 +1027,7 @@
                                     <?php for ($i = 1; $i <= $n; $i++) : ?>
                                     <div class="row" <?= ($file == null) ? 'id="prestasi_' . $i . '"' : ''; ?>>
                                         <!-- file prestasi -->
-                                        <div class="col-6 col-xl-2">
+                                        <div class="col-6 col-xxl-2">
                                             <div class="mb20">
                                                 <label for="scan_prestasi_<?= $i; ?>" class="form-label bold">Scan
                                                     Prestasi
@@ -1046,7 +1048,7 @@
                                             </div>
                                         </div>
                                         <!-- end file prestasi -->
-                                        <div class="col-6 col-xl-2">
+                                        <div class="col-6 col-xxl-2">
                                             <div class="mb20">
                                                 <label for="nama_prestasi_<?= $i; ?>" class="form-label bold">Nama
                                                     Prestasi
@@ -1056,20 +1058,20 @@
                                                     <?= ($file != null) ? 'disabled' : ''; ?>
                                                     <?= ($i == 1) ? 'required' : ''; ?> type="text"
                                                     id="nama_prestasi_<?= $i; ?>"
-                                                    class="form-control <?= ($validation->hasError('nama_prestasi' . $i)) ? 'is-invalid' : ''; ?>"
-                                                    value="<?= old('nama_prestasi' . $i); ?>"
+                                                    class="form-control <?= ($validation->hasError('nama_prestasi_' . $i)) ? 'is-invalid' : ''; ?>"
+                                                    value="<?= old('nama_prestasi_' . $i); ?>"
                                                     name="nama_prestasi_<?= $i; ?>" placeholder="" />
                                                 <div class="invalid-feedback">
-                                                    <?= ($validation->getError('nama_prestasi' . $i) == '') ? 'Bagian nama prestasi wajib diisi' : str_replace(
+                                                    <?= ($validation->getError('nama_prestasi_' . $i) == '') ? 'Bagian nama prestasi wajib diisi' : str_replace(
                                                                 '_',
                                                                 ' ',
-                                                                $validation->getError('nama_prestasi' . $i)
+                                                                $validation->getError('nama_prestasi_' . $i)
                                                             ); ?>
                                                 </div>
                                             </div>
                                         </div>
                                         <!-- end nama prestasi -->
-                                        <div class="col-6 col-xl-2">
+                                        <div class="col-6 col-xxl-2">
                                             <div class="mb20">
                                                 <label for="kategori_<?= $i; ?>" class="form-label bold">Kategori
                                                     Prestasi
@@ -1100,7 +1102,7 @@
                                             </div>
                                         </div>
                                         <!-- end kategori -->
-                                        <div class="col-6 col-xl-2">
+                                        <div class="col-6 col-xxl-2">
                                             <div class="mb20">
                                                 <label for="tingkat_<?= $i; ?>" class="form-label bold">Tingkat Prestasi
                                                     <?= ($i == 1) ? '<span class="required-label"></span>' : ''; ?></label>
@@ -1126,7 +1128,7 @@
                                             <!-- end tingkat prestasi -->
                                         </div>
                                         <!-- end tingkat -->
-                                        <div class="col-6 col-xl-2">
+                                        <div class="col-6 col-xxl-2">
                                             <div class="mb20">
                                                 <label for="juara_<?= $i; ?>" class="form-label bold">Juara
                                                     <?= ($i == 1) ? '<span class="required-label"></span>' : ''; ?>
@@ -1152,7 +1154,7 @@
                                             <!-- end Juara -->
                                         </div>
                                         <!-- end juara -->
-                                        <div class="col-6 col-xl-1">
+                                        <div class="col-6 col-xxl-1">
                                             <div class="mb20">
                                                 <label for="tahun_prestasi_<?= $i; ?>" class="form-label bold">Tahun
                                                     <span class="required-label"></span>
@@ -1188,6 +1190,7 @@
                                             </div>
                                         </div>
                                         <!-- end tambah prestasi -->
+                                        <hr>
                                     </div>
                                     <!-- Tambah Prestasi  Modal -->
                                     <div class="modal fade" id="prestasi_<?= $i; ?>_modal" tabindex="-1"
@@ -2286,20 +2289,20 @@
                                         </label>
                                         <input disabled
                                             class="form-control  <?= ($validation->hasError('scan_prestasi_' . $i)) ? 'is-invalid' : ''; ?>"
-                                            name="scan_prestasi_<?= $i; ?>" id="file_prestasi_<?= $i; ?>" type="text"
-                                            accept="application/pdf"
+                                            name="scan_prestasi_review<?= $i; ?>" id="file_prestasi_review<?= $i; ?>"
+                                            type="text" accept="application/pdf"
                                             value="<?= $prestasi[$i - 1]['file_prestasi']; ?>" />
                                     </div>
                                 </div>
                                 <!-- end file prestasi -->
                                 <div class="col-6 col-md-2">
                                     <div class="mb20">
-                                        <label for="nama_prestasi_<?= $i; ?>" class="form-label">Nama Prestasi
+                                        <label for="nama_prestasi_review<?= $i; ?>" class="form-label">Nama Prestasi
                                         </label>
                                         <input disabled type="text"
-                                            class="form-control <?= ($validation->hasError('nama_prestasi_' . $i)) ? 'is-invalid' : ''; ?>"
-                                            value="<?= ($prestasi[$i - 1] != null) ? $prestasi[$i - 1]['nama_prestasi'] : old('nama_prestasi_' . $i); ?>"
-                                            name="nama_prestasi_<?= $i; ?>" placeholder="" />
+                                            class="form-control <?= ($validation->hasError('nama_prestasi_review' . $i)) ? 'is-invalid' : ''; ?>"
+                                            value="<?= ($prestasi[$i - 1] != null) ? $prestasi[$i - 1]['nama_prestasi'] : old('nama_prestasi_review' . $i); ?>"
+                                            name="nama_prestasi_review<?= $i; ?>" placeholder="" />
                                     </div>
                                 </div>
                                 <!-- end nama prestasi -->
@@ -2370,16 +2373,18 @@
                                 <!-- end juara -->
                                 <div class="col-2">
                                     <div class="mb20">
-                                        <label for="tahun_prestasi_<?= $i; ?>" class="form-label">Tahun
+                                        <label for="tahun_prestasi_review<?= $i; ?>" class="form-label">Tahun
 
                                         </label>
                                         <input disabled type="number"
-                                            class="form-control <?= ($validation->hasError('tahun_prestasi_' . $i)) ? 'is-invalid' : ''; ?>"
-                                            value="<?= ($prestasi[$i - 1] != null) ? $prestasi[$i - 1]['tahun_prestasi'] : old('tahun_prestasi_' . $i); ?>"
-                                            name="tahun_prestasi_<?= $i; ?>" placeholder="" min="2010" max="2022" />
+                                            class="form-control <?= ($validation->hasError('tahun_prestasi_review' . $i)) ? 'is-invalid' : ''; ?>"
+                                            value="<?= ($prestasi[$i - 1] != null) ? $prestasi[$i - 1]['tahun_prestasi'] : old('tahun_prestasi_review' . $i); ?>"
+                                            name="tahun_prestasi_review<?= $i; ?>" placeholder="" min="2010"
+                                            max="2022" />
                                     </div>
                                 </div>
                                 <!-- end tahun_prestasi -->
+                                <hr>
                             </div>
                             <?php } ?>
                         </div>
@@ -2568,8 +2573,48 @@
 
 <!-- Wizard -->
 <script type="text/javascript">
-// Inisiailasi button
+// jika terdapat error dalam input prestasi 2
+<?php if ($validation->getError('scan_prestasi_2') != null || $validation->getError('nama_prestasi_2') != null || $validation->getError('kategori_2') != null || $validation->getError('tahun_prestasi_2') != null) : ?>
+$(document).ready(function() {
+    $("#prestasi_2").show();
+    // $("#prestasi_2_modal").show();
+    $("#icon-tambah-1").hide();
+    $("#label-tambah-1").hide();
+});
+<?php else: ?>
+    $(document).ready(function() {
+        $("#prestasi_2").hide();
+        // $("#prestasi_2_modal").show();
+        $("#icon-tambah-1").show();
+        $("#label-tambah-1").show();
+    });
+<?php endif ?>
 
+// jika terdapat error dalam input prestasi 3
+<?php if ($validation->getError('scan_prestasi_3') != null || $validation->getError('nama_prestasi_3') != null || $validation->getError('kategori_3') != null || $validation->getError('tahun_prestasi_3') != null) : ?>
+$(document).ready(function() {
+    // pretasi 3
+    $("#prestasi_3").show();
+    // $("#prestasi_2_modal").show();
+    $("#icon-tambah-2").hide();
+    $("#label-tambah-2").hide();
+
+    // prestasi 2
+    $("#prestasi_2").show();
+    // $("#prestasi_2_modal").show();
+    $("#icon-tambah-1").hide();
+    $("#label-tambah-1").hide();
+});
+<?php else: ?>
+    $(document).ready(function() {
+        $("#prestasi_3").hide();
+        // $("#prestasi_2_modal").show();
+        $("#icon-tambah-2").show();
+        $("#label-tambah-2").show();
+    });
+<?php endif ?>
+
+// Smartwizard
 $(document).ready(function() {
     $('#smartwizard').smartWizard({
         selected: 0, // Initial selected step, 0 = first step
