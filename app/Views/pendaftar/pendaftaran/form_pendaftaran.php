@@ -560,6 +560,9 @@
                                             </div>
                                             <div class="modal-body">
                                                 Pastikan data yang anda masukkan sudah benar.
+                                                <div class="alert alert-danger pesan-gagal" role="alert" style="display:none">
+                                                    Terdapat kesalahan masukkan atau data yang anda masukkan tidak sesuai.
+                                                </div>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary fw-normal"
@@ -918,6 +921,9 @@
                                             </div>
                                             <div class="modal-body">
                                                 Pastikan data yang anda masukkan sudah benar.
+                                                <div class="alert alert-danger pesan-gagal" role="alert" style="display:none">
+                                                    Terdapat kesalahan masukkan atau data yang anda masukkan tidak sesuai.
+                                                </div>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary fw-normal"
@@ -1470,6 +1476,9 @@
                                             </div>
                                             <div class="modal-body">
                                                 Pastikan data yang anda masukkan sudah benar.
+                                                <div class="alert alert-danger pesan-gagal" role="alert" style="display:none">
+                                                    Terdapat kesalahan masukkan atau data yang anda masukkan tidak sesuai.
+                                                </div>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary fw-normal"
@@ -1555,6 +1564,9 @@
                                             </div>
                                             <div class="modal-body">
                                                 Pastikan data yang anda masukkan sudah benar.
+                                                <div class="alert alert-danger pesan-gagal" role="alert" style="display:none">
+                                                    Terdapat kesalahan masukkan atau data yang anda masukkan tidak sesuai.
+                                                </div>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary fw-normal"
@@ -2570,10 +2582,19 @@
 </div>
 <!-- End form pendaftaran -->
 
-
 <!-- Wizard -->
 <script type="text/javascript">
-// jika terdapat error dalam input prestasi 2
+    // alert invalid form fields
+$('form').on('submit', function(e) {
+    // alert("Page is loaded");
+    $(document).ready(function() {
+    var numItems = $('.was-validated').length
+    if(numItems > 0){
+        $('.pesan-gagal').show();
+    }
+    });
+});
+    // jika terdapat error dalam input prestasi 2
 <?php if ($validation->getError('scan_prestasi_2') != null || $validation->getError('nama_prestasi_2') != null || $validation->getError('kategori_2') != null || $validation->getError('tahun_prestasi_2') != null) : ?>
 $(document).ready(function() {
     $("#prestasi_2").show();
@@ -2612,8 +2633,8 @@ $(document).ready(function() {
         $("#icon-tambah-2").show();
         $("#label-tambah-2").show();
     });
-<?php endif ?>
-
+    <?php endif ?>
+    
 // Smartwizard
 $(document).ready(function() {
     $('#smartwizard').smartWizard({
