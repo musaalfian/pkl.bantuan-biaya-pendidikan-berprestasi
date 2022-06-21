@@ -35,7 +35,6 @@ html {
 }
 h2 {
   font-size: 36px ;
-
   margin: 0 ;
 }
 h3 {
@@ -631,10 +630,10 @@ footer .user a:hover {
   border-color: var(--biru) !important;
   transition: .4s;
 }
-.informasi__awal .info__lainnya:hover {
+/* .informasi__awal .info__lainnya:hover {
   box-shadow: rgba(0, 86, 174, .2) 0px 8px 24px;
   transition: .4s;
-}
+} */
 .informasi__awal .info__lainnya .tanggal p {
   font-size: 12px;
 }
@@ -947,6 +946,10 @@ footer .user a:hover {
 #pengumuman .content ol {
   padding-left: 1rem !important;
   margin-bottom: 0 !important;
+}
+.laporan__dana .icon {
+  width: 100px;
+  height: auto;
 }
 
 /*================ Footer =================*/
@@ -1390,6 +1393,9 @@ tr {
   .laporan__dana .content {
     width: 50% !important;
   }
+  .laporan__dana .desc__berhasil {
+    width: 50% !important;
+  }
 
 }
 
@@ -1436,6 +1442,9 @@ tr {
   }
   .laporan__dana h5 {
     font-size: 16px !important;
+  }
+  .laporan__dana .laporan {
+    width: 50% !important;
   }
 }
 
