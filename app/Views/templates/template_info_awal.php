@@ -25,17 +25,22 @@
     <div class="py40">
         <div class="container">
             <div class="nav__back mb-3">
-                <a href="/user/index" class="fw-bold blue fs20"><i class="fa-solid fa-arrow-left-long"></i></a>
+                <a href="/" class="fw-bold blue fs20"><i class="fa-solid fa-arrow-left-long"></i></a>
             </div>
-            <div class="header d-flex pb-2">
+            <div class="text-center logo2 mb-2">
+                <img src="<?= base_url(); ?>/assets/img/logo-batang-hp.png" alt="Logo Dinas Pendidikan dan Kebudayaan Kabupaten Batang" height="40px">
+            </div>
+            <div class="header d-flex pb-3">
                 <div class="logo">
                     <img src="<?= base_url(); ?>/assets/img/logo-batang-hp.png" alt="Logo Dinas Pendidikan dan Kebudayaan Kabupaten Batang">
                 </div>
-                <h4 class="fw-bold fs24 mx-auto">PEMERINTAH KABUPATEN BATANG <br>DINAS PENDIDIKAN DAN KEBUDAYAAN</h4>
-            </div>
-            <div class="text-center mx-auto">
-                <p class="mt-2 fs16 lh1">Jalan Slamet Riyadi No.29 Telp.(0285) 391321 Fax.(0285) 391321 Batang 51214 <br>Laman:
-                    www.disdikbud.batangkab.go.id | Email: disdikbud@batangkab.go.id</p>
+                <div class="mx-auto text-center">
+                    <h4 class="fw-bold fs18 mx-auto">PEMERINTAH KABUPATEN BATANG <br>DINAS PENDIDIKAN DAN KEBUDAYAAN</h4>
+                    <p class="mt-2 fs14 mb-0 lh1">Jalan Slamet Riyadi No.29 Telp.(0285) 391321 Fax.(0285) 391321 Batang 51214
+                    </p>
+                    <p class="fs14 lh1 mb-0">Laman: www.disdikbud.batangkab.go.id | Email: disdikbud@batangkab.go.id
+                    </p>
+                </div>
             </div>
             <?= $this->renderSection('content'); ?>
         </div>

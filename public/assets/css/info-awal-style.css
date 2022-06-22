@@ -14,30 +14,50 @@
 .fs24 {
     font-size: 24px;
 }
+.fs18 {
+    font-size: 18px;
+}
+.fs20 {
+    font-size: 20px;
+}
 .fs16 {
     font-size: 16px;
+}
+.fs14 {
+    font-size: 14px;
 }
 .lh1 {
     line-height: 1.25rem;
 }
-.logo img {
-    max-height: 50px;
+.logo {
+    display: none;
 }
+.logo img {
+    max-height: 110px;
+}
+/* .lh1 {
+    display: none;
+} */
 
 /* Tabel */
 table th, table td{
 padding: 5px 5px;
-font-size: 12px;
+font-size: 16px;
 vertical-align: top;
 }
 
 /* Font */
-
-.tengah {
-display: flex;
-justify-content: center;
-
-}
-.bold{
-    font-weight: 700;
+@media (min-width: 768px) {
+    .logo2 {
+        display: none;
+    }
+    .logo {
+        display: block;
+    }
+    h4 {
+        font-size: 24px !important;
+    }
+    p {
+        font-size: 16px !important;
+    }
 }
