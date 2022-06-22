@@ -1064,7 +1064,7 @@
                                     <label for="scan_formulir_pendaftaran" class="form-label bold">Formulir Pendaftaran
                                         <span class="fs14 lightgrey ms-2"> Contoh penamaan file : (no
                                             induk)_scan_formulir_pendaftaran<strong>.pdf</strong></span></label>
-                                    <input required id="formulir_pendaftaran" class="form-control w-100 <?= ($validation->hasError('scan_formulir_pendaftaran')) ? 'is-invalid' : ''; ?>" name="scan_formulir_pendaftaran" type="file" accept="application/pdf" />
+                                    <input required id="formulir_pendaftaran" class="form-control w-100 scan-lampiran <?= ($validation->hasError('scan_formulir_pendaftaran')) ? 'is-invalid' : ''; ?>" data-allowed-file-extensions="pdf" data-height="100" data-max-file-size="2M" name="scan_formulir_pendaftaran" type="file" accept="application/pdf" />
                                     <div class="invalid-feedback">
                                         <?= ($validation->getError('scan_formulir_pendaftaran') == '') ? 'Bagian scan formulir pendaftaran wajib diisi dan ukuran file tidak boleh lebih dari 8MB' : str_replace('_', ' ', $validation->getError('scan_formulir_pendaftaran')); ?>
                                     </div>

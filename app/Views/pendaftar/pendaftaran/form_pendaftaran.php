@@ -965,7 +965,7 @@
                                                             Prestasi
                                                             <?= ($i == 1) ? '<span class="required-label"></span>' : ''; ?>
                                                         </label>
-                                                        <input value="<?= ($file != null) ? $prestasi[$i - 1]['file_prestasi'] : ''; ?>" <?= ($file != null) ? 'disabled' : ''; ?> <?= ($i == 1) ? 'required' : ''; ?> id="file_prestasi_<?= $i; ?>" class="form-control scan-lampiran  <?= ($validation->hasError('scan_prestasi_' . $i)) ? 'is-invalid' : ''; ?>" name="scan_prestasi_<?= $i; ?>" <?= ($file != null) ? 'type="text"' : 'type="file"'; ?> accept="application/pdf" data-allowed-file-extensions="pdf" data-max-file-size="2M"/>
+                                                        <input value="<?= ($file != null) ? $prestasi[$i - 1]['file_prestasi'] : ''; ?>" <?= ($file != null) ? 'disabled' : ''; ?> <?= ($i == 1) ? 'required' : ''; ?> id="file_prestasi_<?= $i; ?>" class="form-control scan-lampiran  <?= ($validation->hasError('scan_prestasi_' . $i)) ? 'is-invalid' : ''; ?>" name="scan_prestasi_<?= $i; ?>" <?= ($file != null) ? 'type="text"' : 'type="file"'; ?> accept="application/pdf" data-allowed-file-extensions="pdf" data-height="100" data-max-file-size="2M"/>
                                                         <?php if($file == null): ?>
                                                             <div class="invalid-feedback">
                                                                 <?= ($validation->getError('scan_prestasi_' . $i) == '') ? 'Bagian scan prestasi wajib diisi dan ukuran file tidak boleh lebih dari 2MB' : str_replace('_', ' ', $validation->getError('scan_prestasi_' . $i));
@@ -1151,7 +1151,7 @@
                                             <div class="mb20">
                                                 <label for="scan_kk" class="form-label bold">Scan Kartu Keluarga (KK) <span class="fs14 lightgrey ms-2"> Contoh penamaan file : (no
                                                         induk)_scan_kk<strong>.pdf</strong></span></label>
-                                                <input <?= ($file != null) ? 'disabled value="' . $file['kk'] . '"' : ''; ?> required id="kk" class="form-control scan-lampiran <?= ($validation->hasError('scan_kk')) ? 'is-invalid' : ''; ?>"  name="scan_kk" <?= ($file != null) ? 'type="text"' : 'type="file"'; ?> accept="application/pdf" data-allowed-file-extensions="pdf" data-max-file-size="2M" />
+                                                <input <?= ($file != null) ? 'disabled value="' . $file['kk'] . '"' : ''; ?> required id="kk" class="form-control scan-lampiran <?= ($validation->hasError('scan_kk')) ? 'is-invalid' : ''; ?>"  name="scan_kk" <?= ($file != null) ? 'type="text"' : 'type="file"'; ?> accept="application/pdf" data-allowed-file-extensions="pdf" data-height="100" data-max-file-size="2M" />
                                                 <?php if($file == null): ?>
                                                     <div class="invalid-feedback">
                                                         <?= ($validation->getError('scan_kk') == '') ? 'Bagian scan kk  wajib diisi dan ukuran file tidak boleh lebih dari 2MB' : str_replace('_', ' ', $validation->getError('scan_kk')); ?>
@@ -1164,7 +1164,7 @@
                                                     (KTP) <span class="fs14 lightgrey ms-2"> Contoh penamaan file : (no
                                                         induk)_scan_ktp<strong>.pdf</strong></span>
                                                 </label>
-                                                <input <?= ($file != null) ? 'disabled value="' . $file['ktp'] . '"' : ''; ?> required id="ktp" class="form-control scan-lampiran <?= ($validation->hasError('scan_ktp')) ? 'is-invalid' : ''; ?>" name="scan_ktp" <?= ($file != null) ? 'type="text"' : 'type="file"'; ?> accept="application/pdf" data-allowed-file-extensions="pdf" data-max-file-size="2M"/>
+                                                <input <?= ($file != null) ? 'disabled value="' . $file['ktp'] . '"' : ''; ?> required id="ktp" class="form-control scan-lampiran <?= ($validation->hasError('scan_ktp')) ? 'is-invalid' : ''; ?>" name="scan_ktp" <?= ($file != null) ? 'type="text"' : 'type="file"'; ?> accept="application/pdf" data-allowed-file-extensions="pdf" data-height="100" data-max-file-size="2M"/>
                                                 <?php if($file == null): ?>
                                                     <div class="invalid-feedback">
                                                     <?= ($validation->getError('scan_ktp') == '') ? 'Ukuran file tidak boleh lebih dari 2MB' : str_replace('_', ' ', $validation->getError('scan_ktp')); ?>
@@ -1178,7 +1178,7 @@
                                                         <span class="fs14 lightgrey ms-2"> Contoh penamaan file : (no
                                                             induk)_scan_kartu_pelajar<strong>.pdf</strong></span>
                                                     </label>
-                                                    <input <?= ($file != null) ? 'disabled value="' . $file['kartu_pelajar'] . '"' : ''; ?> required id="kartu_pelajar" class="form-control scan-lampiran <?= ($validation->hasError('scan_kartu_pelajar')) ? 'is-invalid' : ''; ?>" name="scan_kartu_pelajar" <?= ($file != null) ? 'type="text"' : 'type="file"'; ?> accept="application/pdf " data-allowed-file-extensions="pdf" data-max-file-size="2M"/>
+                                                    <input <?= ($file != null) ? 'disabled value="' . $file['kartu_pelajar'] . '"' : ''; ?> required id="kartu_pelajar" class="form-control scan-lampiran <?= ($validation->hasError('scan_kartu_pelajar')) ? 'is-invalid' : ''; ?>" name="scan_kartu_pelajar" <?= ($file != null) ? 'type="text"' : 'type="file"'; ?> accept="application/pdf " data-allowed-file-extensions="pdf" data-height="100" data-max-file-size="2M"/>
                                                     <?php if($file == null): ?>
                                                         <div class="invalid-feedback">
                                                         <?= ($validation->getError('scan_kartu_pelajar') == '') ? 'Bagian scan kartu pelajar  wajib diisi dan ukuran file tidak boleh lebih dari 2MB' : str_replace('_', ' ', $validation->getError('scan_kartu_pelajar')); ?>
@@ -1192,7 +1192,7 @@
                                                         <span class="fs14 lightgrey ms-2"> Contoh penamaan file : (no
                                                             induk)_scan_ktm<strong>.pdf</strong></span>
                                                     </label>
-                                                    <input required id="kartu_pelajar" class="form-control scan-lampiran <?= ($validation->hasError('scan_kartu_pelajar')) ? 'is-invalid' : ''; ?>" <?= ($file != null) ? 'disabled value="' . $file['kartu_pelajar'] . '"' : ''; ?> name="scan_kartu_pelajar" <?= ($file != null) ? 'type="text"' : 'type="file"'; ?> accept="application/pdf" data-allowed-file-extensions="pdf" data-max-file-size="2M" />
+                                                    <input required id="kartu_pelajar" class="form-control scan-lampiran <?= ($validation->hasError('scan_kartu_pelajar')) ? 'is-invalid' : ''; ?>" <?= ($file != null) ? 'disabled value="' . $file['kartu_pelajar'] . '"' : ''; ?> name="scan_kartu_pelajar" <?= ($file != null) ? 'type="text"' : 'type="file"'; ?> accept="application/pdf" data-allowed-file-extensions="pdf" data-height="100" data-max-file-size="2M" />
                                                     <?php if($file == null): ?>
                                                         <div class="invalid-feedback">
                                                             <?= ($validation->getError('scan_kartu_pelajar') == '') ? 'Bagian scan kartu pelajar  wajib diisi dan ukuran file tidak boleh lebih dari 2MB' : str_replace('_', ' ', $validation->getError('scan_kartu_pelajar')); ?>
@@ -1207,7 +1207,7 @@
                                                     <span class="fs14 lightgrey ms-2"> Contoh penamaan file : (no
                                                         induk)_pas_foto<strong>.jpg/.jpeg/.png</strong></span>
                                                 </label>
-                                                <input type="file" required id="pas_foto" class="form-control lampiran-foto-pendaftaran <?= ($validation->hasError('scan_pas_foto')) ? 'is-invalid' : ''; ?>" name="scan_pas_foto" accept="image/*" data-max-file-size="2M" <?= ($file != null) ? 'disabled hidden data-default-file="' . base_url() . '/assets/scan/' . $identitas["no_induk"] . '/file/' . $file["pas_foto"] . '"' : ''; ?> data-allowed-file-extensions="jpg jpeg png" />
+                                                <input type="file" required id="pas_foto" class="form-control lampiran-foto-pendaftaran <?= ($validation->hasError('scan_pas_foto')) ? 'is-invalid' : ''; ?>" name="scan_pas_foto" accept="image/*" data-height="100" data-max-file-size="2M" <?= ($file != null) ? 'disabled hidden data-default-file="' . base_url() . '/assets/scan/' . $identitas["no_induk"] . '/file/' . $file["pas_foto"] . '"' : ''; ?> data-allowed-file-extensions="jpg jpeg png" />
                                                 <?php if($file == null): ?>
                                                     <div class="invalid-feedback">
                                                         <?= ($validation->getError('scan_pas_foto') == '') ? 'Bagian pas foto  wajib diisi dan ukuran file tidak boleh lebih dari 2MB' : str_replace('_', ' ', $validation->getError('scan_pas_foto')); ?>
@@ -1225,7 +1225,7 @@
                                                             penamaan file : (no
                                                             induk)_scan_diteima_pt<strong>.pdf</strong></span>
                                                     </label>
-                                                    <input required id="diterima_pt" class="form-control scan-lampiran <?= ($validation->hasError('scan_diterima_pt')) ? 'is-invalid' : ''; ?>" <?= ($file != null) ? 'disabled value="' . $file['diterima_pt'] . '"' : ''; ?> name="scan_diterima_pt" <?= ($file != null) ? 'type="text"' : 'type="file"'; ?> accept="application/pdf" data-allowed-file-extensions="pdf" data-max-file-size="2M"/>
+                                                    <input required id="diterima_pt" class="form-control scan-lampiran <?= ($validation->hasError('scan_diterima_pt')) ? 'is-invalid' : ''; ?>" <?= ($file != null) ? 'disabled value="' . $file['diterima_pt'] . '"' : ''; ?> name="scan_diterima_pt" <?= ($file != null) ? 'type="text"' : 'type="file"'; ?> accept="application/pdf" data-allowed-file-extensions="pdf" data-height="100" data-max-file-size="2M"/>
                                                     <?php if($file == null): ?>
                                                         <div class="invalid-feedback">
                                                         <?= ($validation->getError('scan_diterima_pt') == '') ? 'Bagian scan diterima perguruan tinggi wajib diisi dan ukuran file tidak boleh lebih dari 2MB' : $validation->getError('scan_diterima_pt'); ?>
@@ -1241,7 +1241,7 @@
                                                             induk)_scan_akreditasi_pt<strong>.pdf</strong></span>
                                                     </label>
 
-                                                    <input required id="akreditasi_pt" class="form-control scan-lampiran <?= ($validation->hasError('scan_akreditasi_pt')) ? 'is-invalid' : ''; ?>" <?= ($file != null) ? 'disabled value="' . $file['akreditasi_pt'] . '"' : ''; ?> name="scan_akreditasi_pt" <?= ($file != null) ? 'type="text"' : 'type="file"'; ?> accept="application/pdf" data-allowed-file-extensions="pdf" data-max-file-size="2M"/>
+                                                    <input required id="akreditasi_pt" class="form-control scan-lampiran <?= ($validation->hasError('scan_akreditasi_pt')) ? 'is-invalid' : ''; ?>" <?= ($file != null) ? 'disabled value="' . $file['akreditasi_pt'] . '"' : ''; ?> name="scan_akreditasi_pt" <?= ($file != null) ? 'type="text"' : 'type="file"'; ?> accept="application/pdf" data-allowed-file-extensions="pdf" data-height="100" data-max-file-size="2M"/>
                                                     <?php if($file == null): ?>
                                                         <div class="invalid-feedback">
                                                             <?= ($validation->getError('scan_akreditasi_pt') == '') ? 'Bagian akreditasi perguruan tinggi wajib diisi dan ukuran file tidak boleh lebih dari 2MB' : $validation->getError('scan_akreditasi_pt'); ?>
@@ -1257,7 +1257,7 @@
                                                             file : (no induk)_scan_raport_smt<strong>.pdf</strong></span>
                                                     </label>
 
-                                                    <input <?= ($file != null) ? 'disabled value="' . $file['raport_smt'] . '"' : ''; ?> required id="raport_smt" class="form-control scan-lampiran <?= ($validation->hasError('scan_raport_smt')) ? 'is-invalid' : ''; ?>" name="scan_raport_smt" <?= ($file != null) ? 'type="text"' : 'type="file"'; ?> accept="application/pdf" data-allowed-file-extensions="pdf" data-max-file-size="2M"/>
+                                                    <input <?= ($file != null) ? 'disabled value="' . $file['raport_smt'] . '"' : ''; ?> required id="raport_smt" class="form-control scan-lampiran <?= ($validation->hasError('scan_raport_smt')) ? 'is-invalid' : ''; ?>" name="scan_raport_smt" <?= ($file != null) ? 'type="text"' : 'type="file"'; ?> accept="application/pdf" data-allowed-file-extensions="pdf" data-height="100" data-max-file-size="2M"/>
                                                     <?php if($file == null): ?>
                                                         <div class="invalid-feedback">
                                                             <?= ($validation->getError('scan_raport_smt') == '') ? 'Bagian scan raport semester terakhir  wajib diisi dan ukuran file tidak boleh lebih dari 2MB' : str_replace('_', ' ', $validation->getError('scan_raport_smt')); ?>
@@ -1270,7 +1270,7 @@
                                                         <span class="fs14 lightgrey ms-2"> Contoh penamaan file : (no
                                                             induk)_scan_raport_legalisasi<strong>.pdf</strong></span>
                                                     </label>
-                                                    <input <?= ($file != null) ? 'disabled value="' . $file['raport_legalisasi'] . '"' : ''; ?> required id="raport" class="form-control scan-lampiran <?= ($validation->hasError('scan_raport')) ? 'is-invalid' : ''; ?>" name="scan_raport" <?= ($file != null) ? 'type="text"' : 'type="file"'; ?> accept="application/pdf" data-allowed-file-extensions="pdf" data-max-file-size="2M"/>
+                                                    <input <?= ($file != null) ? 'disabled value="' . $file['raport_legalisasi'] . '"' : ''; ?> required id="raport" class="form-control scan-lampiran <?= ($validation->hasError('scan_raport')) ? 'is-invalid' : ''; ?>" name="scan_raport" <?= ($file != null) ? 'type="text"' : 'type="file"'; ?> accept="application/pdf" data-allowed-file-extensions="pdf" data-height="100" data-max-file-size="2M"/>
                                                     <?php if($file == null): ?>
                                                         <div class="invalid-feedback">
                                                             <?= ($validation->getError('scan_raport') == '') ? 'Bagian scan raport legalisasi  wajib diisi dan ukuran file tidak boleh lebih dari 2MB' : str_replace('_', ' ', $validation->getError('scan_raport')); ?>
@@ -1284,7 +1284,7 @@
                                                         <span class="fs14 lightgrey ms-2"> Contoh penamaan file : (no
                                                             induk)_scan_proposal<strong>.pdf</strong></span>
                                                     </label>
-                                                    <input required id="proposal" class="form-control scan-lampiran <?= ($validation->hasError('scan_proposal')) ? 'is-invalid' : ''; ?>" <?= ($file != null) ? 'disabled value="' . $file['proposal'] . '"' : ''; ?> name="scan_proposal" <?= ($file != null) ? 'type="text"' : 'type="file"'; ?> accept="application/pdf" data-allowed-file-extensions="pdf" data-max-file-size="2M" />
+                                                    <input required id="proposal" class="form-control scan-lampiran <?= ($validation->hasError('scan_proposal')) ? 'is-invalid' : ''; ?>" <?= ($file != null) ? 'disabled value="' . $file['proposal'] . '"' : ''; ?> name="scan_proposal" <?= ($file != null) ? 'type="text"' : 'type="file"'; ?> accept="application/pdf" data-allowed-file-extensions="pdf" data-height="100" data-max-file-size="2M" />
                                                     <?php if($file == null): ?>
                                                         <div class="invalid-feedback">
                                                             <?= ($validation->getError('scan_proposal') == '') ? 'Bagian scan_proposal wajib diisi dan ukuran file tidak boleh lebih dari 2MB' : $validation->getError('scan_proposal'); ?>
@@ -1300,7 +1300,7 @@
                                                     Mampu <span class="fs14 lightgrey ms-2"> Contoh penamaan file : (no
                                                         induk)_scan_sktm<strong>.pdf</strong></span>
                                                 </label>
-                                                <input <?= ($file != null) ? 'disabled value="' . $file['sktm'] . '"' : ''; ?> required id="sktm" class="form-control  scan-lampiran <?= ($validation->hasError('scan_sktm')) ? 'is-invalid' : ''; ?>" name="scan_sktm" accept="application/pdf" <?= ($file != null) ? 'type="text"' : 'type="file"'; ?> data-allowed-file-extensions="pdf" data-max-file-size="2M" />
+                                                <input <?= ($file != null) ? 'disabled value="' . $file['sktm'] . '"' : ''; ?> required id="sktm" class="form-control  scan-lampiran <?= ($validation->hasError('scan_sktm')) ? 'is-invalid' : ''; ?>" name="scan_sktm" accept="application/pdf" <?= ($file != null) ? 'type="text"' : 'type="file"'; ?> data-allowed-file-extensions="pdf" data-height="100" data-max-file-size="2M" />
                                                 <?php if($file == null): ?>
                                                     <div class="invalid-feedback">
                                                         <?= ($validation->getError('scan_sktm') == '') ? 'Bagian scan ktm  wajib diisi dan ukuran file tidak boleh lebih dari 2MB' : str_replace('_', ' ', $validation->getError('scan_sktm')); ?>
@@ -1384,7 +1384,7 @@
                                         <label for="scan_formulir_pendaftaran" class="form-label bold">Formulir Pendaftaran
                                             <span class="fs14 lightgrey ms-2"> Contoh penamaan file : (no
                                                 induk)_scan_formulir_pendaftaran<strong>.pdf</strong></span></label>
-                                        <input required <?= ($file['formulir_pendaftaran'] != null) ? 'disabled' : ''; ?> id="formulir_pendaftaran" class="form-control w-100 scan-lampiran <?= ($validation->hasError('scan_formulir_pendaftaran')) ? 'is-invalid' : ''; ?>" value="<?= ($file['formulir_pendaftaran'] != null) ? $file['formulir_pendaftaran'] : old('scan_formulir_pendaftaran'); ?>" name="scan_formulir_pendaftaran" type="<?= ($file['formulir_pendaftaran'] != null) ? 'text' : 'file'; ?>" accept="application/pdf" data-allowed-file-extensions="pdf" data-max-file-size="8M"/>
+                                        <input required <?= ($file['formulir_pendaftaran'] != null) ? 'disabled' : ''; ?> id="formulir_pendaftaran" class="form-control w-100 scan-lampiran <?= ($validation->hasError('scan_formulir_pendaftaran')) ? 'is-invalid' : ''; ?>" value="<?= ($file['formulir_pendaftaran'] != null) ? $file['formulir_pendaftaran'] : old('scan_formulir_pendaftaran'); ?>" name="scan_formulir_pendaftaran" type="<?= ($file['formulir_pendaftaran'] != null) ? 'text' : 'file'; ?>" accept="application/pdf" data-allowed-file-extensions="pdf" data-height="100" data-max-file-size="8M"/>
                                         <div class="invalid-feedback">
                                             <?= ($validation->getError('scan_formulir_pendaftaran') == '') ? 'Bagian scan formulir pendaftaran wajib diisi dan ukuran file tidak boleh lebih dari 8MB' : str_replace('_', ' ', $validation->getError('scan_formulir_pendaftaran')); ?>
                                         </div>
@@ -2161,7 +2161,7 @@
                                     <div class="mb20">
                                         <label for="label_scan_pas_foto" class="form-label">Upload Foto Berwarna
                                         </label>
-                                        <input disabled hidden class="form-control <?= ($validation->hasError('scan_pas_foto')) ? 'is-invalid' : ''; ?> lampiran-foto-review" data-allowed-file-extensions="jpg jpeg png " data-height="100" data-max-file-size="2M" name="scan_pas_foto" type="file" accept="image/*" id="pas_foto" data-default-file="<?= base_url(); ?>/assets/scan/<?= $identitas['no_induk']; ?>/file/<?= $file['pas_foto']; ?>" />
+                                        <input disabled hidden class="form-control <?= ($validation->hasError('scan_pas_foto')) ? 'is-invalid' : ''; ?> lampiran-foto-review" data-allowed-file-extensions="jpg jpeg png " data-height="100" data-height="100" data-max-file-size="2M" name="scan_pas_foto" type="file" accept="image/*" id="pas_foto" data-default-file="<?= base_url(); ?>/assets/scan/<?= $identitas['no_induk']; ?>/file/<?= $file['pas_foto']; ?>" />
                                     </div>
                                     <!-- end scan_pas_foto -->
                                 </div>
