@@ -1,0 +1,43 @@
+/* Main style */
+* {
+    margin:0;
+    padding: 0;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.py40 {
+    padding: 40px 0;
+}
+.header {
+    border-bottom: 2px solid black;
+}
+.fs24 {
+    font-size: 24px;
+}
+.fs16 {
+    font-size: 16px;
+}
+.lh1 {
+    line-height: 1.25rem;
+}
+.logo img {
+    max-height: 50px;
+}
+
+/* Tabel */
+table th, table td{
+padding: 5px 5px;
+font-size: 12px;
+vertical-align: top;
+}
+
+/* Font */
+
+.tengah {
+display: flex;
+justify-content: center;
+
+}
+.bold{
+    font-weight: 700;
+}

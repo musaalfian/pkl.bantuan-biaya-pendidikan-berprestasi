@@ -2,7 +2,7 @@
 
 <?= $this->section('content'); ?>
 <!-- Main section -->
-<div class="bg-white py40 informasi__pendaftaran">
+<div class="bglight2 py40 informasi__pendaftaran">
     <div class="container">
         <h3 class="blue fs20">Informasi Pendaftaran Bantuan Biaya Pendidikan</h3>
         <div class="persyaratan__section mt-3">

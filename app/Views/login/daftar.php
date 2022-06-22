@@ -29,7 +29,7 @@
                 </div>
                 <div class="header text-center">
                     <h3 class="black fw-bold">Daftar</h3>
-                    <h6 class="lightgrey mt-2">Silahkan buat akun dengan mengisi data dibawah ini
+                    <h6 class="lightgrey mt-2">Silahkan buat A akun dengan mengisi data dibawah ini
                     </h6>
                     <?= view('Myth\Auth\Views\_message_block') ?>
                 </div>

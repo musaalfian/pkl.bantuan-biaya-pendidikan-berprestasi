@@ -1,10 +1,8 @@
 <?= $this->extend('templates/template_info_awal'); ?>
 
 <?= $this->section('content'); ?>
-<?php
-
-if (count($pendaftar) === 0) : ?>
-    <h3>Belum ada pendaftar</h3>
+<?php if (count($pendaftar) === 0) : ?>
+    <h3 class="mt-3">Belum ada pendaftar</h3>
 
 <?php else : ?>
     <!-- isi tabel -->

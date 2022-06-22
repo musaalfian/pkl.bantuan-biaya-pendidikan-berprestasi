@@ -35,7 +35,6 @@ html {
 }
 h2 {
   font-size: 36px ;
-
   margin: 0 ;
 }
 h3 {
@@ -631,10 +630,10 @@ footer .user a:hover {
   border-color: var(--biru) !important;
   transition: .4s;
 }
-.informasi__awal .info__lainnya:hover {
+/* .informasi__awal .info__lainnya:hover {
   box-shadow: rgba(0, 86, 174, .2) 0px 8px 24px;
   transition: .4s;
-}
+} */
 .informasi__awal .info__lainnya .tanggal p {
   font-size: 12px;
 }
@@ -642,7 +641,7 @@ footer .user a:hover {
 /*================ Masuk =================*/
 /* Kata sandi */
 .awal .input__sandi span {
-  top: 10%;
+  top: 20%;
   right: 5%;
 }
 .awal .input__sandi i {
@@ -660,7 +659,7 @@ footer .user a:hover {
   background-clip: padding-box;
   border: 1px solid var(--orange);
   background-color: var(--orange);
-  border-radius: 10px;
+  border-radius: .25rem;
 }
 .ubah__captcha {
   top: 20%;
@@ -673,6 +672,11 @@ footer .user a:hover {
 .errmsg {
   color: red;
   font-size: 14px;
+}
+
+/* Daftar */
+.badge {
+  padding: .375rem .75rem !important;
 }
 
 /* Lupa sandi */
@@ -942,6 +946,10 @@ footer .user a:hover {
 #pengumuman .content ol {
   padding-left: 1rem !important;
   margin-bottom: 0 !important;
+}
+.laporan__dana .icon {
+  width: 100px;
+  height: auto;
 }
 
 /*================ Footer =================*/
@@ -1385,6 +1393,9 @@ tr {
   .laporan__dana .content {
     width: 50% !important;
   }
+  .laporan__dana .desc__berhasil {
+    width: 50% !important;
+  }
 
 }
 
@@ -1431,6 +1442,9 @@ tr {
   }
   .laporan__dana h5 {
     font-size: 16px !important;
+  }
+  .laporan__dana .laporan {
+    width: 50% !important;
   }
 }
 
