@@ -274,7 +274,7 @@ p {
   background-color: #0cc23f;
 }
 .bgred {
-  background-color: #c20c0c;
+  background-color: #dc3545;
 }
 /* End background color */
 
@@ -859,9 +859,12 @@ footer .user a:hover {
   overflow: visible;
 }
 /* Tab content */
-#smartwizard div {
+#smartwizard .tab-content {
   height: unset !important;
 }
+/* #smartwizard div {
+  height: unset !important;
+} */
 #smartwizard .lampiran-foto-pendaftaran input {
   height: 100% !important;
 }

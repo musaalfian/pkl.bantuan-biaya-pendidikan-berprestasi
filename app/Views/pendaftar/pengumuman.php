@@ -23,39 +23,48 @@
                     $tanggal_sekarang['mday'] <= 31))
         ) { ?>
             <div class="bgwhite bdblue br25 p-4 p-sm-5 content">
-                <h3 class="biru">Terima kasih!</h3>
-                <h4 class="mt-3 blue fs16">Anda telah mendaftar, bantuan biaya pendidikan
-                    berprestasi sedang diproses. Untuk lebih lanjut, silahkan tunggu informasi selanjutnya.</h4>
-                <h4 class="mt-3 biru fs16">Pengumuman akan disampaikan pada tanggal : <strong><?= date_format($tanggal, 'd-m-Y'); ?></strong>
-                </h4>
-                <div class="alert mt-3 fs14 <?= ($status_pendaftaran['id_status_pendaftaran'] == 4) ? 'alert-primary' : (($status_pendaftaran['id_status_pendaftaran'] == 3) ? 'alert-warning' : (($status_pendaftaran['id_status_pendaftaran'] == 2) ? 'alert-danger' : 'alert-success')); ?>">
-                    Status pendaftaran : <span><?= $status_pendaftaran['nama_status']; ?></span>
-                </div>
-                <div class="mt-3">
-                    <!-- btn edit data -->
-                    <?php if ($identitas['pesan'] != null) : ?>
-                        <p class="fs16 fw-bold mb-2">Alasan :</p>
-                        <div class="alert alert-primary bg-transparent" role="alert">
-                            <?= $identitas['pesan']; ?>
+                <?php if ($status_pendaftaran['id_status_pendaftaran'] == 4 && $identitas['status_edit_pendaftaran'] == 2) : ?>
+                    <h3 class="biru fs20">Perbaikan Data Telah Dikirim!</h3>
+                    <h4 class="mt-3 blue fs16">Silahkan tunggu informasi selanjutnya.</h4>
+                    <h4 class="mt-3 biru fs16">Pengumuman akan disampaikan pada tanggal : <strong><?= date_format($tanggal, 'd-m-Y'); ?></strong>
+                    <?php elseif ($status_pendaftaran['id_status_pendaftaran'] == 2) : ?>
+                        <h3 class="text-red fs20">Mohon Maaf!</h3>
+                        <h4 class="mt-3 lightgrey fs16">Anda tidak memenuhi syarat pendaftaran bantuan biaya pendidikan berprestasi.</h4>
+                    <?php else : ?>
+                        <h3 class="biru">Terima kasih!</h3>
+                        <h4 class="mt-3 blue fs16">Anda telah mendaftar, bantuan biaya pendidikan
+                            berprestasi sedang diproses. Untuk lebih lanjut, silahkan tunggu informasi selanjutnya.</h4>
+                        <h4 class="mt-3 biru fs16">Pengumuman akan disampaikan pada tanggal : <strong><?= date_format($tanggal, 'd-m-Y'); ?></strong>
+                        <?php endif; ?>
+                        </h4>
+                        <div class="alert mt-3 fs14 <?= ($status_pendaftaran['id_status_pendaftaran'] == 4) ? 'alert-primary' : (($status_pendaftaran['id_status_pendaftaran'] == 3) ? 'alert-warning' : (($status_pendaftaran['id_status_pendaftaran'] == 2) ? 'alert-danger' : 'alert-success')); ?>">
+                            Status pendaftaran : <span><?= $status_pendaftaran['nama_status']; ?></span>
                         </div>
-                    <?php endif ?>
-                    <?php if ($identitas['id_status_pendaftaran'] == 3) { ?>
-                        <?php if ($identitas['id_status_peserta'] == 1) { ?>
-                            <a href="<?= base_url(); ?>/pendaftaran/edit_pendaftaran/<?= $identitas['no_induk']; ?>/<?= $identitas['id_status_peserta']; ?>" class="btn btn-primary fw-normal fs14">Ubah
-                                Data</a>
-                        <?php } else if ($identitas['id_status_peserta'] == 2) { ?>
+                        <div class="mt-3">
+                            <!-- btn edit data -->
+                            <?php if ($identitas['pesan'] != null) : ?>
+                                <p class="fs16 fw-bold mb-2">Alasan :</p>
+                                <div class="alert alert-primary bg-transparent" role="alert">
+                                    <?= $identitas['pesan']; ?>
+                                </div>
+                            <?php endif ?>
+                            <?php if ($identitas['id_status_pendaftaran'] == 3) { ?>
+                                <?php if ($identitas['id_status_peserta'] == 1) { ?>
+                                    <a href="<?= base_url(); ?>/pendaftaran/edit_pendaftaran/<?= $identitas['no_induk']; ?>/<?= $identitas['id_status_peserta']; ?>" class="btn btn-primary fw-normal fs14">Ubah
+                                        Data</a>
+                                <?php } else if ($identitas['id_status_peserta'] == 2) { ?>
 
-                            <a href="<?= base_url(); ?>/pendaftaran/edit_pendaftaran/<?= $identitas['no_induk']; ?>/<?= $identitas['id_status_peserta']; ?>" class="btn btn-primary fw-normal fs14">Ubah
-                                Data</a>
-                        <?php } else if ($identitas['id_status_peserta'] == 3) { ?>
-                            <a href="<?= base_url(); ?>/pendaftaran/edit_pendaftaran/<?= $identitas['no_induk']; ?>/<?= $identitas['id_status_peserta']; ?>" class="btn btn-primary fw-normal fs14">Ubah
-                                Data</a>
-                        <?php } ?>
-                    <?php } ?>
-                    <!-- end btn edit data -->
+                                    <a href="<?= base_url(); ?>/pendaftaran/edit_pendaftaran/<?= $identitas['no_induk']; ?>/<?= $identitas['id_status_peserta']; ?>" class="btn btn-primary fw-normal fs14">Ubah
+                                        Data</a>
+                                <?php } else if ($identitas['id_status_peserta'] == 3) { ?>
+                                    <a href="<?= base_url(); ?>/pendaftaran/edit_pendaftaran/<?= $identitas['no_induk']; ?>/<?= $identitas['id_status_peserta']; ?>" class="btn btn-primary fw-normal fs14">Ubah
+                                        Data</a>
+                                <?php } ?>
+                            <?php } ?>
+                            <!-- end btn edit data -->
 
 
-                </div>
+                        </div>
             </div>
         <?php } ?>
         <!-- end status final -->
@@ -72,13 +81,13 @@
             <?php if ($status_final['id_status_final'] == 1) { ?>
                 <div class="p-4 alert alert-success bggreen text-white">
                     <h2 class="text-center fs20">
-                        Selamat! Anda dinyatakan lolos seleksi pendaftaran bantuan biaya pendidikan.
+                        Selamat! Anda dinyatakan lolos seleksi pendaftaran bantuan biaya pendidikan berprestasi.
                     </h2>
                 </div>
             <?php } else if ($status_final['id_status_final'] == 2) { ?>
                 <div class="p-4 alert alert-success bgred text-white">
                     <h2 class="text-center fs20">
-                        Maaf, anda dinyatakan belum lolos seleksi pendaftaran bantuan biaya pendidikan.
+                        Maaf, anda dinyatakan belum lolos seleksi pendaftaran bantuan biaya pendidikan berprestasi.
                     </h2>
                 </div>
                 <?php if ($identitas['pesan'] != null) : ?>

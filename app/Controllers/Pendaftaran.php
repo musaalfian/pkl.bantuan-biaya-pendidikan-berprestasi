@@ -233,7 +233,7 @@ class Pendaftaran extends BaseController
             'juara'     => $juara,
             'akreditasi_pt'     => $akreditasi,
             'semester_ke'     => $semester_ke,
-            
+
             'opsional'  => $opsional
         ];
         return view('/pendaftar/pendaftaran/edit_form_pendaftaran', $data);
@@ -272,7 +272,7 @@ class Pendaftaran extends BaseController
         // update status pendaftaran
         $data = [
             'id_status_pendaftaran'    => 4,
-            'status_edit_pendaftaran'    => null
+            'status_edit_pendaftaran'    => 2
         ];
         $this->MIdentitas->update($no_induk, $data);
         return redirect()->to('home_pendaftar/pengumuman');
