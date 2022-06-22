@@ -462,6 +462,9 @@
                                             </div>
                                             <div class="modal-body">
                                                 Pastikan data yang anda masukkan sudah benar.
+                                                <div class="alert alert-danger pesan-gagal" role="alert" style="display:none">
+                                                    Terdapat kesalahan masukkan atau data yang anda masukkan tidak sesuai.
+                                                </div>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary fw-normal" data-bs-dismiss="modal">
@@ -737,26 +740,32 @@
                                             <!-- end bsm kip -->
                                         </div>
                                     </div>
-                                    <!-- end terdaftar sebagai -->
-                                    <!-- SAVE  Modal -->
-                                    <div class="modal fade" id="save_modal_keluarga" tabindex="-1" aria-labelledby="saveModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title bold" id="saveModalLabel">
-                                                        Yakin ingin menyimpan data?
-                                                    </h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <!-- end terdaftar sebagai -->
+                                <!-- SAVE  Modal -->
+                                <div class="modal fade" id="save_modal_keluarga" tabindex="-1"
+                                    aria-labelledby="saveModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title bold" id="saveModalLabel">
+                                                    Yakin ingin menyimpan data?
+                                                </h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                Pastikan data yang anda masukkan sudah benar.
+                                                <div class="alert alert-danger pesan-gagal" role="alert" style="display:none">
+                                                    Terdapat kesalahan masukkan atau data yang anda masukkan tidak sesuai.
                                                 </div>
-                                                <div class="modal-body">
-                                                    Pastikan data yang anda masukkan sudah benar.
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary fw-normal" data-bs-dismiss="modal">
-                                                        Batal
-                                                    </button>
-                                                    <button type="submit" class="btn btn-success fw-normal">Simpan</button>
-                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary fw-normal"
+                                                    data-bs-dismiss="modal">
+                                                    Batal
+                                                </button>
+                                                <button type="submit" class="btn btn-success fw-normal">Simpan</button>
                                             </div>
                                         </div>
                                     </div>
@@ -1193,6 +1202,9 @@
                                                 </div>
                                                 <div class="modal-body">
                                                     Pastikan data yang anda masukkan sudah benar.
+                                                    <div class="alert alert-danger pesan-gagal" role="alert" style="display:none">
+                                                    Terdapat kesalahan masukkan atau data yang anda masukkan tidak sesuai.
+                                                </div>
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary fw-normal" data-bs-dismiss="modal">
@@ -1262,6 +1274,9 @@
                                                 </div>
                                                 <div class="modal-body">
                                                     Pastikan data yang anda masukkan sudah benar.
+                                                    <div class="alert alert-danger pesan-gagal" role="alert" style="display:none">
+                                                    Terdapat kesalahan masukkan atau data yang anda masukkan tidak sesuai.
+                                                </div>
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary fw-normal" data-bs-dismiss="modal">
@@ -2127,99 +2142,108 @@
 </div>
 <!-- End form pendaftaran -->
 
-
 <!-- Wizard -->
 <script type="text/javascript">
+    // alert invalid form fields
+$('form').on('submit', function(e) {
+    // alert("Page is loaded");
+    $(document).ready(function() {
+    var numItems = $('.was-validated').length
+    if(numItems > 0){
+        $('.pesan-gagal').show();
+    }
+    });
+});
     // jika terdapat error dalam input prestasi 2
-    <?php if ($validation->getError('scan_prestasi_2') != null || $validation->getError('nama_prestasi_2') != null || $validation->getError('kategori_2') != null || $validation->getError('tahun_prestasi_2') != null) : ?>
-        $(document).ready(function() {
-            $("#prestasi_2").show();
-            // $("#prestasi_2_modal").show();
-            $("#icon-tambah-1").hide();
-            $("#label-tambah-1").hide();
-        });
-    <?php else : ?>
-        $(document).ready(function() {
-            $("#prestasi_2").hide();
-            // $("#prestasi_2_modal").show();
-            $("#icon-tambah-1").show();
-            $("#label-tambah-1").show();
-        });
-    <?php endif ?>
+<?php if ($validation->getError('scan_prestasi_2') != null || $validation->getError('nama_prestasi_2') != null || $validation->getError('kategori_2') != null || $validation->getError('tahun_prestasi_2') != null) : ?>
+$(document).ready(function() {
+    $("#prestasi_2").show();
+    // $("#prestasi_2_modal").show();
+    $("#icon-tambah-1").hide();
+    $("#label-tambah-1").hide();
+});
+<?php else: ?>
+    $(document).ready(function() {
+        $("#prestasi_2").hide();
+        // $("#prestasi_2_modal").show();
+        $("#icon-tambah-1").show();
+        $("#label-tambah-1").show();
+    });
+<?php endif ?>
 
     // jika terdapat error dalam input prestasi 3
-    <?php if ($validation->getError('scan_prestasi_3') != null || $validation->getError('nama_prestasi_3') != null || $validation->getError('kategori_3') != null || $validation->getError('tahun_prestasi_3') != null) : ?>
-        $(document).ready(function() {
-            // pretasi 3
-            $("#prestasi_3").show();
-            // $("#prestasi_2_modal").show();
-            $("#icon-tambah-2").hide();
-            $("#label-tambah-2").hide();
-
-            // prestasi 2
-            $("#prestasi_2").show();
-            // $("#prestasi_2_modal").show();
-            $("#icon-tambah-1").hide();
-            $("#label-tambah-1").hide();
-        });
-    <?php else : ?>
-        $(document).ready(function() {
-            $("#prestasi_3").hide();
-            // $("#prestasi_2_modal").show();
-            $("#icon-tambah-2").show();
-            $("#label-tambah-2").show();
-        });
-    <?php endif ?>
-
-    // Smartwizard
+<?php if ($validation->getError('scan_prestasi_3') != null || $validation->getError('nama_prestasi_3') != null || $validation->getError('kategori_3') != null || $validation->getError('tahun_prestasi_3') != null) : ?>
     $(document).ready(function() {
-        $('#smartwizard').smartWizard({
-            selected: 0, // Initial selected step, 0 = first step
-            theme: 'dots', // theme for the wizard, related css need to include for other than default theme
-            justified: true, // Nav menu justification. true/false
-            darkMode: false, // Enable/disable Dark Mode if the theme supports. true/false
-            autoAdjustHeight: true, // Automatically adjust content height
-            cycleSteps: false, // Allows to cycle the navigation of steps
-            backButtonSupport: true, // Enable the back button support
-            enableURLhash: true, // Enable selection of the step based on url hash
-            transition: {
-                animation: 'none', // Effect on navigation, none/fade/slide-horizontal/slide-vertical/slide-swing
-                speed: '400', // Transion animation speed
-                easing: '' // Transition animation easing. Not supported without a jQuery easing plugin
-            },
-            anchorSettings: {
-                anchorClickable: true, // Enable/Disable anchor navigation
-                enableAllAnchors: false, // Activates all anchors clickable all times
-                markDoneStep: true, // Add done state on navigation
-                markAllPreviousStepsAsDone: true, // When a step selected by url hash, all previous steps are marked done
-                removeDoneStepOnNavigateBack: false, // While navigate back done step after active step will be cleared
-                enableAnchorOnDoneStep: true // Enable/Disable the done steps navigation
-            },
-            keyboardSettings: {
-                keyNavigation: false, // Enable/Disable keyboard navigation(left and right keys are used if enabled)
-                keyLeft: [37], // Left key code
-                keyRight: [39] // Right key code
-            },
-            lang: { // Language variables for button
-                next: 'Selanjutnya',
-                previous: 'Sebelumnya'
-            },
-            // form identitas belum diisi
-            <?php if ($identitas == null) : ?>
-                toolbarSettings: {
-                    toolbarPosition: 'bottom', // none, top, bottom, both
-                    toolbarButtonPosition: 'right', // left, right, center
-                    showNextButton: true, // show/hide a Next button
-                    showPreviousButton: true, // show/hide a Previous button
-                    toolbarExtraButtons: [
-                        $(
-                            `<button type="button" data-bs-toggle="modal" data-bs-target="#save_modal" class="simpan"></button>`
-                        )
-                        .text('Simpan')
-                        .addClass('btn btn-success btn-simpan')
-                    ] // Extra buttons to show on toolbar, array of jQuery input/buttons elements
-                },
-                disabledSteps: [2, 3, 4, 5], // Array Steps disabled
+        // pretasi 3
+        $("#prestasi_3").show();
+        // $("#prestasi_2_modal").show();
+        $("#icon-tambah-2").hide();
+        $("#label-tambah-2").hide();
+
+    // prestasi 2
+    $("#prestasi_2").show();
+    // $("#prestasi_2_modal").show();
+    $("#icon-tambah-1").hide();
+    $("#label-tambah-1").hide();
+});
+<?php else: ?>
+    $(document).ready(function() {
+        $("#prestasi_3").hide();
+        // $("#prestasi_2_modal").show();
+        $("#icon-tambah-2").show();
+        $("#label-tambah-2").show();
+    });
+    <?php endif ?>
+    
+// Smartwizard
+$(document).ready(function() {
+    $('#smartwizard').smartWizard({
+        selected: 0, // Initial selected step, 0 = first step
+        theme: 'dots', // theme for the wizard, related css need to include for other than default theme
+        justified: true, // Nav menu justification. true/false
+        darkMode: false, // Enable/disable Dark Mode if the theme supports. true/false
+        autoAdjustHeight: true, // Automatically adjust content height
+        cycleSteps: false, // Allows to cycle the navigation of steps
+        backButtonSupport: true, // Enable the back button support
+        enableURLhash: true, // Enable selection of the step based on url hash
+        transition: {
+            animation: 'none', // Effect on navigation, none/fade/slide-horizontal/slide-vertical/slide-swing
+            speed: '400', // Transion animation speed
+            easing: '' // Transition animation easing. Not supported without a jQuery easing plugin
+        },
+        anchorSettings: {
+            anchorClickable: true, // Enable/Disable anchor navigation
+            enableAllAnchors: false, // Activates all anchors clickable all times
+            markDoneStep: true, // Add done state on navigation
+            markAllPreviousStepsAsDone: true, // When a step selected by url hash, all previous steps are marked done
+            removeDoneStepOnNavigateBack: false, // While navigate back done step after active step will be cleared
+            enableAnchorOnDoneStep: true // Enable/Disable the done steps navigation
+        },
+        keyboardSettings: {
+            keyNavigation: false, // Enable/Disable keyboard navigation(left and right keys are used if enabled)
+            keyLeft: [37], // Left key code
+            keyRight: [39] // Right key code
+        },
+        lang: { // Language variables for button
+            next: 'Selanjutnya',
+            previous: 'Sebelumnya'
+        },
+        // form identitas belum diisi
+        <?php if ($identitas == null) : ?>
+        toolbarSettings: {
+            toolbarPosition: 'bottom', // none, top, bottom, both
+            toolbarButtonPosition: 'right', // left, right, center
+            showNextButton: true, // show/hide a Next button
+            showPreviousButton: true, // show/hide a Previous button
+            toolbarExtraButtons: [
+                $(
+                    `<button type="button" data-bs-toggle="modal" data-bs-target="#save_modal" class="simpan"></button>`
+                )
+                .text('Simpan')
+                .addClass('btn btn-success btn-simpan')
+            ] // Extra buttons to show on toolbar, array of jQuery input/buttons elements
+        },
+        disabledSteps: [2, 3, 4, 5], // Array Steps disabled
 
                 // form keluarga belum diisi dan identitas sudah diisi
             <?php elseif ($keluarga == null && $identitas != null) : ?>
