@@ -83,7 +83,7 @@
                 </div>
                 <?php if ($identitas['pesan'] != null) : ?>
                     <p class="fs16 fw-bold mb-2">Alasan :</p>
-                    <div class="alert alert-primary bg-transparent" role="alert">
+                    <div class="alert alert-primary bgwhite" role="alert">
                         <?= $identitas['pesan']; ?>
                     </div>
                 <?php endif ?>
@@ -108,7 +108,7 @@
                                     <img src="<?= base_url('assets/img/icon-transfer-berhasil.svg'); ?>" width="100%" height="100%" alt="">
                                 </div>
                                 <h4 class="bold black mt-4 fs18">Transaksi Berhasil!</h3>
-                                    <h4 class="mt-2 lightgrey fs16 w-100 mx-auto desc__berhasil">Dana bantuan biaya pendidikan berprestasi telah dikirim. Silahkan periksa dan gunakan sebaik mungkin.</h4>
+                                    <h4 class="mt-2 lightgrey fs16 w-100 mx-auto desc__berhasil">Dana bantuan biaya pendidikan berprestasi telah dikirim dengan nominal sebesar <span class="bold blue">Rp <?= number_format($identitas['nominal'], 2, ',', '.'); ?></span>. Silahkan periksa dan gunakan sebaik mungkin.</h4>
                             </div>
                         <?php endif ?>
 
