@@ -173,12 +173,14 @@ class Pendaftaran extends BaseController
         return redirect()->to('home_pendaftar/pengumuman');
     }
     // menampilkan form edit pendaftaran
-    public function edit_pendaftaran($no_induk, $id_peserta)
+    public function edit_pendaftaran( )
     {
         session();
         $validation = \Config\Services::validation();
         // Form identitas
         $identitas = $this->MIdentitas->find_identitas_user(user_id())->getFirstRow('array');
+        $no_induk = user()->no_induk;
+        $id_peserta = $identitas['id_status_peserta'];
         $agama = $this->MAgama->findAll();
         $kecamatan = $this->MKecamatan->orderBy('nama_kecamatan', 'ASC')->findAll();
         // Form keluarga
@@ -239,8 +241,9 @@ class Pendaftaran extends BaseController
         return view('/pendaftar/pendaftaran/edit_form_pendaftaran', $data);
     }
     // simpan edit formulir pendaftaran
-    public function simpanEditPendaftaran($no_induk)
+    public function simpanEditPendaftaran()
     {
+        $no_induk = user()->no_induk;
         $id_peserta = $this->MIdentitas->where('no_induk', $no_induk)->findColumn('id_status_peserta');
         $formulir_pendaftaran = $this->request->getFile('scan_formulir_pendaftaran');
         $formulir_pendaftaran_lama = $this->request->getVar('scan_formulir_pendaftaran_lama');

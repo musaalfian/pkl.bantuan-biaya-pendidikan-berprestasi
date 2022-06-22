@@ -49,17 +49,8 @@
                                 </div>
                             <?php endif ?>
                             <?php if ($identitas['id_status_pendaftaran'] == 3) { ?>
-                                <?php if ($identitas['id_status_peserta'] == 1) { ?>
-                                    <a href="<?= base_url(); ?>/pendaftaran/edit_pendaftaran/<?= $identitas['no_induk']; ?>/<?= $identitas['id_status_peserta']; ?>" class="btn btn-primary fw-normal fs14">Ubah
+                                    <a href="<?= base_url(); ?>/pendaftaran/edit_pendaftaran" class="btn btn-primary fw-normal fs14">Ubah
                                         Data</a>
-                                <?php } else if ($identitas['id_status_peserta'] == 2) { ?>
-
-                                    <a href="<?= base_url(); ?>/pendaftaran/edit_pendaftaran/<?= $identitas['no_induk']; ?>/<?= $identitas['id_status_peserta']; ?>" class="btn btn-primary fw-normal fs14">Ubah
-                                        Data</a>
-                                <?php } else if ($identitas['id_status_peserta'] == 3) { ?>
-                                    <a href="<?= base_url(); ?>/pendaftaran/edit_pendaftaran/<?= $identitas['no_induk']; ?>/<?= $identitas['id_status_peserta']; ?>" class="btn btn-primary fw-normal fs14">Ubah
-                                        Data</a>
-                                <?php } ?>
                             <?php } ?>
                             <!-- end btn edit data -->
 

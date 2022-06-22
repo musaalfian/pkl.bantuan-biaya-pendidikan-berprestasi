@@ -37,7 +37,7 @@
                 </div>
                 <div class="col-md-8 col-12 mb-4 mb-md-0">
                     <div class="gambar">
-                        <div class="bg">
+                    <div class="<?= ($informasi['gambar_informasi_terbaru'] != null) ? 'bg' : ''; ?>">
                             <img src="" alt="Gambar Informasi">
                         </div>
                         <h6 class="fs14 abu mt-3">

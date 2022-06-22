@@ -7,13 +7,13 @@
         <!-- form edit pendaftaran -->
         <?php if ($identitas['status_edit_pendaftaran'] == null) : ?>
             <?php if ($id_peserta == 1) : ?>
-                <form action="<?= base_url(); ?>/siswa/simpan_edit_siswa/<?= $identitas['no_induk']; ?>" method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
+                <form action="<?= base_url(); ?>/siswa/simpan_edit_siswa" method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
                     <!-- end sma -->
                 <?php elseif ($id_peserta == 2) : ?>
-                    <form action="<?= base_url(); ?>/calon_mhs/simpan_edit_calon_mhs/<?= $identitas['no_induk']; ?>" method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
+                    <form action="<?= base_url(); ?>/calon_mhs/simpan_edit_calon_mhs" method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
                         <!-- end calon mahasiswa -->
                     <?php else : ?>
-                        <form action="<?= base_url(); ?>/mahasiswa/simpan_edit_mhs/<?= $identitas['no_induk']; ?>" method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
+                        <form action="<?= base_url(); ?>/mahasiswa/simpan_edit_mhs" method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
                             <!-- end mahasiswa -->
                         <?php endif; ?>
                         <div class="tab-content bdblue bgwhite br25 p-4 p-sm-5">
@@ -1035,7 +1035,7 @@
                         </div>
                         <!-- End save modal -->
                         </form>
-                    <?php else : ?>
+                    <?php elseif($identitas['status_edit_pendaftaran'] == 1) : ?>
                         <!-- kirim ulang formulir pendaftaran -->
                         <form action="<?= base_url(); ?>/pendaftaran/simpanEditPendaftaran/<?= $identitas['no_induk']; ?>" method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
                             <div class="tab-content bdblue bgwhite br25 p-4 p-sm-5">

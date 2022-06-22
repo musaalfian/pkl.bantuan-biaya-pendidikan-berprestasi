@@ -567,10 +567,11 @@ class Calon_mhs extends BaseController
         ];
         return view('/pendaftar/calon_mhs/edit_form_pendaftar_calon_mhs', $data);
     }
-    public function simpan_edit_calon_mhs($no_induk)
+    public function simpan_edit_calon_mhs()
     {
         /*******************    IDENTITAS    ********************/
         $identitas = $this->MIdentitas->find_identitas_user(user_id())->getFirstRow('array');
+        $no_induk = user()->no_induk;
         $input_no_induk = $this->request->getVar('no_induk');
         // dd($identitas['no_induk']);
         // dd($input_no_induk);
@@ -1099,6 +1100,6 @@ class Calon_mhs extends BaseController
         ];
         $this->MIdentitas->update($no_induk, $data);
         session()->setFlashdata('pesan-edit-calon_mhs', 'Data diri berhasil diubah.');
-        return redirect()->to('pendaftaran/edit_pendaftaran/' . $identitas['no_induk'] . '/' . $identitas['id_status_peserta'])->withInput();
+        return redirect()->to('pendaftaran/edit_pendaftaran');
     }
 }
