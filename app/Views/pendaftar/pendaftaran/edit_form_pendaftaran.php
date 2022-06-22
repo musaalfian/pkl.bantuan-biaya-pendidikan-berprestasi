@@ -932,7 +932,7 @@
                                                 <span class="fs14 lightgrey ms-2"> Contoh penamaan file : (no
                                                     induk)_scan_raport_legalisasi<strong>.pdf</strong></span>
                                             </label>
-                                            <input class="form-control scan-lampiran <?= ($validation->hasError('scan_raport')) ? 'is-invalid' : ''; ?>" data-default-file="<?= base_url(); ?>/assets/scan/<?= $identitas['no_induk']; ?>/file/<?= $file['raport']; ?>" data-allowed-file-extensions="pdf" data-height="100" data-max-file-size="2M" name="scan_raport" type="file" value="<?= $file['raport_legalisasi']; ?>" accept="application/pdf" id="raport" />
+                                            <input class="form-control scan-lampiran <?= ($validation->hasError('scan_raport')) ? 'is-invalid' : ''; ?>" data-default-file="<?= base_url(); ?>/assets/scan/<?= $identitas['no_induk']; ?>/file/<?= $file['raport_legalisasi']; ?>" data-allowed-file-extensions="pdf" data-height="100" data-max-file-size="2M" name="scan_raport" type="file" value="<?= $file['raport_legalisasi']; ?>" accept="application/pdf" id="raport" />
                                         
                                             <div class="invalid-feedback">
                                                 <?= ($validation->getError('scan_raport') == '') ? 'Bagian kategori prestasi wajib diisi' : str_replace('_', ' ', $validation->getError('scan_raport')); ?>

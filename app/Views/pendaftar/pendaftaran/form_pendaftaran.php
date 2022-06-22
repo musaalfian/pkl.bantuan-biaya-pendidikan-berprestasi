@@ -255,7 +255,7 @@
                                         <?php if ($id_peserta == 1 || $id_peserta == 2) : ?>
                                             <div class="mb20">
                                                 <label for="no_induk_pelajar" class="form-label bold">NISN <span class="required-label"></span></label>
-                                                <input required <?= ($identitas != null) ? 'disabled' : ''; ?> type="text" maxlength="25" class="form-control <?= ($validation->hasError('no_induk_pelajar')) ? 'is-invalid' : ''; ?>" value="<?= ($identitas != null) ? $identitas['no_induk_pelajar'] : old('no_induk_pelajar'); ?>" name="no_induk_pelajar" placeholder="" />
+                                                <input required <?= ($identitas != null) ? 'disabled' : ''; ?> type="number" maxlength="25" class="form-control <?= ($validation->hasError('no_induk_pelajar')) ? 'is-invalid' : ''; ?>" value="<?= ($identitas != null) ? $identitas['no_induk_pelajar'] : old('no_induk_pelajar'); ?>" name="no_induk_pelajar" placeholder="" />
                                                 <?php if ($identitas == null) : ?>
 
                                                     <div class="invalid-feedback">
