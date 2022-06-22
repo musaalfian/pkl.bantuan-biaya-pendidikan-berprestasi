@@ -137,7 +137,7 @@
                                             <div class="d-flex align-items-xl-baseline align-items-start">
                                                 <h6 class="text-white fs12 bgblue bd50 d-flex justify-content-center align-items-center mb-0 me-2">
                                                     2</h6>
-                                                <div class="w-75">
+                                                <div class="w-100">
                                                     <label for="no_rek" class="form-label fs14">Masukkan nomer rekening <span class="text-red">*</span></label>
                                                     <input type="number" name="no_rek" id="no_rek" class="form-control" value="<?= old('no_rek'); ?>" required>
                                                     <div class="invalid-feedback">
@@ -150,7 +150,7 @@
                                             <div class="d-flex align-items-xl-baseline align-items-start">
                                                 <h6 class="text-white fs12 bgblue bd50 d-flex justify-content-center align-items-center mb-0 me-2">
                                                     3</h6>
-                                                <div class="w-75">
+                                                <div class="w-100">
                                                     <label for="nama_pemilik_rekening" class="form-label fs14">Masukkan nama pemilik
                                                         rekening <span class="text-red">*</span></label>
                                                     <input type="text" name="nama_pemilik_rekening" id="nama_pemilik_rekening" class="form-control" value="<?= old('nama_pemilik_rekening'); ?>" required>
@@ -164,7 +164,7 @@
                                             <div class="d-flex align-items-xl-baseline align-items-start">
                                                 <h6 class="text-white fs12 bgblue bd50 d-flex justify-content-center align-items-center mb-0 me-2">
                                                     4</h6>
-                                                <div class="w-75">
+                                                <div class="w-100">
                                                     <label for="rek_bpd" class="form-label fs14">Scan halaman depan buku tabungan BPD
                                                         Jateng <span class="text-red">*</span></label>
                                                     <input required type="File" id="rek_bpd" class="form-control" name="rek_bpd" accept="application/pdf">
