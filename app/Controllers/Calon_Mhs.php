@@ -76,7 +76,12 @@ class Calon_mhs extends BaseController
     {
         $user_id = user_id();
         if (!$this->validate([
-            'no_induk'    => 'required|numeric|is_unique[identitas.no_induk]',
+            'no_induk'    => [
+                'rules' => 'required|numeric|is_unique[identitas.no_induk]',
+                'errors' => [
+                    'is_unique' => 'NIK sudah digunakan',
+                ]
+            ],
             'no_induk_pelajar'    => 'required',
             'nama_lengkap'      => 'required|alpha_space',
             'jenis_kelamin'    => 'required',
@@ -571,7 +576,12 @@ class Calon_mhs extends BaseController
         // dd($input_no_induk);
         if ($identitas['no_induk'] != $input_no_induk) {
             if (!$this->validate([
-                'no_induk'    => 'required|numeric|is_unique[identitas.no_induk]',
+                'no_induk'    => [
+                    'rules' => 'required|numeric|is_unique[identitas.no_induk]',
+                    'errors' => [
+                        'is_unique' => 'NIK sudah digunakan',
+                    ]
+                ],
                 'no_induk_pelajar'    => 'required',
                 'nama_lengkap'      => 'required|alpha_space',
                 'jenis_kelamin'    => 'required',

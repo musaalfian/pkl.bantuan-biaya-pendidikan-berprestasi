@@ -499,11 +499,6 @@
                                                         <?= ucfirst($opsional_menerima_bantuan); ?>
                                                     </label>
                                                 <?php endforeach; ?>
-                                                <?php if($identitas == null): ?>
-                                                    <div class="invalid-feedback">
-                                                        
-                                                </div>
-                                                        <?php endif ?>
                                             </div>
                                         </div>
                                         <!-- end pernah menerima bantuan -->
@@ -2285,9 +2280,9 @@ $('form').on('submit', function(e) {
     // alert("Page is loaded");
     $(document).ready(function() {
         var numItems = $('.invalid-feedback').filter(function(){
-        return $(this).css('display') == 'none';
+        return $(this).css('display') != 'none';
         }).length;
-        if($(numItems >= 0)){
+        if( numItems >= 1){
             $('.pesan-gagal').show();
         }
     // alert(
