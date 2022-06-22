@@ -204,6 +204,7 @@ if ($('input[name="pernah_menerima_bantuan"]:checked').val() == "tidak") {
 // kategori
 for (let index = 1; index <= 3; index++) {
   $("#kategori_" + index).change(function () {
+    
     if (
       $(this).val() == "hafidz" ||
       $(this).val() == "KHS" ||

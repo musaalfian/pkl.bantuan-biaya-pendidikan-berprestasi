@@ -73,9 +73,11 @@
                                         <div class="mb20">
                                             <label for="nama_lengkap" class="form-label bold">Nama Lengkap <span class="required-label"></span></label>
                                             <input required <?= ($identitas != null) ? 'disabled' : ''; ?> type="text" class="form-control <?= ($validation->hasError('nama_lengkap')) ? 'is-invalid' : ''; ?>" value="<?= ($identitas != null) ? $identitas['nama_lengkap'] : old('nama_lengkap'); ?>" name="nama_lengkap" placeholder="" />
-                                            <div class="invalid-feedback">
+                                            <?php if($identitas == null): ?>
+                                                <div class="invalid-feedback">
                                                 <?= ($validation->getError('nama_lengkap') == '') ? 'Bagian nama lengkap  wajib diisi' : str_replace('_', ' ', $validation->getError('nama_lengkap')); ?>
                                             </div>
+                                                <?php endif ?>
                                         </div>
                                         <!-- end nama lengkap -->
                                         <div class="mb20">
@@ -106,18 +108,23 @@
                                                 <label class="form-check-label ms-2" for="P">
                                                     Perempuan
                                                 </label>
-                                            </div>
-                                            <div class="invalid-feedback">
-                                                <?= ($validation->getError('jenis_kelamin') == '') ? 'Bagian jenis kelamin  wajib diisi' : str_replace('_', ' ', $validation->getError('jenis_kelamin')) ?>
+                                            <?php if($identitas == null): ?>
+                                                <div class="invalid-feedback">
+                                                    </div>
+                                                    <?php endif ?>
                                             </div>
                                         </div>
                                         <!-- end jenis kelamin -->
                                         <div class="mb20">
                                             <label for="no_induk" class="form-label bold">NIK <span class="required-label"></span></label>
                                             <input required <?= ($identitas != null) ? 'disabled' : ''; ?> type="number" min="0" max="9999999999999999" class="form-control <?= ($validation->hasError('no_induk')) ? 'is-invalid' : ''; ?>" value="<?= ($identitas != null) ? $identitas['no_induk'] : old('no_induk'); ?>" name="no_induk" placeholder="" />
+                                            <?php if($identitas == null): ?>
+
                                             <div class="invalid-feedback">
                                                 <?= ($validation->getError('no_induk') == '') ? 'Bagian NIK  wajib diisi' : str_replace('_', ' ', $validation->getError('no_induk')) ?>
                                             </div>
+                                            <?php endif ?>
+
                                         </div>
                                         <!-- end NIK -->
                                         <div class="mb20">
@@ -125,9 +132,13 @@
                                                 <span class="fs14 lightgrey ms-2"> Contoh : Batang, 19 Agustus
                                                     2000</span></label>
                                             <input required <?= ($identitas != null) ? 'disabled' : ''; ?> type="text" class="form-control <?= ($validation->hasError('ttl')) ? 'is-invalid' : ''; ?>" value="<?= ($identitas != null) ? $identitas['ttl'] : old('ttl'); ?>" name="ttl" placeholder="" />
+                                            <?php if($identitas == null): ?>
+
                                             <div class="invalid-feedback">
                                                 <?= ($validation->getError('ttl') == '') ? 'Bagian tempat, tanggal lahir  wajib diisi' : str_replace('_', ' ', $validation->getError('ttl')) ?>
                                             </div>
+                                            <?php endif ?>
+
                                         </div>
                                         <!-- end Tempat, Tanggal Lahir -->
                                         <div class="mb20">
@@ -147,18 +158,26 @@
                                                         <?= ucfirst($agama_pendaftar['nama_agama']); ?></option>
                                                 <?php endforeach; ?>
                                             </select>
+                                            <?php if($identitas == null): ?>
+
                                             <div class="invalid-feedback">
                                                 <?= ($validation->getError('agama') == '') ? 'Bagian agama wajib diisi' : str_replace('_', ' ', $validation->getError('agama')) ?>
-                                            </div>
+                                            </div>     
+                                            <?php endif ?>
+
                                         </div>
                                         <!-- end agama -->
                                         <?php if ($id_peserta == 1) : ?>
                                             <div class="mb20">
                                                 <label for="anak_ke" class="form-label bold">Anak Ke <span class="required-label"></span></label>
                                                 <input required <?= ($identitas != null) ? 'disabled' : ''; ?> type="number" class="form-control <?= ($validation->hasError('anak_ke')) ? 'is-invalid' : ''; ?>" value="<?= ($identitas != null) ? $identitas['anak_ke'] : old('anak_ke'); ?>" name="anak_ke" min="1" placeholder="" />
+                                                <?php if($identitas == null): ?>
+
                                                 <div class="invalid-feedback">
                                                     <?= ($validation->getError('anak_ke') == '') ? 'Bagian anak ke  wajib diisi' : str_replace('_', ' ', $validation->getError('anak_ke')); ?>
                                                 </div>
+                                                <?php endif ?>
+
                                             </div>
                                         <?php endif ?>
                                         <!-- end anak ke -->
@@ -166,9 +185,13 @@
                                             <label for="alamat_rumah" class="form-label bold">Alamat Rumah <span class="fs14 ms-2 lightgrey"> Alamat rumah berisi dukuh, rt, rw,
                                                     desa, dan jalan</span></label>
                                             <textarea required <?= ($identitas != null) ? 'disabled' : ''; ?> class="form-control mb-2 <?= ($validation->hasError('alamat_rumah')) ? 'is-invalid' : ''; ?>" name="alamat_rumah" id="alamat_rumah" rows="1"><?= ($identitas != null) ? $identitas['alamat_rumah'] : old('alamat_rumah'); ?></textarea>
+                                            <?php if($identitas == null): ?>
+
                                             <div class="invalid-feedback">
                                                 <?= ($validation->getError('alamat_rumah') == '') ? 'Bagian alamat rumah  wajib diisi' : $validation->getError('alamat_rumah'); ?>
                                             </div>
+                                            <?php endif ?>
+
                                         </div>
                                         <!-- end alamat -->
                                         <div class="mb20">
@@ -189,18 +212,26 @@
                                                     </option>
                                                 <?php endforeach; ?>
                                             </select>
+                                            <?php if($identitas == null): ?>
+
                                             <div class="invalid-feedback">
                                                 <?= ($validation->getError('kecamatan') == '') ? 'Bagian kecamatan  wajib diisi' : $validation->getError('kecamatan'); ?>
                                             </div>
+                                            <?php endif ?>
+
                                         </div>
                                         <!-- end kecamatan -->
                                         <?php if ($id_peserta == 2 || $id_peserta == 3) : ?>
                                             <div class="mb20">
                                                 <label for="no_telepon" class="form-label bold">Nomor Telepon <span class="required-label"></span></label>
                                                 <input required <?= ($identitas != null) ? 'disabled' : ''; ?> type="number" min="0" max="999999999999999" class="form-control <?= ($validation->hasError('no_telepon')) ? 'is-invalid' : ''; ?>" value="<?= ($identitas != null) ? $identitas['no_telepon'] : old('no_telepon'); ?>" name="no_telepon" placeholder="" />
+                                                <?php if($identitas == null): ?>
+
                                                 <div class="invalid-feedback">
                                                     <?= ($validation->getError('no_telepon') == '') ? 'Bagian no telepon  wajib diisi dan kurang dari 15 angka' : str_replace('_', ' ', $validation->getError('no_telepon')) ?>
                                                 </div>
+                                                <?php endif ?>
+
                                             </div>
                                         <?php endif ?>
                                     </div>
@@ -210,9 +241,13 @@
                                             <div class="mb20">
                                                 <label for="no_telepon" class="form-label bold">Nomor Telepon <span class="required-label"></span></label>
                                                 <input required <?= ($identitas != null) ? 'disabled' : ''; ?> type="number" min="0" max="999999999999999" class="form-control <?= ($validation->hasError('no_telepon')) ? 'is-invalid' : ''; ?>" value="<?= ($identitas != null) ? $identitas['no_telepon'] : old('no_telepon'); ?>" name="no_telepon" placeholder="" />
+                                                <?php if($identitas == null): ?>
+
                                                 <div class="invalid-feedback">
                                                     <?= ($validation->getError('no_telepon') == '') ? 'Bagian no telepon  wajib diisi dan kurang dari 15 angka' : str_replace('_', ' ', $validation->getError('no_telepon')) ?>
                                                 </div>
+                                                <?php endif ?>
+
                                             </div>
                                         <?php endif ?>
 
@@ -221,18 +256,26 @@
                                             <div class="mb20">
                                                 <label for="no_induk_pelajar" class="form-label bold">NISN <span class="required-label"></span></label>
                                                 <input required <?= ($identitas != null) ? 'disabled' : ''; ?> type="text" maxlength="25" class="form-control <?= ($validation->hasError('no_induk_pelajar')) ? 'is-invalid' : ''; ?>" value="<?= ($identitas != null) ? $identitas['no_induk_pelajar'] : old('no_induk_pelajar'); ?>" name="no_induk_pelajar" placeholder="" />
+                                                <?php if($identitas == null): ?>
+
                                                 <div class="invalid-feedback">
                                                     <?= ($validation->getError('no_induk_pelajar') == '') ? 'Bagian NIS/NISN  wajib diisi' : str_replace('_', ' ', $validation->getError('no_induk_pelajar')) ?>
                                                 </div>
+                                                <?php endif ?>
+
                                             </div>
                                             <!-- end NISN -->
                                         <?php else : ?>
                                             <div class="mb20">
                                                 <label for="no_induk_pelajar" class="form-label bold">NIM </label>
                                                 <input required <?= ($identitas != null) ? 'disabled' : ''; ?> type="text" maxlength="25" name="no_induk_pelajar" class="form-control <?= ($validation->hasError('no_induk_pelajar')) ? 'is-invalid' : ''; ?>" value="<?= ($identitas != null) ? $identitas['no_induk_pelajar'] : old('no_induk_pelajar'); ?>" name="no_induk_pelajar" placeholder="" />
+                                                <?php if($identitas == null): ?>
+
                                                 <div class="invalid-feedback">
                                                     <?= ($validation->getError('no_induk_pelajar') == '') ? 'Bagian NIM  wajib diisi' : str_replace('_', ' ', $validation->getError('no_induk_pelajar')) ?>
                                                 </div>
+                                                <?php endif ?>
+
                                             </div>
                                             <!-- end NIM -->
                                         <?php endif ?>
@@ -242,9 +285,13 @@
                                                     Sekolah (Km)
                                                     <span class="required-label"></span></label>
                                                 <input required <?= ($identitas != null) ? 'disabled' : ''; ?> type="number" class="form-control <?= ($validation->hasError('jarak_sekolah')) ? 'is-invalid' : ''; ?>" value="<?= ($identitas != null) ? $identitas['jarak_sekolah'] : old('jarak_sekolah'); ?>" name="jarak_sekolah" min="0" step=".1" placeholder="" />
+                                                <?php if($identitas == null): ?>
+
                                                 <div class="invalid-feedback">
                                                     <?= ($validation->getError('jarak_sekolah') == '') ? 'Bagian jarak sekolah  wajib diisi' : str_replace('_', ' ', $validation->getError('jarak_rumah')) ?>
                                                 </div>
+                                                <?php endif ?>
+
                                             </div>
                                             <!-- end Jarak dari Rumah ke Sekolah -->
                                             <div class="mb20">
@@ -267,9 +314,13 @@
                                                         </option>
                                                     <?php endforeach; ?>
                                                 </select>
+                                                <?php if($identitas == null): ?>
+
                                                 <div class="invalid-feedback">
                                                     <?= ($validation->getError('transportasi') == '') ? 'Bagian transportasi wajib diisi' : $validation->getError('transportasi'); ?>
                                                 </div>
+                                                <?php endif ?>
+
                                             </div>
                                             <!-- end transportasi -->
                                             <div class="mb20">
@@ -290,9 +341,13 @@
                                                         </option>
                                                     <?php endforeach; ?>
                                                 </select>
+                                                <?php if($identitas == null): ?>
+
                                                 <div class="invalid-feedback">
                                                     <?= ($validation->getError('sekolah') == '') ? 'Bagian sekolah wajib diisi' : $validation->getError('sekolah'); ?>
                                                 </div>
+                                                <?php endif ?>
+
                                             </div>
                                             <!-- end sekolah -->
                                             <div class="mb20">
@@ -327,9 +382,12 @@
                                                                 }
                                                             } ?> value="12">XII - Dua Belas</option>
                                                 </select>
-                                                <div class="invalid-feedback">
-                                                    <?= ($validation->getError('kelas') == '') ? 'Bagian kelas wajib diisi' : $validation->getError('kelas'); ?>
-                                                </div>
+                                                <?php if($identitas == null): ?>
+                                                    
+                                                    <div class="invalid-feedback">
+                                                        <?= ($validation->getError('kelas') == '') ? 'Bagian kelas wajib diisi' : $validation->getError('kelas'); ?>
+                                                    </div>
+                                                    <?php endif ?>
                                             </div>
                                             <!-- end kelas -->
                                         <?php else : ?>
@@ -337,9 +395,11 @@
                                                 <label for="nama_pt" class="form-label bold">Nama Perguruan Tinggi
                                                 </label>
                                                 <input required <?= ($identitas != null) ? 'disabled' : ''; ?> type="text" class="form-control <?= ($validation->hasError('nama_pt')) ? 'is-invalid' : ''; ?>" value="<?= ($identitas != null) ? $identitas['nama_pt'] : old('nama_pt'); ?>" name="nama_pt" placeholder="" />
-                                                <div class="invalid-feedback">
-                                                    <?= ($validation->getError('nama_pt') == '') ? 'Bagian nama perguruan tinggiwajib diisi' : str_replace('_', ' ', $validation->getError('nama_pt')); ?>
+                                                <?php if($identitas == null): ?>
+                                                    <div class="invalid-feedback">
+                                                        <?= ($validation->getError('nama_pt') == '') ? 'Bagian nama perguruan tinggiwajib diisi' : str_replace('_', ' ', $validation->getError('nama_pt')); ?>
                                                 </div>
+                                                        <?php endif ?>
                                             </div>
                                             <!-- end nama_pt -->
                                             <div class="mb20">
@@ -361,9 +421,11 @@
                                                             <?= $akreditasi_pt_pendaftaran; ?></option>
                                                     <?php endforeach; ?>
                                                 </select>
-                                                <div class="invalid-feedback">
+                                                <?php if($identitas == null): ?>
+                                                    <div class="invalid-feedback">
                                                     <?= ($validation->getError('akreditasi_pt') == '') ? 'Bagian akreditasi perguruan tinggiwajib diisi' : str_replace('_', ' ', $validation->getError('akreditasi_pt')); ?>
                                                 </div>
+                                                    <?php endif ?>
                                             </div>
                                             <!-- end akreditasi_pt -->
                                             <div class="mb20">
@@ -371,9 +433,11 @@
                                                     Tinggi
                                                 </label>
                                                 <input required <?= ($identitas != null) ? 'disabled' : ''; ?> type="number" class="form-control <?= ($validation->hasError('tahun_masuk_pt')) ? 'is-invalid' : ''; ?>" value="<?= ($identitas != null) ? $identitas['tahun_masuk_pt'] : old('tahun_masuk_pt'); ?>" name="tahun_masuk_pt" placeholder="" min="2016" max="2022" />
-                                                <div class="invalid-feedback">
-                                                    <?= ($validation->getError('tahun_masuk_pt') == '') ? 'Bagian tahun masuk perguruan tinggiwajib diisi' : str_replace('_', ' ', $validation->getError('tahun_masuk_pt')); ?>
+                                                <?php if($identitas == null): ?>
+                                                    <div class="invalid-feedback">
+                                                        <?= ($validation->getError('tahun_masuk_pt') == '') ? 'Bagian tahun masuk perguruan tinggiwajib diisi' : str_replace('_', ' ', $validation->getError('tahun_masuk_pt')); ?>
                                                 </div>
+                                                        <?php endif ?>
                                             </div>
                                             <!-- end tahun_masuk_pt -->
                                             <div class="mb20">
@@ -394,18 +458,22 @@
                                                             <?= $semester_ke_pendaftaran; ?></option>
                                                     <?php endforeach; ?>
                                                 </select>
-                                                <div class="invalid-feedback">
-                                                    <?= ($validation->getError('semester_ke') == '') ? 'Bagian semester ke wajib diisi' : str_replace('_', ' ', $validation->getError('semester_ke')); ?>
-                                                </div>
+                                                <?php if($identitas == null): ?>
+                                                    <div class="invalid-feedback">
+                                                        <?= ($validation->getError('semester_ke') == '') ? 'Bagian semester ke wajib diisi' : str_replace('_', ' ', $validation->getError('semester_ke')); ?>
+                                                    </div>
+                                                    <?php endif ?>
                                             </div>
                                             <!-- end semester_ke -->
                                             <div class="mb20">
                                                 <label for="alamat_pt" class="form-label bold">Alamat Perguruan Tinggi
                                                 </label>
                                                 <textarea required <?= ($identitas != null) ? 'disabled' : ''; ?> class="form-control <?= ($validation->hasError('alamat_pt')) ? 'is-invalid' : ''; ?>" name="alamat_pt" id="alamat_pt" rows="1"><?= ($identitas != null) ? $identitas['alamat_pt'] : old('alamat_pt'); ?></textarea>
-                                                <div class="invalid-feedback">
+                                                <?php if($identitas == null): ?>
+                                                    <div class="invalid-feedback">
                                                     <?= ($validation->getError('alamat_pt') == '') ? 'Bagian alamat perguruan tinggi wajib diisi' : str_replace('_', ' ', $validation->getError('alamat_pt')); ?>
                                                 </div>
+                                                <?php endif ?>
                                             </div>
                                             <!-- end alamat perguruan tinggi-->
                                         <?php endif; ?>
@@ -431,9 +499,11 @@
                                                         <?= ucfirst($opsional_menerima_bantuan); ?>
                                                     </label>
                                                 <?php endforeach; ?>
-                                            </div>
-                                            <div class="invalid-feedback">
-                                                <?= ($validation->getError('pernah_menerima_bantuan') == '') ? 'Bagian pernah menerima bantuan  wajib diisi' : str_replace('_', ' ', $validation->getError('pernah_menerima_bantuan')); ?>
+                                                <?php if($identitas == null): ?>
+                                                    <div class="invalid-feedback">
+                                                        
+                                                </div>
+                                                        <?php endif ?>
                                             </div>
                                         </div>
                                         <!-- end pernah menerima bantuan -->
@@ -442,9 +512,11 @@
                                                 Bantuan
                                                 Dari</label>
                                             <input required id="menerima_bantuan_dari" <?= ($identitas != null) ? 'disabled' : ''; ?> id="menerima_bantuan_dari" type="text" maxlength="16" class="form-control <?= ($validation->hasError('menerima_bantuan_dari')) ? 'is-invalid' : ''; ?>" value="<?= ($identitas != null) ? $identitas['menerima_bantuan_dari'] : old('menerima_bantuan_dari'); ?>" name="menerima_bantuan_dari" placeholder="" />
-                                            <div class="invalid-feedback">
+                                            <?php if($identitas == null): ?>
+                                                <div class="invalid-feedback">
                                                 <?= ($validation->getError('menerima_bantuan_dari') == '') ? '' : str_replace('_', ' ', $validation->getError('menerima_bantuan_dari')) ?>
                                             </div>
+                                            <?php endif ?>
                                         </div>
                                         <!-- end menerima_bantuan_dari -->
                                     </div>
@@ -506,18 +578,22 @@
                                             <div class="mb20">
                                                 <label for="nama_ayah" class="form-label bold">Nama Ayah / Wali <span class="required-label">*</span></label>
                                                 <input required <?= ($keluarga != null) ? 'disabled' : ''; ?> type="text" class="form-control <?= ($validation->hasError('nama_ayah')) ? 'is-invalid' : ''; ?>" value="<?= ($keluarga != null) ? $keluarga['nama_ayah'] : old('nama_ayah'); ?>" name="nama_ayah" placeholder="" />
-                                                <div class="invalid-feedback">
-                                                    <?= ($validation->getError('nama_ayah') == '') ? 'Bagian nama ayah wajib diisi' : str_replace('_', ' ', $validation->getError('nama_ayah')); ?>
-                                                </div>
+                                                <?php if($keluarga == null): ?>
+                                                    <div class="invalid-feedback">
+                                                        <?= ($validation->getError('nama_ayah') == '') ? 'Bagian nama ayah wajib diisi' : str_replace('_', ' ', $validation->getError('nama_ayah')); ?>
+                                                    </div>
+                                                    <?php endif ?>
                                             </div>
                                             <!-- end nama ayah -->
                                             <?php if ($identitas['id_status_peserta'] != 1) : ?>
                                                 <div class="mb20">
                                                     <label for="usia" class="form-label bold">Usia Ayah / Wali <span class="required-label">*</span></label>
                                                     <input required <?= ($keluarga != null) ? 'disabled' : ''; ?> type="number" class="form-control <?= ($validation->hasError('usia_ayah')) ? 'is-invalid' : ''; ?>" value="<?= ($keluarga != null) ? $keluarga['usia_ayah'] : old('usia_ayah'); ?>" id="usia_ayah" name="usia_ayah" placeholder="" />
-                                                    <div class="invalid-feedback">
-                                                        <?= ($validation->getError('usia_ayah') == '') ? 'Bagian usia ayah wajib diisi' : $validation->getError('usia_ayah'); ?>
-                                                    </div>
+                                                    <?php if($keluarga == null): ?>
+                                                        <div class="invalid-feedback">
+                                                            <?= ($validation->getError('usia_ayah') == '') ? 'Bagian usia ayah wajib diisi' : $validation->getError('usia_ayah'); ?>
+                                                        </div>
+                                                        <?php endif ?>
                                                 </div>
                                             <?php endif ?>
                                             <!-- end usia -->
@@ -525,9 +601,11 @@
                                                 <label for="pekerjaan_ayah" class="form-label bold">Pekerjaan Ayah / Wali
                                                     <span class="required-label">*</span></label>
                                                 <input required <?= ($keluarga != null) ? 'disabled' : ''; ?> type="text" class="form-control <?= ($validation->hasError('pekerjaan_ayah')) ? 'is-invalid' : ''; ?>" value="<?= ($keluarga != null) ? $keluarga['pekerjaan_ayah'] : old('pekerjaan_ayah'); ?>" name="pekerjaan_ayah" placeholder="" />
-                                                <div class="invalid-feedback">
-                                                    <?= ($validation->getError('pekerjaan_ayah') == '') ? 'Bagian pekerjaan ayah  wajib diisi' : str_replace('_', ' ', $validation->getError('pekerjaan_ayah')); ?>
+                                                <?php if($keluarga == null): ?>
+                                                    <div class="invalid-feedback">
+                                                        <?= ($validation->getError('pekerjaan_ayah') == '') ? 'Bagian pekerjaan ayah  wajib diisi' : str_replace('_', ' ', $validation->getError('pekerjaan_ayah')); ?>
                                                 </div>
+                                                        <?php endif ?>
                                             </div>
                                             <!-- end pekerjaan ayah -->
                                             <div class="mb20">
@@ -550,9 +628,11 @@
                                                             <?= $pendidikan_ayah; ?></option>
                                                     <?php endforeach; ?>
                                                 </select>
-                                                <div class="invalid-feedback">
+                                                <?php if($keluarga == null): ?>
+                                                    <div class="invalid-feedback">
                                                     <?= ($validation->getError('pendidikan_terakhir_ayah') == '') ? 'Bagian pendidikan terakhir ayah wajib diisi' : str_replace('_', ' ', $validation->getError('pendidikan_terakhir_ayah')); ?>
                                                 </div>
+                                                    <?php endif ?>
                                             </div>
                                             <!-- end Pendidikan Terakhir Ayah / Wali -->
                                             <div class="mb20">
@@ -562,18 +642,22 @@
                                                     <span class="required-label">* </span></label>
                                                 <p>Contoh : 2000000 (tanpa menggunakan titik)</p>
                                                 <input required <?= ($keluarga != null) ? 'disabled' : ''; ?> type="number" min="0" class="form-control <?= ($validation->hasError('penghasilan_ayah')) ? 'is-invalid' : ''; ?>" value="<?= ($keluarga != null) ? $keluarga['penghasilan_ayah'] : old('penghasilan_ayah'); ?>" name="penghasilan_ayah" placeholder="" />
-                                                <div class="invalid-feedback">
-                                                    <?= ($validation->getError('penghasilan_ayah') == '') ? 'Bagian penghasilan ayah wajib diisi' : str_replace('_', ' ', $validation->getError('penghasilan_ayah')); ?>
-                                                </div>
+                                                <?php if($keluarga == null): ?>
+                                                    <div class="invalid-feedback">
+                                                        <?= ($validation->getError('penghasilan_ayah') == '') ? 'Bagian penghasilan ayah wajib diisi' : str_replace('_', ' ', $validation->getError('penghasilan_ayah')); ?>
+                                                    </div>
+                                                    <?php endif ?>
                                             </div>
                                             <!-- end Pneghasilan ayah -->
                                             <div class="mb20">
                                                 <label for="alamat_ayah" class="form-label bold">Alamat Ayah / Wali
                                                     <span class="required-label">*</span></label>
                                                 <textarea required <?= ($keluarga != null) ? 'disabled' : ''; ?> class="form-control <?= ($validation->hasError('alamat_ayah')) ? 'is-invalid' : ''; ?>" name="alamat_ayah" name="alamat_ayah" rows="5"><?= ($keluarga != null) ? $keluarga['alamat_ayah'] : old('alamat_ayah'); ?></textarea>
-                                                <div class="invalid-feedback">
-                                                    <?= ($validation->getError('alamat_ayah') == '') ? 'Bagian alamat ayah wajib diisi' : str_replace('_', ' ', $validation->getError('alamat_ayah')); ?>
-                                                </div>
+                                                <?php if($keluarga == null): ?>
+                                                    <div class="invalid-feedback">
+                                                        <?= ($validation->getError('alamat_ayah') == '') ? 'Bagian alamat ayah wajib diisi' : str_replace('_', ' ', $validation->getError('alamat_ayah')); ?>
+                                                    </div>
+                                                    <?php endif ?>
                                             </div>
                                             <!-- end alamat -->
                                         </div>
@@ -582,18 +666,22 @@
                                             <div class="mb20">
                                                 <label for="nama_ibu" class="form-label bold">Nama Ibu / Wali <span class="required-label">*</span></label>
                                                 <input required <?= ($keluarga != null) ? 'disabled' : ''; ?> type="text" class="form-control <?= ($validation->hasError('nama_ibu')) ? 'is-invalid' : ''; ?>" value="<?= ($keluarga != null) ? $keluarga['nama_ibu'] : old('nama_ibu'); ?>" name="nama_ibu" placeholder="" />
-                                                <div class="invalid-feedback">
-                                                    <?= ($validation->getError('nama_ibu') == '') ? 'Bagian nama ibu  wajib diisi' : str_replace('_', ' ', $validation->getError('nama_ibu')); ?>
+                                                <?php if($keluarga == null): ?>
+                                                    <div class="invalid-feedback">
+                                                        <?= ($validation->getError('nama_ibu') == '') ? 'Bagian nama ibu  wajib diisi' : str_replace('_', ' ', $validation->getError('nama_ibu')); ?>
                                                 </div>
+                                                        <?php endif ?>
                                             </div>
                                             <!-- end nama Ibu / Wali -->
                                             <?php if ($identitas['id_status_peserta'] != 1) : ?>
                                                 <div class="mb20">
                                                     <label for="usia_ibu" class="form-label bold">Usia Ibu / Wali <span class="required-label">*</span></label>
                                                     <input required <?= ($keluarga != null) ? 'disabled' : ''; ?> type="number" class="form-control <?= ($validation->hasError('usia_ibu')) ? 'is-invalid' : ''; ?>" value="<?= ($keluarga != null) ? $keluarga['usia_ibu'] : old('usia_ibu'); ?>" id="usia_ibu" name="usia_ibu" placeholder="" />
-                                                    <div class="invalid-feedback">
+                                                    <?php if($keluarga == null): ?>
+                                                        <div class="invalid-feedback">
                                                         <?= ($validation->getError('usia_ibu') == '') ? 'Bagian usia ibu wajib diisi' : $validation->getError('usia_ibu'); ?>
                                                     </div>
+                                                        <?php endif ?>
                                                 </div>
                                             <?php endif; ?>
                                             <!-- end usia -->
@@ -601,9 +689,11 @@
                                                 <label for="pekerjaan_ibu" class="form-label bold">Pekerjaan Ibu / Wali
                                                     <span class="required-label">*</span></label>
                                                 <input required <?= ($keluarga != null) ? 'disabled' : ''; ?> type="text" class="form-control <?= ($validation->hasError('pekerjaan_ibu')) ? 'is-invalid' : ''; ?>" value="<?= ($keluarga != null) ? $keluarga['pekerjaan_ibu'] : old('pekerjaan_ibu'); ?>" name="pekerjaan_ibu" placeholder="" />
-                                                <div class="invalid-feedback">
+                                                <?php if($keluarga == null): ?>
+                                                    <div class="invalid-feedback">
                                                     <?= ($validation->getError('pekerjaan_ibu') == '') ? 'Bagian pekerjaan ibu  wajib diisi' : str_replace('_', ' ', $validation->getError('pekerjaan_ibu')); ?>
                                                 </div>
+                                                    <?php endif ?>
                                             </div>
                                             <!-- end pekerjaan Ibu / Wali -->
                                             <div class="mb20">
@@ -626,9 +716,11 @@
                                                             <?= $pendidikan_ibu; ?></option>
                                                     <?php endforeach; ?>
                                                 </select>
-                                                <div class="invalid-feedback">
-                                                    <?= ($validation->getError('pendidikan_terakhir_ibu') == '') ? 'Bagian pendidikan terakhir ibu  wajib diisi' : str_replace('_', ' ', $validation->getError('pendidikan_terakhir_ibu')); ?>
-                                                </div>
+                                                <?php if($keluarga == null): ?>
+                                                    <div class="invalid-feedback">
+                                                        <?= ($validation->getError('pendidikan_terakhir_ibu') == '') ? 'Bagian pendidikan terakhir ibu  wajib diisi' : str_replace('_', ' ', $validation->getError('pendidikan_terakhir_ibu')); ?>
+                                                    </div>
+                                                    <?php endif ?>
                                             </div>
                                             <!-- end Pendidikan Terakhir Ibu / Wali -->
                                             <div class="mb20">
@@ -638,18 +730,22 @@
                                                     <span class="required-label">* </span> </label>
                                                 <p>Contoh : 2000000 (tanpa menggunakan titik)</p>
                                                 <input required <?= ($keluarga != null) ? 'disabled' : ''; ?> type="number" min="0" class="form-control <?= ($validation->hasError('penghasilan_ibu')) ? 'is-invalid' : ''; ?>" value="<?= ($keluarga != null) ? $keluarga['penghasilan_ibu'] : old('penghasilan_ibu'); ?>" name="penghasilan_ibu" placeholder="" />
-                                                <div class="invalid-feedback">
-                                                    <?= ($validation->getError('penghasilan_ibu') == '') ? 'Bagian penghasilan ibu  wajib diisi' : str_replace('_', ' ', $validation->getError('penghasilan_ibu')); ?>
-                                                </div>
+                                                <?php if($keluarga == null): ?>
+                                                    <div class="invalid-feedback">
+                                                        <?= ($validation->getError('penghasilan_ibu') == '') ? 'Bagian penghasilan ibu  wajib diisi' : str_replace('_', ' ', $validation->getError('penghasilan_ibu')); ?>
+                                                    </div>
+                                                    <?php endif ?>
                                             </div>
                                             <!-- end Pneghasilan Ibu / Wali -->
                                             <div class="mb20">
                                                 <label for="alamat_ibu" class="form-label bold">Alamat Ibu / Wali
                                                     <span class="required-label">*</span></label>
                                                 <textarea required <?= ($keluarga != null) ? 'disabled' : ''; ?> class="form-control <?= ($validation->hasError('alamat_ibu')) ? 'is-invalid' : ''; ?>" name="alamat_ibu" id="alamat_ibu" rows="5"><?= ($keluarga != null) ? $keluarga['alamat_ibu'] : old('alamat_ibu'); ?></textarea>
-                                                <div class="invalid-feedback">
+                                                <?php if($keluarga == null): ?>
+                                                    <div class="invalid-feedback">
                                                     <?= ($validation->getError('alamat_ibu') == '') ? 'Bagian alamat ibu  wajib diisi' : str_replace('_', ' ', $validation->getError('alamat_ibu')); ?>
                                                 </div>
+                                                    <?php endif ?>
                                             </div>
                                             <!-- end alamat -->
                                         </div>
@@ -679,9 +775,10 @@
                                                                                                                                                                                                                                                                                 }
                                                                                                                                                                                                                                                                             } ?> value="<?= $opsional_rstm; ?>"><label for="rtsm_rtm_<?= ucfirst($opsional_rstm); ?>" class="form-check-label"><?= ucfirst($opsional_rstm); ?></label>
                                                     <?php endforeach; ?>
-                                                </div>
-                                                <div class="invalid-feedback">
-                                                    <?= ($validation->getError('rtsm_rtm') == '') ? 'Bagian Rumah Tangga Sangat Miskin (RTSM) / Rumah Tangga Miskin (RTM) wajib diisi' : str_replace('_', ' ', $validation->getError('rtsm_rtm')); ?>
+                                                    <?php if($keluarga == null): ?>
+                                                        <div class="invalid-feedback">
+                                                    </div>
+                                                        <?php endif ?>
                                                 </div>
                                             </div>
                                             <!-- end rtsm rtm -->
@@ -705,9 +802,10 @@
                                                                                                                                                                                                                                                                                     }
                                                                                                                                                                                                                                                                                 } ?> value="<?= $opsional_pkh; ?>"><label for="pkh_kks_kbs_<?= ucfirst($opsional_pkh); ?>" class="form-check-label"><?= ucfirst($opsional_pkh); ?></label>
                                                     <?php endforeach; ?>
-                                                </div>
-                                                <div class="invalid-feedback">
-                                                    <?= ($validation->getError('pkh_kks_kbs') == '') ? 'Bagian Peserta Program Keluarga Harapan (PKH)/Kart Keluarga Sejahtera (KKS) dan Kartu Batang Sehat (KBS)  wajib diisi' : str_replace('_', ' ', $validation->getError('pkh_kks_kbs')); ?>
+                                                    <?php if($keluarga == null): ?>
+                                                        <div class="invalid-feedback">
+                                                    </div>
+                                                        <?php endif ?>
                                                 </div>
                                             </div>
                                             <!-- end pkh kks kbs -->
@@ -731,11 +829,12 @@
                                                                                                                                                                                                                                                                             }
                                                                                                                                                                                                                                                                         } ?> value="<?= $opsional_bsm; ?>"><label for="bsm_kip_<?= ucfirst($opsional_bsm); ?>" class="form-check-label"><?= ucfirst($opsional_bsm); ?></label>
                                                     <?php endforeach; ?>
+                                                    <?php if($keluarga == null): ?>
+                                                        <div class="invalid-feedback">
+                                                    </div>
+                                                        <?php endif ?>
                                                 </div>
                                                 <!-- </select> -->
-                                                <div class="invalid-feedback">
-                                                    <?= ($validation->getError('bsm_kip') == '') ? 'Bagian Penerimaan BSM atau Kartu Indonesia Pintar (KIP)  wajib diisi' : str_replace('_', ' ', $validation->getError('bsm_kip')); ?>
-                                                </div>
                                             </div>
                                             <!-- end bsm kip -->
                                         </div>
@@ -866,11 +965,13 @@
                                                             Prestasi
                                                             <?= ($i == 1) ? '<span class="required-label"></span>' : ''; ?>
                                                         </label>
-                                                        <input value="<?= ($file != null) ? $prestasi[$i - 1]['file_prestasi'] : ''; ?>" <?= ($file != null) ? 'disabled' : ''; ?> <?= ($i == 1) ? 'required' : ''; ?> id="file_prestasi_<?= $i; ?>" class="form-control  <?= ($validation->hasError('scan_prestasi_' . $i)) ? 'is-invalid' : ''; ?>" name="scan_prestasi_<?= $i; ?>" <?= ($file != null) ? 'type="text"' : 'type="file"'; ?> accept="application/pdf" />
-                                                        <div class="invalid-feedback">
-                                                            <?= ($validation->getError('scan_prestasi_' . $i) == '') ? 'Bagian scan prestasi wajib diisi dan ukuran file tidak boleh lebih dari 2MB' : str_replace('_', ' ', $validation->getError('scan_prestasi_' . $i));
+                                                        <input value="<?= ($file != null) ? $prestasi[$i - 1]['file_prestasi'] : ''; ?>" <?= ($file != null) ? 'disabled' : ''; ?> <?= ($i == 1) ? 'required' : ''; ?> id="file_prestasi_<?= $i; ?>" class="form-control scan-lampiran  <?= ($validation->hasError('scan_prestasi_' . $i)) ? 'is-invalid' : ''; ?>" name="scan_prestasi_<?= $i; ?>" <?= ($file != null) ? 'type="text"' : 'type="file"'; ?> accept="application/pdf" data-allowed-file-extensions="pdf" data-max-file-size="2M"/>
+                                                        <?php if($file == null): ?>
+                                                            <div class="invalid-feedback">
+                                                                <?= ($validation->getError('scan_prestasi_' . $i) == '') ? 'Bagian scan prestasi wajib diisi dan ukuran file tidak boleh lebih dari 2MB' : str_replace('_', ' ', $validation->getError('scan_prestasi_' . $i));
                                                             ?>
                                                         </div>
+                                                        <?php endif ?>
                                                     </div>
                                                 </div>
                                                 <!-- end file prestasi -->
@@ -880,13 +981,15 @@
                                                             Prestasi
                                                             <?= ($i == 1) ? '<span class="required-label"></span>' : ''; ?></label>
                                                         <input value="<?= ($file != null) ? $prestasi[$i - 1]['nama_prestasi'] : ''; ?>" <?= ($file != null) ? 'disabled' : ''; ?> <?= ($i == 1) ? 'required' : ''; ?> type="text" id="nama_prestasi_<?= $i; ?>" class="form-control <?= ($validation->hasError('nama_prestasi_' . $i)) ? 'is-invalid' : ''; ?>" value="<?= old('nama_prestasi_' . $i); ?>" name="nama_prestasi_<?= $i; ?>" placeholder="" />
-                                                        <div class="invalid-feedback">
-                                                            <?= ($validation->getError('nama_prestasi_' . $i) == '') ? 'Bagian nama prestasi wajib diisi' : str_replace(
-                                                                '_',
+                                                        <?php if($file == null): ?>
+                                                            <div class="invalid-feedback">
+                                                                <?= ($validation->getError('nama_prestasi_' . $i) == '') ? 'Bagian nama prestasi wajib diisi' : str_replace(
+                                                                    '_',
                                                                 ' ',
                                                                 $validation->getError('nama_prestasi_' . $i)
                                                             ); ?>
                                                         </div>
+                                                            <?php endif ?>
                                                     </div>
                                                 </div>
                                                 <!-- end nama prestasi -->
@@ -905,13 +1008,14 @@
                                                                                                             if ($prestasi[$i - 1]['kategori'] == $data_kategori) {
                                                                                                                 echo 'selected';
                                                                                                             }
-                                                                                                        } ?> value="<?= $data_kategori; ?>">
-                                                                    <?= ucfirst($data_kategori); ?></option>
+                                                                                                        } ?> value="<?= $data_kategori; ?>"><?= ucfirst($data_kategori); ?></option>
                                                             <?php endforeach; ?>
                                                         </select>
-                                                        <div class="invalid-feedback">
+                                                        <?php if($file == null): ?>
+                                                            <div class="invalid-feedback">
                                                             <?= ($validation->getError('kategori_' . $i) == '') ? 'Bagian kategori prestasi wajib diisi' : str_replace('_', ' ', $validation->getError('kategori_' . $i)); ?>
                                                         </div>
+                                                        <?php endif ?>
                                                     </div>
                                                 </div>
                                                 <!-- end kategori -->
@@ -929,7 +1033,7 @@
                                                                                 if ($prestasi[$i - 1]['tingkat'] == $data_tingkat) {
                                                                                     echo 'selected';
                                                                                 }
-                                                                            }  ?> value=" <?= $data_tingkat; ?>">
+                                                                            }  ?> value="<?= $data_tingkat; ?>">
                                                             <?= ucfirst($data_tingkat); ?></option>
                                                         <?php endforeach; ?>
                                                         </select>
@@ -966,13 +1070,15 @@
                                                             <span class="required-label"></span>
                                                         </label>
                                                         <input <?= ($file != null) ? 'disabled' : ''; ?> <?= ($i == 1) ? 'required' : ''; ?> type="number" id="tahun_prestasi_<?= $i; ?>" class="form-control <?= ($validation->hasError('tahun_prestasi_' . $i)) ? 'is-invalid' : ''; ?>" value="<?= ($file != null) ? $prestasi[$i - 1]['tahun_prestasi'] : old('tahun_prestasi_' . $i);  ?>" name="tahun_prestasi_<?= $i; ?>" placeholder="" min="2010" max="2022" />
-                                                        <div class="invalid-feedback">
-                                                            <?= ($validation->getError('tahun_prestasi_' . $i) == '') ? 'Bagian tahun prestasi ' . $i . ' wajib diisi' : str_replace(
-                                                                '_',
-                                                                ' ',
-                                                                $validation->getError('tahun_prestasi_' . $i)
+                                                        <?php if($file == null): ?>
+                                                            <div class="invalid-feedback">
+                                                                <?= ($validation->getError('tahun_prestasi_' . $i) == '') ? 'Bagian tahun prestasi ' . $i . ' wajib diisi' : str_replace(
+                                                                    '_',
+                                                                    ' ',
+                                                                    $validation->getError('tahun_prestasi_' . $i)
                                                             ); ?>
                                                         </div>
+                                                        <?php endif ?>
                                                     </div>
                                                 </div>
                                                 <!-- end tahun_prestasi -->
@@ -1045,10 +1151,12 @@
                                             <div class="mb20">
                                                 <label for="scan_kk" class="form-label bold">Scan Kartu Keluarga (KK) <span class="fs14 lightgrey ms-2"> Contoh penamaan file : (no
                                                         induk)_scan_kk<strong>.pdf</strong></span></label>
-                                                <input <?= ($file != null) ? 'disabled value="' . $file['kk'] . '"' : ''; ?> required id="kk" class="form-control <?= ($validation->hasError('scan_kk')) ? 'is-invalid' : ''; ?>" name="scan_kk" <?= ($file != null) ? 'type="text"' : 'type="file"'; ?> accept="application/pdf" />
-                                                <div class="invalid-feedback">
-                                                    <?= ($validation->getError('scan_kk') == '') ? 'Bagian scan kk  wajib diisi dan ukuran file tidak boleh lebih dari 2MB' : str_replace('_', ' ', $validation->getError('scan_kk')); ?>
-                                                </div>
+                                                <input <?= ($file != null) ? 'disabled value="' . $file['kk'] . '"' : ''; ?> required id="kk" class="form-control scan-lampiran <?= ($validation->hasError('scan_kk')) ? 'is-invalid' : ''; ?>"  name="scan_kk" <?= ($file != null) ? 'type="text"' : 'type="file"'; ?> accept="application/pdf" data-allowed-file-extensions="pdf" data-max-file-size="2M" />
+                                                <?php if($file == null): ?>
+                                                    <div class="invalid-feedback">
+                                                        <?= ($validation->getError('scan_kk') == '') ? 'Bagian scan kk  wajib diisi dan ukuran file tidak boleh lebih dari 2MB' : str_replace('_', ' ', $validation->getError('scan_kk')); ?>
+                                                    </div>
+                                                    <?php endif ?>
                                             </div>
                                             <!-- end scan KK -->
                                             <div class="mb20">
@@ -1056,10 +1164,12 @@
                                                     (KTP) <span class="fs14 lightgrey ms-2"> Contoh penamaan file : (no
                                                         induk)_scan_ktp<strong>.pdf</strong></span>
                                                 </label>
-                                                <input <?= ($file != null) ? 'disabled value="' . $file['ktp'] . '"' : ''; ?> required id="ktp" class="form-control <?= ($validation->hasError('scan_ktp')) ? 'is-invalid' : ''; ?>" name="scan_ktp" <?= ($file != null) ? 'type="text"' : 'type="file"'; ?> accept="application/pdf" />
-                                                <div class="invalid-feedback">
+                                                <input <?= ($file != null) ? 'disabled value="' . $file['ktp'] . '"' : ''; ?> required id="ktp" class="form-control scan-lampiran <?= ($validation->hasError('scan_ktp')) ? 'is-invalid' : ''; ?>" name="scan_ktp" <?= ($file != null) ? 'type="text"' : 'type="file"'; ?> accept="application/pdf" data-allowed-file-extensions="pdf" data-max-file-size="2M"/>
+                                                <?php if($file == null): ?>
+                                                    <div class="invalid-feedback">
                                                     <?= ($validation->getError('scan_ktp') == '') ? 'Ukuran file tidak boleh lebih dari 2MB' : str_replace('_', ' ', $validation->getError('scan_ktp')); ?>
                                                 </div>
+                                                    <?php endif ?>
                                             </div>
                                             <!-- end scan KTP -->
                                             <?php if ($id_peserta == 1 || $id_peserta == 2) : ?>
@@ -1068,10 +1178,12 @@
                                                         <span class="fs14 lightgrey ms-2"> Contoh penamaan file : (no
                                                             induk)_scan_kartu_pelajar<strong>.pdf</strong></span>
                                                     </label>
-                                                    <input <?= ($file != null) ? 'disabled value="' . $file['kartu_pelajar'] . '"' : ''; ?> required id="kartu_pelajar" class="form-control <?= ($validation->hasError('scan_kartu_pelajar')) ? 'is-invalid' : ''; ?>" name="scan_kartu_pelajar" <?= ($file != null) ? 'type="text"' : 'type="file"'; ?> accept="application/pdf" />
-                                                    <div class="invalid-feedback">
+                                                    <input <?= ($file != null) ? 'disabled value="' . $file['kartu_pelajar'] . '"' : ''; ?> required id="kartu_pelajar" class="form-control scan-lampiran <?= ($validation->hasError('scan_kartu_pelajar')) ? 'is-invalid' : ''; ?>" name="scan_kartu_pelajar" <?= ($file != null) ? 'type="text"' : 'type="file"'; ?> accept="application/pdf " data-allowed-file-extensions="pdf" data-max-file-size="2M"/>
+                                                    <?php if($file == null): ?>
+                                                        <div class="invalid-feedback">
                                                         <?= ($validation->getError('scan_kartu_pelajar') == '') ? 'Bagian scan kartu pelajar  wajib diisi dan ukuran file tidak boleh lebih dari 2MB' : str_replace('_', ' ', $validation->getError('scan_kartu_pelajar')); ?>
                                                     </div>
+                                                    <?php endif ?>
                                                 </div>
                                                 <!-- end scan Kartu pelajar -->
                                             <?php else : ?>
@@ -1080,10 +1192,12 @@
                                                         <span class="fs14 lightgrey ms-2"> Contoh penamaan file : (no
                                                             induk)_scan_ktm<strong>.pdf</strong></span>
                                                     </label>
-                                                    <input required id="kartu_pelajar" class="form-control <?= ($validation->hasError('scan_kartu_pelajar')) ? 'is-invalid' : ''; ?>" <?= ($file != null) ? 'disabled value="' . $file['kartu_pelajar'] . '"' : ''; ?> name="scan_kartu_pelajar" <?= ($file != null) ? 'type="text"' : 'type="file"'; ?> accept="application/pdf" />
-                                                    <div class="invalid-feedback">
-                                                        <?= ($validation->getError('scan_kartu_pelajar') == '') ? 'Bagian scan kartu pelajar  wajib diisi dan ukuran file tidak boleh lebih dari 2MB' : str_replace('_', ' ', $validation->getError('scan_kartu_pelajar')); ?>
-                                                    </div>
+                                                    <input required id="kartu_pelajar" class="form-control scan-lampiran <?= ($validation->hasError('scan_kartu_pelajar')) ? 'is-invalid' : ''; ?>" <?= ($file != null) ? 'disabled value="' . $file['kartu_pelajar'] . '"' : ''; ?> name="scan_kartu_pelajar" <?= ($file != null) ? 'type="text"' : 'type="file"'; ?> accept="application/pdf" data-allowed-file-extensions="pdf" data-max-file-size="2M" />
+                                                    <?php if($file == null): ?>
+                                                        <div class="invalid-feedback">
+                                                            <?= ($validation->getError('scan_kartu_pelajar') == '') ? 'Bagian scan kartu pelajar  wajib diisi dan ukuran file tidak boleh lebih dari 2MB' : str_replace('_', ' ', $validation->getError('scan_kartu_pelajar')); ?>
+                                                        </div>
+                                                        <?php endif ?>
                                                 </div>
                                                 <!-- end scan Kartu pelajar -->
                                             <?php endif ?>
@@ -1094,9 +1208,11 @@
                                                         induk)_pas_foto<strong>.jpg/.jpeg/.png</strong></span>
                                                 </label>
                                                 <input type="file" required id="pas_foto" class="form-control lampiran-foto-pendaftaran <?= ($validation->hasError('scan_pas_foto')) ? 'is-invalid' : ''; ?>" name="scan_pas_foto" accept="image/*" data-max-file-size="2M" <?= ($file != null) ? 'disabled hidden data-default-file="' . base_url() . '/assets/scan/' . $identitas["no_induk"] . '/file/' . $file["pas_foto"] . '"' : ''; ?> data-allowed-file-extensions="jpg jpeg png" />
-                                                <div class="invalid-feedback">
-                                                    <?= ($validation->getError('scan_pas_foto') == '') ? 'Bagian pas foto  wajib diisi dan ukuran file tidak boleh lebih dari 2MB' : str_replace('_', ' ', $validation->getError('scan_pas_foto')); ?>
-                                                </div>
+                                                <?php if($file == null): ?>
+                                                    <div class="invalid-feedback">
+                                                        <?= ($validation->getError('scan_pas_foto') == '') ? 'Bagian pas foto  wajib diisi dan ukuran file tidak boleh lebih dari 2MB' : str_replace('_', ' ', $validation->getError('scan_pas_foto')); ?>
+                                                    </div>
+                                                    <?php endif ?>
                                             </div>
                                             <!-- end scan_pas_foto -->
                                         </div>
@@ -1109,10 +1225,12 @@
                                                             penamaan file : (no
                                                             induk)_scan_diteima_pt<strong>.pdf</strong></span>
                                                     </label>
-                                                    <input required id="diterima_pt" class="form-control <?= ($validation->hasError('scan_diterima_pt')) ? 'is-invalid' : ''; ?>" <?= ($file != null) ? 'disabled value="' . $file['diterima_pt'] . '"' : ''; ?> name="scan_diterima_pt" <?= ($file != null) ? 'type="text"' : 'type="file"'; ?> accept="application/pdf" />
-                                                    <div class="invalid-feedback">
+                                                    <input required id="diterima_pt" class="form-control scan-lampiran <?= ($validation->hasError('scan_diterima_pt')) ? 'is-invalid' : ''; ?>" <?= ($file != null) ? 'disabled value="' . $file['diterima_pt'] . '"' : ''; ?> name="scan_diterima_pt" <?= ($file != null) ? 'type="text"' : 'type="file"'; ?> accept="application/pdf" data-allowed-file-extensions="pdf" data-max-file-size="2M"/>
+                                                    <?php if($file == null): ?>
+                                                        <div class="invalid-feedback">
                                                         <?= ($validation->getError('scan_diterima_pt') == '') ? 'Bagian scan diterima perguruan tinggi wajib diisi dan ukuran file tidak boleh lebih dari 2MB' : $validation->getError('scan_diterima_pt'); ?>
                                                     </div>
+                                                        <?php endif ?>
                                                 </div>
                                                 <!-- end scan diterima pt -->
                                             <?php elseif ($id_peserta == 3) : ?>
@@ -1123,10 +1241,12 @@
                                                             induk)_scan_akreditasi_pt<strong>.pdf</strong></span>
                                                     </label>
 
-                                                    <input required id="akreditasi_pt" class="form-control <?= ($validation->hasError('scan_akreditasi_pt')) ? 'is-invalid' : ''; ?>" <?= ($file != null) ? 'disabled value="' . $file['akreditasi_pt'] . '"' : ''; ?> name="scan_akreditasi_pt" <?= ($file != null) ? 'type="text"' : 'type="file"'; ?> accept="application/pdf" />
-                                                    <div class="invalid-feedback">
-                                                        <?= ($validation->getError('scan_akreditasi_pt') == '') ? 'Bagian akreditasi perguruan tinggi wajib diisi dan ukuran file tidak boleh lebih dari 2MB' : $validation->getError('scan_akreditasi_pt'); ?>
-                                                    </div>
+                                                    <input required id="akreditasi_pt" class="form-control scan-lampiran <?= ($validation->hasError('scan_akreditasi_pt')) ? 'is-invalid' : ''; ?>" <?= ($file != null) ? 'disabled value="' . $file['akreditasi_pt'] . '"' : ''; ?> name="scan_akreditasi_pt" <?= ($file != null) ? 'type="text"' : 'type="file"'; ?> accept="application/pdf" data-allowed-file-extensions="pdf" data-max-file-size="2M"/>
+                                                    <?php if($file == null): ?>
+                                                        <div class="invalid-feedback">
+                                                            <?= ($validation->getError('scan_akreditasi_pt') == '') ? 'Bagian akreditasi perguruan tinggi wajib diisi dan ukuran file tidak boleh lebih dari 2MB' : $validation->getError('scan_akreditasi_pt'); ?>
+                                                        </div>
+                                                        <?php endif ?>
                                                 </div>
                                                 <!-- end scan_akreditasi_pt -->
                                             <?php endif ?>
@@ -1137,10 +1257,12 @@
                                                             file : (no induk)_scan_raport_smt<strong>.pdf</strong></span>
                                                     </label>
 
-                                                    <input <?= ($file != null) ? 'disabled value="' . $file['raport_smt'] . '"' : ''; ?> required id="raport_smt" class="form-control <?= ($validation->hasError('scan_raport_smt')) ? 'is-invalid' : ''; ?>" name="scan_raport_smt" <?= ($file != null) ? 'type="text"' : 'type="file"'; ?> accept="application/pdf" />
-                                                    <div class="invalid-feedback">
-                                                        <?= ($validation->getError('scan_raport_smt') == '') ? 'Bagian scan raport semester terakhir  wajib diisi dan ukuran file tidak boleh lebih dari 2MB' : str_replace('_', ' ', $validation->getError('scan_raport_smt')); ?>
-                                                    </div>
+                                                    <input <?= ($file != null) ? 'disabled value="' . $file['raport_smt'] . '"' : ''; ?> required id="raport_smt" class="form-control scan-lampiran <?= ($validation->hasError('scan_raport_smt')) ? 'is-invalid' : ''; ?>" name="scan_raport_smt" <?= ($file != null) ? 'type="text"' : 'type="file"'; ?> accept="application/pdf" data-allowed-file-extensions="pdf" data-max-file-size="2M"/>
+                                                    <?php if($file == null): ?>
+                                                        <div class="invalid-feedback">
+                                                            <?= ($validation->getError('scan_raport_smt') == '') ? 'Bagian scan raport semester terakhir  wajib diisi dan ukuran file tidak boleh lebih dari 2MB' : str_replace('_', ' ', $validation->getError('scan_raport_smt')); ?>
+                                                        </div>
+                                                        <?php endif ?>
                                                 </div>
                                                 <!-- end scan raport smt terakhir -->
                                                 <div class="mb20">
@@ -1148,10 +1270,12 @@
                                                         <span class="fs14 lightgrey ms-2"> Contoh penamaan file : (no
                                                             induk)_scan_raport_legalisasi<strong>.pdf</strong></span>
                                                     </label>
-                                                    <input <?= ($file != null) ? 'disabled value="' . $file['raport_legalisasi'] . '"' : ''; ?> required id="raport" class="form-control <?= ($validation->hasError('scan_raport')) ? 'is-invalid' : ''; ?>" name="scan_raport" <?= ($file != null) ? 'type="text"' : 'type="file"'; ?> accept="application/pdf" />
-                                                    <div class="invalid-feedback">
-                                                        <?= ($validation->getError('scan_raport') == '') ? 'Bagian scan raport legalisasi  wajib diisi dan ukuran file tidak boleh lebih dari 2MB' : str_replace('_', ' ', $validation->getError('scan_raport')); ?>
-                                                    </div>
+                                                    <input <?= ($file != null) ? 'disabled value="' . $file['raport_legalisasi'] . '"' : ''; ?> required id="raport" class="form-control scan-lampiran <?= ($validation->hasError('scan_raport')) ? 'is-invalid' : ''; ?>" name="scan_raport" <?= ($file != null) ? 'type="text"' : 'type="file"'; ?> accept="application/pdf" data-allowed-file-extensions="pdf" data-max-file-size="2M"/>
+                                                    <?php if($file == null): ?>
+                                                        <div class="invalid-feedback">
+                                                            <?= ($validation->getError('scan_raport') == '') ? 'Bagian scan raport legalisasi  wajib diisi dan ukuran file tidak boleh lebih dari 2MB' : str_replace('_', ' ', $validation->getError('scan_raport')); ?>
+                                                        </div>
+                                                        <?php endif ?>
                                                 </div>
                                                 <!-- end scan raport legalisasi -->
                                             <?php else : ?>
@@ -1160,10 +1284,12 @@
                                                         <span class="fs14 lightgrey ms-2"> Contoh penamaan file : (no
                                                             induk)_scan_proposal<strong>.pdf</strong></span>
                                                     </label>
-                                                    <input required id="proposal" class="form-control <?= ($validation->hasError('scan_proposal')) ? 'is-invalid' : ''; ?>" <?= ($file != null) ? 'disabled value="' . $file['proposal'] . '"' : ''; ?> name="scan_proposal" <?= ($file != null) ? 'type="text"' : 'type="file"'; ?> accept="application/pdf" />
-                                                    <div class="invalid-feedback">
-                                                        <?= ($validation->getError('scan_proposal') == '') ? 'Bagian scan_proposal wajib diisi dan ukuran file tidak boleh lebih dari 2MB' : $validation->getError('scan_proposal'); ?>
-                                                    </div>
+                                                    <input required id="proposal" class="form-control scan-lampiran <?= ($validation->hasError('scan_proposal')) ? 'is-invalid' : ''; ?>" <?= ($file != null) ? 'disabled value="' . $file['proposal'] . '"' : ''; ?> name="scan_proposal" <?= ($file != null) ? 'type="text"' : 'type="file"'; ?> accept="application/pdf" data-allowed-file-extensions="pdf" data-max-file-size="2M" />
+                                                    <?php if($file == null): ?>
+                                                        <div class="invalid-feedback">
+                                                            <?= ($validation->getError('scan_proposal') == '') ? 'Bagian scan_proposal wajib diisi dan ukuran file tidak boleh lebih dari 2MB' : $validation->getError('scan_proposal'); ?>
+                                                        </div>
+                                                        <?php endif ?>
                                                 </div>
                                                 <!-- end scan_proposal -->
                                             <?php endif ?>
@@ -1174,10 +1300,12 @@
                                                     Mampu <span class="fs14 lightgrey ms-2"> Contoh penamaan file : (no
                                                         induk)_scan_sktm<strong>.pdf</strong></span>
                                                 </label>
-                                                <input <?= ($file != null) ? 'disabled value="' . $file['sktm'] . '"' : ''; ?> required id="sktm" class="form-control <?= ($validation->hasError('scan_sktm')) ? 'is-invalid' : ''; ?>" name="scan_sktm" accept="application/pdf" <?= ($file != null) ? 'type="text"' : 'type="file"'; ?> />
-                                                <div class="invalid-feedback">
-                                                    <?= ($validation->getError('scan_sktm') == '') ? 'Bagian scan ktm  wajib diisi dan ukuran file tidak boleh lebih dari 2MB' : str_replace('_', ' ', $validation->getError('scan_sktm')); ?>
-                                                </div>
+                                                <input <?= ($file != null) ? 'disabled value="' . $file['sktm'] . '"' : ''; ?> required id="sktm" class="form-control  scan-lampiran <?= ($validation->hasError('scan_sktm')) ? 'is-invalid' : ''; ?>" name="scan_sktm" accept="application/pdf" <?= ($file != null) ? 'type="text"' : 'type="file"'; ?> data-allowed-file-extensions="pdf" data-max-file-size="2M" />
+                                                <?php if($file == null): ?>
+                                                    <div class="invalid-feedback">
+                                                        <?= ($validation->getError('scan_sktm') == '') ? 'Bagian scan ktm  wajib diisi dan ukuran file tidak boleh lebih dari 2MB' : str_replace('_', ' ', $validation->getError('scan_sktm')); ?>
+                                                    </div>
+                                                    <?php endif ?>
                                             </div>
                                             <!-- end SKTM -->
                                         </div>
@@ -1256,7 +1384,7 @@
                                         <label for="scan_formulir_pendaftaran" class="form-label bold">Formulir Pendaftaran
                                             <span class="fs14 lightgrey ms-2"> Contoh penamaan file : (no
                                                 induk)_scan_formulir_pendaftaran<strong>.pdf</strong></span></label>
-                                        <input required <?= ($file['formulir_pendaftaran'] != null) ? 'disabled' : ''; ?> id="formulir_pendaftaran" class="form-control w-100 <?= ($validation->hasError('scan_formulir_pendaftaran')) ? 'is-invalid' : ''; ?>" value="<?= ($file['formulir_pendaftaran'] != null) ? $file['formulir_pendaftaran'] : old('scan_formulir_pendaftaran'); ?>" name="scan_formulir_pendaftaran" type="<?= ($file['formulir_pendaftaran'] != null) ? 'text' : 'file'; ?>" accept="application/pdf" />
+                                        <input required <?= ($file['formulir_pendaftaran'] != null) ? 'disabled' : ''; ?> id="formulir_pendaftaran" class="form-control w-100 scan-lampiran <?= ($validation->hasError('scan_formulir_pendaftaran')) ? 'is-invalid' : ''; ?>" value="<?= ($file['formulir_pendaftaran'] != null) ? $file['formulir_pendaftaran'] : old('scan_formulir_pendaftaran'); ?>" name="scan_formulir_pendaftaran" type="<?= ($file['formulir_pendaftaran'] != null) ? 'text' : 'file'; ?>" accept="application/pdf" data-allowed-file-extensions="pdf" data-max-file-size="8M"/>
                                         <div class="invalid-feedback">
                                             <?= ($validation->getError('scan_formulir_pendaftaran') == '') ? 'Bagian scan formulir pendaftaran wajib diisi dan ukuran file tidak boleh lebih dari 8MB' : str_replace('_', ' ', $validation->getError('scan_formulir_pendaftaran')); ?>
                                         </div>
@@ -2144,14 +2272,29 @@
 
 <!-- Wizard -->
 <script type="text/javascript">
+    // console.log($('.was-validated').css('border-color').length)
+    // alert($('.invalid-feedback').length)
+    // alert(
+    // $('.invalid-feedback').filter(function(){
+    // return $(this).css('display') == 'none';
+    // }).length
+    // );
     // alert invalid form fields
 $('form').on('submit', function(e) {
+    // e.preventDefault
     // alert("Page is loaded");
     $(document).ready(function() {
-    var numItems = $('.was-validated').length
-    if(numItems > 0){
-        $('.pesan-gagal').show();
-    }
+        var numItems = $('.invalid-feedback').filter(function(){
+        return $(this).css('display') == 'none';
+        }).length;
+        if($(numItems >= 0)){
+            $('.pesan-gagal').show();
+        }
+    // alert(
+    // $('.invalid-feedback').filter(function(){
+    // return $(this).css('display') != 'none';
+    // }).length
+    // );
     });
 });
     // jika terdapat error dalam input prestasi 2
@@ -2482,7 +2625,19 @@ $(document).ready(function() {
         <?php endif ?>
     });
 
-    // dropify upload foto berwarna pendaftar
+    // dropify upload lampiran penaftaran
+    $(".scan-lampiran").dropify({
+        error: {
+            fileSize: "Ukuran gambar terlalu besar ({{ value }} maksimal).",
+            fileExtension: "format file tidak diperbolehkan, hanya ({{ value }} yang diperbolehkan).",
+        },
+        messages: {
+            default: "Tarik dan letakkan file disini atau pilih",
+            replace: "Tarik dan letakkan atau pilih gambar baru",
+            remove: "Hapus",
+            error: "Ooops, Terdapat kesalahan.",
+        },
+    });
     $(".lampiran-foto-pendaftaran").dropify({
         error: {
             fileSize: "Ukuran gambar terlalu besar ({{ value }} maksimal).",

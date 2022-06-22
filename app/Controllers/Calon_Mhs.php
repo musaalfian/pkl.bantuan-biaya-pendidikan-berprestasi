@@ -75,50 +75,50 @@ class Calon_mhs extends BaseController
     public function simpan_tambah_identitas_calon_mhs($id_peserta)
     {
         $user_id = user_id();
-        if (!$this->validate([
-            'no_induk'    => 'required|numeric|is_unique[identitas.no_induk]',
-            'no_induk_pelajar'    => 'required',
-            'nama_lengkap'      => 'required|alpha_space',
-            'jenis_kelamin'    => 'required',
-            'ttl'    => [
-                'rule' => 'required',
-                'errors' => [
-                    'required' => 'Bagian tempat, tanggal lahir  wajib diisi',
-                ]
-            ],
-            'agama'    => 'required',
-            'no_telepon'     => 'required|numeric',
-            'alamat_rumah'    => 'required',
-            'kecamatan'    => 'required',
-            'nama_pt'    => [
-                'rule' => 'required',
-                'errors' => [
-                    'required' => 'Bagian nama perguruan tinggi  wajib diisi',
-                ]
-            ],
-            'akreditasi_pt'    => [
-                'rule' => 'required',
-                'errors' => [
-                    'required' => 'Bagian akreditasi perguruan tinggi  wajib diisi',
-                ]
-            ],
-            'tahun_masuk_pt'    => [
-                'rule' => 'required',
-                'errors' => [
-                    'required' => 'Bagian tahun masuk perguruan tinggi  wajib diisi',
-                ]
-            ],
-            'alamat_pt'    => [
-                'rule' => 'required',
-                'errors' => [
-                    'required' => 'Bagian alamat perguruan tinggi  wajib diisi',
-                ]
-            ],
-            'semester_ke'    => 'required',
-            'pernah_menerima_bantuan'    => 'required',
-        ])) {
-            return redirect()->to('pendaftaran/tambah_pendaftar/' . $id_peserta)->withInput();
-        }
+        // if (!$this->validate([
+        //     'no_induk'    => 'required|numeric|is_unique[identitas.no_induk]',
+        //     'no_induk_pelajar'    => 'required',
+        //     'nama_lengkap'      => 'required|alpha_space',
+        //     'jenis_kelamin'    => 'required',
+        //     'ttl'    => [
+        //         'rule' => 'required',
+        //         'errors' => [
+        //             'required' => 'Bagian tempat, tanggal lahir  wajib diisi',
+        //         ]
+        //     ],
+        //     'agama'    => 'required',
+        //     'no_telepon'     => 'required|numeric',
+        //     'alamat_rumah'    => 'required',
+        //     'kecamatan'    => 'required',
+        //     'nama_pt'    => [
+        //         'rule' => 'required',
+        //         'errors' => [
+        //             'required' => 'Bagian nama perguruan tinggi  wajib diisi',
+        //         ]
+        //     ],
+        //     'akreditasi_pt'    => [
+        //         'rule' => 'required',
+        //         'errors' => [
+        //             'required' => 'Bagian akreditasi perguruan tinggi  wajib diisi',
+        //         ]
+        //     ],
+        //     'tahun_masuk_pt'    => [
+        //         'rule' => 'required',
+        //         'errors' => [
+        //             'required' => 'Bagian tahun masuk perguruan tinggi  wajib diisi',
+        //         ]
+        //     ],
+        //     'alamat_pt'    => [
+        //         'rule' => 'required',
+        //         'errors' => [
+        //             'required' => 'Bagian alamat perguruan tinggi  wajib diisi',
+        //         ]
+        //     ],
+        //     'semester_ke'    => 'required',
+        //     'pernah_menerima_bantuan'    => 'required',
+        // ])) {
+        //     return redirect()->to('pendaftaran/tambah_pendaftar/' . $id_peserta)->withInput();
+        // }
         if ($this->request->getVar('pernah_menerima_bantuan') == 'ya') {
             $menerima_bantuan = $this->request->getVar('menerima_bantuan_dari');
         } else {
@@ -173,25 +173,25 @@ class Calon_mhs extends BaseController
     {
         $id_peserta = $this->MIdentitas->where('no_induk', $no_induk)->findColumn('id_status_peserta');
 
-        if (!$this->validate([
-            'nama_ayah'    => 'required|alpha_space',
-            'usia_ayah'    => 'required|numeric',
-            'pekerjaan_ayah'      => 'required',
-            'pendidikan_ayah'    => 'required',
-            'penghasilan_ayah'    => 'required|numeric',
-            'alamat_ayah'    => 'required',
-            'nama_ibu'     => 'required',
-            'usia_ibu'     => 'required|numeric',
-            'pekerjaan_ibu'    => 'required',
-            'pendidikan_ibu'    => 'required',
-            'penghasilan_ibu'    => 'required|numeric',
-            'alamat_ibu'    => 'required',
-            'rtsm_rtm'    => 'required',
-            'pkh_kks_kbs'    => 'required',
-            'bsm_kip'    => 'required',
-        ])) {
-            return redirect()->to('pendaftaran/tambah_pendaftar/' . $id_peserta[0])->withInput();
-        }
+        // if (!$this->validate([
+        //     'nama_ayah'    => 'required|alpha_space',
+        //     'usia_ayah'    => 'required|numeric',
+        //     'pekerjaan_ayah'      => 'required',
+        //     'pendidikan_ayah'    => 'required',
+        //     'penghasilan_ayah'    => 'required|numeric',
+        //     'alamat_ayah'    => 'required',
+        //     'nama_ibu'     => 'required',
+        //     'usia_ibu'     => 'required|numeric',
+        //     'pekerjaan_ibu'    => 'required',
+        //     'pendidikan_ibu'    => 'required',
+        //     'penghasilan_ibu'    => 'required|numeric',
+        //     'alamat_ibu'    => 'required',
+        //     'rtsm_rtm'    => 'required',
+        //     'pkh_kks_kbs'    => 'required',
+        //     'bsm_kip'    => 'required',
+        // ])) {
+        //     return redirect()->to('pendaftaran/tambah_pendaftar/' . $id_peserta[0])->withInput();
+        // }
         // dd($no_induk);
         // memasukkan data keluarga ke database
         $this->MKeluarga->insert([
@@ -262,136 +262,136 @@ class Calon_mhs extends BaseController
         ];
 
         // Validasi Prestasi 2
-        if ($kategori_2 == 'ujian sekolah' || $kategori_2 == 'hafidz' || $kategori_2 == 'lainnya') {
-            if (!$this->validate(
-                [
-                    'nama_prestasi_2' => 'required',
-                    'tahun_prestasi_2' => 'required',
-                    'scan_prestasi_2' => 'uploaded[scan_prestasi_2]|max_size[scan_prestasi_2,2048]|mime_in[scan_prestasi_2,application/pdf]',
-                ],
-                [   // Errors
-                    'scan_prestasi_2' => [
-                        'mime_in' => 'Scan prestasi harus berupa file PDF',
-                    ],
-                ]
-            )) {
-                session()->setFlashdata('pesan-gagal-lampiran-pendaftar', 'Data lampiran gagal ditambahkan, pendaftar harus mengunggah kembali seluruh file.');
-                return redirect()->to('pendaftaran/tambah_pendaftar/' . $id_peserta[0])->withInput();
-            }
-        } else if ($scan_prestasi['prestasi_2']->getError() != 4 || $juara_2 != null || $tingkat_2 != null) {
-            if (!$this->validate(
-                [
-                    'scan_prestasi_2' => 'uploaded[scan_prestasi_2]|max_size[scan_prestasi_2,2048]|mime_in[scan_prestasi_2,application/pdf]',
-                    'tingkat_2' => 'required',
-                    'juara_2' => 'required',
-                    'nama_prestasi_2' => 'required',
-                    'tahun_prestasi_2' => 'required',
-                ],
-                [   // Errors
-                    'scan_prestasi_2' => [
-                        'mime_in' => 'Scan prestasi harus berupa file PDF',
-                    ],
-                ]
-            )) {
-                session()->setFlashdata('pesan-gagal-lampiran-pendaftar', 'Data lampiran gagal ditambahkan, pendaftar harus mengunggah kembali seluruh file.');
-                return redirect()->to('pendaftaran/tambah_pendaftar/' . $id_peserta[0])->withInput();
-            }
-        }
+        // if ($kategori_2 == 'ujian sekolah' || $kategori_2 == 'hafidz' || $kategori_2 == 'lainnya') {
+        //     if (!$this->validate(
+        //         [
+        //             'nama_prestasi_2' => 'required',
+        //             'tahun_prestasi_2' => 'required',
+        //             'scan_prestasi_2' => 'uploaded[scan_prestasi_2]|max_size[scan_prestasi_2,2048]|mime_in[scan_prestasi_2,application/pdf]',
+        //         ],
+        //         [   // Errors
+        //             'scan_prestasi_2' => [
+        //                 'mime_in' => 'Scan prestasi harus berupa file PDF',
+        //             ],
+        //         ]
+        //     )) {
+        //         session()->setFlashdata('pesan-gagal-lampiran-pendaftar', 'Data lampiran gagal ditambahkan, pendaftar harus mengunggah kembali seluruh file.');
+        //         return redirect()->to('pendaftaran/tambah_pendaftar/' . $id_peserta[0])->withInput();
+        //     }
+        // } else if ($scan_prestasi['prestasi_2']->getError() != 4 || $juara_2 != null || $tingkat_2 != null) {
+        //     if (!$this->validate(
+        //         [
+        //             'scan_prestasi_2' => 'uploaded[scan_prestasi_2]|max_size[scan_prestasi_2,2048]|mime_in[scan_prestasi_2,application/pdf]',
+        //             'tingkat_2' => 'required',
+        //             'juara_2' => 'required',
+        //             'nama_prestasi_2' => 'required',
+        //             'tahun_prestasi_2' => 'required',
+        //         ],
+        //         [   // Errors
+        //             'scan_prestasi_2' => [
+        //                 'mime_in' => 'Scan prestasi harus berupa file PDF',
+        //             ],
+        //         ]
+        //     )) {
+        //         session()->setFlashdata('pesan-gagal-lampiran-pendaftar', 'Data lampiran gagal ditambahkan, pendaftar harus mengunggah kembali seluruh file.');
+        //         return redirect()->to('pendaftaran/tambah_pendaftar/' . $id_peserta[0])->withInput();
+        //     }
+        // }
         // Validasi Prestasi 3
-        if ($kategori_3 == 'ujian sekolah' || $kategori_3 == 'hafidz' || $kategori_3 == 'lainnya') {
-            if (!$this->validate(
-                [
-                    'scan_prestasi_3' => 'uploaded[scan_prestasi_3]|max_size[scan_prestasi_3,2048]|mime_in[scan_prestasi_3,application/pdf]',
-                    'nama_prestasi_3' => 'required',
-                    'tahun_prestasi_3' => 'required',
-                ],
-                [   // Errors
-                    'scan_prestasi_3' => [
-                        'mime_in' => 'Scan prestasi harus berupa file PDF',
-                    ],
-                ]
-            )) {
-                session()->setFlashdata('pesan-gagal-lampiran-pendaftar', 'Data lampiran gagal ditambahkan, pendaftar harus mengunggah kembali seluruh file.');
-                return redirect()->to('pendaftaran/tambah_pendaftar/' . $id_peserta[0])->withInput();
-            }
-        } else if ($scan_prestasi['prestasi_3']->getError() != 4 || $juara_3 != null || $tingkat_3 != null) {
-            if (!$this->validate(
-                [
-                    'scan_prestasi_3' => 'uploaded[scan_prestasi_3]|max_size[scan_prestasi_3,2048]|mime_in[scan_prestasi_3,application/pdf]',
-                    'tingkat_3' => 'required',
-                    'juara_3' => 'required',
-                    'nama_prestasi_3' => 'required',
-                    'tahun_prestasi_3' => 'required',
-                ],
-                [   // Errors
-                    'scan_prestasi_3' => [
-                        'mime_in' => 'Scan prestasi harus berupa file PDF',
-                    ],
-                ]
-            )) {
-                session()->setFlashdata('pesan-gagal-lampiran-pendaftar', 'Data lampiran gagal ditambahkan, pendaftar harus mengunggah kembali seluruh file.');
-                return redirect()->to('pendaftaran/tambah_pendaftar/' . $id_peserta[0])->withInput();
-            }
-        }
+        // if ($kategori_3 == 'ujian sekolah' || $kategori_3 == 'hafidz' || $kategori_3 == 'lainnya') {
+        //     if (!$this->validate(
+        //         [
+        //             'scan_prestasi_3' => 'uploaded[scan_prestasi_3]|max_size[scan_prestasi_3,2048]|mime_in[scan_prestasi_3,application/pdf]',
+        //             'nama_prestasi_3' => 'required',
+        //             'tahun_prestasi_3' => 'required',
+        //         ],
+        //         [   // Errors
+        //             'scan_prestasi_3' => [
+        //                 'mime_in' => 'Scan prestasi harus berupa file PDF',
+        //             ],
+        //         ]
+        //     )) {
+        //         session()->setFlashdata('pesan-gagal-lampiran-pendaftar', 'Data lampiran gagal ditambahkan, pendaftar harus mengunggah kembali seluruh file.');
+        //         return redirect()->to('pendaftaran/tambah_pendaftar/' . $id_peserta[0])->withInput();
+        //     }
+        // } else if ($scan_prestasi['prestasi_3']->getError() != 4 || $juara_3 != null || $tingkat_3 != null) {
+        //     if (!$this->validate(
+        //         [
+        //             'scan_prestasi_3' => 'uploaded[scan_prestasi_3]|max_size[scan_prestasi_3,2048]|mime_in[scan_prestasi_3,application/pdf]',
+        //             'tingkat_3' => 'required',
+        //             'juara_3' => 'required',
+        //             'nama_prestasi_3' => 'required',
+        //             'tahun_prestasi_3' => 'required',
+        //         ],
+        //         [   // Errors
+        //             'scan_prestasi_3' => [
+        //                 'mime_in' => 'Scan prestasi harus berupa file PDF',
+        //             ],
+        //         ]
+        //     )) {
+        //         session()->setFlashdata('pesan-gagal-lampiran-pendaftar', 'Data lampiran gagal ditambahkan, pendaftar harus mengunggah kembali seluruh file.');
+        //         return redirect()->to('pendaftaran/tambah_pendaftar/' . $id_peserta[0])->withInput();
+        //     }
+        // }
         // Validasi Lampiran file
         // dd($kategori_2);
-        if ($kategori_1 == 'hafidz' || $kategori_1 == 'ujian sekolah' || $kategori_1 == 'lainnya') {
-            if (!$this->validate(
-                [
-                    'nama_prestasi_1' => 'required',
-                    'tahun_prestasi_1' => 'required',
-                    'scan_prestasi_1' => 'uploaded[scan_prestasi_1]|max_size[scan_prestasi_1,2048]|mime_in[scan_prestasi_1,application/pdf]',
-                    'scan_kk' => 'uploaded[scan_kk]|max_size[scan_kk,2048]|mime_in[scan_kk,application/pdf]',
-                    'scan_ktp' => 'uploaded[scan_ktp]|max_size[scan_ktp,2048]|mime_in[scan_ktp,application/pdf]',
-                    'scan_kartu_pelajar' => 'uploaded[scan_kartu_pelajar]|max_size[scan_kartu_pelajar,2048]|mime_in[scan_kartu_pelajar,application/pdf]',
-                    'scan_sktm' => 'uploaded[scan_sktm]|max_size[scan_sktm,2048]|mime_in[scan_sktm,application/pdf]',
-                    'scan_diterima_pt' => 'uploaded[scan_diterima_pt]|max_size[scan_diterima_pt,2048]|mime_in[scan_diterima_pt,application/pdf]',
-                    'scan_proposal' => 'uploaded[scan_proposal]|max_size[scan_proposal,5120]|mime_in[scan_proposal,application/pdf]',
-                    'scan_pas_foto' => 'uploaded[scan_pas_foto]|max_size[scan_pas_foto,2048]|mime_in[scan_pas_foto,image/jpg,image/jpeg,image/png]',
-                ],
-                [   // Errors
-                    'scan_prestasi_1' => ['mime_in' => 'Scan prestasi harus berupa file PDF'],
-                    'scan_kk' => ['mime_in' => 'Scan prestasi harus berupa file PDF'],
-                    'scan_ktp' => ['mime_in' => 'Scan prestasi harus berupa file PDF'],
-                    'scan_kartu_pelajar' => ['mime_in' => 'Scan prestasi harus berupa file PDF'],
-                    'scan_sktm' => ['mime_in' => 'Scan prestasi harus berupa file PDF'],
-                    'scan_diterima_pt' => ['mime_in' => 'Scan prestasi harus berupa file PDF'],
-                    'scan_proposal' => ['mime_in' => 'Scan prestasi harus berupa file PDF'],
-                ]
-            )) {
-                session()->setFlashdata('pesan-gagal-lampiran-pendaftar', 'Data lampiran gagal ditambahkan, pendaftar harus mengunggah kembali seluruh file.');
-                return redirect()->to('pendaftaran/tambah_pendaftar/' . $id_peserta[0])->withInput();
-            }
-        } else {
-            if (!$this->validate(
-                [
-                    'scan_prestasi_1' => 'uploaded[scan_prestasi_1]|max_size[scan_prestasi_1,2048]|mime_in[scan_prestasi_1,application/pdf]',
-                    'tingkat_1' => 'required',
-                    'juara_1' => 'required',
-                    'nama_prestasi_1' => 'required',
-                    'tahun_prestasi_1' => 'required',
-                    'scan_kk' => 'uploaded[scan_kk]|max_size[scan_kk,2048]|mime_in[scan_kk,application/pdf]',
-                    'scan_ktp' => 'uploaded[scan_ktp]|max_size[scan_ktp,2048]|mime_in[scan_ktp,application/pdf]',
-                    'scan_kartu_pelajar' => 'uploaded[scan_kartu_pelajar]|max_size[scan_kartu_pelajar,2048]|mime_in[scan_kartu_pelajar,application/pdf]',
-                    'scan_sktm' => 'uploaded[scan_sktm]|max_size[scan_sktm,2048]|mime_in[scan_sktm,application/pdf]',
-                    'scan_diterima_pt' => 'uploaded[scan_diterima_pt]|max_size[scan_diterima_pt,2048]|mime_in[scan_diterima_pt,application/pdf]',
-                    'scan_proposal' => 'uploaded[scan_proposal]|max_size[scan_proposal,5120]|mime_in[scan_proposal,application/pdf]',
-                    'scan_pas_foto' => 'uploaded[scan_pas_foto]|max_size[scan_pas_foto,2048]|mime_in[scan_pas_foto,image/jpg,image/jpeg,image/png]',
-                ],
-                [   // Errors
-                    'scan_prestasi_1' => ['mime_in' => 'Scan prestasi harus berupa file PDF'],
-                    'scan_kk' => ['mime_in' => 'Scan prestasi harus berupa file PDF'],
-                    'scan_ktp' => ['mime_in' => 'Scan prestasi harus berupa file PDF'],
-                    'scan_kartu_pelajar' => ['mime_in' => 'Scan prestasi harus berupa file PDF'],
-                    'scan_sktm' => ['mime_in' => 'Scan prestasi harus berupa file PDF'],
-                    'scan_diterima_pt' => ['mime_in' => 'Scan prestasi harus berupa file PDF'],
-                    'scan_proposal' => ['mime_in' => 'Scan prestasi harus berupa file PDF'],
-                ]
-            )) {
-                session()->setFlashdata('pesan-gagal-lampiran-pendaftar', 'Data lampiran gagal ditambahkan, pendaftar harus mengunggah kembali seluruh file.');
-                return redirect()->to('pendaftaran/tambah_pendaftar/' . $id_peserta[0])->withInput();
-            }
-        }
+        // if ($kategori_1 == 'hafidz' || $kategori_1 == 'ujian sekolah' || $kategori_1 == 'lainnya') {
+        //     if (!$this->validate(
+        //         [
+        //             'nama_prestasi_1' => 'required',
+        //             'tahun_prestasi_1' => 'required',
+        //             'scan_prestasi_1' => 'uploaded[scan_prestasi_1]|max_size[scan_prestasi_1,2048]|mime_in[scan_prestasi_1,application/pdf]',
+        //             'scan_kk' => 'uploaded[scan_kk]|max_size[scan_kk,2048]|mime_in[scan_kk,application/pdf]',
+        //             'scan_ktp' => 'uploaded[scan_ktp]|max_size[scan_ktp,2048]|mime_in[scan_ktp,application/pdf]',
+        //             'scan_kartu_pelajar' => 'uploaded[scan_kartu_pelajar]|max_size[scan_kartu_pelajar,2048]|mime_in[scan_kartu_pelajar,application/pdf]',
+        //             'scan_sktm' => 'uploaded[scan_sktm]|max_size[scan_sktm,2048]|mime_in[scan_sktm,application/pdf]',
+        //             'scan_diterima_pt' => 'uploaded[scan_diterima_pt]|max_size[scan_diterima_pt,2048]|mime_in[scan_diterima_pt,application/pdf]',
+        //             'scan_proposal' => 'uploaded[scan_proposal]|max_size[scan_proposal,5120]|mime_in[scan_proposal,application/pdf]',
+        //             'scan_pas_foto' => 'uploaded[scan_pas_foto]|max_size[scan_pas_foto,2048]|mime_in[scan_pas_foto,image/jpg,image/jpeg,image/png]',
+        //         ],
+        //         [   // Errors
+        //             'scan_prestasi_1' => ['mime_in' => 'Scan prestasi harus berupa file PDF'],
+        //             'scan_kk' => ['mime_in' => 'Scan prestasi harus berupa file PDF'],
+        //             'scan_ktp' => ['mime_in' => 'Scan prestasi harus berupa file PDF'],
+        //             'scan_kartu_pelajar' => ['mime_in' => 'Scan prestasi harus berupa file PDF'],
+        //             'scan_sktm' => ['mime_in' => 'Scan prestasi harus berupa file PDF'],
+        //             'scan_diterima_pt' => ['mime_in' => 'Scan prestasi harus berupa file PDF'],
+        //             'scan_proposal' => ['mime_in' => 'Scan prestasi harus berupa file PDF'],
+        //         ]
+        //     )) {
+        //         session()->setFlashdata('pesan-gagal-lampiran-pendaftar', 'Data lampiran gagal ditambahkan, pendaftar harus mengunggah kembali seluruh file.');
+        //         return redirect()->to('pendaftaran/tambah_pendaftar/' . $id_peserta[0])->withInput();
+        //     }
+        // } else {
+        //     if (!$this->validate(
+        //         [
+        //             'scan_prestasi_1' => 'uploaded[scan_prestasi_1]|max_size[scan_prestasi_1,2048]|mime_in[scan_prestasi_1,application/pdf]',
+        //             'tingkat_1' => 'required',
+        //             'juara_1' => 'required',
+        //             'nama_prestasi_1' => 'required',
+        //             'tahun_prestasi_1' => 'required',
+        //             'scan_kk' => 'uploaded[scan_kk]|max_size[scan_kk,2048]|mime_in[scan_kk,application/pdf]',
+        //             'scan_ktp' => 'uploaded[scan_ktp]|max_size[scan_ktp,2048]|mime_in[scan_ktp,application/pdf]',
+        //             'scan_kartu_pelajar' => 'uploaded[scan_kartu_pelajar]|max_size[scan_kartu_pelajar,2048]|mime_in[scan_kartu_pelajar,application/pdf]',
+        //             'scan_sktm' => 'uploaded[scan_sktm]|max_size[scan_sktm,2048]|mime_in[scan_sktm,application/pdf]',
+        //             'scan_diterima_pt' => 'uploaded[scan_diterima_pt]|max_size[scan_diterima_pt,2048]|mime_in[scan_diterima_pt,application/pdf]',
+        //             'scan_proposal' => 'uploaded[scan_proposal]|max_size[scan_proposal,5120]|mime_in[scan_proposal,application/pdf]',
+        //             'scan_pas_foto' => 'uploaded[scan_pas_foto]|max_size[scan_pas_foto,2048]|mime_in[scan_pas_foto,image/jpg,image/jpeg,image/png]',
+        //         ],
+        //         [   // Errors
+        //             'scan_prestasi_1' => ['mime_in' => 'Scan prestasi harus berupa file PDF'],
+        //             'scan_kk' => ['mime_in' => 'Scan prestasi harus berupa file PDF'],
+        //             'scan_ktp' => ['mime_in' => 'Scan prestasi harus berupa file PDF'],
+        //             'scan_kartu_pelajar' => ['mime_in' => 'Scan prestasi harus berupa file PDF'],
+        //             'scan_sktm' => ['mime_in' => 'Scan prestasi harus berupa file PDF'],
+        //             'scan_diterima_pt' => ['mime_in' => 'Scan prestasi harus berupa file PDF'],
+        //             'scan_proposal' => ['mime_in' => 'Scan prestasi harus berupa file PDF'],
+        //         ]
+        //     )) {
+        //         session()->setFlashdata('pesan-gagal-lampiran-pendaftar', 'Data lampiran gagal ditambahkan, pendaftar harus mengunggah kembali seluruh file.');
+        //         return redirect()->to('pendaftaran/tambah_pendaftar/' . $id_peserta[0])->withInput();
+        //     }
+        // }
         // dd($scan_prestasi);
         // pindahkan file prestasi ke scan
         foreach ($scan_prestasi as $file_scan_prestasi) {
@@ -489,18 +489,18 @@ class Calon_mhs extends BaseController
     {
         $id_peserta = $this->MIdentitas->where('no_induk', $no_induk)->findColumn('id_status_peserta');
         $formulir_pendaftaran = $this->request->getFile('scan_formulir_pendaftaran');
-        if (!$this->validate(
-            [
-                'scan_formulir_pendaftaran' => 'uploaded[scan_formulir_pendaftaran]|mime_in[scan_formulir_pendaftaran,application/pdf]',
-            ],
-            [   // Errors
-                'scan_formulir_pendaftaran' => [
-                    'mime_in' => 'Scan prestasi harus berupa file PDF',
-                ],
-            ]
-        )) {
-            return redirect()->to('pendaftaran/tambah_pendaftar/' . $id_peserta[0])->withInput();
-        }
+        // if (!$this->validate(
+        //     [
+        //         'scan_formulir_pendaftaran' => 'uploaded[scan_formulir_pendaftaran]|mime_in[scan_formulir_pendaftaran,application/pdf]',
+        //     ],
+        //     [   // Errors
+        //         'scan_formulir_pendaftaran' => [
+        //             'mime_in' => 'Scan prestasi harus berupa file PDF',
+        //         ],
+        //     ]
+        // )) {
+        //     return redirect()->to('pendaftaran/tambah_pendaftar/' . $id_peserta[0])->withInput();
+        // }
         if ($formulir_pendaftaran->getError() != 4) {
             // mengambil nama file scan dan dimasukkan ke array
             $nama_formulir_pendaftaran = $formulir_pendaftaran->getName();
@@ -569,106 +569,106 @@ class Calon_mhs extends BaseController
         $input_no_induk = $this->request->getVar('no_induk');
         // dd($identitas['no_induk']);
         // dd($input_no_induk);
-        if ($identitas['no_induk'] != $input_no_induk) {
-            if (!$this->validate([
-                'no_induk'    => 'required|numeric|is_unique[identitas.no_induk]',
-                'no_induk_pelajar'    => 'required',
-                'nama_lengkap'      => 'required|alpha_space',
-                'jenis_kelamin'    => 'required',
-                'ttl'    => [
-                    'rule' => 'required',
-                    'errors' => [
-                        'required' => 'Bagian tempat, tanggal lahir  wajib diisi',
-                    ]
-                ],
-                'agama'    => 'required',
-                'no_telepon'     => 'required|numeric',
-                'alamat_rumah'    => 'required',
-                'kecamatan'    => 'required',
-                'nama_pt'    => [
-                    'rule' => 'required',
-                    'errors' => [
-                        'required' => 'Bagian nama perguruan tinggi  wajib diisi',
-                    ]
-                ],
-                'akreditasi_pt'    => [
-                    'rule' => 'required',
-                    'errors' => [
-                        'required' => 'Bagian akreditasi perguruan tinggi  wajib diisi',
-                    ]
-                ],
-                'tahun_masuk_pt'    => [
-                    'rule' => 'required',
-                    'errors' => [
-                        'required' => 'Bagian tahun masuk perguruan tinggi  wajib diisi',
-                    ]
-                ],
-                'alamat_pt'    => [
-                    'rule' => 'required',
-                    'errors' => [
-                        'required' => 'Bagian alamat perguruan tinggi  wajib diisi',
-                    ]
-                ],
-                'semester_ke'    => 'required',
-                'pernah_menerima_bantuan'    => 'required',
+        // if ($identitas['no_induk'] != $input_no_induk) {
+        //     if (!$this->validate([
+        //         'no_induk'    => 'required|numeric|is_unique[identitas.no_induk]',
+        //         'no_induk_pelajar'    => 'required',
+        //         'nama_lengkap'      => 'required|alpha_space',
+        //         'jenis_kelamin'    => 'required',
+        //         'ttl'    => [
+        //             'rule' => 'required',
+        //             'errors' => [
+        //                 'required' => 'Bagian tempat, tanggal lahir  wajib diisi',
+        //             ]
+        //         ],
+        //         'agama'    => 'required',
+        //         'no_telepon'     => 'required|numeric',
+        //         'alamat_rumah'    => 'required',
+        //         'kecamatan'    => 'required',
+        //         'nama_pt'    => [
+        //             'rule' => 'required',
+        //             'errors' => [
+        //                 'required' => 'Bagian nama perguruan tinggi  wajib diisi',
+        //             ]
+        //         ],
+        //         'akreditasi_pt'    => [
+        //             'rule' => 'required',
+        //             'errors' => [
+        //                 'required' => 'Bagian akreditasi perguruan tinggi  wajib diisi',
+        //             ]
+        //         ],
+        //         'tahun_masuk_pt'    => [
+        //             'rule' => 'required',
+        //             'errors' => [
+        //                 'required' => 'Bagian tahun masuk perguruan tinggi  wajib diisi',
+        //             ]
+        //         ],
+        //         'alamat_pt'    => [
+        //             'rule' => 'required',
+        //             'errors' => [
+        //                 'required' => 'Bagian alamat perguruan tinggi  wajib diisi',
+        //             ]
+        //         ],
+        //         'semester_ke'    => 'required',
+        //         'pernah_menerima_bantuan'    => 'required',
 
-            ])) {
-                return redirect()->to('pendaftaran/edit_pendaftaran/' . $identitas['no_induk'] . '/' . $identitas['id_status_peserta'])->withInput();
-            }
-            // update no induk pendaftar
-            $builder = $this->db->table('identitas');
-            $builder->set('no_induk', $input_no_induk);
-            $builder->where('no_induk', $identitas['no_induk']);
-            $builder->update();
-            // echo $input_no_induk;
-            // dd($no_induk);
-            // rename folder file
-            rename("assets/scan/" . $no_induk, "assets/scan/" . $input_no_induk);
-        } else {
-            if (!$this->validate([
-                'nama_lengkap'      => 'required|alpha_space',
-                'jenis_kelamin'    => 'required',
-                'ttl'    => [
-                    'rule' => 'required',
-                    'errors' => [
-                        'required' => 'Bagian tempat, tanggal lahir  wajib diisi',
-                    ]
-                ],
-                'agama'    => 'required',
-                'no_telepon'     => 'required|numeric',
-                'alamat_rumah'    => 'required',
-                'kecamatan'    => 'required',
-                'nama_pt'    => [
-                    'rule' => 'required',
-                    'errors' => [
-                        'required' => 'Bagian nama perguruan tinggi  wajib diisi',
-                    ]
-                ],
-                'akreditasi_pt'    => [
-                    'rule' => 'required',
-                    'errors' => [
-                        'required' => 'Bagian akreditasi perguruan tinggi  wajib diisi',
-                    ]
-                ],
-                'tahun_masuk_pt'    => [
-                    'rule' => 'required',
-                    'errors' => [
-                        'required' => 'Bagian tahun masuk perguruan tinggi  wajib diisi',
-                    ]
-                ],
-                'alamat_pt'    => [
-                    'rule' => 'required',
-                    'errors' => [
-                        'required' => 'Bagian alamat perguruan tinggi  wajib diisi',
-                    ]
-                ],
-                'semester_ke'    => 'required',
-                'pernah_menerima_bantuan'    => 'required',
+        //     ])) {
+        //         return redirect()->to('pendaftaran/edit_pendaftaran/' . $identitas['no_induk'] . '/' . $identitas['id_status_peserta'])->withInput();
+        //     }
+        //     // update no induk pendaftar
+        //     $builder = $this->db->table('identitas');
+        //     $builder->set('no_induk', $input_no_induk);
+        //     $builder->where('no_induk', $identitas['no_induk']);
+        //     $builder->update();
+        //     // echo $input_no_induk;
+        //     // dd($no_induk);
+        //     // rename folder file
+        //     rename("assets/scan/" . $no_induk, "assets/scan/" . $input_no_induk);
+        // } else {
+        //     if (!$this->validate([
+        //         'nama_lengkap'      => 'required|alpha_space',
+        //         'jenis_kelamin'    => 'required',
+        //         'ttl'    => [
+        //             'rule' => 'required',
+        //             'errors' => [
+        //                 'required' => 'Bagian tempat, tanggal lahir  wajib diisi',
+        //             ]
+        //         ],
+        //         'agama'    => 'required',
+        //         'no_telepon'     => 'required|numeric',
+        //         'alamat_rumah'    => 'required',
+        //         'kecamatan'    => 'required',
+        //         'nama_pt'    => [
+        //             'rule' => 'required',
+        //             'errors' => [
+        //                 'required' => 'Bagian nama perguruan tinggi  wajib diisi',
+        //             ]
+        //         ],
+        //         'akreditasi_pt'    => [
+        //             'rule' => 'required',
+        //             'errors' => [
+        //                 'required' => 'Bagian akreditasi perguruan tinggi  wajib diisi',
+        //             ]
+        //         ],
+        //         'tahun_masuk_pt'    => [
+        //             'rule' => 'required',
+        //             'errors' => [
+        //                 'required' => 'Bagian tahun masuk perguruan tinggi  wajib diisi',
+        //             ]
+        //         ],
+        //         'alamat_pt'    => [
+        //             'rule' => 'required',
+        //             'errors' => [
+        //                 'required' => 'Bagian alamat perguruan tinggi  wajib diisi',
+        //             ]
+        //         ],
+        //         'semester_ke'    => 'required',
+        //         'pernah_menerima_bantuan'    => 'required',
 
-            ])) {
-                return redirect()->to('pendaftaran/edit_pendaftaran/' . $identitas['no_induk'] . '/' . $identitas['id_status_peserta'])->withInput();
-            }
-        }
+        //     ])) {
+        //         return redirect()->to('pendaftaran/edit_pendaftaran/' . $identitas['no_induk'] . '/' . $identitas['id_status_peserta'])->withInput();
+        //     }
+        // }
         if ($this->request->getVar('pernah_menerima_bantuan') == 'ya') {
             $menerima_bantuan = $this->request->getVar('menerima_bantuan_dari');
         } else {
@@ -699,25 +699,25 @@ class Calon_mhs extends BaseController
         $keluarga = $this->MKeluarga->find_keluarga_noinduk($no_induk)->getFirstRow('array');
 
         // validasi keluarga
-        if (!$this->validate([
-            'nama_ayah'    => 'required|alpha_space',
-            'usia_ayah'    => 'required|numeric',
-            'pekerjaan_ayah'      => 'required',
-            'pendidikan_ayah'    => 'required',
-            'penghasilan_ayah'    => 'required|numeric',
-            'alamat_ayah'    => 'required',
-            'nama_ibu'     => 'required',
-            'usia_ibu'     => 'required|numeric',
-            'pekerjaan_ibu'    => 'required',
-            'pendidikan_ibu'    => 'required',
-            'penghasilan_ibu'    => 'required|numeric',
-            'alamat_ibu'    => 'required',
-            'rtsm_rtm'    => 'required',
-            'pkh_kks_kbs'    => 'required',
-            'bsm_kip'    => 'required',
-        ])) {
-            return redirect()->to('pendaftaran/edit_pendaftaran/' . $identitas['no_induk'] . '/' . $identitas['id_status_peserta'])->withInput();
-        }
+        // if (!$this->validate([
+        //     'nama_ayah'    => 'required|alpha_space',
+        //     'usia_ayah'    => 'required|numeric',
+        //     'pekerjaan_ayah'      => 'required',
+        //     'pendidikan_ayah'    => 'required',
+        //     'penghasilan_ayah'    => 'required|numeric',
+        //     'alamat_ayah'    => 'required',
+        //     'nama_ibu'     => 'required',
+        //     'usia_ibu'     => 'required|numeric',
+        //     'pekerjaan_ibu'    => 'required',
+        //     'pendidikan_ibu'    => 'required',
+        //     'penghasilan_ibu'    => 'required|numeric',
+        //     'alamat_ibu'    => 'required',
+        //     'rtsm_rtm'    => 'required',
+        //     'pkh_kks_kbs'    => 'required',
+        //     'bsm_kip'    => 'required',
+        // ])) {
+        //     return redirect()->to('pendaftaran/edit_pendaftaran/' . $identitas['no_induk'] . '/' . $identitas['id_status_peserta'])->withInput();
+        // }
         // dd($keluarga['id_keluarga']);
         // update data keluarga ke database
         $this->MKeluarga->update($keluarga['id_keluarga'], [
@@ -770,133 +770,133 @@ class Calon_mhs extends BaseController
             $prestasi[] = null;
         }
         // dd($prestasi);
-        if ($scan_prestasi['prestasi_2']->getError() != 4) {
-            // Validasi Prestasi 2
-            if ($kategori_2 == 'ujian sekolah' || $kategori_2 == 'hafidz' || $kategori_2 == 'lainnya') {
-                if (!$this->validate(
-                    [
-                        'scan_prestasi_2' => 'uploaded[scan_prestasi_2]|max_size[scan_prestasi_2,2048]|mime_in[scan_prestasi_2,application/pdf]',
-                    ],
-                    [   // Errors
-                        'scan_prestasi_2' => [
-                            'mime_in' => 'Scan prestasi harus berupa file PDF',
-                        ],
-                    ]
-                )) {
-                    return redirect()->to('pendaftaran/edit_pendaftaran/' . $identitas['no_induk'] . '/' . $identitas['id_status_peserta'])->withInput();
-                }
-            } else {
-                if (!$this->validate(
-                    [
-                        'scan_prestasi_2' => 'uploaded[scan_prestasi_2]|max_size[scan_prestasi_2,2048]|mime_in[scan_prestasi_2,application/pdf]',
-                        'tingkat_2' => 'required',
-                        'juara_2' => 'required',
-                        'nama_prestasi_2' => 'required',
-                        'tahun_prestasi_2' => 'required',
-                    ],
-                    [   // Errors
-                        'scan_prestasi_2' => [
-                            'mime_in' => 'Scan prestasi harus berupa file PDF',
-                        ],
-                    ]
-                )) {
-                    return redirect()->to('pendaftaran/edit_pendaftaran/' . $identitas['no_induk'] . '/' . $identitas['id_status_peserta'])->withInput();
-                }
-            }
-        }
-        if ($scan_prestasi['prestasi_3']->getError() != 4) {
-            // Validasi Prestasi 3
-            if ($kategori_3 == 'ujian sekolah' || $kategori_3 == 'hafidz' || $kategori_3 == 'lainnya') {
-                if (!$this->validate(
-                    [
-                        'scan_prestasi_3' => 'uploaded[scan_prestasi_3]|max_size[scan_prestasi_3,2048]|mime_in[scan_prestasi_3,application/pdf]',
-                    ],
-                    [   // Errors
-                        'scan_prestasi_3' => [
-                            'mime_in' => 'Scan prestasi harus berupa file PDF',
-                        ],
-                    ]
-                )) {
-                    return redirect()->to('pendaftaran/edit_pendaftaran/' . $identitas['no_induk'] . '/' . $identitas['id_status_peserta'])->withInput();
-                }
-            } else {
-                if (!$this->validate(
-                    [
-                        'scan_prestasi_3' => 'uploaded[scan_prestasi_3]|max_size[scan_prestasi_3,2048]|mime_in[scan_prestasi_3,application/pdf]',
-                        'tingkat_3' => 'required',
-                        'juara_3' => 'required',
-                        'nama_prestasi_3' => 'required',
-                        'tahun_prestasi_3' => 'required',
-                    ],
-                    [   // Errors
-                        'scan_prestasi_2' => [
-                            'mime_in' => 'Scan prestasi harus berupa file PDF',
-                        ],
-                    ]
-                )) {
-                    return redirect()->to('pendaftaran/edit_pendaftaran/' . $identitas['no_induk'] . '/' . $identitas['id_status_peserta'])->withInput();
-                }
-                // dd($scan_prestasi['prestasi_3']);
-            }
-        }
+        // if ($scan_prestasi['prestasi_2']->getError() != 4) {
+        //     // Validasi Prestasi 2
+        //     if ($kategori_2 == 'ujian sekolah' || $kategori_2 == 'hafidz' || $kategori_2 == 'lainnya') {
+        //         if (!$this->validate(
+        //             [
+        //                 'scan_prestasi_2' => 'uploaded[scan_prestasi_2]|max_size[scan_prestasi_2,2048]|mime_in[scan_prestasi_2,application/pdf]',
+        //             ],
+        //             [   // Errors
+        //                 'scan_prestasi_2' => [
+        //                     'mime_in' => 'Scan prestasi harus berupa file PDF',
+        //                 ],
+        //             ]
+        //         )) {
+        //             return redirect()->to('pendaftaran/edit_pendaftaran/' . $identitas['no_induk'] . '/' . $identitas['id_status_peserta'])->withInput();
+        //         }
+        //     } else {
+        //         if (!$this->validate(
+        //             [
+        //                 'scan_prestasi_2' => 'uploaded[scan_prestasi_2]|max_size[scan_prestasi_2,2048]|mime_in[scan_prestasi_2,application/pdf]',
+        //                 'tingkat_2' => 'required',
+        //                 'juara_2' => 'required',
+        //                 'nama_prestasi_2' => 'required',
+        //                 'tahun_prestasi_2' => 'required',
+        //             ],
+        //             [   // Errors
+        //                 'scan_prestasi_2' => [
+        //                     'mime_in' => 'Scan prestasi harus berupa file PDF',
+        //                 ],
+        //             ]
+        //         )) {
+        //             return redirect()->to('pendaftaran/edit_pendaftaran/' . $identitas['no_induk'] . '/' . $identitas['id_status_peserta'])->withInput();
+        //         }
+        //     }
+        // }
+        // if ($scan_prestasi['prestasi_3']->getError() != 4) {
+        //     // Validasi Prestasi 3
+        //     if ($kategori_3 == 'ujian sekolah' || $kategori_3 == 'hafidz' || $kategori_3 == 'lainnya') {
+        //         if (!$this->validate(
+        //             [
+        //                 'scan_prestasi_3' => 'uploaded[scan_prestasi_3]|max_size[scan_prestasi_3,2048]|mime_in[scan_prestasi_3,application/pdf]',
+        //             ],
+        //             [   // Errors
+        //                 'scan_prestasi_3' => [
+        //                     'mime_in' => 'Scan prestasi harus berupa file PDF',
+        //                 ],
+        //             ]
+        //         )) {
+        //             return redirect()->to('pendaftaran/edit_pendaftaran/' . $identitas['no_induk'] . '/' . $identitas['id_status_peserta'])->withInput();
+        //         }
+        //     } else {
+        //         if (!$this->validate(
+        //             [
+        //                 'scan_prestasi_3' => 'uploaded[scan_prestasi_3]|max_size[scan_prestasi_3,2048]|mime_in[scan_prestasi_3,application/pdf]',
+        //                 'tingkat_3' => 'required',
+        //                 'juara_3' => 'required',
+        //                 'nama_prestasi_3' => 'required',
+        //                 'tahun_prestasi_3' => 'required',
+        //             ],
+        //             [   // Errors
+        //                 'scan_prestasi_2' => [
+        //                     'mime_in' => 'Scan prestasi harus berupa file PDF',
+        //                 ],
+        //             ]
+        //         )) {
+        //             return redirect()->to('pendaftaran/edit_pendaftaran/' . $identitas['no_induk'] . '/' . $identitas['id_status_peserta'])->withInput();
+        //         }
+        //         // dd($scan_prestasi['prestasi_3']);
+        //     }
+        // }
         // Validasi Lampiran file
 
         // dd($juara_1);
-        if ($kategori_1 == 'hafidz' || $kategori_1 == 'KHS' || $kategori_1 == 'lainnya') {
-            if (!$this->validate(
-                [
-                    'nama_prestasi_1' => 'required',
-                    'tahun_prestasi_1' => 'required',
-                    'scan_prestasi_1' => 'max_size[scan_prestasi_1,2048]|mime_in[scan_prestasi_1,application/pdf]',
-                    'scan_kk' => 'max_size[scan_kk,2048]|mime_in[scan_kk,application/pdf]',
-                    'scan_ktp' => 'max_size[scan_ktp,2048]|mime_in[scan_ktp,application/pdf]',
-                    'scan_kartu_pelajar' => 'max_size[scan_kartu_pelajar,2048]|mime_in[scan_kartu_pelajar,application/pdf]',
-                    'scan_sktm' => 'max_size[scan_sktm,2048]|mime_in[scan_sktm,application/pdf]',
-                    'scan_diterima_pt' => 'max_size[scan_diterima_pt,2048]|mime_in[scan_diterima_pt,application/pdf]',
-                    'scan_proposal' => 'max_size[scan_proposal,5120]|mime_in[scan_proposal,application/pdf]',
-                    'scan_pas_foto' => 'max_size[scan_pas_foto,2048]|mime_in[scan_pas_foto,image/jpg,image/jpeg,image/png]',
-                ],
-                [   // Errors
-                    'scan_prestasi_1' => ['mime_in' => 'Scan prestasi harus berupa file PDF'],
-                    'scan_kk' => ['mime_in' => 'Scan prestasi harus berupa file PDF'],
-                    'scan_ktp' => ['mime_in' => 'Scan prestasi harus berupa file PDF'],
-                    'scan_kartu_pelajar' => ['mime_in' => 'Scan prestasi harus berupa file PDF'],
-                    'scan_sktm' => ['mime_in' => 'Scan prestasi harus berupa file PDF'],
-                    'scan_diterima_pt' => ['mime_in' => 'Scan prestasi harus berupa file PDF'],
-                    'scan_proposal' => ['mime_in' => 'Scan prestasi harus berupa file PDF'],
-                ]
-            )) {
-                return redirect()->to('/pendaftaran/edit_pendaftaran/' . $identitas['no_induk'] . '/' . $identitas['id_status_peserta'])->withInput();
-            }
-        } else {
-            if (!$this->validate(
-                [
-                    'scan_prestasi_1' => 'max_size[scan_prestasi_1,2048]|mime_in[scan_prestasi_1,application/pdf]',
-                    'tingkat_1' => 'required',
-                    'juara_1' => 'required',
-                    'nama_prestasi_1' => 'required',
-                    'tahun_prestasi_1' => 'required',
-                    'scan_kk' => 'max_size[scan_kk,2048]|mime_in[scan_kk,application/pdf]',
-                    'scan_ktp' => 'max_size[scan_ktp,2048]|mime_in[scan_ktp,application/pdf]',
-                    'scan_kartu_pelajar' => 'max_size[scan_kartu_pelajar,2048]|mime_in[scan_kartu_pelajar,application/pdf]',
-                    'scan_sktm' => 'max_size[scan_sktm,2048]|mime_in[scan_sktm,application/pdf]',
-                    'scan_diterima_pt' => 'max_size[scan_diterima_pt,2048]|mime_in[scan_diterima_pt,application/pdf]',
-                    'scan_proposal' => 'max_size[scan_proposal,5120]|mime_in[scan_proposal,application/pdf]',
-                    'scan_pas_foto' => 'max_size[scan_pas_foto,2048]|mime_in[scan_pas_foto,image/jpg,image/jpeg,image/png]',
-                ],
-                [   // Errors
-                    'scan_prestasi_1' => ['mime_in' => 'Scan prestasi harus berupa file PDF'],
-                    'scan_kk' => ['mime_in' => 'Scan prestasi harus berupa file PDF'],
-                    'scan_ktp' => ['mime_in' => 'Scan prestasi harus berupa file PDF'],
-                    'scan_kartu_pelajar' => ['mime_in' => 'Scan prestasi harus berupa file PDF'],
-                    'scan_sktm' => ['mime_in' => 'Scan prestasi harus berupa file PDF'],
-                    'scan_diterima_pt' => ['mime_in' => 'Scan prestasi harus berupa file PDF'],
-                    'scan_proposal' => ['mime_in' => 'Scan prestasi harus berupa file PDF'],
-                ]
-            )) {
-                return redirect()->to('pendaftaran/edit_pendaftaran/' . $identitas['no_induk'] . '/' . $identitas['id_status_peserta'])->withInput();
-            }
-        }
+        // if ($kategori_1 == 'hafidz' || $kategori_1 == 'KHS' || $kategori_1 == 'lainnya') {
+        //     if (!$this->validate(
+        //         [
+        //             'nama_prestasi_1' => 'required',
+        //             'tahun_prestasi_1' => 'required',
+        //             'scan_prestasi_1' => 'max_size[scan_prestasi_1,2048]|mime_in[scan_prestasi_1,application/pdf]',
+        //             'scan_kk' => 'max_size[scan_kk,2048]|mime_in[scan_kk,application/pdf]',
+        //             'scan_ktp' => 'max_size[scan_ktp,2048]|mime_in[scan_ktp,application/pdf]',
+        //             'scan_kartu_pelajar' => 'max_size[scan_kartu_pelajar,2048]|mime_in[scan_kartu_pelajar,application/pdf]',
+        //             'scan_sktm' => 'max_size[scan_sktm,2048]|mime_in[scan_sktm,application/pdf]',
+        //             'scan_diterima_pt' => 'max_size[scan_diterima_pt,2048]|mime_in[scan_diterima_pt,application/pdf]',
+        //             'scan_proposal' => 'max_size[scan_proposal,5120]|mime_in[scan_proposal,application/pdf]',
+        //             'scan_pas_foto' => 'max_size[scan_pas_foto,2048]|mime_in[scan_pas_foto,image/jpg,image/jpeg,image/png]',
+        //         ],
+        //         [   // Errors
+        //             'scan_prestasi_1' => ['mime_in' => 'Scan prestasi harus berupa file PDF'],
+        //             'scan_kk' => ['mime_in' => 'Scan prestasi harus berupa file PDF'],
+        //             'scan_ktp' => ['mime_in' => 'Scan prestasi harus berupa file PDF'],
+        //             'scan_kartu_pelajar' => ['mime_in' => 'Scan prestasi harus berupa file PDF'],
+        //             'scan_sktm' => ['mime_in' => 'Scan prestasi harus berupa file PDF'],
+        //             'scan_diterima_pt' => ['mime_in' => 'Scan prestasi harus berupa file PDF'],
+        //             'scan_proposal' => ['mime_in' => 'Scan prestasi harus berupa file PDF'],
+        //         ]
+        //     )) {
+        //         return redirect()->to('/pendaftaran/edit_pendaftaran/' . $identitas['no_induk'] . '/' . $identitas['id_status_peserta'])->withInput();
+        //     }
+        // } else {
+        //     if (!$this->validate(
+        //         [
+        //             'scan_prestasi_1' => 'max_size[scan_prestasi_1,2048]|mime_in[scan_prestasi_1,application/pdf]',
+        //             'tingkat_1' => 'required',
+        //             'juara_1' => 'required',
+        //             'nama_prestasi_1' => 'required',
+        //             'tahun_prestasi_1' => 'required',
+        //             'scan_kk' => 'max_size[scan_kk,2048]|mime_in[scan_kk,application/pdf]',
+        //             'scan_ktp' => 'max_size[scan_ktp,2048]|mime_in[scan_ktp,application/pdf]',
+        //             'scan_kartu_pelajar' => 'max_size[scan_kartu_pelajar,2048]|mime_in[scan_kartu_pelajar,application/pdf]',
+        //             'scan_sktm' => 'max_size[scan_sktm,2048]|mime_in[scan_sktm,application/pdf]',
+        //             'scan_diterima_pt' => 'max_size[scan_diterima_pt,2048]|mime_in[scan_diterima_pt,application/pdf]',
+        //             'scan_proposal' => 'max_size[scan_proposal,5120]|mime_in[scan_proposal,application/pdf]',
+        //             'scan_pas_foto' => 'max_size[scan_pas_foto,2048]|mime_in[scan_pas_foto,image/jpg,image/jpeg,image/png]',
+        //         ],
+        //         [   // Errors
+        //             'scan_prestasi_1' => ['mime_in' => 'Scan prestasi harus berupa file PDF'],
+        //             'scan_kk' => ['mime_in' => 'Scan prestasi harus berupa file PDF'],
+        //             'scan_ktp' => ['mime_in' => 'Scan prestasi harus berupa file PDF'],
+        //             'scan_kartu_pelajar' => ['mime_in' => 'Scan prestasi harus berupa file PDF'],
+        //             'scan_sktm' => ['mime_in' => 'Scan prestasi harus berupa file PDF'],
+        //             'scan_diterima_pt' => ['mime_in' => 'Scan prestasi harus berupa file PDF'],
+        //             'scan_proposal' => ['mime_in' => 'Scan prestasi harus berupa file PDF'],
+        //         ]
+        //     )) {
+        //         return redirect()->to('pendaftaran/edit_pendaftaran/' . $identitas['no_induk'] . '/' . $identitas['id_status_peserta'])->withInput();
+        //     }
+        // }
 
         foreach ($scan_prestasi as $file_scan_prestasi) {
             if ($file_scan_prestasi->getError() != 4) {
