@@ -180,7 +180,7 @@
                             <i class="fa-brands fa-instagram" id="insta"></i>
                         </div>
                     </a>
-                    <a href="https://disdikbud.batangkab.go.id/index.html" class="ms-3">
+                    <a href="https://disdikbud.batangkab.go.id/index.html" target="_blank" class="ms-3">
                         <div class="d-flex justify-content-center align-items-center icon">
                             <i class="fa-solid fa-globe" id="web"></i>
                         </div>
