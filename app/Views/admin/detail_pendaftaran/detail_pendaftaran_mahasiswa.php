@@ -467,7 +467,7 @@
                     <!-- Submit -->
                     <div class="text-end">
                         <button type="button" data-bs-toggle="modal" data-bs-target="#save_nilai_modal" class="btn btn-primary fs16 fw-normal">
-                            Nilai
+                        Simpan Nilai
                         </button>
                     </div>
                     <!-- end submit -->
@@ -606,7 +606,7 @@
             <form action="<?= base_url(); ?>/admin_detail_pendaftaran/simpan_verifikasi/<?= $detail_pendaftar['no_induk']; ?>" method="POST">
                 <div class="row">
                     <div class="col-lg-6 col-12">
-                        <label for="" class="form-label">Scan Prestasi</label>
+                        <label for="" class="form-label">Nilai Prestasi Tertinggi</label>
                         <input disabled value="<?= $penilaian_tertinggi; ?>" type="text" class="w-100 form-control">
                         <!-- end penilaian -->
                         <label for="" class="form-label mt-3">Status Pendaftaran</label>

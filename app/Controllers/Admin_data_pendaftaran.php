@@ -51,7 +51,7 @@ class Admin_data_pendaftaran extends BaseController
     {
         // data pendaftar kategori siswa
         $siswa = $this->MIdentitas->data_seluruh_pendaftar(1)->getResultArray();
-
+        dd($siswa);
         $data = [
             'title'     => 'Beasiswa Batang | Data Pendaftar Admin',
             'siswa'     => $siswa,
