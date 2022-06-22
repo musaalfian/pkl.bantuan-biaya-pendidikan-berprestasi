@@ -276,6 +276,26 @@ p {
 .bgred {
   background-color: #dc3545;
 }
+.bgbiru2 {
+  background-color: #cfe2ff;
+  border: 1px solid #b6d4fe;
+  color: #084298;
+}
+.bgkuning {
+  background-color: #fff3cd;
+  border: 1px solid #ffecb5;
+  color: #664d03;
+}
+.bghijau {
+  background-color: #d1e7dd;
+  border: 1px solid #badbcc;
+  color: #0f5132;
+}
+.bgmerah {
+  background-color: #f8d7da;
+  border: 1px solid #f5c2c7;
+  color: #842029;
+}
 /* End background color */
 
 /* Button */
@@ -319,9 +339,15 @@ p {
   min-width: 20px;
   min-height: 20px;
 }
+.bdgrey {
+  border: 1px solid rgba(119, 136, 153);
+}
 .bdblue {
   border: 1px solid var(--biru);
   border-radius: 25px;
+}
+.bdblue1 {
+  border: 1px solid var(--biru);
 }
 .btn:hover{
   transition: 0.3s;
@@ -332,6 +358,9 @@ p {
 }
 .br10{
   border-radius: 10px !important;
+}
+.br1 {
+  border-radius: .5rem;
 }
 .br20{
   border-radius: 20px !important;
@@ -376,13 +405,15 @@ p {
   /* font-family: 700; */
   color: var(--biru);
   /* box-shadow: 2px 2px 5px 2px var(--biru); */
-  border: 2px solid var(--biru);
+  border: 1px solid var(--biru);
+  font-weight: 400;
 }
-.btn-white:hover {
+/* .btn-white:hover {
   background-color: var(--biru);
   box-shadow: none !important;
   color:white;
-}
+  font-weight: 400;
+} */
 .bg-abu {
   background-color: var(--abu);
 }
@@ -412,14 +443,9 @@ p {
 .min-height-admin{
   min-height: 141px;
 }
-tr {
-  border-color: var(--abu2);
+.table>:not(:first-child) {
+  border-top: 1.5px solid rgba(119, 136, 153);
 }
-
-/* Form */
-/* .pendaftaran input {
-  bor
-} */
 /* End form */
 
 /* Unknown */
@@ -1023,7 +1049,7 @@ footer {
 }
 /* CKEditor */
 .ck-editor__editable_inline {
-  min-height: 200px;
+  min-height: 10.8rem;
 }
 
 .active-menu{
@@ -1032,12 +1058,12 @@ footer {
   color: var(--orange) !important;
   font-weight: 800 !important;
   text-decoration: none !important;
-  border-radius: 10px;
+  border-radius: .25rem;
 
 }
 .menu:hover {
   background-color: white;
-  border-radius: 10px;
+  border-radius: .25rem;
 }
 .menu:hover a {
   /* color: #000000; */
@@ -1050,7 +1076,7 @@ footer {
   text-decoration: none;
 }
 .menu a i {
-  margin-right: 5px;
+  margin-right: .75rem;
 }
 .menu .dropdown ul li a {
   color: black !important;
@@ -1070,6 +1096,23 @@ footer {
 .admin-content {
   width: 90%;
 }
+.admin-content thead tr > th:first-child {
+  width: 20px;
+}
+.admin-content tbody tr > th:first-child {
+  text-align: center;
+  font-weight: 400;
+}
+.admin-content tbody tr > td {
+  padding: 10px 18px !important;
+  font-weight: 400 !important;
+}
+.w90 {
+  width: 90%;
+}
+/* .detail tbody tr {
+  padding: 50px !important;
+} */
 /* .detail tbody,
 td,
 tfoot,
@@ -1079,7 +1122,8 @@ tr {
   border-style: none;
 } */
 .detail table > :not(caption) > * > * {
-  padding: 3px;
+  padding: .5rem 0;
+  padding-right: .5rem;
 }
 .admin h4 {
   font-size: 16px !important;

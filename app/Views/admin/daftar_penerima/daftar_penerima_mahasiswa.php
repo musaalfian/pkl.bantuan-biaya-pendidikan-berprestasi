@@ -2,15 +2,16 @@
 
 <?= $this->section('content'); ?>
 <!-- Page content-->
-<div class=" bg-abu p40">
+<div class="bgwhite py40">
     <div class=" admin-content  mx-auto">
-        <h3 class="biru">Data Penerima Beasiswa <span class="orange">Mahasiswa</span> </h3>
-
-        <div class="p-4 br20 bg-white mt20 " id="daftar-penerima-content">
-            <p>Edit status pembayaran keseluruhan : <a href="" data-bs-toggle="modal" data-bs-target="#ubahStatusPembayaranKeseluruhan">
-                    Ubah
-                </a></p>
-            <table class="table p-4" id="table_data_pendaftaran">
+        <div class="d-flex justify-content-between align-items-end">
+            <h3 class="biru">Data Penerima Beasiswa Mahasiswa</h3>
+            <a data-bs-toggle="modal" data-bs-target="#ubahStatusPembayaranKeseluruhan" class="btn btn-primary fw-normal">
+                Edit status pembayaran
+            </a>
+        </div>
+        <div class="p-4 br1 bdgrey bg-white mt20 " id="daftar-penerima-content">
+            <table class="table py-3 mb-3" id="table_data_pendaftaran">
                 <thead>
                     <tr>
                         <th scope="col">No</th>
@@ -36,7 +37,7 @@
                             <td class="bold <?= ($data['laporan']) != null ? 'green' : 'red' ?> ">
                                 <?= ($data['laporan']) != null ? 'Sudah' : 'Belum' ?></td>
                             <td class="bold <?= ($data['nama_status_pembayaran']) == 'sudah transfer' ? 'green' : 'red' ?> " id="statusPembayaran"> <?= $data['nama_status_pembayaran']; ?></td>
-                            <td><a href="" class="btn btn-primary py-1" data-bs-toggle="modal" data-bs-target="#detail_penerima_<?= $data['no_induk']; ?>">Detail</a></td>
+                            <td><a href="" class="fs16 fw-normal" data-bs-toggle="modal" data-bs-target="#detail_penerima_<?= $data['no_induk']; ?>">Detail</a></td>
                             <td>
                                 <a href="" data-bs-toggle="modal" data-bs-target="#ubahStatusPembayaran_<?= $data['no_induk']; ?>">
                                     <i class="fa-solid fa-circle-question" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit Status Pembayaran"></i>
@@ -98,7 +99,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title" id="exampleModalLabel">Status Pembayaran</h4>
+                <h4 class="modal-title bold" id="exampleModalLabel">Status Pembayaran Keseluruhan</h4>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">

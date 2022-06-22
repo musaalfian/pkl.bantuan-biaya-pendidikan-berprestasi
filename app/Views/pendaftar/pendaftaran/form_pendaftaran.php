@@ -529,7 +529,7 @@
                                             </div>
                                             <div class="modal-body">
                                                 Pastikan data yang anda masukkan sudah benar.
-                                                <div class="alert alert-danger pesan-gagal" role="alert" style="display:none">
+                                                <div class="alert alert-danger mt-2 pesan-gagal" role="alert" style="display:none">
                                                     Terdapat kesalahan masukkan atau data yang anda masukkan tidak sesuai.
                                                 </div>
                                             </div>
@@ -848,7 +848,7 @@
                             </div>
                             <div class="modal-body">
                                 Pastikan data yang anda masukkan sudah benar.
-                                <div class="alert alert-danger pesan-gagal" role="alert" style="display:none">
+                                <div class="alert alert-danger mt-2 pesan-gagal" role="alert" style="display:none">
                                     Terdapat kesalahan masukkan atau data yang anda masukkan tidak sesuai.
                                 </div>
                             </div>
@@ -996,7 +996,7 @@
                                                                 <option onchange="kategori_prestasi()" <?php
                                                                                                         if (old('kategori_' . $i) == $data_kategori) {
                                                                                                             echo 'selected';
-                                                                                                     } elseif ($file != null) {
+                                                                                                        } elseif ($file != null) {
                                                                                                             if ($prestasi[$i - 1]['kategori'] == $data_kategori) {
                                                                                                                 echo 'selected';
                                                                                                             }
@@ -1093,7 +1093,7 @@
                                                 <div class="modal-dialog">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
-                                                            <h5 class="modal-title" id="prestasiModalLabel">
+                                                            <h5 class="modal-title bold" id="prestasiModalLabel">
                                                                 Yakin ingin menambah data prestasi?
                                                             </h5>
                                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -1322,7 +1322,7 @@
                                                 </div>
                                                 <div class="modal-body">
                                                     Pastikan data yang anda masukkan sudah benar.
-                                                    <div class="alert alert-danger pesan-gagal" role="alert" style="display:none">
+                                                    <div class="alert alert-danger mt-2 pesan-gagal" role="alert" style="display:none">
                                                         Terdapat kesalahan masukkan atau data yang anda masukkan tidak sesuai.
                                                     </div>
                                                 </div>
@@ -1394,7 +1394,7 @@
                                                 </div>
                                                 <div class="modal-body">
                                                     Pastikan data yang anda masukkan sudah benar.
-                                                    <div class="alert alert-danger pesan-gagal" role="alert" style="display:none">
+                                                    <div class="alert alert-danger mt-2 pesan-gagal" role="alert" style="display:none">
                                                         Terdapat kesalahan masukkan atau data yang anda masukkan tidak sesuai.
                                                     </div>
                                                 </div>
@@ -2037,7 +2037,7 @@
                                 <?php for ($i = 1; $i <= $n; $i++) { ?>
                                     <div class="row">
                                         <!-- file prestasi -->
-                                        <div class="col-12 col-md-2">
+                                        <div class="col-12 col-xl-6">
                                             <div class="mb20">
                                                 <label for="prestasi" class="form-label">Scan Prestasi
                                                 </label>
@@ -2045,7 +2045,7 @@
                                             </div>
                                         </div>
                                         <!-- end file prestasi -->
-                                        <div class="col-12 col-md-2">
+                                        <div class="col-12 col-xl-6">
                                             <div class="mb20">
                                                 <label for="nama_prestasi_review<?= $i; ?>" class="form-label">Nama Prestasi
                                                 </label>
@@ -2053,7 +2053,7 @@
                                             </div>
                                         </div>
                                         <!-- end nama prestasi -->
-                                        <div class="col-4 col-md-2">
+                                        <div class="col-12 col-xl-6">
                                             <div class="mb20">
                                                 <label for="kategori_<?= $i; ?>" class="form-label">Kategori Prestasi
                                                 </label>
@@ -2071,7 +2071,7 @@
                                             </div>
                                         </div>
                                         <!-- end kategori -->
-                                        <div class="col-3 col-md-2">
+                                        <div class="col-12 col-xl-6">
                                             <div class="mb20">
                                                 <label for="tingkat_<?= $i; ?>" class="form-label">Tingkat Prestasi
                                                 </label>
@@ -2086,7 +2086,7 @@
                                             <!-- end tingkat prestasi -->
                                         </div>
                                         <!-- end tingkat -->
-                                        <div class="col-3 col-md-2">
+                                        <div class="col-12 col-xl-6">
                                             <div class="mb20">
                                                 <label for="juara_<?= $i; ?>" class="form-label">Juara
 
@@ -2106,7 +2106,7 @@
                                             </div>
                                         </div>
                                         <!-- end juara -->
-                                        <div class="col-2">
+                                        <div class="col-12 col-xl-6">
                                             <div class="mb20">
                                                 <label for="tahun_prestasi_review<?= $i; ?>" class="form-label">Tahun
 
@@ -2272,21 +2272,22 @@
     // }).length
     // );
     // alert invalid form fields
-$('form').on('submit', function(e) {
-    // e.preventDefault
-    // alert("Page is loaded");
-    $(document).ready(function() {
-        var numItems = $('.invalid-feedback').filter(function(){
-        return $(this).css('display') != 'none';
-        }).length;
-        if( numItems >= 1){
-            $('.pesan-gagal').show();
-        }
-    // alert(
-    // $('.invalid-feedback').filter(function(){
-    // return $(this).css('display') != 'none';
-    // }).length
-    // );
+    $('form').on('submit', function(e) {
+        // e.preventDefault
+        // alert("Page is loaded");
+        $(document).ready(function() {
+            var numItems = $('.invalid-feedback').filter(function() {
+                return $(this).css('display') != 'none';
+            }).length;
+            if (numItems >= 1) {
+                $('.pesan-gagal').show();
+            }
+            // alert(
+            // $('.invalid-feedback').filter(function(){
+            // return $(this).css('display') != 'none';
+            // }).length
+            // );
+        });
     });
     // jika terdapat error dalam input prestasi 2
     <?php if ($validation->getError('scan_prestasi_2') != null || $validation->getError('nama_prestasi_2') != null || $validation->getError('kategori_2') != null || $validation->getError('tahun_prestasi_2') != null) : ?>
