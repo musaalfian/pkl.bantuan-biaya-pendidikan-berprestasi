@@ -117,7 +117,6 @@ const scan_lampiran = [
     "file_prestasi_1",
     "file_prestasi_2",
     "file_prestasi_3",
-    "formulir_pendaftaran",
 ];
 const invalid_scan_lampiran = [
     "kk-invalid",
@@ -129,7 +128,6 @@ const invalid_scan_lampiran = [
     "file-prestasi-invalid-1",
     "file-prestasi-invalid-2",
     "file-prestasi-invalid-3",
-    "formulir-pendaftaran-invalid",
 ];
 <?php elseif ($identitas['id_status_peserta'] == 2) : ?>
 const scan_lampiran = [
@@ -143,7 +141,6 @@ const scan_lampiran = [
     "file_prestasi_1",
     "file_prestasi_2",
     "file_prestasi_3",
-    "formulir_pendaftaran",
 ];
 const invalid_scan_lampiran = [
     "kk-invalid",
@@ -156,7 +153,6 @@ const invalid_scan_lampiran = [
     "file-prestasi-invalid-1",
     "file-prestasi-invalid-2",
     "file-prestasi-invalid-3",
-    "formulir-pendaftaran-invalid",
 ];
 <?php else : ?>
 const scan_lampiran = [
@@ -170,7 +166,6 @@ const scan_lampiran = [
     "file_prestasi_1",
     "file_prestasi_2",
     "file_prestasi_3",
-    "formulir_pendaftaran",
 ];
 const invalid_scan_lampiran = [
     "kk-invalid",
@@ -183,7 +178,6 @@ const invalid_scan_lampiran = [
     "file-prestasi-invalid-1",
     "file-prestasi-invalid-2",
     "file-prestasi-invalid-3",
-    "formulir-pendaftaran-invalid",
 ];
 <?php endif ?>
 <?php if ($keluarga != null && $file == null) : ?>
