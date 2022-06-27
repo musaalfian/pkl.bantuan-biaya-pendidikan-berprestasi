@@ -10,7 +10,7 @@
             <a href="" class="abu fs14">Detail Peserta Didik</a>
         </div>
         <div class="d-flex justify-content-between align-items-end mb-3">
-            <h3 class="biru">Detail Penerima Bantuan Biaya Pendidikan Peserta Didik</h3>
+            <h3 class="biru">Detail Pendaftar Bantuan Biaya Pendidikan Peserta Didik</h3>
             <a class="btn btn-primary fw-normal" href="<?= base_url(); ?>/assets/scan/<?= $detail_pendaftar['no_induk']; ?>/file/<?= $detail_pendaftar['formulir_pendaftaran']; ?>" target="_blank">
                 Unduh formulir pendaftar
             </a>
@@ -46,6 +46,16 @@
                                 <td>Nama</td>
                                 <td>:</td>
                                 <td><?= $detail_pendaftar['nama_lengkap']; ?></td>
+                                <td>
+                                    <div class="input-group">
+                                        <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="">
+                                <td>NIK</td>
+                                <td>:</td>
+                                <td><?= $detail_pendaftar['no_induk']; ?></td>
                                 <td>
                                     <div class="input-group">
                                         <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
@@ -472,7 +482,7 @@
                     <!-- Submit -->
                     <div class="text-end">
                         <button type="button" data-bs-toggle="modal" data-bs-target="#save_nilai_modal" class="btn btn-primary fs16 fw-normal">
-                        Simpan Nilai
+                            Simpan Nilai
                         </button>
                     </div>
                     <!-- end submit -->
