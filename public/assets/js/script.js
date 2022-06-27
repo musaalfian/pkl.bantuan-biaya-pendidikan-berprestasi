@@ -204,6 +204,7 @@ if ($('input[name="pernah_menerima_bantuan"]:checked').val() == "tidak") {
 // kategori
 for (let index = 1; index <= 3; index++) {
   $("#kategori_" + index).change(function () {
+    
     if (
       $(this).val() == "hafidz" ||
       $(this).val() == "KHS" ||
@@ -219,12 +220,12 @@ for (let index = 1; index <= 3; index++) {
   });
 }
 // <!-- script tambah prestasi -->
-$(document).ready(function () {
-  $("#prestasi_2").hide();
-  $("#prestasi_2_modal").hide();
-  $("#prestasi_3").hide();
-  $("#prestasi_3_modal").hide();
-});
+// $(document).ready(function () {
+//   $("#prestasi_2").hide();
+//   $("#prestasi_2_modal").hide();
+//   $("#prestasi_3").hide();
+//   $("#prestasi_3_modal").hide();
+// });
 function tambah_prestasi_2() {
   $("#prestasi_2").show();
   // $("#prestasi_2_modal").show();
@@ -474,6 +475,7 @@ const scan = [
   "proposal",
   "diterima_pt",
   "akreditasi_pt",
+  "formulir_pendaftaran",
 ];
 // scan lampiran
 $(document).ready(function () {

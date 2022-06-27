@@ -1,18 +1,16 @@
 <?= $this->extend('templates/template_info_awal'); ?>
 
 <?= $this->section('content'); ?>
-<?php
-
-if (count($pendaftar) === 0) : ?>
-    <h3>Belum ada pendaftar</h3>
+<?php if (count($pendaftar) === 0) : ?>
+    <h3 class="mt-2 fs16 mb-2">Belum ada pendaftar</h3>
 
 <?php else : ?>
     <!-- isi tabel -->
     <div class="mt-2">
-        <p>Daftar nama yang terdaftar dalam pendaftaran beasiswa tingkat <?= $pendaftar[0]['nama_peserta']; ?></p>
+        <p class="mb-2 fs16">Daftar nama yang terdaftar dalam bantuan biaya pendidikan tingkat <?= $pendaftar[0]['nama_peserta']; ?> :</p>
     </div>
     <!-- isian -->
-    <div class="" style="margin-top: 10px;">
+    <div class="">
         <div class="table-responsive tabel">
             <table id="table" class="w-100 table-bordered ">
                 <thead class="">

@@ -8,19 +8,16 @@
     <title><?= $title; ?></title>
 
     <!-- CSS only -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
     <!-- JavaScript Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
     </script>
     <!-- ICON -->
     <script src="https://kit.fontawesome.com/5fbcc24921.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" />
 
     <!-- JQuery -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
     <!-- CSS Custom -->
     <link rel="stylesheet" href="<?= base_url(); ?>/assets/css/style.css" />
@@ -32,8 +29,7 @@
 
     <!-- Form wizard -->
     <!-- CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/smartwizard@5/dist/css/smart_wizard_all.min.css" rel="stylesheet"
-        type="text/css" />
+    <link href="https://cdn.jsdelivr.net/npm/smartwizard@5/dist/css/smart_wizard_all.min.css" rel="stylesheet" type="text/css" />
 
     <!-- JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/smartwizard@5/dist/js/jquery.smartWizard.min.js" type="text/javascript">
@@ -47,59 +43,49 @@
     <nav class="navbar navbar-expand-lg bgblue py-3" id="navbar">
         <div class="container pendaftar">
             <div class="navbar-brand logo">
-                <a href="<?= base_url(); ?>/home_pendaftar/index"
-                    class="d-flex align-items-center text-decoration-none text-white">
-                    <img src="<?= base_url(); ?>/assets/img/logo-kabupaten-batang 2.png" width="40px"
-                        alt="Logo Kabupaten Batang" />
+                <a href="<?= base_url(); ?>/home_pendaftar/index" class="d-flex align-items-center text-decoration-none text-white">
+                    <img src="<?= base_url(); ?>/assets/img/logo-kabupaten-batang 2.png" width="40px" alt="Logo Kabupaten Batang" />
                     <h3 class="ms-2 fs14">Dinas Pendidikan dan Kebudayaan <br> Kabupaten Batang</h3>
                 </a>
             </div>
-            <button class="navbar-toggler text-white border-0 bg-transparent"  type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="true"
-                aria-label="Toggle navigation">
+            <button class="navbar-toggler text-white border-0 bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon bg-transparent border-0 " style="background-color: transparent !important;"><i class="fa-solid fa-sliders"></i></span>
             </button>
             <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item align-self-end">
-                        <a class="nav-link navbarNav" id="nav__beranda"
-                            href="<?= base_url(); ?>/home_pendaftar/index">Beranda</a>
+                        <a class="nav-link navbarNav" id="nav__beranda" href="<?= base_url(); ?>/home_pendaftar/index">Beranda</a>
                     </li>
                     <li class="nav-item align-self-end">
-                        <a class="nav-link navbarNav mx-0 mx-lg-5" id="nav__informasi"
-                            href="<?= base_url(); ?>/home_pendaftar/informasi">Informasi Pendaftaran</a>
+                        <a class="nav-link navbarNav mx-0 mx-lg-5" id="nav__informasi" href="<?= base_url(); ?>/home_pendaftar/informasi">Informasi Pendaftaran</a>
                     </li>
                     <li class="nav-item align-self-end position-relative">
                         <?php if ($identitas != null && $identitas['pesan'] != null) : ?>
-                        <i class="fas fa-circle icon-notif position-absolute"></i>
+                            <i class="fas fa-circle icon-notif position-absolute"></i>
                         <?php endif; ?>
                         <!-- cek apakah user sudah mendaftar atau belum. jika belum akan ditampilan view pendaftaran atau jika sudah maka akan ditampilkan menu pengumuman -->
                         <?php if ($identitas == null || $identitas['id_status_pendaftaran'] == null) { ?>
-                        <a class="nav-link navbarNav " id="nav__beasiswa"
-                            href="<?= base_url(); ?>/home_pendaftar/pendaftaran">Pendaftaran Beasiswa</a>
+                            <a class="nav-link navbarNav " id="nav__beasiswa" href="<?= base_url(); ?>/home_pendaftar/pendaftaran">Pendaftaran Beasiswa</a>
                         <?php } else { ?>
-                        <a class="nav-link navbarNav " id="nav__beasiswa"
-                            href="<?= base_url(); ?>/home_pendaftar/pengumuman">Pengumuman Beasiswa
-                        </a>
+                            <a class="nav-link navbarNav " id="nav__beasiswa" href="<?= base_url(); ?>/home_pendaftar/pengumuman">Pengumuman Beasiswa
+                            </a>
                         <?php } ?>
                     </li>
                 </ul>
 
                 <div class="nav-item align-self-end me-0">
                     <div class="dropdown d-flex justify-content-end ">
-                        <button class="dropdown-toggle bg-transparent border-0" type="button" id="dropdownMenuButton1"
-                            data-bs-toggle="dropdown" aria-expanded="false">
+                        <button class="dropdown-toggle bg-transparent border-0" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                             <i class="bi bi-person-circle text-white fs24"></i>
                         </button>
                         <ul class="dropdown-menu py-3 px-5 br10" aria-labelledby="dropdownMenuButton1">
-                            <h6 class="fs14 fw-bold"><?= ucwords(user()->username); ?></h6>
+                            <h6 class="fs14 fw-bold"><?= user()->username; ?></h6>
                             <hr class="dropdown-divider" />
                             <p><?= user()->email; ?></p>
                             <hr class="dropdown-divider" />
                             <li class="d-flex justify-content-end">
                                 <!-- Button trigger modal -->
-                                <button type="button" class="btn btn-red mt-3" data-bs-toggle="modal"
-                                    data-bs-target="#logoutModal">
+                                <button type="button" class="btn btn-red mt-3" data-bs-toggle="modal" data-bs-target="#logoutModal">
                                     Keluar
                                 </button>
                             </li>
@@ -194,7 +180,7 @@
                             <i class="fa-brands fa-instagram" id="insta"></i>
                         </div>
                     </a>
-                    <a href="https://disdikbud.batangkab.go.id/index.html" class="ms-3">
+                    <a href="https://disdikbud.batangkab.go.id/index.html" target="_blank" class="ms-3">
                         <div class="d-flex justify-content-center align-items-center icon">
                             <i class="fa-solid fa-globe" id="web"></i>
                         </div>

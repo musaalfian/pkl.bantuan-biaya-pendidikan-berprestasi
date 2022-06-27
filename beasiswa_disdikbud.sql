@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 15, 2022 at 01:57 PM
--- Server version: 10.4.21-MariaDB
--- PHP Version: 8.0.10
+-- Generation Time: Jun 20, 2022 at 06:56 AM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 7.4.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -128,11 +128,7 @@ CREATE TABLE `auth_groups_users` (
 --
 
 INSERT INTO `auth_groups_users` (`group_id`, `user_id`) VALUES
-(1, 1),
-(2, 21),
-(2, 22),
-(2, 23),
-(2, 27);
+(1, 1);
 
 -- --------------------------------------------------------
 
@@ -465,7 +461,27 @@ INSERT INTO `auth_logins` (`id`, `ip_address`, `email`, `user_id`, `date`, `succ
 (309, '::1', 'ferdianrafli25@gmail.com', 22, '2022-06-15 14:22:35', 1),
 (310, '::1', 'beasiswabatang@gmail.com', 1, '2022-06-15 17:36:19', 1),
 (311, '::1', 'ferdianrafli25@gmail.com', 22, '2022-06-15 17:41:55', 1),
-(312, '::1', 'ferdianrafli32@gmail.com', 21, '2022-06-15 17:52:35', 1);
+(312, '::1', 'ferdianrafli32@gmail.com', 21, '2022-06-15 17:52:35', 1),
+(313, '::1', 'ferdianrafli32@gmail.com', 21, '2022-06-17 20:38:01', 1),
+(314, '::1', 'admin1', NULL, '2022-06-19 06:33:28', 0),
+(315, '::1', 'beasiswabatang@gmail.com', 1, '2022-06-19 06:33:45', 1),
+(316, '::1', 'ferdianrafli32@gmail.com', 21, '2022-06-19 06:51:18', 1),
+(317, '::1', 'beasiswabatang@gmail.com', 1, '2022-06-19 06:52:34', 1),
+(318, '::1', 'banksoal', NULL, '2022-06-19 06:54:30', 0),
+(319, '::1', 'soalbank7@gmail.com', 27, '2022-06-19 06:54:44', 1),
+(320, '::1', 'beasiswabatang@gmail.com', 1, '2022-06-19 10:12:33', 1),
+(321, '::1', 'ferdianrafli25@gmail.com', 22, '2022-06-19 10:14:10', 1),
+(322, '::1', 'ferdianrafli125@gmail.com', 23, '2022-06-19 10:42:06', 1),
+(323, '::1', 'ferdianrafli32@gmail.com', 21, '2022-06-19 11:49:10', 1),
+(324, '::1', 'ferdianrafli125@gmail.com', 23, '2022-06-19 12:30:04', 1),
+(325, '::1', 'ferdianrafli32@gmail.com', 21, '2022-06-19 12:41:10', 1),
+(326, '::1', 'ferdianrafli25@gmail.com', 22, '2022-06-19 14:29:29', 1),
+(327, '::1', 'ferdianrafli25@gmail.com', 22, '2022-06-19 19:34:52', 1),
+(328, '::1', 'beasiswabatang@gmail.com', 1, '2022-06-19 19:35:22', 1),
+(329, '::1', 'beasiswabatang@gmail.com', 1, '2022-06-19 22:28:16', 1),
+(330, '::1', 'ferdianrafli32@gmail.com', 21, '2022-06-19 22:48:01', 1),
+(331, '::1', 'ferdianrafli32@gmail.com', 21, '2022-06-20 11:37:29', 1),
+(332, '::1', 'beasiswabatang@gmail.com', 1, '2022-06-20 11:41:22', 1);
 
 -- --------------------------------------------------------
 
@@ -550,15 +566,6 @@ CREATE TABLE `file` (
   `formulir_pendaftaran` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `file`
---
-
-INSERT INTO `file` (`id_file`, `no_induk`, `ktp`, `kk`, `kartu_pelajar`, `rek_bpd`, `raport_smt`, `raport_legalisasi`, `pas_foto`, `sktm`, `diterima_pt`, `proposal`, `akreditasi_pt`, `laporan`, `formulir_pendaftaran`) VALUES
-(59, '3324162512000004', '14.BAB I.pdf', 'quality.en.id.pdf', 'formulir-pendaftaran.pdf', NULL, NULL, NULL, 'logo-mysql-26295.png', 'Installing_MPI.pdf', NULL, 'formulir-pendaftaran_2.pdf', 'PEMBAHASAN SOAL UAS KJI 20192020.pdf', NULL, 'formulir-pendaftaran_3.pdf'),
-(61, '3324162512000002', 'UPL_10_Acceptance Testing.pdf', 'UPL_09_Bug  Debugging.pdf', 'UPL_11_Pengujian_GUI_dan_Lingkungan_Spesifik.pdf', NULL, 'UPL_12_PDHUPL.pdf', 'UPL_13_Tugas Kelompok.pdf', 'logo-batang.png', 'UPL_14_Tugas Kelompok Lanjut.pdf', NULL, NULL, NULL, NULL, 'formulir-pendaftaran_2.pdf'),
-(62, '3324162512000005', '6 Project Cost Management.pdf', 'RPS-AIK21365-Manajemen Proyek PL.pdf', 'Materi 9. Data dan Variabel.pdf', NULL, NULL, NULL, 'Undip.png', 'Print Kartu UAS.pdf', 'UPL_09_Bug  Debugging.pdf', 'UPL_14_Tugas Kelompok Lanjut.pdf', NULL, NULL, 'formulir-pendaftaran_6.pdf');
-
 -- --------------------------------------------------------
 
 --
@@ -589,6 +596,7 @@ CREATE TABLE `identitas` (
   `id_status_pendaftaran` int(11) DEFAULT NULL,
   `id_status_pembayaran` int(11) DEFAULT NULL,
   `id_status_final` int(11) DEFAULT NULL,
+  `status_edit_pendaftaran` int(11) DEFAULT NULL,
   `pesan` text DEFAULT NULL,
   `no_rek` varchar(16) DEFAULT NULL,
   `pernah_menerima_bantuan` varchar(5) NOT NULL,
@@ -597,15 +605,6 @@ CREATE TABLE `identitas` (
   `nominal` int(11) DEFAULT NULL,
   `created_at` date DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `identitas`
---
-
-INSERT INTO `identitas` (`no_induk`, `no_induk_pelajar`, `nama_lengkap`, `jenis_kelamin`, `ttl`, `id_agama`, `anak_ke`, `no_telepon`, `alamat_rumah`, `id_kecamatan`, `jarak_sekolah`, `id_transportasi`, `id_sekolah`, `kelas`, `nama_pt`, `akreditasi_pt`, `tahun_masuk_pt`, `semester_ke`, `alamat_pt`, `id_status_peserta`, `id_status_pendaftaran`, `id_status_pembayaran`, `id_status_final`, `pesan`, `no_rek`, `pernah_menerima_bantuan`, `menerima_bantuan_dari`, `nama_pemilik_rekening`, `nominal`, `created_at`) VALUES
-('3324162512000002', '00012671101', 'Peserta didik', 'L', 'kendal', 1, 2, '0895411812445', 'rumah', 'KC12', 12, 3, '20322737', '11', NULL, NULL, NULL, NULL, NULL, 1, 4, NULL, NULL, NULL, NULL, 'tidak', '', NULL, NULL, '2022-06-15'),
-('3324162512000004', '24060119120042', 'mahasiswa', 'L', 'kendal', 1, NULL, '0895411812445', 'alamat', 'KC13', NULL, NULL, NULL, NULL, 'undip', 'A', 2019, 6, 'semarang', 3, 3, NULL, NULL, '<ul><li>Belajar tanpa henti</li><li>tetap bergerak</li><li>istirahat sesekali saja</li></ul>', NULL, 'ya', 'jarum pentol', NULL, NULL, '2022-06-15'),
-('3324162512000005', '0001267111', 'Calon mahasiswa', 'L', 'kendal, 25 desmber 2000', 1, NULL, '0895411812445', 'batang, jawa tengah', 'KC09', NULL, NULL, NULL, NULL, 'Universitas Diponegoro', 'A', 2021, 2, 'Semarang, Jawa tengah', 2, 4, NULL, NULL, NULL, NULL, 'tidak', '', NULL, NULL, '2022-06-15');
 
 -- --------------------------------------------------------
 
@@ -727,15 +726,6 @@ CREATE TABLE `keluarga` (
   `bsm_kip` varchar(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `keluarga`
---
-
-INSERT INTO `keluarga` (`id_keluarga`, `no_induk`, `nama_ayah`, `usia_ayah`, `pekerjaan_ayah`, `pendidikan_ayah`, `penghasilan_ayah`, `alamat_ayah`, `nama_ibu`, `usia_ibu`, `pekerjaan_ibu`, `pendidikan_ibu`, `penghasilan_ibu`, `alamat_ibu`, `rtsm_rtm`, `pkh_kks_kbs`, `bsm_kip`) VALUES
-(55, '3324162512000005', 'Suharyanto', 55, 'Programmer', 'S3', 50000000, 'Tawang Kendal', 'Nasriah', 50, 'Ibu rumah tangga', 'S1', 30000000, 'Tawang, Rowosari', 'tidak', 'tidak', 'tidak'),
-(56, '3324162512000002', 'Suharyanto', 0, 'Programmer', 'D4', 40000000, 'tawang kendal', 'nasriah', 0, 'ibu rumah tangga', 'D4', 40000000, 'tawang kendal', 'ya', 'ya', 'ya'),
-(57, '3324162512000004', 'suhar', 54, 'swasta', 'D3', 30000000, 'rumah', 'nas', 53, 'pedagang', 'D3', 20000000, 'rumah', 'tidak', 'ya', 'ya');
-
 -- --------------------------------------------------------
 
 --
@@ -776,21 +766,6 @@ CREATE TABLE `prestasi` (
   `no_induk` varchar(25) NOT NULL,
   `file_prestasi` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `prestasi`
---
-
-INSERT INTO `prestasi` (`id_prestasi`, `kategori`, `tingkat`, `juara`, `nilai`, `nama_prestasi`, `tahun_prestasi`, `no_induk`, `file_prestasi`) VALUES
-(126, 'perlombaan', 'nasional', 'juara 3', 80, 'lomba', 2020, '3324162512000004', 'formulir-pendaftaran_2.pdf'),
-(127, 'hafidz', NULL, NULL, 200, 'hafidz', 2021, '3324162512000004', 'formulir-pendaftaran.pdf'),
-(128, 'KHS', NULL, NULL, 0, 'khs', 2021, '3324162512000004', '280884-penerapan-sistem-informasi-dalam-sosio-t-cd56f3cf.pdf'),
-(130, 'perlombaan', 'internasional', 'juara 1', 200, 'UPL', 2022, '3324162512000002', 'UMPL_05_Masalah_Strategis_dan_Pengujian_Unit.pdf'),
-(131, 'hafidz', NULL, NULL, 200, 'hafidz quran', 2022, '3324162512000002', 'UMPL_06_Test_Case_Development.pdf'),
-(132, 'lainnya', NULL, NULL, 0, 'lainyya', 2022, '3324162512000002', 'UMPL_07_Software_Testing_App.pdf'),
-(133, 'perlombaan', 'nasional', 'juara 1', 100, 'Voli pantai', 2022, '3324162512000005', '2 Introduction to Project Management.pdf'),
-(134, 'ujian sekolah', NULL, NULL, 0, 'ujian sekolah nasional', 2022, '3324162512000005', '1 Kontrak Kuliah.pdf'),
-(135, 'hafidz', NULL, NULL, 200, 'hafidz quran', 2022, '3324162512000005', 'RPS-AIK21365-Manajemen Proyek PL.pdf');
 
 -- --------------------------------------------------------
 
@@ -964,7 +939,7 @@ CREATE TABLE `tanggal_penting` (
 
 INSERT INTO `tanggal_penting` (`id_tanggal_penting`, `nama_tanggal_penting`, `tanggal_penting`) VALUES
 (1, 'Tanggal Pembukaan Pendaftaran', '2022-05-31'),
-(2, 'Tanggal Pengumuman', '2022-06-12');
+(2, 'Tanggal Pengumuman', '2022-06-19');
 
 -- --------------------------------------------------------
 
@@ -1018,11 +993,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `email`, `username`, `no_induk`, `password_hash`, `reset_hash`, `reset_at`, `reset_expires`, `activate_hash`, `status`, `status_message`, `active`, `force_pass_reset`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'beasiswabatang@gmail.com', 'admin1', NULL, '$2y$10$Euhkx3BPxfSrXG8O2apu1.JFFEDo6WOo6eElsbd5jiQgS1r0RUoam', NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2022-03-01 10:22:10', '2022-03-01 10:22:46', NULL),
-(21, 'ferdianrafli32@gmail.com', 'pendaftar1', '3324162512000002', '$2y$10$sEcmiPOJygQStxy/ggvZNudYOLYd9HTHYbVCZpIExl2afqWark71O', NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2022-06-02 08:42:45', '2022-06-02 08:44:13', NULL),
-(22, 'ferdianrafli25@gmail.com', 'pendaftar2', '3324162512000005', '$2y$10$H50lhI23rIGg91RSrcMXOe00rh7ndsDJ2pmuM6/9.YMt3K0s.n/DK', NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2022-06-13 11:42:41', '2022-06-13 11:42:41', NULL),
-(23, 'ferdianrafli125@gmail.com', 'pendaftar3', '3324162512000004', '$2y$10$yF7rNHvd1W7p4Af./Ye5SuWt7xHqHHzXIyocxXox5cBSPEaPv2wAa', NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2022-06-13 13:30:50', '2022-06-13 13:30:50', NULL),
-(27, 'soalbank7@gmail.com', 'banksoal', NULL, '$2y$10$XazcR1GysyF06MzHdWQJmOqoMNq3J7P0Yu7sbxAV9Pqj1q0vwrf7S', '769ddd27072dbbc12885f434d7dc5891', '2022-06-13 22:59:38', '2022-06-14 01:14:55', NULL, NULL, NULL, 1, 0, '2022-06-13 22:50:10', '2022-06-14 00:14:55', NULL);
+(1, 'disdikbud@batangkab.go.id', 'admin1', NULL, '$2y$10$Euhkx3BPxfSrXG8O2apu1.JFFEDo6WOo6eElsbd5jiQgS1r0RUoam', NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2022-03-01 10:22:10', '2022-03-01 10:22:46', NULL);
 
 --
 -- Indexes for dumped tables
@@ -1231,7 +1202,7 @@ ALTER TABLE `auth_groups`
 -- AUTO_INCREMENT for table `auth_logins`
 --
 ALTER TABLE `auth_logins`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=313;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=333;
 
 --
 -- AUTO_INCREMENT for table `auth_permissions`
@@ -1273,7 +1244,7 @@ ALTER TABLE `informasi_terbaru`
 -- AUTO_INCREMENT for table `keluarga`
 --
 ALTER TABLE `keluarga`
-  MODIFY `id_keluarga` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
+  MODIFY `id_keluarga` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -1285,7 +1256,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `prestasi`
 --
 ALTER TABLE `prestasi`
-  MODIFY `id_prestasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=136;
+  MODIFY `id_prestasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=138;
 
 --
 -- AUTO_INCREMENT for table `status_final`
@@ -1377,7 +1348,7 @@ ALTER TABLE `identitas`
   ADD CONSTRAINT `identitas_ibfk_6` FOREIGN KEY (`id_status_pendaftaran`) REFERENCES `status_pendaftaran` (`id_status_pendaftaran`),
   ADD CONSTRAINT `identitas_ibfk_7` FOREIGN KEY (`id_status_pembayaran`) REFERENCES `status_pembayaran` (`id_status_pembayaran`),
   ADD CONSTRAINT `identitas_ibfk_8` FOREIGN KEY (`id_status_final`) REFERENCES `status_final` (`id_status_final`),
-  ADD CONSTRAINT `identitas_ibfk_9` FOREIGN KEY (`id_kecamatan`) REFERENCES `kecamatan` (`Id_kecamatan`);
+  ADD CONSTRAINT `identitas_ibfk_9` FOREIGN KEY (`id_kecamatan`) REFERENCES `kecamatan` (`id_kecamatan`);
 
 --
 -- Constraints for table `keluarga`

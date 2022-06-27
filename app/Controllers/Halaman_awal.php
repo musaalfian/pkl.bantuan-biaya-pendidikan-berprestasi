@@ -48,12 +48,16 @@ class Halaman_awal extends BaseController
     }
     public function info_awal_pendaftar($id_peserta)
     {
-        $pendaftar = $this->MIdentitas->data_seluruh_pendaftar($id_peserta)->getResultArray();
+        if ($id_peserta > 0 && $id_peserta <=3) {
+            # code...
+            $pendaftar = $this->MIdentitas->data_seluruh_pendaftar($id_peserta)->getResultArray();
+            $data = [
+                'pendaftar' => $pendaftar
+            ];
+            return view('/pendaftar/info_awal/infoPendaftar', $data);
+        }
+        return view('/errors/html/error_404');
         // dd($pendaftar);
-        $data = [
-            'pendaftar' => $pendaftar
-        ];
-        return view('/pendaftar/info_awal/infoPendaftar', $data);
     }
     public function info_awal_penerima($id_peserta)
     {

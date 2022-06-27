@@ -35,9 +35,13 @@ class Admin_informasi extends BaseController
         }
         // mengambil seluruh data informasi terbaru
         $data_informasi = $this->MInformasiTerbaru->orderBy('id_informasi_terbaru', 'DESC')->whereNotIn('id_informasi_terbaru', [1, 2, 3, 4])->findAll();
-        foreach ($data_informasi as $data_informasi) {
-            $data_informasi['deskripsi_singkat'] = limit_text($data_informasi['deskripsi_informasi_terbaru'], 10);
-            $daftar_informasi[] = $data_informasi;
+        if($data_informasi != null){
+            foreach ($data_informasi as $data_informasi) {
+                $data_informasi['deskripsi_singkat'] = limit_text($data_informasi['deskripsi_informasi_terbaru'], 10);
+                $daftar_informasi[] = $data_informasi;
+            }
+        } else {
+            $daftar_informasi = [];
         }
         $data_informasi_pendaftaran = $this->MInformasiTerbaru->orderBy('id_informasi_terbaru', 'DESC')->whereIn('id_informasi_terbaru', [1, 2, 3, 4])->findAll();
         foreach ($data_informasi_pendaftaran as $data_informasi_pendaftaran) {

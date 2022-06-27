@@ -2,7 +2,7 @@
 
 <?= $this->section('content'); ?>
 <!-- Main section -->
-<div class="bg-white py40 informasi__pendaftaran">
+<div class="bglight2 py40 informasi__pendaftaran">
     <div class="container">
         <h3 class="blue fs20">Informasi Pendaftaran Bantuan Biaya Pendidikan</h3>
         <div class="persyaratan__section mt-3">
@@ -65,7 +65,7 @@
                     </div>
                     <div class="d-flex">
                         <p class="no ">6.</p>
-                        <p class="ms-2 ">Setelah data lengkap, klik tombol Daftar</p>
+                        <p class="ms-2 ">Setelah data lengkap, klik tombol Ajukan</p>
                     </div>
                 </div>
             </div>
@@ -95,7 +95,7 @@
                     </div>
                     <div class="d-flex">
                         <p class="no ">5.</p>
-                        <p class="ms-2 ">Penerimaan bantuan sesuai jadwal yg ditetapkan di web</p>
+                        <p class="ms-2 ">Penerimaan bantuan sesuai jadwal yang ditetapkan di web</p>
                     </div>
                     <div class="d-flex">
                         <p class="no ">6.</p>
@@ -126,11 +126,6 @@
                             <p class="ms-2">Untuk peserta yang belum lolos penerimaan bantuan biaya pendidikan berprestasi
                                 dapat mencoba di tahun berikutnya.</p>
                         </div>
-                    </div>
-                    <div class="d-flex">
-                        <p class="no ">2.</p>
-                        <p class="ms-2 ">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempore doloribus
-                            cumque excepturi suscipit minima neque at maxime, vel culpa enim.</p>
                     </div>
                 </div>
             </div>

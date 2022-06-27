@@ -8,33 +8,45 @@
     <title>Informasi Pendaftaran Beasiswa</title>
     <!-- JQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
     <!-- favicon -->
     <link rel="shortcut icon" href="" type="image/x-icon" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
-    <link rel="stylesheet" href="<?= base_url(); ?>/assets/css/styleInfoAwal.css">
+    <link rel="stylesheet" href="<?= base_url(); ?>/assets/css/info-awal-style.css">
+
+    <!-- Fontawesome -->
+    <script src="https://kit.fontawesome.com/5fbcc24921.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
+
 </head>
 
 <body>
-    <div class="container mt-3">
-        <!-- head -->
-        <div class="head-koleksi position-relative pb-2" style="border-bottom: 3px solid black;">
-            <div class="text-left position-absolute">
-                <img src="<?= base_url(); ?>/assets/img/logo-batang-hp.png" style="width: 60px;" alt="">
+    <div class="py40">
+        <div class="container">
+            <div class="nav__back mb-3">
+                <a href="/" class="fw-bold blue fs20"><i class="fa-solid fa-arrow-left-long"></i></a>
             </div>
-            <span class="text-center flex-column">
-                <h4>PEMERINTAH KABUPATEN BATANG <br>DINAS PENDIDIKAN DAN KEBUDAYAAN</h4>
-            </span>
-            <div class="alamat text-center">
-                <p><small>Jalan Slamet Riyadi No.29 Telp.(0285) 391321 Fax.(0285) 391321 Batang 51214 <br>Laman:
-                        www.disdikbud.batangkab.go.id | Email: disdikbud@batangkab.go.id
-                    </small></p>
+            <div class="text-center logo2 mb-2">
+                <img src="<?= base_url(); ?>/assets/img/logo-batang-hp.png" alt="Logo Dinas Pendidikan dan Kebudayaan Kabupaten Batang" height="40px">
             </div>
+            <div class="header d-flex pb-3">
+                <div class="logo">
+                    <img src="<?= base_url(); ?>/assets/img/logo-batang-hp.png" alt="Logo Dinas Pendidikan dan Kebudayaan Kabupaten Batang">
+                </div>
+                <div class="mx-auto text-center">
+                    <h4 class="fw-bold fs18 mx-auto">PEMERINTAH KABUPATEN BATANG <br>DINAS PENDIDIKAN DAN KEBUDAYAAN</h4>
+                    <p class="mt-2 fs14 mb-0 lh1">Jalan Slamet Riyadi No.29 Telp.(0285) 391321 Fax.(0285) 391321 Batang 51214
+                    </p>
+                    <p class="fs14 lh1 mb-0">Laman: www.disdikbud.batangkab.go.id | Email: disdikbud@batangkab.go.id
+                    </p>
+                </div>
+            </div>
+            <?= $this->renderSection('content'); ?>
         </div>
-        <!-- end head -->
-
-        <?= $this->renderSection('content'); ?>
-
     </div>
+
+
 </body>
 
 </html>

@@ -235,11 +235,18 @@ class admin_detail_pendaftaran extends BaseController
         else {
             $pesan = $this->request->getVar('pesan');
         }
+
+        // ubah status edit pendaftaran
+        $status_edit_pendaftaran = null;
+
+
         $update_identitas = [
             'id_status_pendaftaran' => $status_pendaftaran,
             'id_status_final' => $status_final,
             'pesan' => $pesan,
-            'id_status_pembayaran' => $id_status_pembayaran
+            'id_status_pembayaran' => $id_status_pembayaran,
+            'status_edit_pendaftaran' => $status_edit_pendaftaran,
+
         ];
         // dd($update_identitas);
         $this->MIdentitas->update($no_induk, $update_identitas);

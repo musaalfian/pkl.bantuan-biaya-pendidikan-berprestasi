@@ -48,6 +48,7 @@ class Pendaftaran extends BaseController
         $this->db = \Config\Database::connect();
         // $UsersModel = new \Myth\Auth\Models\UserModel();
     }
+    // menampilkan form tambah data pendaftaran
     public function tambah_pendaftar($id_peserta)
     {
         // form identitas
@@ -116,6 +117,7 @@ class Pendaftaran extends BaseController
         ];
         return view('/pendaftar/pendaftaran/form_pendaftaran', $data);
     }
+    // menampilkan form review data pendaftaran
     public function review_pendaftaran($no_induk)
     {
         session();
@@ -161,6 +163,7 @@ class Pendaftaran extends BaseController
         ];
         return view('/pendaftar/pendaftaran/review_pendaftaran', $data);
     }
+    // menyimpan data pendaftaran
     public function simpanPendaftaran($no_induk)
     {
         $data = [
@@ -169,12 +172,15 @@ class Pendaftaran extends BaseController
         $this->MIdentitas->update($no_induk, $data);
         return redirect()->to('home_pendaftar/pengumuman');
     }
-    public function edit_pendaftaran($no_induk, $id_peserta)
+    // menampilkan form edit pendaftaran
+    public function edit_pendaftaran( )
     {
         session();
         $validation = \Config\Services::validation();
         // Form identitas
         $identitas = $this->MIdentitas->find_identitas_user(user_id())->getFirstRow('array');
+        $no_induk = user()->no_induk;
+        $id_peserta = $identitas['id_status_peserta'];
         $agama = $this->MAgama->findAll();
         $kecamatan = $this->MKecamatan->orderBy('nama_kecamatan', 'ASC')->findAll();
         // Form keluarga
@@ -229,9 +235,49 @@ class Pendaftaran extends BaseController
             'juara'     => $juara,
             'akreditasi_pt'     => $akreditasi,
             'semester_ke'     => $semester_ke,
-            
+
             'opsional'  => $opsional
         ];
         return view('/pendaftar/pendaftaran/edit_form_pendaftaran', $data);
+    }
+    // simpan edit formulir pendaftaran
+    public function simpanEditPendaftaran()
+    {
+        $no_induk = user()->no_induk;
+        $id_peserta = $this->MIdentitas->where('no_induk', $no_induk)->findColumn('id_status_peserta');
+        $formulir_pendaftaran = $this->request->getFile('scan_formulir_pendaftaran');
+        $formulir_pendaftaran_lama = $this->request->getVar('scan_formulir_pendaftaran_lama');
+        if (!$this->validate(
+            [
+                'scan_formulir_pendaftaran' => 'uploaded[scan_formulir_pendaftaran]|mime_in[scan_formulir_pendaftaran,application/pdf]',
+            ],
+            [   // Errors
+                'scan_formulir_pendaftaran' => [
+                    'mime_in' => 'Scan prestasi harus berupa file PDF',
+                ],
+            ]
+        )) {
+            return redirect()->to('pendaftaran/tambah_pendaftar/' . $id_peserta[0])->withInput();
+        }
+        if ($formulir_pendaftaran->getError() != 4) {
+            // mengambil nama file scan dan dimasukkan ke array
+            $nama_formulir_pendaftaran = $formulir_pendaftaran->getName();
+            // memindahkan file scan ke folder scan
+            $formulir_pendaftaran->move('assets/scan/' . $no_induk . '/file');
+            unlink('assets/scan/' . $no_induk . '/file/' . $formulir_pendaftaran_lama);
+        } else {
+            $nama_formulir_pendaftaran = null;
+        }
+        $file = $this->MFile->find_file_noinduk($no_induk)->getFirstRow('array');
+        $this->MFile->update($file['id_file'], [
+            'formulir_pendaftaran' => $nama_formulir_pendaftaran
+        ]);
+        // update status pendaftaran
+        $data = [
+            'id_status_pendaftaran'    => 4,
+            'status_edit_pendaftaran'    => 2
+        ];
+        $this->MIdentitas->update($no_induk, $data);
+        return redirect()->to('home_pendaftar/pengumuman');
     }
 }
