@@ -106,6 +106,7 @@
 <!-- Wizard -->
 <script type="text/javascript">
 // alert invalid form fields
+<?php if ($keluarga != null) : ?>
 <?php if ($identitas['id_status_peserta'] == 1) : ?>
 const scan_lampiran = [
     "kk",
@@ -115,8 +116,6 @@ const scan_lampiran = [
     "raport",
     "sktm",
     "file_prestasi_1",
-    "file_prestasi_2",
-    "file_prestasi_3",
 ];
 const invalid_scan_lampiran = [
     "kk-invalid",
@@ -126,8 +125,6 @@ const invalid_scan_lampiran = [
     "raport-invalid",
     "sktm-invalid",
     "file-prestasi-invalid-1",
-    "file-prestasi-invalid-2",
-    "file-prestasi-invalid-3",
 ];
 <?php elseif ($identitas['id_status_peserta'] == 2) : ?>
 const scan_lampiran = [
@@ -139,8 +136,6 @@ const scan_lampiran = [
     "proposal",
     "sktm",
     "file_prestasi_1",
-    "file_prestasi_2",
-    "file_prestasi_3",
 ];
 const invalid_scan_lampiran = [
     "kk-invalid",
@@ -151,8 +146,6 @@ const invalid_scan_lampiran = [
     "proposal-invalid",
     "sktm-invalid",
     "file-prestasi-invalid-1",
-    "file-prestasi-invalid-2",
-    "file-prestasi-invalid-3",
 ];
 <?php else : ?>
 const scan_lampiran = [
@@ -164,8 +157,6 @@ const scan_lampiran = [
     "proposal",
     "sktm",
     "file_prestasi_1",
-    "file_prestasi_2",
-    "file_prestasi_3",
 ];
 const invalid_scan_lampiran = [
     "kk-invalid",
@@ -176,9 +167,8 @@ const invalid_scan_lampiran = [
     "proposal-invalid",
     "sktm-invalid",
     "file-prestasi-invalid-1",
-    "file-prestasi-invalid-2",
-    "file-prestasi-invalid-3",
 ];
+<?php endif ?>
 <?php endif ?>
 <?php if ($keluarga != null && $file == null) : ?>
     scan_lampiran.forEach((scan_change, index) => {
@@ -226,8 +216,12 @@ $('form').on('submit', function(e) {
         var numItems = $('.invalid-feedback').filter(function() {
             return $(this).css('display') != 'none';
         }).length;
+        console.log(numItems);
         if (numItems >= 1) {
             $('.pesan-gagal').show();
+        } else {
+            $("#btn_submit").empty();
+            $('<div class="lds-ring"><div></div><div></div><div></div><div></div></div>').appendTo("#btn_submit");
         }
     });
 });
