@@ -978,7 +978,7 @@
                                             data-bs-dismiss="modal">
                                             Batal
                                         </button>
-                                        <button type="submit" id="btn_submit" class="btn btn-success fw-normal">Ajukan</button>
+                                        <button type="submit" id="btn_submit_review" class="btn btn-success fw-normal">Ajukan</button>
                                     </div>
                                 </div>
                             </div>

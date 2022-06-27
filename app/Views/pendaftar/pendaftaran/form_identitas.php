@@ -574,7 +574,7 @@
                             <button type="button" class="btn btn-secondary fw-normal" data-bs-dismiss="modal">
                                 Batal
                             </button>
-                            <button type="submit" id="btn_submit" class="btn btn-success fw-normal">Simpan</button>
+                            <button type="submit" id="btn_submit_identitas" class="btn btn-success fw-normal">Simpan</button>
                         </div>
                     </div>
                 </div>
