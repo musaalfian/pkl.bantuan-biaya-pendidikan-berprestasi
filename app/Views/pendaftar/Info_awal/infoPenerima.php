@@ -2,7 +2,7 @@
 
 <?= $this->section('content'); ?>
 <?php if (count($penerima) === 0) : ?>
-    <h3 class="mt-2 fs16 mb-2">Belum ada pendaftar</h3>
+    <h3 class="mt-4 fs16 mb-2">Proses penerimaan bantuan biaya penidikan masih dalam tahap seleksi</h3>
 <?php else : ?>
     <!-- isi tabel -->
     <div class="mt-2">
