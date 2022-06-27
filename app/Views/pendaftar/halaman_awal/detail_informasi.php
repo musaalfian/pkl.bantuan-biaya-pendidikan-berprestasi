@@ -38,7 +38,7 @@
                 <div class="col-md-8 col-12 mb-4 mb-md-0">
                     <div class="gambar">
                     <div class="<?= ($informasi['gambar_informasi_terbaru'] != null) ? 'bg' : ''; ?>">
-                            <img src="" alt="Gambar Informasi">
+                            <img src="<?php base_url(); ?>/assets/informasi/img/<?= $informasi['gambar_informasi_terbaru']; ?>" alt="Gambar Informasi">
                         </div>
                         <h6 class="fs14 abu mt-3">
                             <?= $informasi['tanggal_indo_informasi']; ?> WIB
