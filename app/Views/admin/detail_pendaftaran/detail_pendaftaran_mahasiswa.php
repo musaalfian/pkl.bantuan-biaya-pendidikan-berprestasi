@@ -182,7 +182,7 @@
                             <tr>
                                 <td>Akrediktasi Perguruan Tinggi</td>
                                 <td>:</td>
-                                <td><?= $detail_pendaftar['nilai_akreditasi_pt']; ?> Km</td>
+                                <td><?= $detail_pendaftar['nilai_akreditasi_pt']; ?></td>
                                 <td>
                                     <div class="input-group">
                                         <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">

@@ -1318,6 +1318,9 @@
                                 </div>
                                 <div class="modal-body">
                                     Pastikan data yang anda masukkan sudah benar.
+                                    <div class="alert alert-danger mt-2 pesan-gagal" role="alert" style="display:none">
+                                        Terdapat kesalahan masukkan atau data yang anda masukkan tidak sesuai.
+                                    </div>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary fw-normal" data-bs-dismiss="modal">
@@ -1415,6 +1418,7 @@ $('form').on('submit', function(e) {
     //validasi file
 
     // form kirim ulang pendaftaran
+    <?php if ($identitas['status_edit_pendaftaran'] == 1) : ?>
     var input = document.getElementById('formulir_pendaftaran');
     if (!input.files[0]) {
         var invalid = $('#formulir-pendaftaran-invalid').css('display', 'block');
@@ -1422,6 +1426,12 @@ $('form').on('submit', function(e) {
     } else {
         $('.pesan-gagal').hide();
     }
+    // form kirim ulang diupload
+    $("#formulir_pendaftaran").change(function(e) {
+        $('#formulir-pendaftaran-invalid').css('display', 'none');
+        $('.pesan-gagal').hide();
+    });
+    <?php endif ?>
 
 
     $(document).ready(function() {
@@ -1433,7 +1443,7 @@ $('form').on('submit', function(e) {
             $('.pesan-gagal').show();
         } else {
             <?php if ($identitas['status_edit_pendaftaran'] == null) : ?>
-            $("#btn_submit_edit_form").empty();
+            $("#btn_submit_edit_pendaftaran").empty();
             $('<div class="lds-ring"><div></div><div></div><div></div><div></div></div>').appendTo(
                 "#btn_submit_edit_pendaftaran");
             <?php elseif ($identitas['status_edit_pendaftaran'] == 1) : ?>

@@ -211,7 +211,13 @@ $('form').on('submit', function(e) {
     }
     <?php endif ?>
 
-
+    // menampilkan loader
+    // review pendaftaran
+    <?php if ($file != null && $file['formulir_pendaftaran'] != null && $keluarga != null && $identitas != null) : ?>
+            $("#btn_submit_review").empty();
+            $('<div class="lds-ring"><div></div><div></div><div></div><div></div></div>').appendTo(
+                "#btn_submit_review");
+            <?php endif ?>
     $(document).ready(function() {
         var numItems = $('.invalid-feedback').filter(function() {
             return $(this).css('display') != 'none';
@@ -220,26 +226,27 @@ $('form').on('submit', function(e) {
         if (numItems >= 1) {
             $('.pesan-gagal').show();
         } else {
+            // menampilkan loader
             <?php if ($identitas == null) : ?>
+                // form identitas
             $("#btn_submit_identitas").empty();
             $('<div class="lds-ring"><div></div><div></div><div></div><div></div></div>').appendTo(
                 "#btn_submit_identitas");
             <?php elseif ($keluarga == null && $identitas != null) : ?>
+                // form keluarga
             $("#btn_submit_keluarga").empty();
             $('<div class="lds-ring"><div></div><div></div><div></div><div></div></div>').appendTo(
                 "#btn_submit_keluarga");
             <?php elseif ($file == null && $keluarga != null && $identitas != null) : ?>
+                // form lampiran
             $("#btn_submit_lampiran").empty();
             $('<div class="lds-ring"><div></div><div></div><div></div><div></div></div>').appendTo(
                 "#btn_submit_lampiran");
             <?php elseif ($file != null && $file['formulir_pendaftaran'] == null && $keluarga != null && $identitas != null) : ?>
-            $("#btn_submit_formulir").empty();
+            // form kirim ulang formulir
+                $("#btn_submit_formulir").empty();
             $('<div class="lds-ring"><div></div><div></div><div></div><div></div></div>').appendTo(
                 "#btn_submit_formulir");
-            <?php elseif ($file != null && $file['formulir_pendaftaran'] != null && $keluarga != null && $identitas != null) : ?>
-            $("#btn_submit_review").empty();
-            $('<div class="lds-ring"><div></div><div></div><div></div><div></div></div>').appendTo(
-                "#btn_submit_review");
             <?php endif ?>
 
         }

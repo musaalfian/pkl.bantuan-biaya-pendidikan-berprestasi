@@ -21,7 +21,7 @@
                     <?php $i = 1; ?>
                     <?php foreach ($calon_mhs as $calon_mhs) : ?>
                         <tr>
-                            <th>1</th>
+                            <th><?= $i; ?></th>
                             <td><?= $calon_mhs['nama_lengkap']; ?></td>
                             <td><?= $calon_mhs['nama_pt'];; ?></td>
                             <td><?= $calon_mhs['alamat_rumah']; ?></td>
