@@ -2,29 +2,26 @@
 
 <?= $this->section('content'); ?>
 <!-- Main section-->
-<div class=" bg-abu p40">
+<div class="bgwhite py40">
     <div class=" admin-content mx-auto">
-        <h3 class="mb20 biru">Edit <span class="orange">Informasi Terbaru</span> </h3>
-        <form
-            action="<?= base_url(); ?>/admin_informasi/simpan_edit_informasi_terbaru/<?= $data_informasi_terbaru['id_informasi_terbaru']; ?>"
-            method="post" enctype="multipart/form-data" class="form-informasi-content needs-validation" novalidate>
+        <div class="navigasi d-flex flex-wrap align-items-center mb-3">
+            <a href="<?= base_url(); ?>/admin_informasi/daftar_informasi" class="fw-bold blue fs14 me-3"><i class="fa-solid fa-arrow-left-long"></i></a>
+            <a href="<?= base_url(); ?>/admin_informasi/daftar_informasi" class="blue fs14">Informasi Tebaru <span class="mx-2 blue fs14">/</span></a>
+            <a href="" class="abu fs14">Edit Informasi Terbaru</a>
+        </div>
+        <h3 class="mb20 biru">Edit Informasi Terbaru</h3>
+        <form action="<?= base_url(); ?>/admin_informasi/simpan_edit_informasi_terbaru/<?= $data_informasi_terbaru['id_informasi_terbaru']; ?>" method="post" enctype="multipart/form-data" class="form-informasi-content needs-validation" novalidate>
             <div class="mb20">
-                <label for="judul_informasi_terbaru" class="form-label">Judul <span
-                        class="required-label">*</span></label>
-                <input id="judul_informasi_terbaru" type="text" required
-                    class="form-control <?= ($validation->hasError('judul_informasi_terbaru')) ? 'is-invalid' : ''; ?>"
-                    name="judul_informasi_terbaru" value="<?= $data_informasi_terbaru['judul_informasi_terbaru']; ?>">
+                <label for="judul_informasi_terbaru" class="form-label">Judul <span class="required-label">*</span></label>
+                <input id="judul_informasi_terbaru" type="text" required class="form-control <?= ($validation->hasError('judul_informasi_terbaru')) ? 'is-invalid' : ''; ?>" name="judul_informasi_terbaru" value="<?= $data_informasi_terbaru['judul_informasi_terbaru']; ?>">
                 <div class="invalid-feedback">
                     <?= ($validation->getError('judul_informasi_terbaru') == '') ? 'Bagian judul informasi terbaru wajib diisi' : str_replace('_', ' ', $validation->getError('judul_informasi_terbaru')) ?>
                 </div>
             </div>
             <!-- end judul _informasi_terbaru -->
             <div class="mb20">
-                <label for="deskripsi_informasi_terbaru" class="form-label">Deskripsi <span
-                        class="required-label">*</span></label>
-                <textarea id="deskripsi_informasi_terbaru" cols="30" rows="10" required
-                    class="form-control <?= ($validation->hasError('deskripsi_informasi_terbaru')) ? 'is-invalid' : ''; ?>"
-                    name="deskripsi_informasi_terbaru"><?= $data_informasi_terbaru['deskripsi_informasi_terbaru']; ?></textarea>
+                <label for="deskripsi_informasi_terbaru" class="form-label">Deskripsi <span class="required-label">*</span></label>
+                <textarea id="deskripsi_informasi_terbaru" cols="30" rows="10" required class="form-control <?= ($validation->hasError('deskripsi_informasi_terbaru')) ? 'is-invalid' : ''; ?>" name="deskripsi_informasi_terbaru"><?= $data_informasi_terbaru['deskripsi_informasi_terbaru']; ?></textarea>
                 <div class="invalid-feedback">
                     <?= ($validation->getError('deskripsi_informasi_terbaru') == '') ? 'Bagian deskripsi informasi terbaru wajib diisi' : str_replace('_', ' ', $validation->getError('deskripsi_informasi_terbaru')) ?>
                 </div>
@@ -32,9 +29,7 @@
             <!-- end deskripsi _informasi_terbaru -->
             <div class="mb20">
                 <label for="label_file_informasi_terbaru" class="form-label">File</label>
-                <input id="file_informasi_terbaru" type="file" hidden
-                    class="form-control <?= ($validation->hasError('file_informasi_terbaru')) ? 'is-invalid' : ''; ?>"
-                    name="file_informasi_terbaru" accept="application/pdf">
+                <input id="file_informasi_terbaru" type="file" hidden class="form-control <?= ($validation->hasError('file_informasi_terbaru')) ? 'is-invalid' : ''; ?>" name="file_informasi_terbaru" accept="application/pdf">
                 <label class=" bg-white" style="cursor: pointer;" for="file_informasi_terbaru">
                     <a class="btn btn-secondary">Pilih File</a>
                     <?= $data_informasi_terbaru['file_informasi_terbaru']; ?>
@@ -46,11 +41,7 @@
             <!-- end file _informasi_terbaru -->
             <div class="mb20">
                 <label for="label_gambar_informasi_terbaru" class="form-label">Gambar</label>
-                <input id="gambar_informasi_terbaru" type="file"
-                    class="form-control dropify <?= ($validation->hasError('gambar_informasi_terbaru')) ? 'is-invalid' : ''; ?>"
-                    name="gambar_informasi_terbaru" accept="image/*" data-max-file-size="5M"
-                    data-default-file="<?= base_url('assets/informasi/img/' . $data_informasi_terbaru['gambar_informasi_terbaru']); ?>"
-                    data-allowed-file-extensions="jpg jpeg png">
+                <input id="gambar_informasi_terbaru" type="file" class="form-control dropify <?= ($validation->hasError('gambar_informasi_terbaru')) ? 'is-invalid' : ''; ?>" name="gambar_informasi_terbaru" accept="image/*" data-max-file-size="5M" data-default-file="<?= base_url('assets/informasi/img/' . $data_informasi_terbaru['gambar_informasi_terbaru']); ?>" data-allowed-file-extensions="jpg jpeg png">
                 </label>
                 <!-- <div class="invalid-feedback"> -->
                 <div class="invalid-feedback">
@@ -61,8 +52,7 @@
             <!-- Submit -->
             <div class="row pb40">
                 <div class="col-12 text-end">
-                    <button type="button" data-bs-toggle="modal" data-bs-target="#save_modal"
-                        class="btn btn-success me-3 fs18 px-4 py-2">
+                    <button type="button" data-bs-toggle="modal" data-bs-target="#save_modal" class="btn btn-success me-3 fs18 px-4 py-2">
                         Simpan
                     </button>
                 </div>
@@ -94,18 +84,18 @@
     </div>
 </div>
 <script>
-$('.dropify').dropify({
-    error: {
-        fileSize: "Ukuran gambar terlalu besar ({{ value }} maksimal).",
-        fileExtension: "format file tidak diperbolehkan, hanya ({{ value }} yang diperbolehkan).",
-    },
-    messages: {
-        default: "Tarik dan letakkan file disini atau pilih",
-        replace: "Tarik dan letakkan atau pilih gambar baru",
-        remove: "Hapus",
-        error: "Ooops, Terdapat kesalahan.",
-    },
-});
+    $('.dropify').dropify({
+        error: {
+            fileSize: "Ukuran gambar terlalu besar ({{ value }} maksimal).",
+            fileExtension: "format file tidak diperbolehkan, hanya ({{ value }} yang diperbolehkan).",
+        },
+        messages: {
+            default: "Tarik dan letakkan file disini atau pilih",
+            replace: "Tarik dan letakkan atau pilih gambar baru",
+            remove: "Hapus",
+            error: "Ooops, Terdapat kesalahan.",
+        },
+    });
 </script>
 <!-- end main section -->
 <?= $this->endSection(); ?>

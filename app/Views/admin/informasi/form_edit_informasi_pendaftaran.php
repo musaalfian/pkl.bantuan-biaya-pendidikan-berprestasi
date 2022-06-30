@@ -2,13 +2,18 @@
 
 <?= $this->section('content'); ?>
 <!-- Main section-->
-<div class=" bg-abu p40">
-    <div class=" admin-content mx-auto">
-        <h3 class="mb20 biru">Edit <span class="orange">Informasi Pendaftaran</span></h3>
+<div class="bgwhite py40">
+    <div class="admin-content mx-auto">
+        <div class="navigasi d-flex flex-wrap align-items-center mb-3">
+            <a href="<?= base_url(); ?>/admin_informasi/informasi_pendaftaran" class="fw-bold blue fs14 me-3"><i class="fa-solid fa-arrow-left-long"></i></a>
+            <a href="<?= base_url(); ?>/admin_informasi/informasi_pendaftaran" class="blue fs14">Informasi Pendaftaran <span class="mx-2 blue fs14">/</span></a>
+            <a href="" class="abu fs14">Edit Informasi Pendaftaran</a>
+        </div>
+        <h3 class="mb-2 biru">Edit Informasi Pendaftaran</h3>
         <form action="<?= base_url(); ?>/admin_informasi/simpan_edit_informasi_pendaftaran" method="post" class="needs-validation" novalidate>
             <div class="row">
-                <div class="mb20">
-                    <label for="persyaratan" class=" form-label">Persyaratan Pendaftaran <span class="required-label">*</span></label>
+                <div class="mb-3">
+                    <label for="persyaratan" class="form-label bold">Persyaratan Pendaftaran</label>
                     <!-- <textarea id="persyaratan" cols="30" rows="10"
                         class="form-control <?= ($validation->hasError('persyaratan')) ? 'is-invalid' : ''; ?>"
                         name="persyaratan"> <?= $persyaratan[0]; ?></textarea> -->
@@ -26,8 +31,8 @@
 
                 <!-- end persyaratan'. $j -->
                 <div class="col-sm-6">
-                    <div class="mb20">
-                        <label for="label_jadwal_kegiatan" class="form-label">Jadwal Kegiatan</label>
+                    <div class="mb-3">
+                        <label for="label_jadwal_kegiatan" class="form-label bold">Jadwal Kegiatan</label>
                         <textarea id="jadwal_kegiatan" name="jadwal_kegiatan" required>
                         <ol>
                             <?php foreach ($jadwal_kegiatan as $jadwal_kegiatan) : ?>
@@ -48,8 +53,8 @@
 
                 <!-- jadwal kegiatan -->
                 <div class="col-sm-6">
-                    <div class="mb20">
-                        <label for="label_jadwal_pelaksanaan" class="form-label">Jadwal Pelaksanaan</label>
+                    <div class="mb-3">
+                        <label for="label_jadwal_pelaksanaan" class="form-label bold">Jadwal Pelaksanaan</label>
                         <textarea id="jadwal_pelaksanaan" name="jadwal_pelaksanaan" required>
                         <ol>
                             <?php foreach ($jadwal_pelaksanaan as $jadwal_pelaksanaan) : ?>
@@ -64,8 +69,8 @@
                 </div>
 
                 <!-- jadwal pelaksanaan -->
-                <div class="mb20">
-                    <label for="proses_seleksi" class="form-label">Proses Seleksi <span class="required-label">*</span></label>
+                <div class="mb-3">
+                    <label for="proses_seleksi" class="form-label bold">Proses Seleksi</label>
 
                     <textarea id="proses_seleksi" name="proses_seleksi" required>
                         <ol>
@@ -83,12 +88,10 @@
             </div>
             <!-- end proses_seleksi -->
             <!-- Submit -->
-            <div class="row pb40">
-                <div class="col-12 text-end">
-                    <button type="button" data-bs-toggle="modal" data-bs-target="#save_modal" class="btn btn-success me-3 fs18 px-4 py-2">
-                        Simpan
-                    </button>
-                </div>
+            <div class="d-flex justify-content-end">
+                <button type="button" data-bs-toggle="modal" data-bs-target="#save_modal" class="btn btn-success fs16 fw-normal">
+                    Simpan
+                </button>
             </div>
             <!-- end submit -->
             <!-- SAVE  Modal -->

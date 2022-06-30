@@ -43,7 +43,7 @@
                         <!-- <select class="form-select" id="inputGroupSelect01" name="id_status_peserta"> -->
                         <div class="form-check ">
                             <?php foreach ($status_peserta as $status_peserta) : ?>
-                                <input type="radio" name="id_status_peserta" class="form-check-input" required value="<?= $status_peserta['id_status_peserta']; ?>">
+                                <input <?= ($status_peserta['id_status_peserta'] == 1) ? 'checked' : ''; ?> type="radio" name="id_status_peserta" class="form-check-input" required value="<?= $status_peserta['id_status_peserta']; ?>">
                                 <?= $status_peserta['nama_peserta']; ?>
                                 </input>
                                 <br>
@@ -55,7 +55,7 @@
                         <div id="kegunaan">
                             <h4 class="mt-3">Digunakan untuk</h4>
                             <div class="form-check">
-                                <input type="radio" class="form-check-input" required name="kegunaan" value="non_publik">
+                                <input checked type="radio" class="form-check-input" required name="kegunaan" value="non_publik">
                                 Non Publik
                                 </input>
                             </div>

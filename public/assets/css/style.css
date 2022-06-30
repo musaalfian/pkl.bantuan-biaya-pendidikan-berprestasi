@@ -1200,6 +1200,18 @@ tr {
   
 }
 
+/*================ Daftar Informasi Pendaftaran =================*/
+.admin__informasi__pendaftaran tbody tr > td {
+  padding: 10px 0 !important;
+}
+.admin__informasi__pendaftaran thead tr > th:first-child {
+  width: 50px !important;
+}
+
+/*================ Daftar Informasi terbaru =================*/
+.admin__informasi__awal tbody tr > td {
+  padding: .5rem !important;
+}
 /******************************************/
 /*              END ADMIN                 */
 /******************************************/

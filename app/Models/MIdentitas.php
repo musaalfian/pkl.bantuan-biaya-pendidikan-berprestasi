@@ -32,7 +32,7 @@ class MIdentitas extends Model
                 return $builder->countAllResults();
         }
         // mengambil data pendaftar berdasarkan status peserta
-        public function data_seluruh_pendaftar($id_peserta)
+        public function data_seluruh_pendaftar($id_peserta, $limit = null)
         {
                 $builder = $this->db->table('identitas');
                 $builder->select();
@@ -42,6 +42,9 @@ class MIdentitas extends Model
                 $builder->join('status_pendaftaran', 'status_pendaftaran.id_status_pendaftaran = identitas.id_status_pendaftaran');
                 $builder->join('status_peserta', 'status_peserta.id_status_peserta = identitas.id_status_peserta');
                 $builder->where('identitas.id_status_peserta', $id_peserta);
+                if ($limit != null) {
+                        $builder->limit($limit);
+                }
                 $query = $builder->get();
                 return $query;
         }

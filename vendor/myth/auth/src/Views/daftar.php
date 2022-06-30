@@ -65,6 +65,7 @@
                         </div>
                         <div class="mt-3">
                             <label for="sandi">Kata Sandi</label>
+                            <p class="blue">Tips : gunakan kombinasi huruf, angka, dan karakter untuk membuat kata sandi yang kuat.</p>
                             <div class="input__sandi position-relative mt-2">
                                 <input class="form-control <?php if (session('errors.password')) : ?>is-invalid<?php endif ?>" autocomplete="off" placeholder="Masukan kata sandi" type="password" id="sandi" name="password" autocomplete="off" />
                                 <span class="eye position-absolute"><i class="bi bi-eye-fill" area-hidden="true" onclick="toogle()" id="eye"></i></span>

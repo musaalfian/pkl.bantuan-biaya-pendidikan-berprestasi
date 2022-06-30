@@ -2,9 +2,14 @@
 
 <?= $this->section('content'); ?>
 <!-- Main Section-->
-<div class="bgwhite py40">
+<div class="bgwhite py40 admin__informasi__pendaftaran">
     <div class="admin-content  mx-auto">
-        <h3 class="col-6 biru">Daftar Informasi Terbaru</h3>
+        <div class="d-flex justify-content-between align-items-end mb-3">
+            <h3 class="biru">Daftar Informasi Pendaftaran</h3>
+            <a class="btn btn-primary fw-normal" href="<?= base_url(); ?>/admin_informasi/edit_informasi_pendaftaran">
+                Edit Informasi
+            </a>
+        </div>
         <!-- alert informasi terbaru -->
         <?php if (session()->getFlashdata('pesan-tambah-informasi-terbaru')) : ?>
             <div class="alert alert-success" role="alert">
@@ -23,16 +28,15 @@
         <?php endif; ?>
         <!-- end alert informasi terbaru -->
         <div class="p-4 bdgrey br20 bg-white mt20">
-            <div class="sub-informasi mb20">
-                <h3 class="mb20 fs20">1. Persyaratan Penerima Bantuan</h3>
+            <div class="sub-informasi mb-3">
+                <h3 class="mb-2 fs18">1. Persyaratan Penerima Bantuan</h3>
                 <div class="detail ms-4">
-
-                    <div class="mt20">
+                    <div class="">
                         <?php $i = 1 ?>
                         <?php foreach ($persyaratan as $persyaratan) : ?>
                             <?php if ($persyaratan != null) : ?>
 
-                                <p>
+                                <p class="fs16">
                                     <?= $i++; ?>. <?= $persyaratan; ?>
                                 </p>
                             <?php endif ?>
@@ -41,13 +45,13 @@
                 </div>
             </div>
             <!-- end persyaratan -->
-            <div class="sub-informasi mb20">
-                <h3 class="mb20 fs20">2. Jadwal Pendaftaran</h3>
+            <div class="sub-informasi mb-3">
+                <h3 class="mb-2 fs18">2. Jadwal Pendaftaran</h3>
                 <div class="detail ms-4">
                     <table class="table">
                         <thead>
                             <tr>
-                                <th scope="col">No</th>
+                                <th scope="col" class="text-center">No</th>
                                 <th scope="col">Kegiatan</th>
                                 <th scope="col">Jadwal Pelaksanaan</th>
                             </tr>
@@ -69,20 +73,19 @@
                 </div>
             </div>
             <!-- end jadwal -->
-            <div class="sub-informasi mb20">
-                <h3 class="mb20 fs20">3. Proses Seleksi</h3>
+            <div class="sub-informasi mb-3">
+                <h3 class="mb-2 fs18">3. Proses Seleksi</h3>
                 <div class="detail ms-4">
                     <?php $i = 1 ?>
 
                     <?php foreach ($proses_seleksi as $proses_seleksi) : ?>
                         <?php if ($proses_seleksi != null) : ?>
-                            <p>
+                            <p class="fs16">
                                 <?= $i++; ?>. <?= $proses_seleksi; ?>
                             </p>
                         <?php endif ?>
                     <?php endforeach; ?>
                     <!-- download selengkapnya -->
-                    <a href="<?= base_url(); ?>/admin_informasi/edit_informasi_pendaftaran" class="btn btn-primary mt20"> Edit Informasi Pendaftaran <span class="ms-3">--></span></a>
                 </div>
             </div>
             <!-- end proses seleksi -->

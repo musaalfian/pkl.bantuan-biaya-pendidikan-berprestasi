@@ -61,11 +61,11 @@ class Home_admin extends BaseController
         $jumlah_pendaftar_proses = $this->MIdentitas->jumlah_pendaftar_status_pendaftaran(4);
 
         // data pendaftar kategori siswa
-        $siswa = $this->MIdentitas->data_seluruh_pendaftar(1)->getResultArray();
+        $siswa = $this->MIdentitas->data_seluruh_pendaftar(1, 5)->getResultArray();
         // data pendaftar kategori calon mahasiswa
-        $calon_mahasiswa = $this->MIdentitas->data_seluruh_pendaftar(2)->getResultArray();
+        $calon_mahasiswa = $this->MIdentitas->data_seluruh_pendaftar(2, 5)->getResultArray();
         // data pendaftar kategori mahasiswa
-        $mahasiswa = $this->MIdentitas->data_seluruh_pendaftar(3)->getResultArray();
+        $mahasiswa = $this->MIdentitas->data_seluruh_pendaftar(3, 5)->getResultArray();
 
         // dd($siswa);
         $data = [
