@@ -85,16 +85,16 @@ class Home_admin extends BaseController
     public function daftarAkun()
     {
         $daftarAkun = $this->db->table('users')
-        ->select('users.username, users.email')
-        ->join('auth_groups_users', 'auth_groups_users.user_id = users.id')
-        ->where('auth_groups_users.group_id', 2)
-        ->get()->getResultArray();
-        dd($daftarAkun);
+            ->select('users.username, users.email, users.active')
+            ->join('auth_groups_users', 'auth_groups_users.user_id = users.id')
+            ->where('auth_groups_users.group_id', 2)
+            ->get()->getResultArray();
+
         $data = [
             'title'     => 'Beasiswa Batang | Daftar Akun',
             'daftarAkun' => $daftarAkun,
             'jumlahAkun' => $this->db->table('users')->countAllResults()
         ];
-        return view('/admin/daftarAkun', $data);
+        return view('/admin/daftar_akun_admin', $data);
     }
 }

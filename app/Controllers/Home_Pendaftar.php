@@ -183,9 +183,10 @@ class Home_pendaftar extends BaseController
 
         return false;
     }
-    public function download_detail_pendaftar($no_induk)
+    public function download_detail_pendaftar()
     {
         // data pendaftar kategori pendaftar
+        $no_induk = user()->no_induk;
         $pendaftar = $this->MIdentitas->find($no_induk);
         $detail_pendaftar = $this->MIdentitas->detail_pendaftar($no_induk, $pendaftar['id_status_peserta'], $pendaftar['id_status_pendaftaran'])->getFirstRow('array');
         $prestasi = $this->MPrestasi->detail_prestasi($no_induk)->getResultArray();
