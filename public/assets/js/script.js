@@ -68,6 +68,8 @@ $(document).ready(function () {
     $(".nav_admin_informasi_pendaftaran").addClass("active-menu");
   } else if (document.title == "Beasiswa Batang | Informasi Terbaru Admin") {
     $(".nav_admin_informasi_terbaru").addClass("active-menu");
+  } else if (document.title == "Beasiswa Batang | Daftar Akun") {
+    $(".nav_admin_akun_pendaftar").addClass("active-menu");
   }
 });
 
