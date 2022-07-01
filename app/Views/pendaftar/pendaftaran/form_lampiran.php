@@ -524,7 +524,7 @@
                                                 data-max-file-size="2M" />
                                             <?php if ($file == null) : ?>
                                             <div class="invalid-feedback" id="sktm-invalid">
-                                                <?= ($validation->getError('scan_sktm') == '') ? 'Bagian scan ktm  wajib diisi dan ukuran file tidak boleh lebih dari 2MB' : str_replace('_', ' ', $validation->getError('scan_sktm')); ?>
+                                                <?= ($validation->getError('scan_sktm') == '') ? 'Bagian scan sktm  wajib diisi dan ukuran file tidak boleh lebih dari 2MB' : str_replace('_', ' ', $validation->getError('scan_sktm')); ?>
                                             </div>
                                             <?php endif ?>
                                         </div>
@@ -564,7 +564,7 @@
                                                     data-bs-dismiss="modal">
                                                     Batal
                                                 </button>
-                                                <button type="submit" class="btn btn-success fw-normal">Simpan</button>
+                                                <button type="submit" id="btn_submit_lampiran" class="btn btn-success fw-normal">Simpan</button>
                                             </div>
                                         </div>
                                     </div>

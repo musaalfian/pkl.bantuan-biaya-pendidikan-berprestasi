@@ -319,12 +319,15 @@ class Mahasiswa extends BaseController
             }
         }
         // pindahkan file prestasi ke scan
+        $index_prestasi = 1;
         foreach ($scan_prestasi as $file_scan_prestasi) {
             if ($file_scan_prestasi != null && $file_scan_prestasi->getError() != 4) {
                 // mengambil nama file prestasi dan dimasukkan ke array
-                $nama_scan_prestasi[] = $file_scan_prestasi->getName();
+                // $nama_scan_prestasi[] = $file_scan_prestasi->getName();
+                $nama_prestasi = $no_induk.'_prestasi_'.$index_prestasi++.'.pdf';
+                $nama_scan_prestasi[] = $nama_prestasi;
                 // memindahkan file scan prestasi ke folder scan
-                $file_scan_prestasi->move('assets/scan/' . $no_induk . '/prestasi');
+                $file_scan_prestasi->move('assets/scan/' . $no_induk . '/prestasi', $nama_prestasi);
             } else {
                 $nama_scan_prestasi[] = null;
             }
@@ -376,23 +379,28 @@ class Mahasiswa extends BaseController
             }
         }
 
-        //ambil file inputan
-        $scan = [
-            $this->request->getFile('scan_kk'),
-            $this->request->getFile('scan_ktp'),
-            $this->request->getFile('scan_kartu_pelajar'),
-            $this->request->getFile('scan_akreditasi_pt'),
-            $this->request->getFile('scan_proposal'),
-            $this->request->getFile('scan_sktm'),
-            $this->request->getFile('scan_pas_foto')
+        $nama_scan_input = [
+            'scan_kk',
+            'scan_ktp',
+            'scan_kartu_pelajar',
+            'scan_akreditasi_pt',
+            'scan_proposal',
+            'scan_sktm',
+            'scan_pas_foto',
         ];
-
+        //ambil file inputan
+        foreach($nama_scan_input as $data_nama_scan){
+            $scan[] = $this->request->getFile($data_nama_scan);
+        }
+        // dd($scan);
         // pindahkan file ke scan
+        $index_scan_input = 0;
         foreach ($scan as $scan) {
             // mengambil nama file scan dan dimasukkan ke array
-            $nama_scan[] = $scan->getName();
+            $nama_file_scan = $no_induk.'_'. $nama_scan_input[$index_scan_input++] .'.'. $scan->getExtension();
+            $nama_scan[] = $nama_file_scan;
             // memindahkan file scan ke folder scan
-            $scan->move('assets/scan/' . $no_induk . '/file');
+            $scan->move('assets/scan/' . $no_induk . '/file', $nama_file_scan);
         }
 
         // memasukkan data lampiran ke database
@@ -740,13 +748,16 @@ class Mahasiswa extends BaseController
                 return redirect()->to('/pendaftaran/edit_pendaftaran/'.$identitas['no_induk'].'/'. $identitas['id_status_peserta'])->withInput();
             }
         }
-
+        // pindahkan file scan
+        $index_prestasi = 1;
         foreach ($scan_prestasi as $file_scan_prestasi) {
             if ($file_scan_prestasi->getError() != 4) {
                 // mengambil nama file prestasi dan dimasukkan ke array
-                $nama_scan_prestasi[] = $file_scan_prestasi->getName();
+                // $nama_scan_prestasi[] = $file_scan_prestasi->getName();
                 // memindahkan file scan prestasi ke folder scan
-                $file_scan_prestasi->move('assets/scan/' . $no_induk . '/prestasi');
+                $nama_prestasi = $no_induk.'_prestasi_'.$index_prestasi++.'.pdf';
+                $nama_scan_prestasi[] = $nama_prestasi;
+                $file_scan_prestasi->move('assets/scan/' . $no_induk . '/prestasi', $nama_prestasi);
                 if ($prestasi[$k] != null) {
                     //hapus file lama
                     unlink('assets/scan/' . $no_induk . '/prestasi/' . $prestasi[$k]['file_prestasi']);
@@ -880,16 +891,19 @@ class Mahasiswa extends BaseController
             }
         }
 
-        //ambil file inputan
-        $scan = [
-            $this->request->getFile('scan_kk'),
-            $this->request->getFile('scan_ktp'),
-            $this->request->getFile('scan_kartu_pelajar'),
-            $this->request->getFile('scan_akreditasi_pt'),
-            $this->request->getFile('scan_proposal'),
-            $this->request->getFile('scan_sktm'),
-            $this->request->getFile('scan_pas_foto')
+        $nama_scan_input = [
+            'scan_kk',
+            'scan_ktp',
+            'scan_kartu_pelajar',
+            'scan_akreditasi_pt',
+            'scan_proposal',
+            'scan_sktm',
+            'scan_pas_foto',
         ];
+        //ambil file inputan
+        foreach($nama_scan_input as $data_nama_scan){
+            $scan[] = $this->request->getFile($data_nama_scan);
+        }
         // menginisialisasi nama file pada database ke array
         $nama_file = ['kk', 'ktp', 'kartu_pelajar', 'akreditasi_pt', 'proposal', 'sktm', 'pas_foto'];
         // pindahkn file scan ke folder scan
@@ -899,13 +913,12 @@ class Mahasiswa extends BaseController
         foreach ($scan as $scan) {
             if ($scan->getError() != 4) {
                 // mengambil nama file scan dan dimasukkan ke array
-                $nama_scan[] = $scan->getName();
+                $nama_file_scan = $no_induk.'_'. $nama_scan_input[$l] .'.'. $scan->getExtension();
+                $nama_scan[] = $nama_file_scan;
                 // memindahkan file scan scan ke folder scan
-                $scan->move('assets/scan/' . $no_induk . '/file');
-                if ($file[$nama_file[$l]] != null) {
                     //hapus file scan yang lama
                     unlink('assets/scan/' . $no_induk . '/file/' . $file[$nama_file[$l]]);
-                }
+                $scan->move('assets/scan/' . $no_induk . '/file', $nama_file_scan);
             } else {
                 // mengambil nama file yang tidak ada upload dari user
                 $nama_scan[] = $file[$nama_file[$l]];

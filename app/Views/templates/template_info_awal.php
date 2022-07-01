@@ -5,7 +5,26 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Informasi Pendaftaran Beasiswa</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Website Bantuan Biaya Pendidikan Berprestasi Dari Keluarga Miskin. Menyajikan Informasi Pendaftaran Bantuan Biaya Pendidikan dan Melakukan Pendataftaran Bantuan Biaya Pendidikan Berprestasi.">
+    <meta name="author" content="Dinas Pendidikan dan Kebudayaan Kabupaten Batang">
+    <meta name="keywords" content="beasiswa, bantuan, biaya, pendidikan, batang, dinas, beasiswa batang,bantuan biaya,bantuan biaya pendidikan,biaya pendidikan,bantuan biaya batang,bantuan biaya pendidikan batang,dinas pendidikan,dinas pendidikan dan kebudayaan,dinas pendidikan batang">
+
+    <!-- OG Meta Tags to improve the way the post looks when you share the page on Facebook, Twitter, LinkedIn -->
+    <meta property="og:site_name" content="Bantuan Biaya Pendidikan Berprestasi Kabupaten Batang" />
+    <!-- website name -->
+    <meta property="og:site" content="https://bandikmentibatang.com/" /> <!-- website link -->
+    <meta property="og:title" content="Bantuan Biaya Pendidikan Berprestasi Kabupaten Batang" />
+    <!-- title shown in the actual shared post -->
+    <meta property="og:description" content="Website Bantuan Biaya Pendidikan Berprestasi Dari Keluarga Miskin. Menyajikan Informasi Pendaftaran Bantuan Biaya Pendidikan dan Melakukan Pendataftaran Bantuan Biaya Pendidikan Berprestasi." />
+    <!-- description shown in the actual shared post -->
+    <meta property="og:image" content="https://www.batangkab.go.id/src/front/img/batang128.png" />
+    <!-- image link, make sure it's jpg -->
+    <meta property="og:url" content="" /> <!-- where do you want your post to link to -->
+    <meta name="twitter:card" content="summary_large_image"> <!-- to have large image post format in Twitter -->
+
+    <title>Beasiswa Batang - Informasi Pendaftaran Beasiswa</title>
     <!-- JQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 

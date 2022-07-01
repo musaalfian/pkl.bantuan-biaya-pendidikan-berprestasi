@@ -21,7 +21,7 @@
                     <?php $i = 1; ?>
                     <?php foreach ($mahasiswa as $mahasiswa) : ?>
                         <tr>
-                            <th>1</th>
+                            <th><?= $i; ?></th>
                             <td><?= $mahasiswa['nama_lengkap']; ?></td>
                             <td><?= $mahasiswa['nama_pt'];; ?></td>
                             <td><?= $mahasiswa['alamat_rumah']; ?></td>

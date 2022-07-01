@@ -2,11 +2,15 @@
 
 <?= $this->section('content'); ?>
 <!-- Main section-->
-<div class=" bg-abu p40">
+<div class="bgwhite py40">
     <div class=" admin-content mx-auto">
-        <h3 class="mb20 biru">Tambah <span class="orange">Informasi Terbaru</span> </h3>
-        <form action="<?= base_url(); ?>/admin_informasi/simpan_tambah_informasi_terbaru" method="post"
-            enctype="multipart/form-data" class="needs-validation" novalidate>
+        <div class="navigasi d-flex flex-wrap align-items-center mb-3">
+            <a href="<?= base_url(); ?>/admin_informasi/daftar_informasi" class="fw-bold blue fs14 me-3"><i class="fa-solid fa-arrow-left-long"></i></a>
+            <a href="<?= base_url(); ?>/admin_informasi/daftar_informasi" class="blue fs14">Informasi Terbaru <span class="mx-2 blue fs14">/</span></a>
+            <a href="" class="abu fs14">Tambah Informasi Terbaru</a>
+        </div>
+        <h3 class="mb20 biru">Tambah Informasi Terbaru</h3>
+        <form action="<?= base_url(); ?>/admin_informasi/simpan_tambah_informasi_terbaru" method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
             <div class="mb20">
                 <label for="judul_informasi_terbaru" class="form-label">Judul<span class="required-label">*</span></label>
                 <input id="judul_informasi_terbaru" type="text" required class="form-control <?= ($validation->hasError('judul_informasi_terbaru')) ? 'is-invalid' : ''; ?>" name="judul_informasi_terbaru" value="<?= old('judul_informasi_terbaru'); ?>">
@@ -41,12 +45,10 @@
             </div>
             <!-- end gambar _informasi_terbaru -->
             <!-- Submit -->
-            <div class="row pb40">
-                <div class="col-12 text-end">
-                    <button type="button" data-bs-toggle="modal" data-bs-target="#save_modal" class="btn btn-success me-3 fs18 px-4 py-2">
-                        Simpan
-                    </button>
-                </div>
+            <div class="d-flex justify-content-end">
+                <button type="button" data-bs-toggle="modal" data-bs-target="#save_modal" class="btn btn-success fs16 fw-normal">
+                    Simpan
+                </button>
             </div>
             <!-- end submit -->
             <!-- SAVE  Modal -->

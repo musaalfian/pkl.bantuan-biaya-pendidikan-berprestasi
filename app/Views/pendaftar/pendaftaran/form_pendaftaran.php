@@ -51,26 +51,26 @@
                     <?= $this->include('pendaftar/pendaftaran/form_identitas') ?>
                 </div>
                 <!-- End form identitas -->
-                
+
                 <!-- form keluarga -->
                 <div id="step-2" class="tab-pane p-0" role="tabpanel" aria-labelledby="step-2">
                     <?= $this->include('pendaftar/pendaftaran/form_keluarga') ?>
-                    
+
                 </div>
                 <!-- end form keluarga -->
-                
+
                 <!-- form lampiran -->
                 <div id="step-3" class="tab-pane p-0" role="tabpanel" aria-labelledby="step-3">
                     <?= $this->include('pendaftar/pendaftaran/form_lampiran') ?>
                 </div>
                 <!-- end form lampiran -->
-                
+
                 <!-- kirim ulang form pendaftaran -->
                 <div id="step-4" class="tab-pane p-0" role="tabpanel" aria-labelledby="step-4">
                     <?= $this->include('pendaftar/pendaftaran/form_kirim_pendaftaran') ?>
                 </div>
                 <!-- end kirim ulang form pendaftaran -->
-                
+
                 <!-- review pendaftaran -->
                 <div id="step-5" class="tab-pane p-0" role="tabpanel" aria-labelledby="step-5">
                     <?= $this->include('pendaftar/pendaftaran/review_pendaftaran') ?>
@@ -106,6 +106,7 @@
 <!-- Wizard -->
 <script type="text/javascript">
 // alert invalid form fields
+<?php if ($keluarga != null) : ?>
 <?php if ($identitas['id_status_peserta'] == 1) : ?>
 const scan_lampiran = [
     "kk",
@@ -115,9 +116,6 @@ const scan_lampiran = [
     "raport",
     "sktm",
     "file_prestasi_1",
-    "file_prestasi_2",
-    "file_prestasi_3",
-    "formulir_pendaftaran",
 ];
 const invalid_scan_lampiran = [
     "kk-invalid",
@@ -127,9 +125,6 @@ const invalid_scan_lampiran = [
     "raport-invalid",
     "sktm-invalid",
     "file-prestasi-invalid-1",
-    "file-prestasi-invalid-2",
-    "file-prestasi-invalid-3",
-    "formulir-pendaftaran-invalid",
 ];
 <?php elseif ($identitas['id_status_peserta'] == 2) : ?>
 const scan_lampiran = [
@@ -141,9 +136,6 @@ const scan_lampiran = [
     "proposal",
     "sktm",
     "file_prestasi_1",
-    "file_prestasi_2",
-    "file_prestasi_3",
-    "formulir_pendaftaran",
 ];
 const invalid_scan_lampiran = [
     "kk-invalid",
@@ -154,9 +146,6 @@ const invalid_scan_lampiran = [
     "proposal-invalid",
     "sktm-invalid",
     "file-prestasi-invalid-1",
-    "file-prestasi-invalid-2",
-    "file-prestasi-invalid-3",
-    "formulir-pendaftaran-invalid",
 ];
 <?php else : ?>
 const scan_lampiran = [
@@ -168,9 +157,6 @@ const scan_lampiran = [
     "proposal",
     "sktm",
     "file_prestasi_1",
-    "file_prestasi_2",
-    "file_prestasi_3",
-    "formulir_pendaftaran",
 ];
 const invalid_scan_lampiran = [
     "kk-invalid",
@@ -181,29 +167,27 @@ const invalid_scan_lampiran = [
     "proposal-invalid",
     "sktm-invalid",
     "file-prestasi-invalid-1",
-    "file-prestasi-invalid-2",
-    "file-prestasi-invalid-3",
-    "formulir-pendaftaran-invalid",
 ];
 <?php endif ?>
+<?php endif ?>
 <?php if ($keluarga != null && $file == null) : ?>
-    scan_lampiran.forEach((scan_change, index) => {
-        $("#" + scan_change).change(function(e) {
-            $('#' + invalid_scan_lampiran[index]).css('display', 'none');
-        });
+scan_lampiran.forEach((scan_change, index) => {
+    $("#" + scan_change).change(function(e) {
+        $('#' + invalid_scan_lampiran[index]).css('display', 'none');
     });
+});
 <?php elseif ($file != null) : ?>
-    $("#formulir_pendaftaran").change(function(e) {
-        $('#formulir-pendaftaran-invalid').css('display', 'none');
-        $('.pesan-gagal').hide();
-    });
+$("#formulir_pendaftaran").change(function(e) {
+    $('#formulir-pendaftaran-invalid').css('display', 'none');
+    $('.pesan-gagal').hide();
+});
 <?php endif ?>
 // }
 
 $('form').on('submit', function(e) {
     //validasi file
     // form lampiran
-    <?php if ($keluarga != null && $file == null ) : ?>
+    <?php if ($keluarga != null && $file == null) : ?>
     let i = 0;
     scan_lampiran.forEach((file_scan) => {
         var input = document.getElementById(file_scan);
@@ -215,25 +199,56 @@ $('form').on('submit', function(e) {
         }
         i++;
     });
-    
+
     // form kirim ulang pendaftaran
     <?php elseif ($file != null) : ?>
-        var input = document.getElementById('formulir_pendaftaran');
-        if (!input.files[0]) {
-            var invalid = $('#formulir-pendaftaran-invalid').css('display', 'block');
-            $('.pesan-gagal').show();
-        } else {
-            $('.pesan-gagal').hide();
-        }
+    var input = document.getElementById('formulir_pendaftaran');
+    if (!input.files[0]) {
+        var invalid = $('#formulir-pendaftaran-invalid').css('display', 'block');
+        $('.pesan-gagal').show();
+    } else {
+        $('.pesan-gagal').hide();
+    }
     <?php endif ?>
 
-
+    // menampilkan loader
+    // review pendaftaran
+    <?php if ($file != null && $file['formulir_pendaftaran'] != null && $keluarga != null && $identitas != null) : ?>
+            $("#btn_submit_review").empty();
+            $('<div class="lds-ring"><div></div><div></div><div></div><div></div></div>').appendTo(
+                "#btn_submit_review");
+            <?php endif ?>
     $(document).ready(function() {
         var numItems = $('.invalid-feedback').filter(function() {
             return $(this).css('display') != 'none';
         }).length;
+        console.log(numItems);
         if (numItems >= 1) {
             $('.pesan-gagal').show();
+        } else {
+            // menampilkan loader
+            <?php if ($identitas == null) : ?>
+                // form identitas
+            $("#btn_submit_identitas").empty();
+            $('<div class="lds-ring"><div></div><div></div><div></div><div></div></div>').appendTo(
+                "#btn_submit_identitas");
+            <?php elseif ($keluarga == null && $identitas != null) : ?>
+                // form keluarga
+            $("#btn_submit_keluarga").empty();
+            $('<div class="lds-ring"><div></div><div></div><div></div><div></div></div>').appendTo(
+                "#btn_submit_keluarga");
+            <?php elseif ($file == null && $keluarga != null && $identitas != null) : ?>
+                // form lampiran
+            $("#btn_submit_lampiran").empty();
+            $('<div class="lds-ring"><div></div><div></div><div></div><div></div></div>').appendTo(
+                "#btn_submit_lampiran");
+            <?php elseif ($file != null && $file['formulir_pendaftaran'] == null && $keluarga != null && $identitas != null) : ?>
+            // form kirim ulang formulir
+                $("#btn_submit_formulir").empty();
+            $('<div class="lds-ring"><div></div><div></div><div></div><div></div></div>').appendTo(
+                "#btn_submit_formulir");
+            <?php endif ?>
+
         }
     });
 });

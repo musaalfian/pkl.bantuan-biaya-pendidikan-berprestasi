@@ -113,6 +113,9 @@
                 <div class="p-2 menu nav_admin_informasi_terbaru mb-2">
                     <a class="nav_admin_informasi_terbaru" href="<?= base_url(); ?>/admin_informasi/daftar_informasi"><i class="bi bi-info-circle-fill"></i>Informasi Terbaru</a>
                 </div>
+                <div class="p-2 menu nav_admin_akun_pendaftar mb-2">
+                    <a class="nav_admin_akun_pendaftar" href="<?= base_url(); ?>"><i class="bi bi-person-badge"></i>Akun yang Mendaftar</a>
+                </div>
                 <div class="p-2 menu mb-2">
                     <a class="" href="#" data-bs-toggle="modal" data-bs-target="#logoutModal"><i class="bi bi-door-open-fill"></i>Logout</a>
                 </div>

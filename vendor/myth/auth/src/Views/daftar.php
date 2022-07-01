@@ -5,7 +5,26 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Daftar</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Website Bantuan Biaya Pendidikan Berprestasi Dari Keluarga Miskin. Menyajikan Informasi Pendaftaran Bantuan Biaya Pendidikan dan Melakukan Pendataftaran Bantuan Biaya Pendidikan Berprestasi.">
+    <meta name="author" content="Dinas Pendidikan dan Kebudayaan Kabupaten Batang">
+    <meta name="keywords" content="beasiswa, bantuan, biaya, pendidikan, batang, dinas, beasiswa batang,bantuan biaya,bantuan biaya pendidikan,biaya pendidikan,bantuan biaya batang,bantuan biaya pendidikan batang,dinas pendidikan,dinas pendidikan dan kebudayaan,dinas pendidikan batang">
+
+    <!-- OG Meta Tags to improve the way the post looks when you share the page on Facebook, Twitter, LinkedIn -->
+    <meta property="og:site_name" content="Bantuan Biaya Pendidikan Berprestasi Kabupaten Batang" />
+    <!-- website name -->
+    <meta property="og:site" content="https://bandikmentibatang.com/" /> <!-- website link -->
+    <meta property="og:title" content="Bantuan Biaya Pendidikan Berprestasi Kabupaten Batang" />
+    <!-- title shown in the actual shared post -->
+    <meta property="og:description" content="Website Bantuan Biaya Pendidikan Berprestasi Dari Keluarga Miskin. Menyajikan Informasi Pendaftaran Bantuan Biaya Pendidikan dan Melakukan Pendataftaran Bantuan Biaya Pendidikan Berprestasi." />
+    <!-- description shown in the actual shared post -->
+    <meta property="og:image" content="https://www.batangkab.go.id/src/front/img/batang128.png" />
+    <!-- image link, make sure it's jpg -->
+    <meta property="og:url" content="" /> <!-- where do you want your post to link to -->
+    <meta name="twitter:card" content="summary_large_image"> <!-- to have large image post format in Twitter -->
+
+    <title>Beasiswa Batang - Daftar</title>
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
     <!-- JavaScript Bundle with Popper -->
@@ -46,6 +65,7 @@
                         </div>
                         <div class="mt-3">
                             <label for="sandi">Kata Sandi</label>
+                            <p class="blue">Tips : gunakan kombinasi huruf, angka, dan karakter untuk membuat kata sandi yang kuat.</p>
                             <div class="input__sandi position-relative mt-2">
                                 <input class="form-control <?php if (session('errors.password')) : ?>is-invalid<?php endif ?>" autocomplete="off" placeholder="Masukan kata sandi" type="password" id="sandi" name="password" autocomplete="off" />
                                 <span class="eye position-absolute"><i class="bi bi-eye-fill" area-hidden="true" onclick="toogle()" id="eye"></i></span>
