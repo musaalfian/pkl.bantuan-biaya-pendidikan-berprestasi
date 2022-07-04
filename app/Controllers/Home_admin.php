@@ -16,6 +16,7 @@ use App\Models\MStatusPendaftaran;
 use App\Models\MStatusPeserta;
 use App\Models\MTransportasi;
 use App\Models\MInformasiTerbaru;
+use \Myth\Auth\Models\UserModel;
 
 class Home_admin extends BaseController
 {
@@ -32,6 +33,7 @@ class Home_admin extends BaseController
     protected $MStatusPeserta;
     protected $MTransportasi;
     protected $MInformasiTerbaru;
+    protected $MUser;
 
     public function __construct()
     {
@@ -48,9 +50,12 @@ class Home_admin extends BaseController
         $this->MStatusPeserta = new MStatusPeserta();
         $this->MTransportasi = new MTransportasi();
         $this->MInformasiTerbaru = new MInformasiTerbaru();
+        $this->MUser = new UserModel();
         $this->db = \Config\Database::connect();
         // $UsersModel = new \Myth\Auth\Models\UserModel();
     }
+
+    // dashboard admin
     public function index()
     {
         // jumlah pendaftar
@@ -81,4 +86,15 @@ class Home_admin extends BaseController
         ];
         return view('/admin/index', $data);
     }
+
+    // menampilkan seluruh akun
+    // public function seluruhAkun()
+    // {
+    //     $akun = $this->MUser->findAll()->count();
+    //     $data = [
+    //         'user' => $akun
+    //     ];
+    //     dd($akun);
+    //     return view('/admin/daftarAkun');
+    // }
 }

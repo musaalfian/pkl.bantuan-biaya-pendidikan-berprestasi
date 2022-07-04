@@ -40,8 +40,6 @@ class Home_pendaftar extends BaseController
     protected $MInformasiPendaftaran;
     protected $MTanggalPenting;
 
-
-
     public function __construct()
     {
         $this->MAgama = new MAgama();
