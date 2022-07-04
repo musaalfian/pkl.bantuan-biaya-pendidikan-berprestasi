@@ -1197,9 +1197,13 @@ tr {
 #daftar-penerima-content .form-check label{
   /* display block */
   margin-left: 0.5 rem !important;
-  
 }
-
+.daftar__penerima .form-check {
+  display: flex !important;
+}
+#statusPembayaranSemua_2 {
+  margin-left: 1rem !important;
+}
 /*================ Daftar Informasi Pendaftaran =================*/
 .admin__informasi__pendaftaran tbody tr > td {
   padding: 10px 0 !important;

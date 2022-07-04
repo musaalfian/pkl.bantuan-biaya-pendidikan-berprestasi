@@ -102,7 +102,7 @@
                 <h4 class="modal-title bold" id="exampleModalLabel">Status Pembayaran Keseluruhan</h4>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body daftar__penerima">
 
                 <form action="<?php base_url() ?>/admin_daftar_penerima/ubah_status_pembayaran_keseluruhan/3" method="POST">
                     <div class="form-check">

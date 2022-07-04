@@ -99,10 +99,8 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-
-                <form action="<?php base_url() ?>/admin_daftar_penerima/ubah_status_pembayaran_keseluruhan/3" method="POST">
-                    <div class="form-check">
-
+                <form action="<?php base_url() ?>/admin_daftar_penerima/ubah_status_pembayaran_keseluruhan/2" method="POST">
+                    <div class="form-check daftar__penerima">
                         <?php foreach ($status_pembayaran as $status_pembayarans) : ?>
                             <input type="radio" id="statusPembayaranSemua_<?= $status_pembayarans['id_status_pembayaran']; ?>" class="form-check-input ms-2" name="statusPembayaran" value="<?= $status_pembayarans['id_status_pembayaran']; ?>">
                             <label class="form-check-label" for="statusPembayaranSemua_<?= $status_pembayarans['id_status_pembayaran']; ?>">

@@ -97,14 +97,14 @@
                 <h4 class="modal-title bold" id="exampleModalLabel">Status Pembayaran Keseluruhan</h4>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body daftar__penerima">
 
-                <form action="<?php base_url() ?>/admin_daftar_penerima/ubah_status_pembayaran_keseluruhan/3" method="POST">
+                <form action="<?php base_url() ?>/admin_daftar_penerima/ubah_status_pembayaran_keseluruhan/1" method="POST">
                     <div class="form-check">
 
                         <?php foreach ($status_pembayaran as $status_pembayarans) : ?>
                             <input type="radio" id="statusPembayaranSemua_<?= $status_pembayarans['id_status_pembayaran']; ?>" class="form-check-input" name="statusPembayaran" value="<?= $status_pembayarans['id_status_pembayaran']; ?>">
-                            <label class="form-check-label ms-3" for="statusPembayaranSemua_<?= $status_pembayarans['id_status_pembayaran']; ?>">
+                            <label class="form-check-label ms-2" for="statusPembayaranSemua_<?= $status_pembayarans['id_status_pembayaran']; ?>">
                                 <?= $status_pembayarans['nama_status_pembayaran']; ?>
                             </label>
                         <?php endforeach ?>

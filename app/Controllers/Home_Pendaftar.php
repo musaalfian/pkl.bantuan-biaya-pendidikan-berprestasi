@@ -155,11 +155,13 @@ class Home_pendaftar extends BaseController
     {
         $identitas = $this->MIdentitas->find_identitas_user(user_id())->getFirstRow('array');
         $tanggal_pendaftaran = $this->MTanggalPenting->find(1);
+        // $tanggal_penutupan_pendaftaran = $this->MTanggalPenting->find(3);
 
         $data = [
             'title'     => 'Beasiswa Batang | Daftar Beasiswa',
             'identitas' => $identitas,
-            'tanggal_pendaftaran'   => $tanggal_pendaftaran
+            'tanggal_pendaftaran'   => $tanggal_pendaftaran,
+            // 'tanggal_penutupan_pendaftaran'   => $tanggal_penutupan_pendaftaran
         ];
         return view('/pendaftar/pendaftaran_beasiswa', $data);
     }

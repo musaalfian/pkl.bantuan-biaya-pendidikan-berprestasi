@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 20, 2022 at 06:56 AM
+-- Generation Time: Jul 04, 2022 at 09:25 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -79,7 +79,11 @@ INSERT INTO `auth_activation_attempts` (`id`, `ip_address`, `user_agent`, `token
 (14, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.61 Safari/537.36', '28a0e06355633597d6935e145b0b1c6e', '2022-05-30 19:23:25'),
 (15, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.61 Safari/537.36', 'f01101e3361f249bf000c8f2f1a53aa6', '2022-05-30 19:38:25'),
 (16, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.63 Safari/537.36', 'cc8515e41cfcb622475fa112eb926e06', '2022-06-02 08:44:13'),
-(17, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36', '010062407a99918f356ae64d692a81d1', '2022-06-13 22:54:29');
+(17, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36', '010062407a99918f356ae64d692a81d1', '2022-06-13 22:54:29'),
+(18, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36', '5db5defc13ec31c65a1c6b4509e989d4', '2022-06-21 07:20:12'),
+(19, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36', '1fbfbaa098581936ec57eb60f18f9025', '2022-06-22 11:30:35'),
+(20, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36', '6e94729ac0ab0560a42247082ee05be6', '2022-06-22 18:01:39'),
+(21, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36', '907f9dfb1e0376a190a4cebe4abe349e', '2022-06-22 20:43:54');
 
 -- --------------------------------------------------------
 
@@ -128,7 +132,11 @@ CREATE TABLE `auth_groups_users` (
 --
 
 INSERT INTO `auth_groups_users` (`group_id`, `user_id`) VALUES
-(1, 1);
+(1, 1),
+(1, 33),
+(2, 29),
+(2, 31),
+(2, 32);
 
 -- --------------------------------------------------------
 
@@ -481,7 +489,33 @@ INSERT INTO `auth_logins` (`id`, `ip_address`, `email`, `user_id`, `date`, `succ
 (329, '::1', 'beasiswabatang@gmail.com', 1, '2022-06-19 22:28:16', 1),
 (330, '::1', 'ferdianrafli32@gmail.com', 21, '2022-06-19 22:48:01', 1),
 (331, '::1', 'ferdianrafli32@gmail.com', 21, '2022-06-20 11:37:29', 1),
-(332, '::1', 'beasiswabatang@gmail.com', 1, '2022-06-20 11:41:22', 1);
+(332, '::1', 'beasiswabatang@gmail.com', 1, '2022-06-20 11:41:22', 1),
+(333, '::1', 'pendaftar1', NULL, '2022-06-21 06:55:40', 0),
+(334, '::1', 'musmus', 28, '2022-06-21 07:15:31', 0),
+(335, '::1', 'musaalfian7@gmail.com', 29, '2022-06-21 07:21:00', 1),
+(336, '::1', 'musaalfian7@gmail.com', 29, '2022-06-21 11:00:08', 1),
+(337, '::1', 'disdikbud@batangkab.go.id', 1, '2022-06-21 12:39:38', 1),
+(338, '::1', 'musaalfian7@gmail.com', 29, '2022-06-21 14:00:33', 1),
+(339, '::1', 'musaalfian7@gmail.com', 29, '2022-06-22 06:48:30', 1),
+(340, '::1', 'disdikbud@batangkab.go.id', 1, '2022-06-22 06:49:14', 1),
+(341, '::1', 'musaalfian7@gmail.com', 29, '2022-06-22 09:07:01', 1),
+(342, '::1', 'disdikbud@batangkab.go.id', 1, '2022-06-22 09:08:30', 1),
+(343, '::1', 'musaalfian19@gmail.com', 30, '2022-06-22 11:30:51', 1),
+(344, '::1', 'musaalfian19@gmail.com', 30, '2022-06-22 16:31:36', 1),
+(345, '::1', 'disdikbud@batangkab.go.id', 1, '2022-06-22 16:56:10', 1),
+(346, '::1', 'musaalfian19@gmail.com', 31, '2022-06-22 18:02:00', 1),
+(347, '::1', 'disdikbud@batangkab.go.id', 1, '2022-06-22 18:35:55', 1),
+(348, '::1', 'musaganteng071@gmail.com', 32, '2022-06-22 20:44:21', 1),
+(349, '::1', 'disdikbud@batangkab.go.id', 1, '2022-06-30 13:15:32', 1),
+(350, '::1', 'disdikbud@batangkab.go.id', 1, '2022-07-01 11:08:44', 1),
+(351, '::1', 'disdikbud@batangkab.go.id', 1, '2022-07-04 09:48:22', 1),
+(352, '::1', 'pendaftar1', NULL, '2022-07-04 09:48:50', 0),
+(353, '::1', 'musaalfian7@gmail.com', 29, '2022-07-04 09:49:36', 1),
+(354, '::1', 'ferdianrafli25@gmail.com', 33, '2022-07-04 10:33:40', 1),
+(355, '::1', 'musmus', NULL, '2022-07-04 11:12:45', 0),
+(356, '::1', 'musaalfian7@gmail.com', 29, '2022-07-04 11:13:15', 1),
+(357, '::1', 'ferdianrafli25@gmail.com', 33, '2022-07-04 11:16:36', 1),
+(358, '::1', 'ferdianrafli25@gmail.com', 33, '2022-07-04 14:24:50', 1);
 
 -- --------------------------------------------------------
 
@@ -566,6 +600,15 @@ CREATE TABLE `file` (
   `formulir_pendaftaran` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `file`
+--
+
+INSERT INTO `file` (`id_file`, `no_induk`, `ktp`, `kk`, `kartu_pelajar`, `rek_bpd`, `raport_smt`, `raport_legalisasi`, `pas_foto`, `sktm`, `diterima_pt`, `proposal`, `akreditasi_pt`, `laporan`, `formulir_pendaftaran`) VALUES
+(63, '123', '24060119120027_Iwan Suryaningrat_Tugas7.pdf', '24060119120027_Iwan Suryaningrat_Tugas7.pdf', '24060119120027_Iwan Suryaningrat_Tugas7.pdf', '24060119120027_Iwan Suryaningrat_Tugas7.pdf', NULL, NULL, 'ss.png', '24060119120027_Iwan Suryaningrat_Tugas7.pdf', '24060119120027_Iwan Suryaningrat_Tugas7.pdf', '24060119120027_Iwan Suryaningrat_Tugas7.pdf', NULL, '24060119120027_Iwan Suryaningrat_Tugas7.pdf', '24060119120027_Iwan Suryaningrat_Tugas7.pdf'),
+(65, '234', '24060119120027_Iwan Suryaningrat_Tugas7.pdf', '24060119120027_Iwan Suryaningrat_Tugas7.pdf', '24060119120027_Iwan Suryaningrat_Tugas7.pdf', NULL, '24060119120027_Iwan Suryaningrat_Tugas7.pdf', '24060119120027_Iwan Suryaningrat_Tugas7.pdf', 'Capture.PNG', '24060119120027_Iwan Suryaningrat_Tugas7.pdf', NULL, NULL, NULL, NULL, '24060119120027_Iwan Suryaningrat_Tugas7.pdf'),
+(66, '567', '24060119120027_Iwan Suryaningrat_Tugas7.pdf', '24060119120027_Iwan Suryaningrat_Tugas7.pdf', '24060119120027_Iwan Suryaningrat_Tugas7.pdf', NULL, NULL, NULL, 'Capture.PNG', '24060119120027_Iwan Suryaningrat_Tugas7.pdf', NULL, '24060119120027_Iwan Suryaningrat_Tugas7.pdf', '24060119120027_Iwan Suryaningrat_Tugas7.pdf', NULL, '24060119120027_Iwan Suryaningrat_Tugas7.pdf');
+
 -- --------------------------------------------------------
 
 --
@@ -605,6 +648,15 @@ CREATE TABLE `identitas` (
   `nominal` int(11) DEFAULT NULL,
   `created_at` date DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `identitas`
+--
+
+INSERT INTO `identitas` (`no_induk`, `no_induk_pelajar`, `nama_lengkap`, `jenis_kelamin`, `ttl`, `id_agama`, `anak_ke`, `no_telepon`, `alamat_rumah`, `id_kecamatan`, `jarak_sekolah`, `id_transportasi`, `id_sekolah`, `kelas`, `nama_pt`, `akreditasi_pt`, `tahun_masuk_pt`, `semester_ke`, `alamat_pt`, `id_status_peserta`, `id_status_pendaftaran`, `id_status_pembayaran`, `id_status_final`, `status_edit_pendaftaran`, `pesan`, `no_rek`, `pernah_menerima_bantuan`, `menerima_bantuan_dari`, `nama_pemilik_rekening`, `nominal`, `created_at`) VALUES
+('123', '000', 'Roni', 'L', 'Batang', 2, NULL, '123', 'Batang', 'KC12', NULL, NULL, NULL, NULL, 'Undip', 'A', 2019, 1, 'Batang', 2, 4, NULL, 2, NULL, '<p>Nama kamu jelek</p>', '123', 'tidak', '', 'Roni', 1000000, '2022-06-21'),
+('234', '543', 'Jepri', 'L', 'Batang', 1, 2, '123', 'Batang', 'KC05', 1, 1, '20322709', '10', NULL, NULL, NULL, NULL, NULL, 1, 4, NULL, NULL, NULL, '<p>Musa ganteng</p>', NULL, 'tidak', '', NULL, NULL, '2022-06-22'),
+('567', '567', 'Tarno', 'L', 'Batang', 2, NULL, '123', 'Batang', 'KC11', NULL, NULL, NULL, NULL, 'Unnes', 'A', 2019, 1, 'Semarang', 3, 4, 2, NULL, NULL, NULL, NULL, 'tidak', '', NULL, NULL, '2022-06-22');
 
 -- --------------------------------------------------------
 
@@ -660,9 +712,9 @@ CREATE TABLE `informasi_terbaru` (
 --
 
 INSERT INTO `informasi_terbaru` (`id_informasi_terbaru`, `judul_informasi_terbaru`, `deskripsi_informasi_terbaru`, `file_informasi_terbaru`, `gambar_informasi_terbaru`, `link_informasi_terbaru`, `created_at`, `updated_at`) VALUES
-(1, 'Peraturan Gubernur Bantuan Biaya Pendidikan', 'Peraturan Gubernur Bantuan Biaya Pendidikan', 'Pengumuman Prog Bantuan Biaya Pendidikan 2021.pdf', NULL, NULL, '2022-05-26 11:48:02', '2022-05-26 09:48:02'),
-(2, 'Peraturan Bupati Bantuan Biaya Pendidikan', 'Peraturan Bupati Bantuan Biaya Pendidikan', 'Pengumuman Prog Bantuan Biaya Pendidikan 2021.pdf', NULL, NULL, '2022-05-26 11:53:23', '2022-05-26 11:53:23'),
-(3, 'Tata cara Bantuan Biaya Pendidikan', 'Tata cara Bantuan Biaya Pendidikan', 'Perbup Tata Cara Pemberian Bantuan Biaya Pendidikan bagi Peserta didik menengah dan mhs yg berprestasi dr keluarga miskin.pdf', NULL, NULL, '2022-05-26 11:53:48', '2022-05-26 11:53:48'),
+(1, 'Peraturan Gubernur Bantuan Biaya Pendidikan', 'Peraturan Gubernur Bantuan Biaya Pendidikan', 'beasiswa ppt.pdf', NULL, NULL, '2022-05-26 11:48:02', '2022-07-04 10:40:50'),
+(2, 'Peraturan Bupati Bantuan Biaya Pendidikan', 'Peraturan Bupati Bantuan Biaya Pendidikan', 'PENGUMUMAN_KEPALA_DINAS_TENTANG_PRORGAM_BANTUAN_BIAYA_PENDIDIKAN.pdf', NULL, NULL, '2022-05-26 11:53:23', '2022-07-04 10:43:14'),
+(3, 'Tata cara Bantuan Biaya Pendidikan', 'Tata cara Bantuan Biaya Pendidikan', 'petunjuk pendaftaran.pdf', NULL, NULL, '2022-05-26 11:53:48', '2022-07-04 10:44:04'),
 (4, 'Bantuan Biaya Pendidikan', 'Bantuan Biaya Pendidikan', 'Perbup Tata Cara Pemberian Bantuan Biaya Pendidikan bagi Peserta didik menengah dan mhs yg berprestasi dr keluarga miskin.pdf', NULL, NULL, '2022-05-26 11:54:24', '2022-05-26 11:54:24'),
 (8, 'undangan', 'silahkan download undangan', 'Dokumen Pengujian UPL - 11.pdf', 'download.png', NULL, '2022-05-24 14:10:56', '2022-05-15 08:23:18'),
 (13, 'penerimaan ', 'penerimaan beasiswa', 'UAS Genap 2020-21 Masyarakat dan Etika Profesi final.pdf', 'Lambang_Kabupaten_Batang.png', NULL, '2022-06-13 11:54:10', '2022-06-13 11:54:10'),
@@ -726,6 +778,15 @@ CREATE TABLE `keluarga` (
   `bsm_kip` varchar(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `keluarga`
+--
+
+INSERT INTO `keluarga` (`id_keluarga`, `no_induk`, `nama_ayah`, `usia_ayah`, `pekerjaan_ayah`, `pendidikan_ayah`, `penghasilan_ayah`, `alamat_ayah`, `nama_ibu`, `usia_ibu`, `pekerjaan_ibu`, `pendidikan_ibu`, `penghasilan_ibu`, `alamat_ibu`, `rtsm_rtm`, `pkh_kks_kbs`, `bsm_kip`) VALUES
+(59, '123', 'Ayah Roni', 12, 'Ayah', 'SMP', 2000, 'Ayah', 'Ayah', 20, 'Ayah', 'SMP', 200, 'Ayah', 'tidak', 'tidak', 'tidak'),
+(61, '234', 'Lancelot', 0, 'Presiden', 'SMP', 500, 'Batang', 'Aurora', 0, 'Dosen', 'SD', 100, 'Batang', 'ya', 'ya', 'tidak'),
+(62, '567', 'Ayah', 10, 'Ayah', 'SMP', 10000, 'Ayah', 'Ayah', 10, 'Ayah', 'SD', 100, 'Ayah', 'tidak', 'tidak', 'tidak');
+
 -- --------------------------------------------------------
 
 --
@@ -766,6 +827,16 @@ CREATE TABLE `prestasi` (
   `no_induk` varchar(25) NOT NULL,
   `file_prestasi` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `prestasi`
+--
+
+INSERT INTO `prestasi` (`id_prestasi`, `kategori`, `tingkat`, `juara`, `nilai`, `nama_prestasi`, `tahun_prestasi`, `no_induk`, `file_prestasi`) VALUES
+(138, 'hafidz', NULL, NULL, 200, 'renang', 2010, '123', '24060119120027_Iwan Suryaningrat_Tugas7.pdf'),
+(140, 'hafidz', NULL, NULL, 200, 'Renang', 2020, '234', '24060119120027_Iwan Suryaningrat_Tugas7.pdf'),
+(141, 'perlombaan', ' internasional', 'juara 1', 0, 'Tinju', 2018, '234', '24060119120027_Iwan Suryaningrat_Tugas7.pdf'),
+(142, 'hafidz', NULL, NULL, 200, 'Renang', 2019, '567', '24060119120027_Iwan Suryaningrat_Tugas7.pdf');
 
 -- --------------------------------------------------------
 
@@ -938,8 +1009,8 @@ CREATE TABLE `tanggal_penting` (
 --
 
 INSERT INTO `tanggal_penting` (`id_tanggal_penting`, `nama_tanggal_penting`, `tanggal_penting`) VALUES
-(1, 'Tanggal Pembukaan Pendaftaran', '2022-05-31'),
-(2, 'Tanggal Pengumuman', '2022-06-19');
+(1, 'Tanggal Pembukaan Pendaftaran', '2022-07-01'),
+(2, 'Tanggal Pengumuman', '2022-07-03');
 
 -- --------------------------------------------------------
 
@@ -993,7 +1064,11 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `email`, `username`, `no_induk`, `password_hash`, `reset_hash`, `reset_at`, `reset_expires`, `activate_hash`, `status`, `status_message`, `active`, `force_pass_reset`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'disdikbud@batangkab.go.id', 'admin1', NULL, '$2y$10$Euhkx3BPxfSrXG8O2apu1.JFFEDo6WOo6eElsbd5jiQgS1r0RUoam', NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2022-03-01 10:22:10', '2022-03-01 10:22:46', NULL);
+(1, 'disdikbud@batangkab.go.id', 'admin1', NULL, '$2y$10$Euhkx3BPxfSrXG8O2apu1.JFFEDo6WOo6eElsbd5jiQgS1r0RUoam', NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2022-03-01 10:22:10', '2022-03-01 10:22:46', NULL),
+(29, 'musaalfian7@gmail.com', 'musmus', '123', '$2y$10$F1Z16aVTZV02MHpXR2OWX.lDpRHsHlfq3uUvcg1w7Ozk1b7TSUvPy', NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2022-06-21 07:18:09', '2022-06-21 07:20:13', NULL),
+(31, 'musaalfian19@gmail.com', 'pendaftar1', '234', '$2y$10$KGTC8aidGPDG1gbWIDT5YeNjz6fYwEFzQIzj2BUJQo9TRR47IaxWC', NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2022-06-22 18:00:56', '2022-06-22 18:01:39', NULL),
+(32, 'musaganteng071@gmail.com', 'jekjek', '567', '$2y$10$N2qfF2TxGlvzf0TqgbxQsO8yWTliZ6FwQHz/N8R.XLcYiBGkU0.2i', NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2022-06-22 20:43:27', '2022-06-22 20:43:55', NULL),
+(33, 'ferdianrafli25@gmail.com', 'admin2', NULL, '$2y$10$5H5ef2tCfL48BFvH.kXEPu.NdpM5vokfsISKLd55VG1GI78c3Xfli', NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2022-07-04 10:33:03', '2022-07-04 10:33:03', NULL);
 
 --
 -- Indexes for dumped tables
@@ -1190,7 +1265,7 @@ ALTER TABLE `agama`
 -- AUTO_INCREMENT for table `auth_activation_attempts`
 --
 ALTER TABLE `auth_activation_attempts`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `auth_groups`
@@ -1202,7 +1277,7 @@ ALTER TABLE `auth_groups`
 -- AUTO_INCREMENT for table `auth_logins`
 --
 ALTER TABLE `auth_logins`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=333;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=359;
 
 --
 -- AUTO_INCREMENT for table `auth_permissions`
@@ -1226,7 +1301,7 @@ ALTER TABLE `auth_tokens`
 -- AUTO_INCREMENT for table `file`
 --
 ALTER TABLE `file`
-  MODIFY `id_file` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
+  MODIFY `id_file` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
 
 --
 -- AUTO_INCREMENT for table `informasi_pendaftaran`
@@ -1244,7 +1319,7 @@ ALTER TABLE `informasi_terbaru`
 -- AUTO_INCREMENT for table `keluarga`
 --
 ALTER TABLE `keluarga`
-  MODIFY `id_keluarga` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `id_keluarga` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -1256,7 +1331,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `prestasi`
 --
 ALTER TABLE `prestasi`
-  MODIFY `id_prestasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=138;
+  MODIFY `id_prestasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=145;
 
 --
 -- AUTO_INCREMENT for table `status_final`
@@ -1286,7 +1361,7 @@ ALTER TABLE `status_peserta`
 -- AUTO_INCREMENT for table `tanggal_penting`
 --
 ALTER TABLE `tanggal_penting`
-  MODIFY `id_tanggal_penting` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_tanggal_penting` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `transportasi`
@@ -1298,7 +1373,7 @@ ALTER TABLE `transportasi`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- Constraints for dumped tables
