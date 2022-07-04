@@ -83,7 +83,7 @@ class Calon_mhs extends BaseController
                 ]
             ],
             'no_induk_pelajar'    => 'required',
-            'nama_lengkap'      => 'required|alpha_space',
+            'nama_lengkap'      => 'required',
             'jenis_kelamin'    => 'required',
             'ttl'    => [
                 'rule' => 'required',
@@ -155,8 +155,9 @@ class Calon_mhs extends BaseController
         return redirect()->to('pendaftaran/tambah_pendaftar/' . $id_peserta);
     }
     // Keluarga calon mahacalon_mhs
-    public function tambah_keluarga_calon_mhs($no_induk)
+    public function tambah_keluarga_calon_mhs()
     {
+        $no_induk = user()->no_induk;
         $identitas = $this->MIdentitas->find_identitas_user(user_id())->getFirstRow('array');
         $keluarga = $this->MKeluarga->find_keluarga_noinduk($no_induk)->getFirstRow('array');
         $pendidikan = ['SD', 'SMP', 'SMA', 'D1', 'D3', 'D4', 'S1', 'S2', 'S3', 'Lainnya'];
@@ -174,8 +175,10 @@ class Calon_mhs extends BaseController
         ];
         return view('/pendaftar/pendaftaran/form_keluarga', $data);
     }
-    public function simpan_tambah_keluarga_calon_mhs($no_induk)
+    public function simpan_tambah_keluarga_calon_mhs()
     {
+        $no_induk = user()->no_induk;
+
         $id_peserta = $this->MIdentitas->where('no_induk', $no_induk)->findColumn('id_status_peserta');
 
         if (!$this->validate([
@@ -219,8 +222,10 @@ class Calon_mhs extends BaseController
         session()->setFlashdata('pesan-tambah-keluarga-calon_mhs', 'Data kondisi keluarga berhasil ditambahkan.');
         return redirect()->to('pendaftaran/tambah_pendaftar/' . $id_peserta[0]);
     }
-    public function tambah_lampiran_calon_mhs($no_induk)
+    public function tambah_lampiran_calon_mhs()
     {
+        $no_induk = user()->no_induk;
+
         $identitas = $this->MIdentitas->find_identitas_user(user_id())->getFirstRow('array');
         $kategori = ['perlombaan', 'ujian sekolah', 'hafidz', 'lainnya'];
         $tingkat = ['internasional', 'nasional', 'provinsi', 'karesidenan', 'kabupaten'];
@@ -240,8 +245,10 @@ class Calon_mhs extends BaseController
         ];
         return view('/pendaftar/calon_mhs/form_lampiran_calon_mhs', $data);
     }
-    public function simpan_tambah_lampiran_calon_mhs($no_induk)
+    public function simpan_tambah_lampiran_calon_mhs()
     {
+        $no_induk = user()->no_induk;
+
         $id_peserta = $this->MIdentitas->where('no_induk', $no_induk)->findColumn('id_status_peserta');
         // kategori
         $kategori_1 = $this->request->getVar('kategori_1');
@@ -266,7 +273,7 @@ class Calon_mhs extends BaseController
                 session()->setFlashdata('pesan-gagal-lampiran-pendaftar', 'Data lampiran gagal ditambahkan, pendaftar harus mengunggah kembali seluruh file.');
                 return redirect()->to('pendaftaran/tambah_pendaftar/' . $id_peserta[0])->withInput();
             }
-        } else if ($scan_prestasi['prestasi_2']->getError() != 4 ) {
+        } else if ($scan_prestasi['prestasi_2']->getError() != 4) {
             if (!$this->validate(
                 [
                     'tingkat_2' => 'required',
@@ -335,7 +342,7 @@ class Calon_mhs extends BaseController
             if ($file_scan_prestasi != null && $file_scan_prestasi->getError() != 4) {
                 // mengambil nama file prestasi dan dimasukkan ke array
                 // $nama_scan_prestasi[] = $file_scan_prestasi->getName();
-                $nama_prestasi = $no_induk.'_prestasi_'.$index_prestasi++.'.pdf';
+                $nama_prestasi = $no_induk . '_prestasi_' . $index_prestasi++ . '.pdf';
                 $nama_scan_prestasi[] = $nama_prestasi;
                 // memindahkan file scan prestasi ke folder scan
                 $file_scan_prestasi->move('assets/scan/' . $no_induk . '/prestasi', $nama_prestasi);
@@ -399,7 +406,7 @@ class Calon_mhs extends BaseController
             'scan_pas_foto',
         ];
         //ambil file inputan
-        foreach($nama_scan_input as $data_nama_scan){
+        foreach ($nama_scan_input as $data_nama_scan) {
             $scan[] = $this->request->getFile($data_nama_scan);
         }
         // dd($scan);
@@ -407,7 +414,7 @@ class Calon_mhs extends BaseController
         $index_scan_input = 0;
         foreach ($scan as $scan) {
             // mengambil nama file scan dan dimasukkan ke array
-            $nama_file_scan = $no_induk.'_'. $nama_scan_input[$index_scan_input++] .'.'. $scan->getExtension();
+            $nama_file_scan = $no_induk . '_' . $nama_scan_input[$index_scan_input++] . '.' . $scan->getExtension();
             $nama_scan[] = $nama_file_scan;
             // memindahkan file scan ke folder scan
             $scan->move('assets/scan/' . $no_induk . '/file', $nama_file_scan);
@@ -426,8 +433,10 @@ class Calon_mhs extends BaseController
         ]);
         return redirect()->to('pendaftaran/tambah_pendaftar/' . $id_peserta[0]);
     }
-    public function simpan_formulir_pendaftaran($no_induk)
+    public function simpan_formulir_pendaftaran()
     {
+        $no_induk = user()->no_induk;
+
         $id_peserta = $this->MIdentitas->where('no_induk', $no_induk)->findColumn('id_status_peserta');
         $formulir_pendaftaran = $this->request->getFile('scan_formulir_pendaftaran');
         if ($formulir_pendaftaran->getError() != 4) {
@@ -445,8 +454,10 @@ class Calon_mhs extends BaseController
         ]);
         return redirect()->to('pendaftaran/tambah_pendaftar/' . $id_peserta[0]);
     }
-    public function edit_calon_mhs($no_induk)
+    public function edit_calon_mhs()
     {
+        $no_induk = user()->no_induk;
+
         session();
         $validation = \Config\Services::validation();
         $agama = $this->MAgama->findAll();
@@ -691,7 +702,7 @@ class Calon_mhs extends BaseController
             $prestasi[] = null;
         }
         if ($scan_prestasi['prestasi_2']->getError() != 4) {
-        //     // Validasi Prestasi 2
+            //     // Validasi Prestasi 2
             if ($kategori_2 == 'ujian sekolah' || $kategori_2 == 'hafidz' || $kategori_2 == 'lainnya') {
                 if (!$this->validate(
                     [
@@ -741,7 +752,7 @@ class Calon_mhs extends BaseController
         // Validasi Lampiran file
 
         if ($kategori_1 == 'hafidz' || $kategori_1 == 'ujian sekolah' || $kategori_1 == 'lainnya') {
-        // if ($scan_prestasi['prestasi_1']->getError() != 4) {
+            // if ($scan_prestasi['prestasi_1']->getError() != 4) {
             if (!$this->validate(
                 [
                     'nama_prestasi_1' => 'required',
@@ -768,7 +779,7 @@ class Calon_mhs extends BaseController
             if ($file_scan_prestasi->getError() != 4) {
                 // mengambil nama file prestasi dan dimasukkan ke array
                 // $nama_scan_prestasi[] = $file_scan_prestasi->getName();
-                $nama_prestasi = $no_induk.'_prestasi_'.$index_prestasi++.'.pdf';
+                $nama_prestasi = $no_induk . '_prestasi_' . $index_prestasi++ . '.pdf';
                 $nama_scan_prestasi[] = $nama_prestasi;
                 // memindahkan file scan prestasi ke folder scan
                 $file_scan_prestasi->move('assets/scan/' . $no_induk . '/prestasi', $nama_prestasi);
@@ -910,12 +921,12 @@ class Calon_mhs extends BaseController
             'scan_pas_foto',
         ];
         //ambil file inputan
-        foreach($nama_scan_input as $data_nama_scan){
+        foreach ($nama_scan_input as $data_nama_scan) {
             $scan[] = $this->request->getFile($data_nama_scan);
         }
 
         // menginisialisasi nama file pada database ke array
-        $nama_file = ['kk', 'ktp', 'kartu_pelajar',  'diterima_pt', 'proposal', 'sktm','pas_foto'];
+        $nama_file = ['kk', 'ktp', 'kartu_pelajar',  'diterima_pt', 'proposal', 'sktm', 'pas_foto'];
         // pindahkn file scan ke folder scan
         $file = $this->MFile->find_file_noinduk($no_induk)->getFirstRow('array');
         $l = 0;
@@ -923,11 +934,11 @@ class Calon_mhs extends BaseController
         foreach ($scan as $scan) {
             if ($scan->getError() != 4) {
                 // mengambil nama file scan dan dimasukkan ke array
-                $nama_file_scan = $no_induk.'_'. $nama_scan_input[$l] .'.'. $scan->getExtension();
+                $nama_file_scan = $no_induk . '_' . $nama_scan_input[$l] . '.' . $scan->getExtension();
                 $nama_scan[] = $nama_file_scan;
                 // memindahkan file scan scan ke folder scan
-                    //hapus file scan yang lama
-                    unlink('assets/scan/' . $no_induk . '/file/' . $file[$nama_file[$l]]);
+                //hapus file scan yang lama
+                unlink('assets/scan/' . $no_induk . '/file/' . $file[$nama_file[$l]]);
                 $scan->move('assets/scan/' . $no_induk . '/file', $nama_file_scan);
             } else {
                 // mengambil nama file yang tidak ada upload dari user

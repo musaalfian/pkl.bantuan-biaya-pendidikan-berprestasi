@@ -82,7 +82,7 @@ class Mahasiswa extends BaseController
                 ]
             ],
             'no_induk_pelajar'    => 'required',
-            'nama_lengkap'      => 'required|alpha_space',
+            'nama_lengkap'      => 'required',
             'jenis_kelamin'    => 'required',
             'ttl'    => [
                 'rule' => 'required',
@@ -153,8 +153,9 @@ class Mahasiswa extends BaseController
         return redirect()->to('pendaftaran/tambah_pendaftar/' . $id_peserta);
     }
     // Keluarga mahasiswa
-    public function tambah_keluarga_mhs($no_induk)
+    public function tambah_keluarga_mhs()
     {
+        $no_induk = user()->no_induk;
         $identitas = $this->MIdentitas->find_identitas_user(user_id())->getFirstRow('array');
         $keluarga = $this->MKeluarga->find_keluarga_noinduk($no_induk)->getFirstRow('array');
         $pendidikan = ['SD', 'SMP', 'SMA', 'D1', 'D3', 'D4', 'S1', 'S2', 'S3', 'Lainnya'];
@@ -171,8 +172,9 @@ class Mahasiswa extends BaseController
         ];
         return view('/pendaftar/pendaftaran/form_keluarga', $data);
     }
-    public function simpan_tambah_keluarga_mhs($no_induk)
+    public function simpan_tambah_keluarga_mhs()
     {
+        $no_induk = user()->no_induk;
         $id_peserta = $this->MIdentitas->where('no_induk', $no_induk)->findColumn('id_status_peserta');
 
         if (!$this->validate([
@@ -216,8 +218,9 @@ class Mahasiswa extends BaseController
         session()->setFlashdata('pesan-tambah-keluarga-mhs', 'Data kondisi keluarga berhasil ditambahkan.');
         return redirect()->to('pendaftaran/tambah_pendaftar/' . $id_peserta[0]);
     }
-    public function tambah_lampiran_mhs($no_induk)
+    public function tambah_lampiran_mhs()
     {
+        $no_induk = user()->no_induk;
         $identitas = $this->MIdentitas->find_identitas_user(user_id())->getFirstRow('array');
         $kategori = ['perlombaan', 'KHS', 'hafidz', 'lainnya'];
         $tingkat = ['internasional', 'nasional', 'provinsi', 'karesidenan', 'kabupaten'];
@@ -236,8 +239,9 @@ class Mahasiswa extends BaseController
         ];
         return view('/pendaftar/mhs/form_lampiran_mhs', $data);
     }
-    public function simpan_tambah_lampiran_mhs($no_induk)
+    public function simpan_tambah_lampiran_mhs()
     {
+        $no_induk = user()->no_induk;
         $id_peserta = $this->MIdentitas->where('no_induk', $no_induk)->findColumn('id_status_peserta');
 
         // kategori
@@ -416,8 +420,9 @@ class Mahasiswa extends BaseController
         ]);
         return redirect()->to('pendaftaran/tambah_pendaftar/' . $id_peserta[0]);
     }
-    public function simpan_formulir_pendaftaran($no_induk)
+    public function simpan_formulir_pendaftaran()
     {
+        $no_induk = user()->no_induk;
         $id_peserta = $this->MIdentitas->where('no_induk', $no_induk)->findColumn('id_status_peserta');
         $formulir_pendaftaran = $this->request->getFile('scan_formulir_pendaftaran');
         if ($formulir_pendaftaran->getError() != 4) {
@@ -434,8 +439,10 @@ class Mahasiswa extends BaseController
         ]);
         return redirect()->to('pendaftaran/tambah_pendaftar/' . $id_peserta[0]);
     }
-    public function edit_mhs($no_induk)
+    public function edit_mhs()
     {
+        $no_induk = user()->no_induk;
+
         session();
         $validation = \Config\Services::validation();
         $agama = $this->MAgama->findAll();

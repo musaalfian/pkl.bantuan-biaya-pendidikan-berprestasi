@@ -86,15 +86,26 @@ class Home_admin extends BaseController
         ];
         return view('/admin/index', $data);
     }
+    // menampilkan data akun pendaftar
+    public function daftarAkun()
+    {
+        $daftarAkun = $this->db->table('users')
+            ->select('users.username, users.email, users.active')
+            ->join('auth_groups_users', 'auth_groups_users.user_id = users.id')
+            ->where('auth_groups_users.group_id', 2)
+            ->get()->getResultArray();
 
-    // menampilkan seluruh akun
-    // public function seluruhAkun()
-    // {
-    //     $akun = $this->MUser->findAll()->count();
-    //     $data = [
-    //         'user' => $akun
-    //     ];
-    //     dd($akun);
-    //     return view('/admin/daftarAkun');
-    // }
+        $jumlahAkun = $this->db->table('users')
+            ->select('users.username, users.email, users.active')
+            ->join('auth_groups_users', 'auth_groups_users.user_id = users.id')
+            ->where('auth_groups_users.group_id', 2)
+            ->countAllResults();
+
+        $data = [
+            'title'     => 'Beasiswa Batang | Daftar Akun',
+            'daftarAkun' => $daftarAkun,
+            'jumlahAkun' => $jumlahAkun
+        ];
+        return view('/admin/daftar_akun_admin', $data);
+    }
 }

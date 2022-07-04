@@ -83,7 +83,7 @@ class Siswa extends BaseController
                 ]
             ],
             'no_induk_pelajar'    => 'required',
-            'nama_lengkap'      => 'required|alpha_space',
+            'nama_lengkap'      => 'required',
             'jenis_kelamin'    => 'required',
             'ttl'    => [
                 'rule' => 'required',
@@ -102,7 +102,7 @@ class Siswa extends BaseController
             'kelas'    => 'required',
             'pernah_menerima_bantuan'    => 'required',
         ])) {
-            return redirect()->to('siswa/tambah_identitas_siswa')->withInput();
+            return redirect()->to('pendaftaran/tambah_pendaftar/' . $id_peserta)->withInput();
         }
         if ($this->request->getVar('pernah_menerima_bantuan') == 'ya') {
             $menerima_bantuan = $this->request->getVar('menerima_bantuan_dari');
@@ -135,8 +135,10 @@ class Siswa extends BaseController
         return redirect()->to('pendaftaran/tambah_pendaftar/' . $id_peserta);
     }
     // Keluarga siswa
-    public function tambah_keluarga_siswa($no_induk)
+    public function tambah_keluarga_siswa()
     {
+        $no_induk = user()->no_induk;
+
         $identitas = $this->MIdentitas->find_identitas_user(user_id())->getFirstRow('array');
         $keluarga = $this->MKeluarga->find_keluarga_noinduk($no_induk)->getFirstRow('array');
         $pendidikan = ['SD', 'SMP', 'SMA', 'D1', 'D3', 'D4', 'S1', 'S2', 'S3', 'Lainnya'];
@@ -155,8 +157,10 @@ class Siswa extends BaseController
         ];
         return view('/pendaftar/pendaftaran/form_keluarga', $data);
     }
-    public function simpan_tambah_keluarga_siswa($no_induk)
+    public function simpan_tambah_keluarga_siswa()
     {
+        $no_induk = user()->no_induk;
+
         $id_peserta = $this->MIdentitas->where('no_induk', $no_induk)->findColumn('id_status_peserta');
         if (!$this->validate([
             'nama_ayah'    => 'required|alpha_space',
@@ -196,8 +200,10 @@ class Siswa extends BaseController
         session()->setFlashdata('pesan-tambah-keluarga-siswa', 'Data kondisi keluarga berhasil ditambahkan.');
         return redirect()->to('pendaftaran/tambah_pendaftar/' . $id_peserta[0]);
     }
-    public function tambah_lampiran_siswa($no_induk)
+    public function tambah_lampiran_siswa()
     {
+        $no_induk = user()->no_induk;
+
         $identitas = $this->MIdentitas->find_identitas_user(user_id())->getFirstRow('array');
         $kategori = ['perlombaan', 'hafidz', 'lainnya'];
         $tingkat = ['internasional', 'nasional', 'provinsi', 'karesidenan', 'kabupaten'];
@@ -218,8 +224,10 @@ class Siswa extends BaseController
         // dd($file);
         return view('/pendaftar/siswa/form_lampiran_siswa', $data);
     }
-    public function simpan_tambah_lampiran_siswa($no_induk)
+    public function simpan_tambah_lampiran_siswa()
     {
+        $no_induk = user()->no_induk;
+
         $id_peserta = $this->MIdentitas->where('no_induk', $no_induk)->findColumn('id_status_peserta');
         // kategori
         $kategori_1 = $this->request->getVar('kategori_1');
@@ -394,8 +402,10 @@ class Siswa extends BaseController
         session()->setFlashdata('pesan-tambah-lampiran-pendaftar', 'Data lampiran berhasil ditambahkan.');
         return redirect()->to('pendaftaran/tambah_pendaftar/' . $id_peserta[0]);
     }
-    public function simpan_formulir_pendaftaran($no_induk)
+    public function simpan_formulir_pendaftaran()
     {
+        $no_induk = user()->no_induk;
+
         $id_peserta = $this->MIdentitas->where('no_induk', $no_induk)->findColumn('id_status_peserta');
         $formulir_pendaftaran = $this->request->getFile('scan_formulir_pendaftaran');
         if ($formulir_pendaftaran->getError() != 4) {
@@ -413,8 +423,10 @@ class Siswa extends BaseController
         return redirect()->to('pendaftaran/tambah_pendaftar/' . $id_peserta[0]);
     }
 
-    public function edit_siswa($no_induk)
+    public function edit_siswa()
     {
+        $no_induk = user()->no_induk;
+
         session();
         $validation = \Config\Services::validation();
         $kategori = ['perlombaan', 'hafidz', 'lainnya'];
