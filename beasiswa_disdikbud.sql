@@ -3,7 +3,11 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
+<<<<<<< Updated upstream
 -- Generation Time: Jul 04, 2022 at 09:25 AM
+=======
+-- Generation Time: Jul 04, 2022 at 04:45 AM
+>>>>>>> Stashed changes
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -80,10 +84,16 @@ INSERT INTO `auth_activation_attempts` (`id`, `ip_address`, `user_agent`, `token
 (15, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.61 Safari/537.36', 'f01101e3361f249bf000c8f2f1a53aa6', '2022-05-30 19:38:25'),
 (16, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.63 Safari/537.36', 'cc8515e41cfcb622475fa112eb926e06', '2022-06-02 08:44:13'),
 (17, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36', '010062407a99918f356ae64d692a81d1', '2022-06-13 22:54:29'),
+<<<<<<< Updated upstream
 (18, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36', '5db5defc13ec31c65a1c6b4509e989d4', '2022-06-21 07:20:12'),
 (19, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36', '1fbfbaa098581936ec57eb60f18f9025', '2022-06-22 11:30:35'),
 (20, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36', '6e94729ac0ab0560a42247082ee05be6', '2022-06-22 18:01:39'),
 (21, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36', '907f9dfb1e0376a190a4cebe4abe349e', '2022-06-22 20:43:54');
+=======
+(18, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36', '1faaeccdb0fcadc59f7c39c7d129d9c1', '2022-06-20 20:36:31'),
+(19, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36', 'caa9cddffc5251b9c1e8fd653662ab10', '2022-06-24 20:02:15'),
+(20, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36', 'fca6906be87e15bb561487079125e1b1', '2022-07-01 14:05:02');
+>>>>>>> Stashed changes
 
 -- --------------------------------------------------------
 
@@ -133,10 +143,15 @@ CREATE TABLE `auth_groups_users` (
 
 INSERT INTO `auth_groups_users` (`group_id`, `user_id`) VALUES
 (1, 1),
+<<<<<<< Updated upstream
 (1, 33),
 (2, 29),
 (2, 31),
 (2, 32);
+=======
+(2, 28),
+(2, 30);
+>>>>>>> Stashed changes
 
 -- --------------------------------------------------------
 
@@ -490,6 +505,7 @@ INSERT INTO `auth_logins` (`id`, `ip_address`, `email`, `user_id`, `date`, `succ
 (330, '::1', 'ferdianrafli32@gmail.com', 21, '2022-06-19 22:48:01', 1),
 (331, '::1', 'ferdianrafli32@gmail.com', 21, '2022-06-20 11:37:29', 1),
 (332, '::1', 'beasiswabatang@gmail.com', 1, '2022-06-20 11:41:22', 1),
+<<<<<<< Updated upstream
 (333, '::1', 'pendaftar1', NULL, '2022-06-21 06:55:40', 0),
 (334, '::1', 'musmus', 28, '2022-06-21 07:15:31', 0),
 (335, '::1', 'musaalfian7@gmail.com', 29, '2022-06-21 07:21:00', 1),
@@ -516,6 +532,38 @@ INSERT INTO `auth_logins` (`id`, `ip_address`, `email`, `user_id`, `date`, `succ
 (356, '::1', 'musaalfian7@gmail.com', 29, '2022-07-04 11:13:15', 1),
 (357, '::1', 'ferdianrafli25@gmail.com', 33, '2022-07-04 11:16:36', 1),
 (358, '::1', 'ferdianrafli25@gmail.com', 33, '2022-07-04 14:24:50', 1);
+=======
+(333, '::1', 'admin1', NULL, '2022-06-20 13:32:20', 0),
+(334, '::1', 'disdikbud@batangkab.go.id', 1, '2022-06-20 13:32:35', 1),
+(335, '::1', 'ferdianrafli25@gmail.com', 28, '2022-06-20 20:36:52', 1),
+(336, '::1', 'ferdianrafli25@gmail.com', 28, '2022-06-21 06:58:51', 1),
+(337, '::1', 'ferdianrafli25@gmail.com', 28, '2022-06-22 07:01:33', 1),
+(338, '::1', 'disdikbud@batangkab.go.id', 1, '2022-06-22 10:47:23', 1),
+(339, '::1', 'ferdianrafli25@gmail.com', 28, '2022-06-22 16:42:02', 1),
+(340, '::1', 'Rafli25', NULL, '2022-06-22 18:34:53', 0),
+(341, '::1', 'disdikbud@batangkab.go.id', 1, '2022-06-22 18:35:07', 1),
+(342, '::1', 'disdikbud@batangkab.go.id', 1, '2022-06-22 21:20:31', 1),
+(343, '::1', 'ferdianrafli25@gmail.com', 28, '2022-06-23 02:56:44', 1),
+(344, '::1', 'disdikbud@batangkab.go.id', 1, '2022-06-23 03:00:58', 1),
+(345, '::1', 'disdikbud@batangkab.go.id', 1, '2022-06-23 03:50:26', 1),
+(346, '::1', 'ferdianrafli125@gmail.com', 29, '2022-06-24 20:02:28', 1),
+(347, '::1', 'ferdianrafli25@gmail.com', 28, '2022-06-25 00:25:52', 1),
+(348, '::1', 'ferdianrafli25@gmail.com', 28, '2022-06-25 15:50:55', 1),
+(349, '::1', 'ferdianrafli25@gmail.com', 28, '2022-06-26 03:00:57', 1),
+(350, '::1', 'ferdianrafli25@gmail.com', 28, '2022-06-26 07:46:14', 1),
+(351, '::1', 'ferdianrafli25@gmail.com', 28, '2022-06-26 20:54:47', 1),
+(352, '::1', 'ferdianrafli25@gmail.com', 28, '2022-06-26 20:54:48', 1),
+(353, '::1', 'ferdianrafli25@gmail.com', 28, '2022-06-27 07:17:39', 1),
+(354, '::1', 'disdikbud@batangkab.go.id', 1, '2022-06-27 10:50:34', 1),
+(355, '::1', 'ferdianrafli25@gmail.com', 28, '2022-06-27 12:03:37', 1),
+(356, '::1', 'ferdianrafli125@gmail.com', 29, '2022-06-28 09:31:05', 1),
+(357, '::1', 'admin1', NULL, '2022-07-01 13:23:23', 0),
+(358, '::1', 'disdikbud@batangkab.go.id', 1, '2022-07-01 13:25:51', 1),
+(359, '::1', 'ferdianrafli25@gmail.com', 28, '2022-07-01 14:03:05', 1),
+(360, '::1', 'Rafli2512', 30, '2022-07-01 14:03:26', 0),
+(361, '::1', 'ferdianrafli125@gmail.com', 30, '2022-07-01 14:05:12', 1),
+(362, '::1', 'disdikbud@batangkab.go.id', 1, '2022-07-01 14:35:31', 1);
+>>>>>>> Stashed changes
 
 -- --------------------------------------------------------
 
@@ -605,9 +653,14 @@ CREATE TABLE `file` (
 --
 
 INSERT INTO `file` (`id_file`, `no_induk`, `ktp`, `kk`, `kartu_pelajar`, `rek_bpd`, `raport_smt`, `raport_legalisasi`, `pas_foto`, `sktm`, `diterima_pt`, `proposal`, `akreditasi_pt`, `laporan`, `formulir_pendaftaran`) VALUES
+<<<<<<< Updated upstream
 (63, '123', '24060119120027_Iwan Suryaningrat_Tugas7.pdf', '24060119120027_Iwan Suryaningrat_Tugas7.pdf', '24060119120027_Iwan Suryaningrat_Tugas7.pdf', '24060119120027_Iwan Suryaningrat_Tugas7.pdf', NULL, NULL, 'ss.png', '24060119120027_Iwan Suryaningrat_Tugas7.pdf', '24060119120027_Iwan Suryaningrat_Tugas7.pdf', '24060119120027_Iwan Suryaningrat_Tugas7.pdf', NULL, '24060119120027_Iwan Suryaningrat_Tugas7.pdf', '24060119120027_Iwan Suryaningrat_Tugas7.pdf'),
 (65, '234', '24060119120027_Iwan Suryaningrat_Tugas7.pdf', '24060119120027_Iwan Suryaningrat_Tugas7.pdf', '24060119120027_Iwan Suryaningrat_Tugas7.pdf', NULL, '24060119120027_Iwan Suryaningrat_Tugas7.pdf', '24060119120027_Iwan Suryaningrat_Tugas7.pdf', 'Capture.PNG', '24060119120027_Iwan Suryaningrat_Tugas7.pdf', NULL, NULL, NULL, NULL, '24060119120027_Iwan Suryaningrat_Tugas7.pdf'),
 (66, '567', '24060119120027_Iwan Suryaningrat_Tugas7.pdf', '24060119120027_Iwan Suryaningrat_Tugas7.pdf', '24060119120027_Iwan Suryaningrat_Tugas7.pdf', NULL, NULL, NULL, 'Capture.PNG', '24060119120027_Iwan Suryaningrat_Tugas7.pdf', NULL, '24060119120027_Iwan Suryaningrat_Tugas7.pdf', '24060119120027_Iwan Suryaningrat_Tugas7.pdf', NULL, '24060119120027_Iwan Suryaningrat_Tugas7.pdf');
+=======
+(78, '3324162512000002', '3324162512000002_scan_ktp.pdf', '3324162512000002_scan_kk.pdf', '3324162512000002_scan_kartu_pelajar.pdf', NULL, NULL, NULL, '3324162512000002_scan_pas_foto.png', '3324162512000002_scan_sktm.pdf', '3324162512000002_scan_diterima_pt.pdf', '3324162512000002_scan_proposal.pdf', NULL, NULL, 'Kelompok3_Tugas03.pdf'),
+(79, '3324162512000324', '3324162512000324_scan_ktp.pdf', '3324162512000324_scan_kk.pdf', '3324162512000324_scan_kartu_pelajar.pdf', NULL, '3324162512000324_scan_raport.pdf', '3324162512000324_scan_sktm.pdf', '3324162512000324_scan_pas_foto.png', '3324162512000324_scan_raport_smt.pdf', NULL, NULL, NULL, NULL, 'formulir-pendaftaran.pdf');
+>>>>>>> Stashed changes
 
 -- --------------------------------------------------------
 
@@ -654,9 +707,14 @@ CREATE TABLE `identitas` (
 --
 
 INSERT INTO `identitas` (`no_induk`, `no_induk_pelajar`, `nama_lengkap`, `jenis_kelamin`, `ttl`, `id_agama`, `anak_ke`, `no_telepon`, `alamat_rumah`, `id_kecamatan`, `jarak_sekolah`, `id_transportasi`, `id_sekolah`, `kelas`, `nama_pt`, `akreditasi_pt`, `tahun_masuk_pt`, `semester_ke`, `alamat_pt`, `id_status_peserta`, `id_status_pendaftaran`, `id_status_pembayaran`, `id_status_final`, `status_edit_pendaftaran`, `pesan`, `no_rek`, `pernah_menerima_bantuan`, `menerima_bantuan_dari`, `nama_pemilik_rekening`, `nominal`, `created_at`) VALUES
+<<<<<<< Updated upstream
 ('123', '000', 'Roni', 'L', 'Batang', 2, NULL, '123', 'Batang', 'KC12', NULL, NULL, NULL, NULL, 'Undip', 'A', 2019, 1, 'Batang', 2, 4, NULL, 2, NULL, '<p>Nama kamu jelek</p>', '123', 'tidak', '', 'Roni', 1000000, '2022-06-21'),
 ('234', '543', 'Jepri', 'L', 'Batang', 1, 2, '123', 'Batang', 'KC05', 1, 1, '20322709', '10', NULL, NULL, NULL, NULL, NULL, 1, 4, NULL, NULL, NULL, '<p>Musa ganteng</p>', NULL, 'tidak', '', NULL, NULL, '2022-06-22'),
 ('567', '567', 'Tarno', 'L', 'Batang', 2, NULL, '123', 'Batang', 'KC11', NULL, NULL, NULL, NULL, 'Unnes', 'A', 2019, 1, 'Semarang', 3, 4, 2, NULL, NULL, NULL, NULL, 'tidak', '', NULL, NULL, '2022-06-22');
+=======
+('3324162512000002', '0001267110', 'Rafli Ferdian ', 'L', 'Kendal', 1, NULL, '0895411812445', 'rumah', 'KC02', NULL, NULL, NULL, NULL, 'undip', 'B', 2019, 6, 'rumah', 2, 4, NULL, NULL, 2, '<p>s</p>', NULL, 'tidak', '', NULL, NULL, '2022-06-27'),
+('3324162512000324', '240691246', 'Rafli Ferdian\'se', 'L', 'kendal', 1, 2, '0895411712445', 'rumah', 'KC01', 4, 3, '20322711', '11', NULL, NULL, NULL, NULL, NULL, 1, 4, NULL, NULL, NULL, NULL, NULL, 'tidak', '', NULL, NULL, '2022-07-01');
+>>>>>>> Stashed changes
 
 -- --------------------------------------------------------
 
@@ -712,6 +770,7 @@ CREATE TABLE `informasi_terbaru` (
 --
 
 INSERT INTO `informasi_terbaru` (`id_informasi_terbaru`, `judul_informasi_terbaru`, `deskripsi_informasi_terbaru`, `file_informasi_terbaru`, `gambar_informasi_terbaru`, `link_informasi_terbaru`, `created_at`, `updated_at`) VALUES
+<<<<<<< Updated upstream
 (1, 'Peraturan Gubernur Bantuan Biaya Pendidikan', 'Peraturan Gubernur Bantuan Biaya Pendidikan', 'beasiswa ppt.pdf', NULL, NULL, '2022-05-26 11:48:02', '2022-07-04 10:40:50'),
 (2, 'Peraturan Bupati Bantuan Biaya Pendidikan', 'Peraturan Bupati Bantuan Biaya Pendidikan', 'PENGUMUMAN_KEPALA_DINAS_TENTANG_PRORGAM_BANTUAN_BIAYA_PENDIDIKAN.pdf', NULL, NULL, '2022-05-26 11:53:23', '2022-07-04 10:43:14'),
 (3, 'Tata cara Bantuan Biaya Pendidikan', 'Tata cara Bantuan Biaya Pendidikan', 'petunjuk pendaftaran.pdf', NULL, NULL, '2022-05-26 11:53:48', '2022-07-04 10:44:04'),
@@ -719,6 +778,12 @@ INSERT INTO `informasi_terbaru` (`id_informasi_terbaru`, `judul_informasi_terbar
 (8, 'undangan', 'silahkan download undangan', 'Dokumen Pengujian UPL - 11.pdf', 'download.png', NULL, '2022-05-24 14:10:56', '2022-05-15 08:23:18'),
 (13, 'penerimaan ', 'penerimaan beasiswa', 'UAS Genap 2020-21 Masyarakat dan Etika Profesi final.pdf', 'Lambang_Kabupaten_Batang.png', NULL, '2022-06-13 11:54:10', '2022-06-13 11:54:10'),
 (14, 'Pendaftaran Bantuan Biaya Pendidikan', 'Pendaftaran Bantuan Biaya Pendidikan', '280884-penerapan-sistem-informasi-dalam-sosio-t-cd56f3cf.pdf', NULL, NULL, '2022-06-13 13:51:16', '2022-06-13 13:51:42');
+=======
+(1, 'Peraturan Gubernur Bantuan Biaya Pendidikan', 'Peraturan Gubernur Bantuan Biaya Pendidikan', 'Pengumuman Prog Bantuan Biaya Pendidikan 2021.pdf', NULL, NULL, '2022-05-26 11:48:02', '2022-05-26 09:48:02'),
+(2, 'Peraturan Bupati Bantuan Biaya Pendidikan', 'Peraturan Bupati Bantuan Biaya Pendidikan', 'Pengumuman Prog Bantuan Biaya Pendidikan 2021.pdf', NULL, NULL, '2022-05-26 11:53:23', '2022-05-26 11:53:23'),
+(3, 'Tata cara Bantuan Biaya Pendidikan', 'Tata cara Bantuan Biaya Pendidikan', 'Perbup Tata Cara Pemberian Bantuan Biaya Pendidikan bagi Peserta didik menengah dan mhs yg berprestasi dr keluarga miskin.pdf', NULL, NULL, '2022-05-26 11:53:48', '2022-05-26 11:53:48'),
+(4, 'Bantuan Biaya Pendidikan', 'Bantuan Biaya Pendidikan', 'Perbup Tata Cara Pemberian Bantuan Biaya Pendidikan bagi Peserta didik menengah dan mhs yg berprestasi dr keluarga miskin.pdf', NULL, NULL, '2022-05-26 11:54:24', '2022-05-26 11:54:24');
+>>>>>>> Stashed changes
 
 -- --------------------------------------------------------
 
@@ -783,9 +848,14 @@ CREATE TABLE `keluarga` (
 --
 
 INSERT INTO `keluarga` (`id_keluarga`, `no_induk`, `nama_ayah`, `usia_ayah`, `pekerjaan_ayah`, `pendidikan_ayah`, `penghasilan_ayah`, `alamat_ayah`, `nama_ibu`, `usia_ibu`, `pekerjaan_ibu`, `pendidikan_ibu`, `penghasilan_ibu`, `alamat_ibu`, `rtsm_rtm`, `pkh_kks_kbs`, `bsm_kip`) VALUES
+<<<<<<< Updated upstream
 (59, '123', 'Ayah Roni', 12, 'Ayah', 'SMP', 2000, 'Ayah', 'Ayah', 20, 'Ayah', 'SMP', 200, 'Ayah', 'tidak', 'tidak', 'tidak'),
 (61, '234', 'Lancelot', 0, 'Presiden', 'SMP', 500, 'Batang', 'Aurora', 0, 'Dosen', 'SD', 100, 'Batang', 'ya', 'ya', 'tidak'),
 (62, '567', 'Ayah', 10, 'Ayah', 'SMP', 10000, 'Ayah', 'Ayah', 10, 'Ayah', 'SD', 100, 'Ayah', 'tidak', 'tidak', 'tidak');
+=======
+(71, '3324162512000002', 'sdf', 52, 'sdg', 'D1', 324234, 'ee', 'sdf', 5, 'sdf', 'D3', 2147483647, 'ewwewe', 'tidak', 'tidak', 'tidak'),
+(72, '3324162512000324', 'Suha', 0, 'pend', 'D4', 30000000, 'aiohioahroih', 'sidhfoig', 0, 'osbdgiowqe', 'D3', 300912398, 'sjkbgfiulszbve', 'tidak', 'tidak', 'tidak');
+>>>>>>> Stashed changes
 
 -- --------------------------------------------------------
 
@@ -833,10 +903,15 @@ CREATE TABLE `prestasi` (
 --
 
 INSERT INTO `prestasi` (`id_prestasi`, `kategori`, `tingkat`, `juara`, `nilai`, `nama_prestasi`, `tahun_prestasi`, `no_induk`, `file_prestasi`) VALUES
+<<<<<<< Updated upstream
 (138, 'hafidz', NULL, NULL, 200, 'renang', 2010, '123', '24060119120027_Iwan Suryaningrat_Tugas7.pdf'),
 (140, 'hafidz', NULL, NULL, 200, 'Renang', 2020, '234', '24060119120027_Iwan Suryaningrat_Tugas7.pdf'),
 (141, 'perlombaan', ' internasional', 'juara 1', 0, 'Tinju', 2018, '234', '24060119120027_Iwan Suryaningrat_Tugas7.pdf'),
 (142, 'hafidz', NULL, NULL, 200, 'Renang', 2019, '567', '24060119120027_Iwan Suryaningrat_Tugas7.pdf');
+=======
+(163, 'ujian sekolah', NULL, NULL, 0, 'asdsad', 2017, '3324162512000002', '3324162512000002_prestasi_1.pdf'),
+(164, 'perlombaan', 'internasional', 'juara 2', 0, 'sdfsdf', 2015, '3324162512000324', '3324162512000324_prestasi_1.pdf');
+>>>>>>> Stashed changes
 
 -- --------------------------------------------------------
 
@@ -1065,10 +1140,15 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `email`, `username`, `no_induk`, `password_hash`, `reset_hash`, `reset_at`, `reset_expires`, `activate_hash`, `status`, `status_message`, `active`, `force_pass_reset`, `created_at`, `updated_at`, `deleted_at`) VALUES
 (1, 'disdikbud@batangkab.go.id', 'admin1', NULL, '$2y$10$Euhkx3BPxfSrXG8O2apu1.JFFEDo6WOo6eElsbd5jiQgS1r0RUoam', NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2022-03-01 10:22:10', '2022-03-01 10:22:46', NULL),
+<<<<<<< Updated upstream
 (29, 'musaalfian7@gmail.com', 'musmus', '123', '$2y$10$F1Z16aVTZV02MHpXR2OWX.lDpRHsHlfq3uUvcg1w7Ozk1b7TSUvPy', NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2022-06-21 07:18:09', '2022-06-21 07:20:13', NULL),
 (31, 'musaalfian19@gmail.com', 'pendaftar1', '234', '$2y$10$KGTC8aidGPDG1gbWIDT5YeNjz6fYwEFzQIzj2BUJQo9TRR47IaxWC', NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2022-06-22 18:00:56', '2022-06-22 18:01:39', NULL),
 (32, 'musaganteng071@gmail.com', 'jekjek', '567', '$2y$10$N2qfF2TxGlvzf0TqgbxQsO8yWTliZ6FwQHz/N8R.XLcYiBGkU0.2i', NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2022-06-22 20:43:27', '2022-06-22 20:43:55', NULL),
 (33, 'ferdianrafli25@gmail.com', 'admin2', NULL, '$2y$10$5H5ef2tCfL48BFvH.kXEPu.NdpM5vokfsISKLd55VG1GI78c3Xfli', NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2022-07-04 10:33:03', '2022-07-04 10:33:03', NULL);
+=======
+(28, 'ferdianrafli25@gmail.com', 'Rafli25', '3324162512000002', '$2y$10$8ZBGGRAmvtGfyeT0D.EExuYb55DXC.Rq9JwS0pKdMSWhlG54rLJNq', NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2022-06-20 20:35:15', '2022-06-20 20:36:31', NULL),
+(30, 'ferdianrafli125@gmail.com', 'Rafli2512', '3324162512000324', '$2y$10$qaoPFW55lLGSfQpjNk691ux3VFRJ4mn.lMGWVfz8b/NybwIjTJBOu', NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2022-06-28 09:32:15', '2022-07-01 14:05:02', NULL);
+>>>>>>> Stashed changes
 
 --
 -- Indexes for dumped tables
@@ -1265,7 +1345,11 @@ ALTER TABLE `agama`
 -- AUTO_INCREMENT for table `auth_activation_attempts`
 --
 ALTER TABLE `auth_activation_attempts`
+<<<<<<< Updated upstream
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+=======
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+>>>>>>> Stashed changes
 
 --
 -- AUTO_INCREMENT for table `auth_groups`
@@ -1277,7 +1361,11 @@ ALTER TABLE `auth_groups`
 -- AUTO_INCREMENT for table `auth_logins`
 --
 ALTER TABLE `auth_logins`
+<<<<<<< Updated upstream
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=359;
+=======
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=363;
+>>>>>>> Stashed changes
 
 --
 -- AUTO_INCREMENT for table `auth_permissions`
@@ -1301,7 +1389,11 @@ ALTER TABLE `auth_tokens`
 -- AUTO_INCREMENT for table `file`
 --
 ALTER TABLE `file`
+<<<<<<< Updated upstream
   MODIFY `id_file` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
+=======
+  MODIFY `id_file` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
+>>>>>>> Stashed changes
 
 --
 -- AUTO_INCREMENT for table `informasi_pendaftaran`
@@ -1319,7 +1411,11 @@ ALTER TABLE `informasi_terbaru`
 -- AUTO_INCREMENT for table `keluarga`
 --
 ALTER TABLE `keluarga`
+<<<<<<< Updated upstream
   MODIFY `id_keluarga` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
+=======
+  MODIFY `id_keluarga` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
+>>>>>>> Stashed changes
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -1331,7 +1427,11 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `prestasi`
 --
 ALTER TABLE `prestasi`
+<<<<<<< Updated upstream
   MODIFY `id_prestasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=145;
+=======
+  MODIFY `id_prestasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=165;
+>>>>>>> Stashed changes
 
 --
 -- AUTO_INCREMENT for table `status_final`
@@ -1373,7 +1473,11 @@ ALTER TABLE `transportasi`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
+<<<<<<< Updated upstream
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+=======
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+>>>>>>> Stashed changes
 
 --
 -- Constraints for dumped tables
