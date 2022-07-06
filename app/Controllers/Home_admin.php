@@ -59,6 +59,7 @@ class Home_admin extends BaseController
     public function index()
     {
         // jumlah pendaftar
+        $jumlah_proses_pendaftar = $this->MIdentitas->countAllResults();
         $jumlah_pendaftar = $this->MIdentitas->where('id_status_pendaftaran !=', 'null')->countAllResults();
         $jumlah_pendaftar_memenuhi = $this->MIdentitas->jumlah_pendaftar_status_pendaftaran(1);
         $jumlah_pendaftar_tidak_memenuhi = $this->MIdentitas->jumlah_pendaftar_status_pendaftaran(2);
@@ -66,15 +67,16 @@ class Home_admin extends BaseController
         $jumlah_pendaftar_proses = $this->MIdentitas->jumlah_pendaftar_status_pendaftaran(4);
 
         // data pendaftar kategori siswa
-        $siswa = $this->MIdentitas->data_seluruh_pendaftar(1, 5)->getResultArray();
+        $siswa = $this->MIdentitas->data_seluruh_pendaftar(1, 5, 'Desc')->getResultArray();
         // data pendaftar kategori calon mahasiswa
-        $calon_mahasiswa = $this->MIdentitas->data_seluruh_pendaftar(2, 5)->getResultArray();
+        $calon_mahasiswa = $this->MIdentitas->data_seluruh_pendaftar(2, 5, 'Desc')->getResultArray();
         // data pendaftar kategori mahasiswa
-        $mahasiswa = $this->MIdentitas->data_seluruh_pendaftar(3, 5)->getResultArray();
+        $mahasiswa = $this->MIdentitas->data_seluruh_pendaftar(3, 5, 'Desc')->getResultArray();
 
         // dd($siswa);
         $data = [
             'title'     => 'Beasiswa Batang | Dashboard Admin',
+            'jumlah_proses_pendaftar'  => $jumlah_proses_pendaftar,
             'jumlah_pendaftar'  => $jumlah_pendaftar,
             'jumlah_pendaftar_memenuhi'  => $jumlah_pendaftar_memenuhi,
             'jumlah_pendaftar_tidak_memenuhi'  => $jumlah_pendaftar_tidak_memenuhi,

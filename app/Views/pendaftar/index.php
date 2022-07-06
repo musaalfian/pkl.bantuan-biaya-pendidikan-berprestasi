@@ -4,13 +4,19 @@
 
 <!-- tanggal pendaftaran -->
 <?php date_default_timezone_set("Asia/Jakarta");
-$tanggal_sekarang = getdate(date("U"));
-$tanggal = date_create($tanggal_pendaftaran['tanggal_penting']);
-$tanggal_pendaftaran_tahun = date_format($tanggal, 'Y');
-$tanggal_pendaftaran_bulan = date_format($tanggal, 'm');
-$tanggal_pendaftaran_tanggal = date_format($tanggal, 'd');
-?>
+$tanggal_sekarang = date("Y-m-d");
+// $tanggal_sekarang = getdate(date("U"));
+// $tanggal = date_create($tanggal_pendaftaran['tanggal_penting']);
+// $tanggal_pendaftaran_tahun = date_format($tanggal, 'Y');
+// $tanggal_pendaftaran_bulan = date_format($tanggal, 'm');
+// $tanggal_pendaftaran_tanggal = date_format($tanggal, 'd');
 
+// tanggal pentupan pendaftaran
+// $tanggal_penutupan = date_create($tanggal_penutupan_pendaftaran['tanggal_penting']);
+// $tanggal_penutupan_tahun = date_format($tanggal_penutupan, 'Y');
+// $tanggal_penutupan_bulan = date_format($tanggal_penutupan, 'm');
+// $tanggal_penutupan_tanggal = date_format($tanggal_penutupan, 'd');
+?>
 <div class="py40 bglight2 beranda">
     <div class="container">
         <!-- Hero -->
@@ -139,15 +145,15 @@ $tanggal_pendaftaran_tanggal = date_format($tanggal, 'd');
                                 SMA/SMK/MA sederajat
                             </h6>
                             <?php if (
-                                $tanggal_sekarang['year'] >= $tanggal_pendaftaran_tahun &&
-                                $tanggal_sekarang['mon'] >= $tanggal_pendaftaran_bulan &&
-                                ($tanggal_sekarang['mday'] >= $tanggal_pendaftaran_tanggal ||
-                                    ($tanggal_sekarang['mon'] >= $tanggal_pendaftaran_bulan + 1 &&
-                                        $tanggal_sekarang['mday'] >= 1))
+                                $tanggal_sekarang >= $tanggal_pendaftaran['tanggal_penting'] && $tanggal_sekarang <= $tanggal_penutupan_pendaftaran['tanggal_penting']
                             ) : ?>
                                 <?php if ($identitas == null || ($identitas['id_status_peserta'] == 1 && $identitas['id_status_pendaftaran'] == null)) { ?>
                                     <a class="btn btn-primary d-block mt25" href="<?= base_url(); ?>/pendaftaran/tambah_pendaftar/1">Daftar</a>
                                 <?php }  ?>
+                            <?php elseif ($tanggal_sekarang > $tanggal_penutupan_pendaftaran['tanggal_penting']) : ?>
+                                <a class="btn btn-danger d-block mt25">
+                                    Pendaftaran Telah Ditutup
+                                </a>
                             <?php endif;  ?>
                         </div>
                     </div>
@@ -163,15 +169,15 @@ $tanggal_pendaftaran_tanggal = date_format($tanggal, 'd');
                                 Beasiswa bagi peserta didik lulusan SMA/SMK/MA dari daerah
                             </h6>
                             <?php if (
-                                $tanggal_sekarang['year'] >= $tanggal_pendaftaran_tahun &&
-                                $tanggal_sekarang['mon'] >= $tanggal_pendaftaran_bulan &&
-                                ($tanggal_sekarang['mday'] >= $tanggal_pendaftaran_tanggal ||
-                                    ($tanggal_sekarang['mon'] >= $tanggal_pendaftaran_bulan + 1 &&
-                                        $tanggal_sekarang['mday'] >= 1))
+                                $tanggal_sekarang >= $tanggal_pendaftaran['tanggal_penting'] && $tanggal_sekarang <= $tanggal_penutupan_pendaftaran['tanggal_penting']
                             ) : ?>
                                 <?php if ($identitas == null || ($identitas['id_status_peserta'] == 2 && $identitas['id_status_pendaftaran'] == null)) { ?>
                                     <a class="btn btn-primary d-block mt25" href="<?= base_url(); ?>/pendaftaran/tambah_pendaftar/2">Daftar</a>
                                 <?php }  ?>
+                            <?php elseif ($tanggal_sekarang > $tanggal_penutupan_pendaftaran['tanggal_penting']) : ?>
+                                <a class="btn btn-danger d-block mt25">
+                                    Pendaftaran Telah Ditutup
+                                </a>
                             <?php endif ?>
                         </div>
                     </div>
@@ -188,15 +194,15 @@ $tanggal_pendaftaran_tanggal = date_format($tanggal, 'd');
                                 dari Kabupaten Batang
                             </h6>
                             <?php if (
-                                $tanggal_sekarang['year'] >= $tanggal_pendaftaran_tahun &&
-                                $tanggal_sekarang['mon'] >= $tanggal_pendaftaran_bulan &&
-                                ($tanggal_sekarang['mday'] >= $tanggal_pendaftaran_tanggal ||
-                                    ($tanggal_sekarang['mon'] >= $tanggal_pendaftaran_bulan + 1 &&
-                                        $tanggal_sekarang['mday'] >= 1))
+                                $tanggal_sekarang >= $tanggal_pendaftaran['tanggal_penting'] && $tanggal_sekarang <= $tanggal_penutupan_pendaftaran['tanggal_penting']
                             ) : ?>
                                 <?php if ($identitas == null || ($identitas['id_status_peserta'] == 3 && $identitas['id_status_pendaftaran'] == null)) { ?>
                                     <a class="btn btn-primary d-block mt25" href="<?= base_url(); ?>/pendaftaran/tambah_pendaftar/3">Daftar</a>
                                 <?php }  ?>
+                            <?php elseif ($tanggal_sekarang > $tanggal_penutupan_pendaftaran['tanggal_penting']) : ?>
+                                <a class="btn btn-danger d-block mt25">
+                                    Pendaftaran Telah Ditutup
+                                </a>
                             <?php endif  ?>
                         </div>
                     </div>

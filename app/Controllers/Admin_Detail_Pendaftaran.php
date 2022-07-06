@@ -8,6 +8,7 @@ use App\Models\MFile;
 use App\Models\MPrestasi;
 use App\Models\MKecamatan;
 use App\Models\MIdentitas;
+use App\Models\MIdentitasLog;
 use App\Models\MKeluarga;
 use App\Models\MSekolah;
 use App\Models\MStatusFinal;
@@ -173,6 +174,7 @@ class admin_detail_pendaftaran extends BaseController
         }
         // mengambil nilai maksimum dari database
         $penilaian_tertinggi = max($penilaian_prestasi_db);
+
         // dd($detail_pendaftar);
         $data = [
             'title'     => 'Beasiswa Batang | Data Pendaftar Admin',
@@ -180,7 +182,8 @@ class admin_detail_pendaftaran extends BaseController
             'prestasi'    => $prestasi,
             'status_pendaftaran' => $status_pendaftaran,
             'status_final' => $status_final,
-            'penilaian_tertinggi'   => $penilaian_tertinggi
+            'penilaian_tertinggi'   => $penilaian_tertinggi,
+            'status_perbaikan' => $detail_pendaftar['status_perbaikan'],
         ];
         // kondisional view berdasarkan status peserta
         if ($detail_pendaftar['id_status_peserta'] == 1) {
@@ -240,15 +243,31 @@ class admin_detail_pendaftaran extends BaseController
         $status_edit_pendaftaran = null;
 
 
+        if ($status_pendaftaran == 3) {
+            $update_identitas = [
+                'id_status_pendaftaran' => $status_pendaftaran,
+                'pesan' => $pesan,
+                'status_edit_pendaftaran' => $status_edit_pendaftaran,
+                'status_perbaikan'  => 'perbaikan',
+            ];
+        } else {
+            $update_identitas = [
+                'id_status_pendaftaran' => $status_pendaftaran,
+                'id_status_final' => $status_final,
+                'pesan' => $pesan,
+                'id_status_pembayaran' => $id_status_pembayaran,
+                'status_edit_pendaftaran' => $status_edit_pendaftaran,
+            ];
+        }
+        $this->MIdentitas->update($no_induk, $update_identitas);
+        session()->setFlashdata('pesan-edit-verifikasi-pendaftar', 'Data pendaftar berhasil diubah.');
+        return redirect()->to('admin_detail_pendaftaran/detail_pendaftar/' . $no_induk);
+    }
+    public function simpan_perbaikan_data_benar($no_induk)
+    {
         $update_identitas = [
-            'id_status_pendaftaran' => $status_pendaftaran,
-            'id_status_final' => $status_final,
-            'pesan' => $pesan,
-            'id_status_pembayaran' => $id_status_pembayaran,
-            'status_edit_pendaftaran' => $status_edit_pendaftaran,
-
+            'status_perbaikan' => null,
         ];
-        // dd($update_identitas);
         $this->MIdentitas->update($no_induk, $update_identitas);
         session()->setFlashdata('pesan-edit-verifikasi-pendaftar', 'Data pendaftar berhasil diubah.');
         return redirect()->to('admin_detail_pendaftaran/detail_pendaftar/' . $no_induk);

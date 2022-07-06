@@ -6,7 +6,8 @@
     <div class="w90 detail mx-auto">
         <div class="navigasi d-flex flex-wrap align-items-center mb-3">
             <a href="<?= base_url(); ?>/admin_data_pendaftaran/data_pendaftaran_mahasiswa" class="fw-bold blue fs14 me-3"><i class="fa-solid fa-arrow-left-long"></i></a>
-            <a href="<?= base_url(); ?>/admin_data_pendaftaran/data_pendaftaran_mahasiswa" class="blue fs14">Data Pendaftaran <span class="mx-2 blue fs14">/</span></a>
+            <a href="<?= base_url(); ?>/admin_data_pendaftaran/data_pendaftaran_mahasiswa" class="blue fs14">Data
+                Pendaftaran <span class="mx-2 blue fs14">/</span></a>
             <a href="" class="abu fs14">Detail Mahasiswa</a>
         </div>
         <div class="d-flex justify-content-between align-items-end mb-3">
@@ -17,8 +18,10 @@
         </div>
         <div class="alert alert-primary">
             <strong>Catatan :</strong>
-            <p class="fs16">1. Untuk menampilkan nilai prestasi (hafidz, perlombaan), silahkan refresh halaman terlebih dahulu</p>
-            <p class="fs16">2. Untuk nilai 200, pendaftar diterima langsung sebagai penerima bantuan biaya pendidikan berprestasi</p>
+            <p class="fs16">1. Untuk menampilkan nilai prestasi (hafidz, perlombaan), silahkan refresh halaman terlebih
+                dahulu</p>
+            <p class="fs16">2. Untuk nilai 200, pendaftar diterima langsung sebagai penerima bantuan biaya pendidikan
+                berprestasi</p>
         </div>
         <div class="bg-white p-4 br1 bdgrey">
             <!-- alert nilai -->
@@ -648,8 +651,14 @@
                                     </option>
                                 <?php endforeach ?>
                             </select>
-                            <!-- end status final -->
                         </div>
+                        <!-- end status final -->
+                        <?php if ($status_perbaikan == 'perbaikan') : ?>
+                            <button type="button" data-bs-toggle="modal" data-bs-target="#save_log" class="btn btn-success fs16 fw-normal mt-3">
+                                Perbaikan Data Benar
+                            </button>
+                        <?php endif ?>
+                        <!-- end perbaikan data benar -->
                     </div>
                     <!-- end verifikasi kiri -->
                     <div class="col-lg-6 col-12">
@@ -692,6 +701,32 @@
                 </div>
             </form>
             <!-- End penilaian -->
+            <!-- perbaikan data log -->
+            <form action="<?= base_url(); ?>/admin_detail_pendaftaran/simpan_perbaikan_data_benar/<?= $detail_pendaftar['no_induk']; ?>" method="post">
+                <!-- SAVE Perbaikan Log  Modal -->
+                <div class="modal fade" id="save_log" tabindex="-1" aria-labelledby="saveModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title bold" id="saveModalLabel">
+                                    Yakin perbaikan data sudah benar?
+                                </h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                Pastikan data yang perbaiki sudah benar.
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary fw-normal" data-bs-dismiss="modal">
+                                    Batal
+                                </button>
+                                <button type="submit" class="btn btn-success fw-normal">Simpan</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <!-- end perbaikan data log -->
         </div>
     </div>
 </div>

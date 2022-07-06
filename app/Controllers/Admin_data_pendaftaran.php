@@ -50,34 +50,46 @@ class Admin_data_pendaftaran extends BaseController
     public function data_pendaftaran_siswa()
     {
         // data pendaftar kategori siswa
-        $siswa = $this->MIdentitas->data_seluruh_pendaftar(1)->getResultArray();
-        // dd($siswa);
+        $pendaftar = $this->MIdentitas->data_seluruh_pendaftar(1)->getResultArray();
+        $pendaftar_perbaikan = $this->MIdentitas->data_seluruh_pendaftar_perbaikan(1)->getResultArray();
+        // dd($pendaftar);
+        $id_peserta = 1;
         $data = [
             'title'     => 'Beasiswa Batang | Data Pendaftar Admin',
-            'siswa'     => $siswa,
+            'pendaftar'     => $pendaftar,
+            'pendaftar_perbaikan'     => $pendaftar_perbaikan,
+            'id_peserta'     => $id_peserta,
         ];
-        return view('/admin/data_pendaftaran/data_pendaftaran_siswa', $data);
+        return view('/admin/data_pendaftaran/data_pendaftaran', $data);
     }
     public function data_pendaftaran_calon_mhs()
     {
         // data pendaftar kategori siswa
-        $calon_mhs = $this->MIdentitas->data_seluruh_pendaftar(2)->getResultArray();
+        $pendaftar = $this->MIdentitas->data_seluruh_pendaftar(2)->getResultArray();
+        $pendaftar_perbaikan = $this->MIdentitas->data_seluruh_pendaftar_perbaikan(2)->getResultArray();
+        $id_peserta = 2;
 
         $data = [
             'title'     => 'Beasiswa Batang | Data Pendaftar Admin',
-            'calon_mhs'     => $calon_mhs,
+            'pendaftar'     => $pendaftar,
+            'pendaftar_perbaikan'     => $pendaftar_perbaikan,
+            'id_peserta'     => $id_peserta,
         ];
-        return view('/admin/data_pendaftaran/data_pendaftaran_calon_mhs', $data);
+        return view('/admin/data_pendaftaran/data_pendaftaran', $data);
     }
     public function data_pendaftaran_mahasiswa()
     {
         // data pendaftar kategori siswa
-        $mahasiswa = $this->MIdentitas->data_seluruh_pendaftar(3)->getResultArray();
+        $pendaftar = $this->MIdentitas->data_seluruh_pendaftar(3)->getResultArray();
+        $pendaftar_perbaikan = $this->MIdentitas->data_seluruh_pendaftar_perbaikan(3)->getResultArray();
+        $id_peserta = 3;
 
         $data = [
             'title'     => 'Beasiswa Batang | Data Pendaftar Admin',
-            'mahasiswa'     => $mahasiswa,
+            'pendaftar'     => $pendaftar,
+            'pendaftar_perbaikan'     => $pendaftar_perbaikan,
+            'id_peserta'     => $id_peserta,
         ];
-        return view('/admin/data_pendaftaran/data_pendaftaran_mahasiswa', $data);
+        return view('/admin/data_pendaftaran/data_pendaftaran', $data);
     }
 }

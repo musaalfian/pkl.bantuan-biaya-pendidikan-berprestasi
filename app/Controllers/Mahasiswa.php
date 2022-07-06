@@ -178,7 +178,7 @@ class Mahasiswa extends BaseController
         $id_peserta = $this->MIdentitas->where('no_induk', $no_induk)->findColumn('id_status_peserta');
 
         if (!$this->validate([
-            'nama_ayah'    => 'required|alpha_space',
+            'nama_ayah'    => 'required',
             'usia_ayah'    => 'required|numeric',
             'pekerjaan_ayah'      => 'required',
             'pendidikan_ayah'    => 'required',
@@ -503,7 +503,7 @@ class Mahasiswa extends BaseController
                     ]
                 ],
                 'no_induk_pelajar'    => 'required',
-                'nama_lengkap'      => 'required|alpha_space',
+                'nama_lengkap'      => 'required',
                 'jenis_kelamin'    => 'required',
                 'ttl'    => [
                     'rule' => 'required',
@@ -553,8 +553,7 @@ class Mahasiswa extends BaseController
             // rename folder file
             rename("assets/scan/" . $no_induk, "assets/scan/" . $input_no_induk);
         } else {
-            if (!$this->validate([
-                'nama_lengkap'      => 'required|alpha_space',
+            if (!$this->validate(['nama_lengkap'      => 'required',
                 'jenis_kelamin'    => 'required',
                 'ttl'    => [
                     'rule' => 'required',
@@ -630,8 +629,7 @@ class Mahasiswa extends BaseController
         $keluarga = $this->MKeluarga->find_keluarga_noinduk($no_induk)->getFirstRow('array');
 
         // validasi keluarga
-        if (!$this->validate([
-            'nama_ayah'    => 'required|alpha_space',
+        if (!$this->validate(['nama_ayah'    => 'required',
             'usia_ayah'    => 'required|numeric',
             'pekerjaan_ayah'      => 'required',
             'pendidikan_ayah'    => 'required',

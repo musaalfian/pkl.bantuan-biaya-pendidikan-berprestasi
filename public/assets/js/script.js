@@ -97,6 +97,27 @@ $(document).ready(function () {
       },
     },
   });
+  $("#table_data_pendaftaran_perbaikan").DataTable({
+    pageLength: 10,
+    language: {
+      info: "Menampilkan _END_ dari _TOTAL_ baris",
+      infoEmpty: "Menampilkan 0 sampai 0 of 0 baris",
+      infoFiltered: "(filtered from _MAX_ total entries)",
+      infoPostFix: "",
+      thousands: ",",
+      lengthMenu: "Menampilkan _MENU_ baris",
+      loadingRecords: "Tunggu...",
+      processing: "Memproses...",
+      search: "Cari:",
+      zeroRecords: "Tidak ada data yang ditemukan",
+      paginate: {
+        first: "Pertama",
+        last: "Terakhir",
+        next: "Selanjutnya",
+        previous: "Sebelumnya",
+      },
+    },
+  });
 });
 
 /** Detail pendaftaran **/

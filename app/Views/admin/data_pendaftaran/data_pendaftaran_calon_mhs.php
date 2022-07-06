@@ -20,15 +20,16 @@
                 <tbody>
                     <?php $i = 1; ?>
                     <?php foreach ($calon_mhs as $calon_mhs) : ?>
-                        <tr>
-                            <th><?= $i; ?></th>
-                            <td><?= $calon_mhs['nama_lengkap']; ?></td>
-                            <td><?= $calon_mhs['nama_pt'];; ?></td>
-                            <td><?= $calon_mhs['alamat_rumah']; ?></td>
-                            <td><?= $calon_mhs['nama_status']; ?></td>
-                            <td><a href="<?= base_url(); ?>/admin_detail_pendaftaran/detail_pendaftar/<?= $calon_mhs['no_induk']; ?>" class="fs16">Detail</a></td>
-                        </tr>
-                        <?php $i++; ?>
+                    <tr>
+                        <th><?= $i; ?></th>
+                        <td><?= $calon_mhs['nama_lengkap']; ?></td>
+                        <td><?= $calon_mhs['nama_pt']; ?></td>
+                        <td><?= $calon_mhs['alamat_rumah']; ?></td>
+                        <td><?= $calon_mhs['nama_status']; ?></td>
+                        <td><a href="<?= base_url(); ?>/admin_detail_pendaftaran/detail_pendaftar/<?= $calon_mhs['no_induk']; ?>"
+                                class="fs16">Detail</a></td>
+                    </tr>
+                    <?php $i++; ?>
                     <?php endforeach; ?>
                 </tbody>
             </table>

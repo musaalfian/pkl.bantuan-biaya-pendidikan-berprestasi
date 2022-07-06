@@ -35,7 +35,7 @@ class Admin_informasi extends BaseController
         }
         // mengambil seluruh data informasi terbaru
         $data_informasi = $this->MInformasiTerbaru->orderBy('id_informasi_terbaru', 'DESC')->whereNotIn('id_informasi_terbaru', [1, 2, 3, 4])->findAll();
-        if($data_informasi != null){
+        if ($data_informasi != null) {
             foreach ($data_informasi as $data_informasi) {
                 $data_informasi['deskripsi_singkat'] = limit_text($data_informasi['deskripsi_informasi_terbaru'], 10);
                 $daftar_informasi[] = $data_informasi;
@@ -51,7 +51,11 @@ class Admin_informasi extends BaseController
         // tanggal pengumuman
         $tanggal_penting = $this->MTanggalPenting->findAll();
         $tanggal_penting[0]['nama'] = 'tanggal_pendaftaran';
-        $tanggal_penting[1]['nama'] = 'tanggal_pengumuman';
+        $tanggal_penting[1]['nama'] = 'tanggal_penutupan_pendaftaran';
+        $tanggal_penting[2]['nama'] = 'tanggal_seleksi';
+        $tanggal_penting[3]['nama'] = 'tanggal_penutupan_seleksi';
+        $tanggal_penting[4]['nama'] = 'tanggal_pengumuman';
+        $tanggal_penting[5]['nama'] = 'tanggal_penutupan_pemberkasan';
 
         // dd($tanggal_penting);
         $data = [
@@ -71,8 +75,24 @@ class Admin_informasi extends BaseController
             ],
             [
                 'id_tanggal_penting' => 2,
+                'tanggal_penting'    => $this->request->getVar('tanggal_penutupan_pendaftaran')
+            ],
+            [
+                'id_tanggal_penting' => 3,
+                'tanggal_penting'    => $this->request->getVar('tanggal_seleksi')
+            ],
+            [
+                'id_tanggal_penting' => 4,
+                'tanggal_penting'    => $this->request->getVar('tanggal_penutupan_seleksi')
+            ],
+            [
+                'id_tanggal_penting' => 5,
                 'tanggal_penting'    => $this->request->getVar('tanggal_pengumuman')
-            ]
+            ],
+            [
+                'id_tanggal_penting' => 6,
+                'tanggal_penting'    => $this->request->getVar('tanggal_penutupan_pemberkasan')
+            ],
         ];
 
         // dd($tanggal_penting);

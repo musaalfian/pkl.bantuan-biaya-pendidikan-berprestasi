@@ -1,3 +1,0 @@
-Admin
-username = admin2
-password = dinasjaya2022

@@ -20,15 +20,16 @@
                 <tbody>
                     <?php $i = 1; ?>
                     <?php foreach ($mahasiswa as $mahasiswa) : ?>
-                        <tr>
-                            <th><?= $i; ?></th>
-                            <td><?= $mahasiswa['nama_lengkap']; ?></td>
-                            <td><?= $mahasiswa['nama_pt'];; ?></td>
-                            <td><?= $mahasiswa['alamat_rumah']; ?></td>
-                            <td><?= $mahasiswa['nama_status']; ?></td>
-                            <td><a href="<?= base_url(); ?>/admin_detail_pendaftaran/detail_pendaftar/<?= $mahasiswa['no_induk']; ?>" class="fs16">Detail</a></td>
-                        </tr>
-                        <?php $i++; ?>
+                    <tr>
+                        <th><?= $i; ?></th>
+                        <td><?= $mahasiswa['nama_lengkap']; ?></td>
+                        <td><?= $mahasiswa['nama_pt']; ?></td>
+                        <td><?= $mahasiswa['alamat_rumah']; ?></td>
+                        <td><?= $mahasiswa['nama_status']; ?></td>
+                        <td><a href="<?= base_url(); ?>/admin_detail_pendaftaran/detail_pendaftar/<?= $mahasiswa['no_induk']; ?>"
+                                class="fs16">Detail</a></td>
+                    </tr>
+                    <?php $i++; ?>
                     <?php endforeach; ?>
 
                 </tbody>

@@ -8,7 +8,7 @@
             <div class="col-lg-4 col-md-6 col-12 mb-3">
                 <div class="p-4 br1 bgbiru2 main-shadow text-center">
                     <h2 class=""><?= $jumlahAkun; ?></h2>
-                    <p class="fs16">Akun yang Mendaftar</p>
+                    <p class="fs16">Akun Pendaftar</p>
                 </div>
             </div>
         </div>

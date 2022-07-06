@@ -162,13 +162,12 @@ class Siswa extends BaseController
         $no_induk = user()->no_induk;
 
         $id_peserta = $this->MIdentitas->where('no_induk', $no_induk)->findColumn('id_status_peserta');
-        if (!$this->validate([
-            'nama_ayah'    => 'required|alpha_space',
+        if (!$this->validate(['nama_ayah'    => 'required',
             'pekerjaan_ayah'      => 'required',
             'pendidikan_ayah'    => 'required',
             'penghasilan_ayah'    => 'required|numeric',
             'alamat_ayah'    => 'required',
-            'nama_ibu'     => 'required|alpha_space',
+            'nama_ibu'     => 'required',
             'pekerjaan_ibu'    => 'required',
             'pendidikan_ibu'    => 'required',
             'penghasilan_ibu'    => 'required|numeric',
@@ -483,7 +482,7 @@ class Siswa extends BaseController
                     ]
                 ],
                 'no_induk_pelajar'    => 'required',
-                'nama_lengkap'      => 'required|alpha_space',
+                'nama_lengkap'      => 'required',
                 'jenis_kelamin'    => 'required',
                 'ttl'    => [
                     'rule' => 'required',
@@ -517,7 +516,7 @@ class Siswa extends BaseController
         } else {
             if (!$this->validate([
                 'no_induk_pelajar'      => 'required',
-                'nama_lengkap'      => 'required|alpha_space',
+                'nama_lengkap'      => 'required',
                 'jenis_kelamin'    => 'required',
                 'ttl'    => [
                     'rule' => 'required',
@@ -571,13 +570,12 @@ class Siswa extends BaseController
         $keluarga = $this->MKeluarga->find_keluarga_noinduk($no_induk)->getFirstRow('array');
 
         // validasi keluarga
-        if (!$this->validate([
-            'nama_ayah'    => 'required|alpha_space',
+        if (!$this->validate(['nama_ayah'    => 'required',
             'pekerjaan_ayah'      => 'required',
             'pendidikan_ayah'    => 'required',
             'penghasilan_ayah'    => 'required|numeric',
             'alamat_ayah'    => 'required',
-            'nama_ibu'     => 'required|alpha_space',
+            'nama_ibu'     => 'required',
             'pekerjaan_ibu'    => 'required',
             'pendidikan_ibu'    => 'required',
             'penghasilan_ibu'    => 'required|numeric',

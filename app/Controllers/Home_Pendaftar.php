@@ -112,13 +112,15 @@ class Home_pendaftar extends BaseController
         }
         //tanggal pendaftaran
         $tanggal_pendaftaran = $this->MTanggalPenting->find(1);
+        $tanggal_penutupan_pendaftaran = $this->MTanggalPenting->find(2);
 
         // dd($informasi);
         $data = [
             'title'     => 'Beasiswa Batang | Beranda',
             'identitas' => $identitas,
             'informasi' => $informasi,
-            'tanggal_pendaftaran'   => $tanggal_pendaftaran
+            'tanggal_pendaftaran'   => $tanggal_pendaftaran,
+            'tanggal_penutupan_pendaftaran'   => $tanggal_penutupan_pendaftaran
         ];
         return view('/pendaftar/index', $data);
     }
@@ -155,13 +157,13 @@ class Home_pendaftar extends BaseController
     {
         $identitas = $this->MIdentitas->find_identitas_user(user_id())->getFirstRow('array');
         $tanggal_pendaftaran = $this->MTanggalPenting->find(1);
-        // $tanggal_penutupan_pendaftaran = $this->MTanggalPenting->find(3);
+        $tanggal_penutupan_pendaftaran = $this->MTanggalPenting->find(2);
 
         $data = [
             'title'     => 'Beasiswa Batang | Daftar Beasiswa',
             'identitas' => $identitas,
             'tanggal_pendaftaran'   => $tanggal_pendaftaran,
-            // 'tanggal_penutupan_pendaftaran'   => $tanggal_penutupan_pendaftaran
+            'tanggal_penutupan_pendaftaran'   => $tanggal_penutupan_pendaftaran
         ];
         return view('/pendaftar/pendaftaran_beasiswa', $data);
     }
@@ -243,17 +245,24 @@ class Home_pendaftar extends BaseController
             $status_final = $this->MStatusFinal->find($identitas['id_status_final']);
         }
         // tanggal pengumuman
-        $tanggal_pengumuman = $this->MTanggalPenting->find(2);
+        $tanggal_pengumuman = $this->MTanggalPenting->find(5);
         // dd($tanggal_pengumuman['tanggal_pengumuman']);
         // mengambil data file pendaftar
         $file = $this->MFile->find_file_noinduk(user()->no_induk)->getFirstRow('array');
+
+        $tanggal_seleksi_administrasi = $this->MTanggalPenting->find(3);
+        $tanggal_penutupan_seleksi_administrasi = $this->MTanggalPenting->find(4);
+        $tanggal_penutupan_pemberkasan = $this->MTanggalPenting->find(6);
         $data = [
             'title'     => 'Beasiswa Batang | Pengumuman Beasiswa',
             'identitas' => $identitas,
             'status_pendaftaran'    => $status_pendaftaran,
             'status_final'    => $status_final,
             'file'      => $file,
-            'tanggal_pengumuman'    => $tanggal_pengumuman['tanggal_penting']
+            'tanggal_pengumuman'    => $tanggal_pengumuman['tanggal_penting'],
+            'tanggal_seleksi_administrasi'    => $tanggal_seleksi_administrasi['tanggal_penting'],
+            'tanggal_penutupan_seleksi_administrasi'    => $tanggal_penutupan_seleksi_administrasi['tanggal_penting'],
+            'tanggal_penutupan_pemberkasan'    => $tanggal_penutupan_pemberkasan['tanggal_penting']
         ];
         return view('/pendaftar/pengumuman', $data);
     }

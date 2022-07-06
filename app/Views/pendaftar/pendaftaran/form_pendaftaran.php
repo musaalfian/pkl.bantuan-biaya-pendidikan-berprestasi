@@ -214,10 +214,10 @@ $('form').on('submit', function(e) {
     // menampilkan loader
     // review pendaftaran
     <?php if ($file != null && $file['formulir_pendaftaran'] != null && $keluarga != null && $identitas != null) : ?>
-            $("#btn_submit_review").empty();
-            $('<div class="lds-ring"><div></div><div></div><div></div><div></div></div>').appendTo(
-                "#btn_submit_review");
-            <?php endif ?>
+    $("#btn_submit_review").empty();
+    $('<div class="lds-ring"><div></div><div></div><div></div><div></div></div>').appendTo(
+        "#btn_submit_review");
+    <?php endif ?>
     $(document).ready(function() {
         var numItems = $('.invalid-feedback').filter(function() {
             return $(this).css('display') != 'none';
@@ -228,23 +228,23 @@ $('form').on('submit', function(e) {
         } else {
             // menampilkan loader
             <?php if ($identitas == null) : ?>
-                // form identitas
+            // form identitas
             $("#btn_submit_identitas").empty();
             $('<div class="lds-ring"><div></div><div></div><div></div><div></div></div>').appendTo(
                 "#btn_submit_identitas");
             <?php elseif ($keluarga == null && $identitas != null) : ?>
-                // form keluarga
+            // form keluarga
             $("#btn_submit_keluarga").empty();
             $('<div class="lds-ring"><div></div><div></div><div></div><div></div></div>').appendTo(
                 "#btn_submit_keluarga");
             <?php elseif ($file == null && $keluarga != null && $identitas != null) : ?>
-                // form lampiran
+            // form lampiran
             $("#btn_submit_lampiran").empty();
             $('<div class="lds-ring"><div></div><div></div><div></div><div></div></div>').appendTo(
                 "#btn_submit_lampiran");
             <?php elseif ($file != null && $file['formulir_pendaftaran'] == null && $keluarga != null && $identitas != null) : ?>
             // form kirim ulang formulir
-                $("#btn_submit_formulir").empty();
+            $("#btn_submit_formulir").empty();
             $('<div class="lds-ring"><div></div><div></div><div></div><div></div></div>').appendTo(
                 "#btn_submit_formulir");
             <?php endif ?>
@@ -583,12 +583,12 @@ $(document).ready(function() {
 // dropify upload lampiran penaftaran
 $(".scan-lampiran").dropify({
     error: {
-        fileSize: "Ukuran gambar terlalu besar ({{ value }} maksimal).",
+        fileSize: "Ukuran file terlalu besar ({{ value }} maksimal).",
         fileExtension: "format file tidak diperbolehkan, hanya ({{ value }} yang diperbolehkan).",
     },
     messages: {
         default: "Tarik dan letakkan file disini atau pilih",
-        replace: "Tarik dan letakkan atau pilih gambar baru",
+        replace: "Tarik dan letakkan atau pilih file baru",
         remove: "Hapus",
         error: "Ooops, Terdapat kesalahan.",
     },

@@ -10,8 +10,14 @@
         <div class="row mt20">
             <div class="col-lg-4 col-md-6 col-12 mb-3">
                 <div class="p-4 br1 bgbiru2 main-shadow text-center">
+                    <h2 class=""><?= $jumlah_proses_pendaftar; ?></h2>
+                    <p class="fs16">Proses Mendaftar Beasiswa</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-12 mb-3">
+                <div class="p-4 br1 bgbiru2 main-shadow text-center">
                     <h2 class=""><?= $jumlah_pendaftar; ?></h2>
-                    <p class="fs16">Pendaftaran Beasiswa</p>
+                    <p class="fs16">Selesai Mendaftar Beasiswa</p>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 col-12 mb-3">
@@ -63,13 +69,13 @@
                 <tbody>
                     <?php $i = 1; ?>
                     <?php foreach ($siswa as $siswa) : ?>
-                        <tr>
-                            <th class="text-center fw-normal"><?= $i; ?></th>
-                            <td><?= $siswa['nama_lengkap']; ?></td>
-                            <td><?= $siswa['nama_sekolah']; ?></td>
-                            <td><?= $siswa['nama_status']; ?></td>
-                        </tr>
-                        <?php $i++; ?>
+                    <tr>
+                        <th class="text-center fw-normal"><?= $i; ?></th>
+                        <td><?= $siswa['nama_lengkap']; ?></td>
+                        <td><?= $siswa['nama_sekolah']; ?></td>
+                        <td><?= $siswa['nama_status']; ?></td>
+                    </tr>
+                    <?php $i++; ?>
                     <?php endforeach; ?>
                 </tbody>
             </table>
@@ -99,13 +105,13 @@
                 <tbody>
                     <?php $i = 1; ?>
                     <?php foreach ($calon_mahasiswa as $calon_mahasiswa) : ?>
-                        <tr>
-                            <th class="text-center fw-normal"><?= $i; ?></th>
-                            <td><?= $calon_mahasiswa['nama_lengkap']; ?></td>
-                            <td><?= $calon_mahasiswa['nama_pt']; ?></td>
-                            <td><?= $calon_mahasiswa['nama_status']; ?></td>
-                        </tr>
-                        <?php $i++; ?>
+                    <tr>
+                        <th class="text-center fw-normal"><?= $i; ?></th>
+                        <td><?= $calon_mahasiswa['nama_lengkap']; ?></td>
+                        <td><?= $calon_mahasiswa['nama_pt']; ?></td>
+                        <td><?= $calon_mahasiswa['nama_status']; ?></td>
+                    </tr>
+                    <?php $i++; ?>
                     <?php endforeach; ?>
                 </tbody>
             </table>
@@ -134,13 +140,13 @@
                 <tbody>
                     <?php $i = 1; ?>
                     <?php foreach ($mahasiswa as $mahasiswa) : ?>
-                        <tr>
-                            <th class="text-center fw-normal"><?= $i; ?></th>
-                            <td><?= $mahasiswa['nama_lengkap']; ?></td>
-                            <td><?= $mahasiswa['nama_pt']; ?></td>
-                            <td><?= $mahasiswa['nama_status']; ?></td>
-                        </tr>
-                        <?php $i++; ?>
+                    <tr>
+                        <th class="text-center fw-normal"><?= $i; ?></th>
+                        <td><?= $mahasiswa['nama_lengkap']; ?></td>
+                        <td><?= $mahasiswa['nama_pt']; ?></td>
+                        <td><?= $mahasiswa['nama_status']; ?></td>
+                    </tr>
+                    <?php $i++; ?>
                     <?php endforeach; ?>
                 </tbody>
             </table>

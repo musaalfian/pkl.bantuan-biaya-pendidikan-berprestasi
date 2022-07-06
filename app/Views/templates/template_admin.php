@@ -128,7 +128,7 @@
                 </div>
                 <div class="p-2 menu nav_admin_akun_pendaftar mb-2">
                     <a class="nav_admin_akun_pendaftar" href="<?= base_url('home_admin/daftarAkun'); ?>"><i
-                            class="bi bi-person-badge"></i>Akun yang Mendaftar</a>
+                            class="bi bi-person-badge"></i>Akun Pendaftar</a>
                 </div>
                 <div class="p-2 menu mb-2">
                     <a class="" href="#" data-bs-toggle="modal" data-bs-target="#logoutModal"><i

@@ -9,8 +9,10 @@ class MIdentitas extends Model
         protected $table = 'identitas';
 
         protected $primaryKey = 'no_induk';
-        protected $allowedFields = ['no_induk', 'no_induk_pelajar', 'nama_lengkap', 'jenis_kelamin', 'ttl', 'id_agama', 'anak_ke', 'no_telepon', 'alamat_rumah', 'id_kecamatan', 'jarak_sekolah', 'no_rek', 'nama_pemilik_rekening', 'id_transportasi', 'id_sekolah', 'kelas', 'nama_pt', 'akreditasi_pt', 'tahun_masuk_pt', 'semester_ke', 'alamat_pt', 'id_status_peserta', 'id_status_pendaftaran', 'status_edit_pendaftaran', 'id_status_pembayaran', 'id_status_final', 'id_keluarga',  'id_file', 'pesan', 'pernah_menerima_bantuan', 'menerima_bantuan_dari', 'nominal', 'nama_pemilik_rekening'];
-
+        protected $allowedFields = ['no_induk', 'no_induk_pelajar', 'nama_lengkap', 'jenis_kelamin', 'ttl', 'id_agama', 'anak_ke', 'no_telepon', 'alamat_rumah', 'id_kecamatan', 'jarak_sekolah', 'no_rek', 'nama_pemilik_rekening', 'id_transportasi', 'id_sekolah', 'kelas', 'nama_pt', 'akreditasi_pt', 'tahun_masuk_pt', 'semester_ke', 'alamat_pt', 'id_status_peserta', 'id_status_pendaftaran', 'status_edit_pendaftaran', 'id_status_pembayaran', 'id_status_final', 'id_keluarga',  'id_file', 'pesan', 'pernah_menerima_bantuan', 'menerima_bantuan_dari', 'nominal', 'nama_pemilik_rekening', 'status_perbaikan'];
+        protected $useTimestamps = true;
+        protected $createdField = 'created_at';
+        protected $updatedField = 'updated_at';
 
         // mencari identitas berdasarkan user id
         public function find_identitas_user($user_id)
@@ -32,7 +34,7 @@ class MIdentitas extends Model
                 return $builder->countAllResults();
         }
         // mengambil data pendaftar berdasarkan status peserta
-        public function data_seluruh_pendaftar($id_peserta, $limit = null)
+        public function data_seluruh_pendaftar($id_peserta, $limit = null, $orderBy = 'ASC')
         {
                 $builder = $this->db->table('identitas');
                 $builder->select();
@@ -42,12 +44,30 @@ class MIdentitas extends Model
                 $builder->join('status_pendaftaran', 'status_pendaftaran.id_status_pendaftaran = identitas.id_status_pendaftaran');
                 $builder->join('status_peserta', 'status_peserta.id_status_peserta = identitas.id_status_peserta');
                 $builder->where('identitas.id_status_peserta', $id_peserta);
+                $builder->where('identitas.status_perbaikan', null);
                 if ($limit != null) {
                         $builder->limit($limit);
                 }
+                $builder->orderBy('identitas.updated_at', $orderBy);
                 $query = $builder->get();
                 return $query;
         }
+        public function data_seluruh_pendaftar_perbaikan($id_peserta)
+        {
+                $builder = $this->db->table('identitas');
+                $builder->select();
+                if ($id_peserta == 1) {
+                        $builder->join('sekolah', 'sekolah.id_sekolah = identitas.id_sekolah');
+                }
+                $builder->join('status_pendaftaran', 'status_pendaftaran.id_status_pendaftaran = identitas.id_status_pendaftaran');
+                $builder->join('status_peserta', 'status_peserta.id_status_peserta = identitas.id_status_peserta');
+                $builder->where('identitas.id_status_peserta', $id_peserta);
+                $builder->where('identitas.status_perbaikan', 'perbaikan');
+                $builder->orderBy('identitas.updated_at', 'ASC');
+                $query = $builder->get();
+                return $query;
+        }
+        // mengambil data penerima seluruh bantuan berdasarkan status peserta
         public function data_seluruh_penerima($id_peserta)
         {
                 $builder = $this->db->table('identitas');
@@ -64,12 +84,12 @@ class MIdentitas extends Model
                 return $query;
         }
 
-        /***** SISWA *****/
+        // mengambil detail pendaftar bantuan berdasarkan status peserta
         public function detail_pendaftar($no_induk, $id_peserta, $id_status_pendaftaran)
         {
                 $builder = $this->db->table('identitas');
                 $builder->select();
-                $builder->select('identitas.akreditasi_pt as nilai_akreditasi_pt');
+                $builder->select('identitas.akreditasi_pt as nilai_akreditasi_pt', 'identitas_log.id_status_pendaftaran as log_status_pendaftaran');
                 if ($id_peserta == 1) {
                         $builder->join('sekolah', 'sekolah.id_sekolah = identitas.id_sekolah');
                         $builder->join('transportasi', 'transportasi.id_transportasi = identitas.id_transportasi');
@@ -86,7 +106,6 @@ class MIdentitas extends Model
                 return $query;
         }
 
-        /***** SISWA *****/
 
         public function daftar_penerima($id_peserta)
         {
@@ -111,6 +130,7 @@ class MIdentitas extends Model
                 $query = $builder->get();
                 return $query;
         }
+        // melakukan ubah status pembayaran keseluruhan berdasarkan status peserta
         public function ubah_status_pembayaran_keseluruhan($id_status_pembayaran, $id_status_peserta)
         {
                 $builder = $this->db->table('identitas');
