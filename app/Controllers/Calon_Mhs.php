@@ -300,7 +300,6 @@ class Calon_mhs extends BaseController
         } else if ($scan_prestasi['prestasi_3']->getError() != 4) {
             if (!$this->validate(
                 [
-                    // 'scan_prestasi_3' => 'uploaded[scan_prestasi_3]|max_size[scan_prestasi_3,2048]|mime_in[scan_prestasi_3,application/pdf]',
                     'tingkat_3' => 'required',
                     'juara_3' => 'required',
                     'nama_prestasi_3' => 'required',
@@ -312,7 +311,6 @@ class Calon_mhs extends BaseController
             }
         }
         // Validasi Lampiran file
-        // dd($kategori_2);
         if ($kategori_1 == 'hafidz' || $kategori_1 == 'ujian sekolah' || $kategori_1 == 'lainnya') {
             if (!$this->validate(
                 [

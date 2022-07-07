@@ -361,16 +361,27 @@ class Siswa extends BaseController
         }
 
         //ambil file inputan
-
-        $nama_scan_input = [
-            'scan_kk',
-            'scan_ktp',
-            'scan_kartu_pelajar',
-            'scan_raport_smt',
-            'scan_raport',
-            'scan_sktm',
-            'scan_pas_foto',
-        ];
+        $scan_ktp = $this->request->getFile('scan_ktp');
+        if ($scan_ktp->getError() != 4) {
+            $nama_scan_input = [
+                'scan_kk',
+                'scan_ktp',
+                'scan_kartu_pelajar',
+                'scan_raport_smt',
+                'scan_raport',
+                'scan_sktm',
+                'scan_pas_foto',
+            ];
+        } else {
+            $nama_scan_input = [
+                'scan_kk',
+                'scan_kartu_pelajar',
+                'scan_raport_smt',
+                'scan_raport',
+                'scan_sktm',
+                'scan_pas_foto',
+            ];
+        }
         //ambil file inputan
         foreach($nama_scan_input as $data_nama_scan){
             $scan[] = $this->request->getFile($data_nama_scan);
@@ -387,16 +398,29 @@ class Siswa extends BaseController
         }
 
         // memasukkan data lampiran ke database
+        if ($scan_ktp->getError() != 4) {
+        
         $this->MFile->insert([
             'no_induk'  => $no_induk,
             'kk' => $nama_scan[0],
             'ktp' => $nama_scan[1],
             'kartu_pelajar' => $nama_scan[2],
-            'sktm' => $nama_scan[3],
-            'raport_smt' => $nama_scan[4],
-            'raport_legalisasi' => $nama_scan[5],
+                'raport_smt' => $nama_scan[3],
+                'raport_legalisasi' => $nama_scan[4],
+                'sktm' => $nama_scan[5],
             'pas_foto' => $nama_scan[6],
         ]);
+        } else {
+            $this->MFile->insert([
+                'no_induk'  => $no_induk,
+                'kk' => $nama_scan[0],
+                'kartu_pelajar' => $nama_scan[1],
+                'raport_smt' => $nama_scan[2],
+                'raport_legalisasi' => $nama_scan[3],
+                'sktm' => $nama_scan[4],
+                'pas_foto' => $nama_scan[5],
+            ]);
+        }
         // update status pendaftaran
         session()->setFlashdata('pesan-tambah-lampiran-pendaftar', 'Data lampiran berhasil ditambahkan.');
         return redirect()->to('pendaftaran/tambah_pendaftar/' . $id_peserta[0]);

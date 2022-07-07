@@ -113,7 +113,7 @@ class admin_detail_pendaftaran extends BaseController
                     }
                     // peserta
                     elseif ($prestasi_penilaian['juara'] == "peserta") {
-                        $penilaian[] = 65;
+                        $penilaian[] = 60;
                     } else {
                         $penilaian[] = 0;
                     }
