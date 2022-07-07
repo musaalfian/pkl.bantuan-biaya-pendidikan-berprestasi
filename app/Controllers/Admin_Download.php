@@ -170,7 +170,7 @@ class Admin_download extends BaseController
                     $i = 4;
                     $j = 1;
                     foreach ($daftar_pendaftar as $daftar_pendaftar_excel_publik) {
-                        $sheet->setCellValue('A' . $i, $j);
+                        $sheet->setCellValue('A' . $i, $j++);
                         $sheet->setCellValue('B' . $i, $daftar_pendaftar_excel_publik['nama_lengkap']);
                         $sheet->setCellValue('C' . $i, ($id_status_peserta == 1) ? $daftar_pendaftar_excel_publik['nama_sekolah'] : $daftar_pendaftar_excel_publik['nama_pt']);
                         $sheet->setCellValue('D' . $i++, ($id_status_peserta == 1) ? $daftar_pendaftar_excel_publik['kelas'] : $daftar_pendaftar_excel_publik['semester_ke']);
@@ -199,7 +199,7 @@ class Admin_download extends BaseController
                     $j = 1;
                     // dd($daftar_pendaftar);
                     foreach ($daftar_pendaftar as $daftar_pendaftar_excel_non) {
-                        $sheet->setCellValue('A' . $i, $j);
+                        $sheet->setCellValue('A' . $i, $j++);
                         $sheet->setCellValue('B' . $i, $daftar_pendaftar_excel_non['nama_lengkap']);
                         $sheet->setCellValue('C' . $i, $daftar_pendaftar_excel_non['alamat_rumah']);
                         $sheet->setCellValue('D' . $i, $daftar_pendaftar_excel_non['nama_kecamatan']);

@@ -170,12 +170,6 @@ class Pendaftaran extends BaseController
             'id_status_pendaftaran'    => 4
         ];
         $this->MIdentitas->update($no_induk, $data);
-        // menambhakan log identitas
-        $log_identitas = [
-            'no_induk' => $no_induk,
-            'id_status_pendaftaran_log' => 4,
-        ];
-        $this->MIdentitasLog->insert($log_identitas);
         return redirect()->to('home_pendaftar/pengumuman');
     }
     // menampilkan form edit pendaftaran
