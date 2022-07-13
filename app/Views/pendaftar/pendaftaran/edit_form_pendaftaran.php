@@ -85,7 +85,7 @@
                                         value="<?= ($identitas != null) ? $identitas['no_induk'] : old('no_induk'); ?>"
                                         name="no_induk" placeholder="" />
                                     <div class="invalid-feedback">
-                                        <?= ($validation->getError('no_induk') == '') ? 'Bagian NIK  wajib diisi' : str_replace('_', ' ', $validation->getError('no_induk')) ?>
+                                        <?= ($validation->getError('no_induk') == '') ? 'Bagian NIK  wajib diisi dan tidak boleh lebih dari 16 digit' : str_replace('_', ' ', $validation->getError('no_induk')) ?>
                                     </div>
                                 </div>
                                 <!-- end NIK -->

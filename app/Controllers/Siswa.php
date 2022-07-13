@@ -314,7 +314,6 @@ class Siswa extends BaseController
         foreach ($scan_prestasi as $file_scan_prestasi) {
             if ($file_scan_prestasi != null && $file_scan_prestasi->getError() != 4) {
                 // mengambil nama file prestasi dan dimasukkan ke array
-                // $nama_scan_prestasi[] = $file_scan_prestasi->getName();
                 $nama_prestasi = $no_induk.'_prestasi_'.$index_prestasi++.'.pdf';
                 $nama_scan_prestasi[] = $nama_prestasi;
                 // memindahkan file scan prestasi ke folder scan
@@ -720,15 +719,14 @@ class Siswa extends BaseController
         foreach ($scan_prestasi as $file_scan_prestasi) {
             if ($file_scan_prestasi->getError() != 4) {
                 // mengambil nama file prestasi dan dimasukkan ke array
-                // $nama_scan_prestasi[] = $file_scan_prestasi->getName();
                 // memindahkan file scan prestasi ke folder scan
                 $nama_prestasi = $no_induk.'_prestasi_'.$index_prestasi++.'.pdf';
                 $nama_scan_prestasi[] = $nama_prestasi;
-                $file_scan_prestasi->move('assets/scan/' . $no_induk . '/prestasi', $nama_prestasi);
                 if ($prestasi[$k] != null) {
                     //hapus file lama
                     unlink('assets/scan/' . $no_induk . '/prestasi/' . $prestasi[$k]['file_prestasi']);
                 }
+                $file_scan_prestasi->move('assets/scan/' . $no_induk . '/prestasi', $nama_prestasi);
             } else {
                 // mengambil nama file yang tidak ada upload dari user
                 if ($prestasi[$k] != null) {
@@ -838,21 +836,35 @@ class Siswa extends BaseController
             }
         }
 
-        $nama_scan_input = [
-            'scan_kk',
-            'scan_ktp',
-            'scan_kartu_pelajar',
-            'scan_raport_smt',
-            'scan_raport',
-            'scan_sktm',
-            'scan_pas_foto',
-        ];
+        //ambil file inputan
+        $scan_ktp = $this->request->getFile('scan_ktp');
+        if ($scan_ktp->getError() != 4) {
+            $nama_scan_input = [
+                'scan_kk',
+                'scan_ktp',
+                'scan_kartu_pelajar',
+                'scan_raport_smt',
+                'scan_raport',
+                'scan_sktm',
+                'scan_pas_foto',
+            ];
+            $nama_file = ['kk', 'ktp', 'kartu_pelajar', 'raport_smt', 'raport_legalisasi', 'sktm', 'pas_foto'];
+        } else {
+            $nama_scan_input = [
+                'scan_kk',
+                'scan_kartu_pelajar',
+                'scan_raport_smt',
+                'scan_raport',
+                'scan_sktm',
+                'scan_pas_foto',
+            ];
+            $nama_file = ['kk', 'kartu_pelajar', 'raport_smt', 'raport_legalisasi', 'sktm', 'pas_foto'];
+        }
         //ambil file inputan
         foreach($nama_scan_input as $data_nama_scan){
             $scan[] = $this->request->getFile($data_nama_scan);
         }
         // menginisialisasi nama file pada database ke array
-        $nama_file = ['kk', 'ktp', 'kartu_pelajar', 'raport_smt', 'raport_legalisasi', 'sktm', 'pas_foto'];
         // pindahkn file scan ke folder scan
         $file = $this->MFile->find_file_noinduk($no_induk)->getFirstRow('array');
         $l = 0;
@@ -863,8 +875,12 @@ class Siswa extends BaseController
                 $nama_file_scan = $no_induk.'_'. $nama_scan_input[$l] .'.'. $scan->getExtension();
                 $nama_scan[] = $nama_file_scan;
                 // memindahkan file scan scan ke folder scan
-                    //hapus file scan yang lama
+                //hapus file scan yang lama
+                if (
+                    $file[$nama_file[$l]] != null
+                ) {
                     unlink('assets/scan/' . $no_induk . '/file/' . $file[$nama_file[$l]]);
+                }
                     $scan->move('assets/scan/' . $no_induk . '/file', $nama_file_scan);
             } else {
                 // mengambil nama file yang tidak ada upload dari user
@@ -874,15 +890,28 @@ class Siswa extends BaseController
         }
 
         // memasukkan data lampiran ke database
-        $this->MFile->update($file['id_file'], [
-            'kk' => $nama_scan[0],
-            'ktp' => $nama_scan[1],
-            'kartu_pelajar' => $nama_scan[2],
-            'raport_smt' => $nama_scan[3],
-            'raport_legalisasi' => $nama_scan[4],
-            'sktm' => $nama_scan[5],
-            'pas_foto' => $nama_scan[6],
-        ]);
+        if ($scan_ktp->getError() != 4) {
+            $this->MFile->update($file['id_file'], [
+                'kk' => $nama_scan[0],
+                'ktp' => $nama_scan[1],
+                'kartu_pelajar' => $nama_scan[2],
+                'raport_smt' => $nama_scan[3],
+                'raport_legalisasi' => $nama_scan[4],
+                'sktm' => $nama_scan[5],
+                'pas_foto' => $nama_scan[6],
+            ]);
+        } else {
+            $this->MFile->update($file['id_file'], [
+                'no_induk'  => $no_induk,
+                'kk' => $nama_scan[0],
+                'kartu_pelajar' => $nama_scan[1],
+                'raport_smt' => $nama_scan[2],
+                'raport_legalisasi' => $nama_scan[3],
+                'sktm' => $nama_scan[4],
+                'pas_foto' => $nama_scan[5],
+            ]);
+        }
+
         
         // update status edit pendaftaran
         $data = [

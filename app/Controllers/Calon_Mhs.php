@@ -780,11 +780,11 @@ class Calon_mhs extends BaseController
                 $nama_prestasi = $no_induk . '_prestasi_' . $index_prestasi++ . '.pdf';
                 $nama_scan_prestasi[] = $nama_prestasi;
                 // memindahkan file scan prestasi ke folder scan
-                $file_scan_prestasi->move('assets/scan/' . $no_induk . '/prestasi', $nama_prestasi);
                 if ($prestasi[$k] != null) {
                     //hapus file lama
                     unlink('assets/scan/' . $no_induk . '/prestasi/' . $prestasi[$k]['file_prestasi']);
                 }
+                $file_scan_prestasi->move('assets/scan/' . $no_induk . '/prestasi', $nama_prestasi);
             } else {
                 // mengambil nama file yang tidak ada upload dari user
                 if ($prestasi[$k] != null) {

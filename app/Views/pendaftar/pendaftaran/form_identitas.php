@@ -90,7 +90,7 @@
                         <?php if ($identitas == null) : ?>
 
                         <div class="invalid-feedback">
-                            <?= ($validation->getError('no_induk') == '') ? 'Bagian NIK  wajib diisi' : str_replace('_', ' ', $validation->getError('no_induk')) ?>
+                            <?= ($validation->getError('no_induk') == '') ? 'Bagian NIK  wajib diisi dan tidak boleh lebih dari 16 digit' : str_replace('_', ' ', $validation->getError('no_induk')) ?>
                         </div>
                         <?php endif ?>
 
@@ -574,7 +574,8 @@
                             <button type="button" class="btn btn-secondary fw-normal" data-bs-dismiss="modal">
                                 Batal
                             </button>
-                            <button type="submit" id="btn_submit_identitas" class="btn btn-success fw-normal">Simpan</button>
+                            <button type="submit" id="btn_submit_identitas"
+                                class="btn btn-success fw-normal">Simpan</button>
                         </div>
                     </div>
                 </div>

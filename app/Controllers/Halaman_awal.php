@@ -49,8 +49,20 @@ class Halaman_awal extends BaseController
     public function info_awal_pendaftar($id_peserta)
     {
         if ($id_peserta > 0 && $id_peserta <=3) {
-            # code...
-            $pendaftar = $this->MIdentitas->data_seluruh_pendaftar($id_peserta)->getResultArray();
+            if ($id_peserta == 1) {
+                $pendaftar = $this->MIdentitas
+                    ->join('status_pendaftaran', 'status_pendaftaran.id_status_pendaftaran = identitas.id_status_pendaftaran')
+                    ->join('sekolah', 'sekolah.id_sekolah = identitas.id_sekolah')
+                    ->join('status_peserta', 'status_peserta.id_status_peserta = identitas.id_status_peserta')
+                    ->where('identitas.id_status_peserta', $id_peserta)
+                    ->findAll();
+            } else {
+                $pendaftar = $this->MIdentitas
+                    ->join('status_pendaftaran', 'status_pendaftaran.id_status_pendaftaran = identitas.id_status_pendaftaran')
+                    ->join('status_peserta', 'status_peserta.id_status_peserta = identitas.id_status_peserta')
+                    ->where('identitas.id_status_peserta', $id_peserta)
+                    ->findAll();
+            }
             $data = [
                 'pendaftar' => $pendaftar
             ];
