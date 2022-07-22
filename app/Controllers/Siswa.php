@@ -718,9 +718,9 @@ class Siswa extends BaseController
         $index_prestasi = 1;
         foreach ($scan_prestasi as $file_scan_prestasi) {
             if ($file_scan_prestasi->getError() != 4) {
-                // mengambil nama file prestasi dan dimasukkan ke array
-                // memindahkan file scan prestasi ke folder scan
-                $nama_prestasi = $no_induk.'_prestasi_'.$index_prestasi++.'.pdf';
+        // mengambil nama file prestasi dan dimasukkan ke array
+        // memindahkan file scan prestasi ke folder scan
+        $nama_prestasi = $no_induk . '_prestasi_' . $index_prestasi . '.pdf';
                 $nama_scan_prestasi[] = $nama_prestasi;
                 if ($prestasi[$k] != null) {
                     //hapus file lama
@@ -734,6 +734,7 @@ class Siswa extends BaseController
                 }
             }
             $k++;
+      $index_prestasi++;
         }
         // memasukkab data prestasi ke database
         for ($i = 1; $i <= 3; $i++) {
