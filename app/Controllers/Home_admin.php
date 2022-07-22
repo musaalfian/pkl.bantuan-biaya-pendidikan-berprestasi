@@ -17,6 +17,7 @@ use App\Models\MStatusPeserta;
 use App\Models\MTransportasi;
 use App\Models\MInformasiTerbaru;
 use \Myth\Auth\Models\UserModel;
+use PhpOffice\PhpSpreadsheet\Worksheet\Validations;
 
 class Home_admin extends BaseController
 {
@@ -110,4 +111,15 @@ class Home_admin extends BaseController
         ];
         return view('/admin/daftar_akun_admin', $data);
     }
+  public function tambahAdmin()
+  {
+    session();
+    $validation = \Config\Services::validation();
+
+    $data = [
+      'title'     => 'Beasiswa Batang | Tambah Akun Admin',
+      'validation' => $validation
+    ];
+    return view('/admin/tambah_admin', $data);
+  }
 }

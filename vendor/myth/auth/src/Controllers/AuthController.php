@@ -136,7 +136,7 @@ class AuthController extends Controller
 	/**
 	 * Attempt to register a new user.
 	 */
-	public function attemptRegister()
+  public function attemptRegister($admin = null)
 	{
 		// Check if registration is allowed
 		if (!$this->config->allowRegistration) {
@@ -173,8 +173,12 @@ class AuthController extends Controller
 
 		// Ensure default group gets assigned if set
 		if (!empty($this->config->defaultUserGroup)) {
-			$users = $users->withGroup($this->config->defaultUserGroup);
-		}
+      if ($admin != null) {
+        $users = $users->withGroup($admin);
+      } else {
+        $users = $users->withGroup($this->config->defaultUserGroup);
+      }
+    }
 
 		if (!$users->save($user)) {
 			return redirect()->back()->withInput()->with('errors', $users->errors());
@@ -188,12 +192,21 @@ class AuthController extends Controller
 				return redirect()->back()->withInput()->with('error', $activator->error() ?? lang('Auth.unknownError'));
 			}
 
-			// Success!
-			return redirect()->route('login')->with('message', lang('Auth.activationSuccess'));
+      // Success!
+      if ($admin != null) {
+        return redirect()->to('home_admin/daftarAkun')->with('message', lang('Auth.activationSuccess'));
+      } else {
+        return redirect()->route('login')->with('message', lang('Auth.activationSuccess'));
+      }
 		}
 
-		// Success!
-		return redirect()->route('login')->with('message', lang('Auth.registerSuccess'));
+    // Success!
+    if ($admin != null
+    ) {
+      return redirect()->to('home_admin/daftarAkun')->with('message', lang('Auth.registerSuccess'));
+    } else {
+      return redirect()->route('login')->with('message', lang('Auth.registerSuccess'));
+    }
 	}
 
 	//--------------------------------------------------------------------

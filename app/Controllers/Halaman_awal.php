@@ -12,6 +12,7 @@ use App\Models\MStatusPendaftaran;
 use App\Models\MStatusPeserta;
 use App\Models\MTransportasi;
 use App\Models\MInformasiTerbaru;
+use App\Models\MTanggalPenting;
 
 class Halaman_awal extends BaseController
 {
@@ -25,6 +26,7 @@ class Halaman_awal extends BaseController
     protected $MStatusPeserta;
     protected $MTransportasi;
     protected $MInformasiTerbaru;
+    protected $MTanggalPenting;
 
     public function __construct()
     {
@@ -38,6 +40,7 @@ class Halaman_awal extends BaseController
         $this->MStatusPeserta = new MStatusPeserta();
         $this->MTransportasi = new MTransportasi();
         $this->MInformasiTerbaru = new MInformasiTerbaru();
+        $this->MTanggalPenting = new MTanggalPenting();
         $this->db = \Config\Database::connect();
         // $UsersModel = new \Myth\Auth\Models\UserModel();
     }
@@ -48,6 +51,7 @@ class Halaman_awal extends BaseController
     }
     public function info_awal_pendaftar($id_peserta)
     {
+        $tanggal_seleksi_administrasi = $this->MTanggalPenting->find(3);
         if ($id_peserta > 0 && $id_peserta <=3) {
             if ($id_peserta == 1) {
                 $pendaftar = $this->MIdentitas
@@ -64,7 +68,8 @@ class Halaman_awal extends BaseController
                     ->findAll();
             }
             $data = [
-                'pendaftar' => $pendaftar
+                'pendaftar' => $pendaftar,
+                'tanggal_seleksi_administrasi'    => $tanggal_seleksi_administrasi['tanggal_penting'],
             ];
             return view('/pendaftar/info_awal/infoPendaftar', $data);
         }
