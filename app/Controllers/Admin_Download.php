@@ -113,13 +113,13 @@ class Admin_download extends BaseController
                 if ($id_status_pendaftaran != 5) {
                     $daftar_pendaftar = $this->MIdentitas->join('sekolah', 'sekolah.id_sekolah = identitas.id_sekolah')->join('kecamatan', 'kecamatan.id_kecamatan = identitas.id_kecamatan')->where('id_status_peserta', $id_status_peserta)->where('id_status_pendaftaran', $id_status_pendaftaran)->findAll();
                 } else {
-                    $daftar_pendaftar = $this->MIdentitas->join('sekolah', 'sekolah.id_sekolah = identitas.id_sekolah')->join('kecamatan', 'kecamatan.id_kecamatan = identitas.id_kecamatan')->where('id_status_peserta', $id_status_peserta)->findAll();
+                    $daftar_pendaftar = $this->MIdentitas->join('sekolah', 'sekolah.id_sekolah = identitas.id_sekolah')->join('kecamatan', 'kecamatan.id_kecamatan = identitas.id_kecamatan')->where('id_status_peserta', $id_status_peserta)->where('id_status_pendaftaran !=', null)->findAll();
                 }
             } else {
                 if ($id_status_pendaftaran != 5) {
                     $daftar_pendaftar = $this->MIdentitas->join('kecamatan', 'kecamatan.id_kecamatan = identitas.id_kecamatan')->where('id_status_peserta', $id_status_peserta)->where('id_status_pendaftaran', $id_status_pendaftaran)->findAll();
                 } else {
-                    $daftar_pendaftar = $this->MIdentitas->join('kecamatan', 'kecamatan.id_kecamatan = identitas.id_kecamatan')->where('id_status_peserta', $id_status_peserta)->findAll();
+                    $daftar_pendaftar = $this->MIdentitas->join('kecamatan', 'kecamatan.id_kecamatan = identitas.id_kecamatan')->where('id_status_peserta', $id_status_peserta)->where('id_status_pendaftaran !=', null)->findAll();
                 }
             }
             $i = 0;
