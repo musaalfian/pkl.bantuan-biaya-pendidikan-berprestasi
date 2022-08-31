@@ -111,15 +111,52 @@ class Admin_download extends BaseController
             }
             if ($id_status_peserta == 1) {
                 if ($id_status_pendaftaran != 5) {
-                    $daftar_pendaftar = $this->MIdentitas->join('sekolah', 'sekolah.id_sekolah = identitas.id_sekolah')->join('kecamatan', 'kecamatan.id_kecamatan = identitas.id_kecamatan')->where('id_status_peserta', $id_status_peserta)->where('id_status_pendaftaran', $id_status_pendaftaran)->findAll();
+                    $daftar_pendaftar = $this->MIdentitas
+                    ->select()
+                    ->selectMax("nilai")
+                    ->join('prestasi', 'prestasi.no_induk = identitas.no_induk')
+                    ->join('sekolah', 'sekolah.id_sekolah = identitas.id_sekolah')
+                    ->join('kecamatan', 'kecamatan.id_kecamatan = identitas.id_kecamatan')
+                    ->where('id_status_peserta', $id_status_peserta)
+                    ->where('id_status_pendaftaran', $id_status_pendaftaran)
+                    ->groupBy('identitas.no_induk')
+                    ->orderBy("nilai", "DESC")
+                    ->findAll();
                 } else {
-                    $daftar_pendaftar = $this->MIdentitas->join('sekolah', 'sekolah.id_sekolah = identitas.id_sekolah')->join('kecamatan', 'kecamatan.id_kecamatan = identitas.id_kecamatan')->where('id_status_peserta', $id_status_peserta)->where('id_status_pendaftaran !=', null)->findAll();
+                    $daftar_pendaftar = $this->MIdentitas
+                    ->select()
+                    ->selectMax("nilai")
+                    ->join('prestasi', 'prestasi.no_induk = identitas.no_induk')
+                    ->join('sekolah', 'sekolah.id_sekolah = identitas.id_sekolah')
+                    ->join('kecamatan', 'kecamatan.id_kecamatan = identitas.id_kecamatan')
+                    ->where('id_status_peserta', $id_status_peserta)->where('id_status_pendaftaran !=', null)
+                    ->groupBy('identitas.no_induk')
+                    ->orderBy("nilai", "DESC")
+                    ->findAll();
                 }
             } else {
                 if ($id_status_pendaftaran != 5) {
-                    $daftar_pendaftar = $this->MIdentitas->join('kecamatan', 'kecamatan.id_kecamatan = identitas.id_kecamatan')->where('id_status_peserta', $id_status_peserta)->where('id_status_pendaftaran', $id_status_pendaftaran)->findAll();
+                    $daftar_pendaftar = $this->MIdentitas
+                    ->select()
+                    ->selectMax("nilai")
+                    ->join('prestasi', 'prestasi.no_induk = identitas.no_induk')
+                    ->join('kecamatan', 'kecamatan.id_kecamatan = identitas.id_kecamatan')
+                    ->where('id_status_peserta', $id_status_peserta)
+                    ->where('id_status_pendaftaran', $id_status_pendaftaran)
+                    ->groupBy('identitas.no_induk')
+                    ->orderBy("nilai", "DESC")
+                    ->findAll();
                 } else {
-                    $daftar_pendaftar = $this->MIdentitas->join('kecamatan', 'kecamatan.id_kecamatan = identitas.id_kecamatan')->where('id_status_peserta', $id_status_peserta)->where('id_status_pendaftaran !=', null)->findAll();
+                    $daftar_pendaftar = $this->MIdentitas
+                    ->select()
+                    ->selectMax("nilai")
+                    ->join('prestasi', 'prestasi.no_induk = identitas.no_induk')
+                    ->join('kecamatan', 'kecamatan.id_kecamatan = identitas.id_kecamatan')
+                    ->where('id_status_peserta', $id_status_peserta)
+                    ->where('id_status_pendaftaran !=', null)
+                    ->groupBy('identitas.no_induk')
+                    ->orderBy("nilai", "DESC")
+                    ->findAll();
                 }
             }
             $i = 0;
@@ -194,6 +231,7 @@ class Admin_download extends BaseController
                         $sheet->setCellValue('G3', 'Semester');;
                     }
                     $sheet->setCellValue('H3', 'Prestasi');
+                    $sheet->setCellValue('I3', 'Nilai Prestasi');
                     // isi tabel pendaftar
                     $i = 4;
                     $j = 1;
@@ -206,7 +244,8 @@ class Admin_download extends BaseController
                         $sheet->setCellValue('E' . $i, $daftar_pendaftar_excel_non['no_telepon']);
                         $sheet->setCellValue('F' . $i, ($id_status_peserta == 1) ? $daftar_pendaftar_excel_non['nama_sekolah'] : $daftar_pendaftar_excel_non['nama_pt']);
                         $sheet->setCellValue('G' . $i, ($id_status_peserta == 1) ? $daftar_pendaftar_excel_non['kelas'] : $daftar_pendaftar_excel_non['semester_ke']);
-                        $sheet->setCellValue('H' . $i++, $daftar_pendaftar_excel_non['nama_prestasi_tertinggi']);
+                        $sheet->setCellValue('H' . $i++, $daftar_pendaftar_excel_non['nama_prestasi']);
+                        $sheet->setCellValue('I' . $i++, $daftar_pendaftar_excel_non['nilai']);
                     }
                 }
                 if (is_file('assets/informasi/file/pendaftar_' . $status_peserta['nama_peserta'] . '_' . $kegunaan . '_' . $status_pendaftaran['nama_status'] . '.xlsx')) {
@@ -221,11 +260,16 @@ class Admin_download extends BaseController
             $status_final = $this->MStatusFinal->find($id_status_final);
             if ($id_status_peserta == 1) {
                 $daftar_pendaftar = $this->MIdentitas
+                ->select()
+                    ->selectMax("nilai")
+                    ->join('prestasi', 'prestasi.no_induk = identitas.no_induk')
                     ->join('sekolah', 'sekolah.id_sekolah = identitas.id_sekolah')
                     ->join('kecamatan', 'kecamatan.id_kecamatan = identitas.id_kecamatan')
                     // ->join('prestasi', 'prestasi.no_induk = identitas.no_induk')
                     ->where('id_status_peserta', $id_status_peserta)
                     ->where('id_status_final', $id_status_final)
+                    ->groupBy('identitas.no_induk')
+                    ->orderBy("nilai", "DESC")
                     ->findAll();
                 $i = 0;
                 foreach ($daftar_pendaftar as $data) {
@@ -236,7 +280,16 @@ class Admin_download extends BaseController
                     $i++;
                 }
             } else {
-                $daftar_pendaftar = $this->MIdentitas->join('kecamatan', 'kecamatan.id_kecamatan = identitas.id_kecamatan')->where('id_status_peserta', $id_status_peserta)->where('id_status_final', $id_status_final)->findAll();
+                $daftar_pendaftar = $this->MIdentitas
+                ->select()
+                    ->selectMax("nilai")
+                    ->join('prestasi', 'prestasi.no_induk = identitas.no_induk')
+                ->join('kecamatan', 'kecamatan.id_kecamatan = identitas.id_kecamatan')
+                ->where('id_status_peserta', $id_status_peserta)
+                ->where('id_status_final', $id_status_final)
+                    ->groupBy('identitas.no_induk')
+                ->orderBy("nilai", "DESC")
+                ->findAll();
                 $i = 0;
                 foreach ($daftar_pendaftar as $data) {
                     $nilai = $this->MPrestasi->find_max_prestasi_noinduk($data['no_induk'])->getFirstRow('array');
@@ -290,7 +343,7 @@ class Admin_download extends BaseController
                         $sheet->setCellValue('C' . $i, ($id_status_peserta == 1) ? $daftar_penerima_excel_publik['nama_sekolah'] : $daftar_penerima_excel_publik['nama_pt']);
                         $sheet->setCellValue('D' . $i, ($id_status_peserta == 1) ? $daftar_penerima_excel_publik['kelas'] : $daftar_penerima_excel_publik['semester_ke']);
                         $sheet->setCellValue('E' . $i, $daftar_penerima_excel_publik['nominal']);
-                        $sheet->setCellValue('F' . $i++, ($daftar_penerima_excel_publik['skor_tertinggi'] == 200) ? 'Diterima langsung' : $daftar_penerima_excel_publik['skor_tertinggi']);
+                        $sheet->setCellValue('F' . $i++, ($daftar_penerima_excel_publik['nilai'] == 200) ? 'Diterima langsung' : $daftar_penerima_excel_publik['skor_tertinggi']);
                     }
                     // dd($daftar_pendaftar);
                 } else {
@@ -330,8 +383,8 @@ class Admin_download extends BaseController
                         $sheet->setCellValue('H' . $i, $daftar_penerima_excel_non['nominal']);
                         $sheet->setCellValue('I' . $i, $daftar_penerima_excel_non['no_rek']);
                         $sheet->setCellValue('J' . $i, $daftar_penerima_excel_non['nama_pemilik_rekening']);
-                        $sheet->setCellValue('K' . $i, $daftar_penerima_excel_non['nama_prestasi_tertinggi']);
-                        $sheet->setCellValue('L' . $i++, ($daftar_penerima_excel_non['skor_tertinggi'] == 200) ? 'Diterima langsung' : $daftar_penerima_excel_non['skor_tertinggi']);
+                        $sheet->setCellValue('K' . $i, $daftar_penerima_excel_non['nama_prestasi']);
+                        $sheet->setCellValue('L' . $i++, ($daftar_penerima_excel_non['nilai'] == 200) ? 'Diterima langsung' : $daftar_penerima_excel_non['skor_tertinggi']);
                     }
                 }
                 if (is_file('assets/informasi/file/penerima_' . $status_peserta['nama_peserta'] . '_' . $kegunaan . '_' . $status_final['nama_status_final'] . '.xlsx')) {

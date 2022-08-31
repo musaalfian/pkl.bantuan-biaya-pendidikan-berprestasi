@@ -18,6 +18,19 @@ use App\Models\MInformasiTerbaru;
 
 class Admin_daftar_penerima extends BaseController
 {
+  protected $MAgama;
+    protected $MFile;
+    protected $MPrestasi;
+    protected $MKecamatan;
+    protected $MIdentitas;
+    protected $MKeluarga;
+    protected $MSekolah;
+    protected $MStatusFinal;
+    protected $MStatusPembayaran;
+    protected $MStatusPendaftaran;
+    protected $MStatusPeserta;
+    protected $MTransportasi;
+    protected $MInformasiTerbaru;
     public function __construct()
     {
         $this->MAgama = new MAgama();
