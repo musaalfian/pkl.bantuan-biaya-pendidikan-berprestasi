@@ -134,12 +134,12 @@
         <td>Rp. <?= $daftar_penerima['nominal']; ?></td>
         <td><?= $daftar_penerima['no_rek']; ?></td>
         <td><?= $daftar_penerima['nama_pemilik_rekening']; ?></td>
-        <td><?= $daftar_penerima['nama_prestasi']; ?></td>
+        <td><?= $daftar_penerima['nama_prestasi_tertinggi']; ?></td>
 
-        <?php if ($daftar_penerima['nilai'] == 200) : ?>
+        <?php if ($daftar_penerima['nilai_tertinggi'] == 200) : ?>
         <td>Diterima langsung</td>
         <?php else : ?>
-        <td>Skor <?= $daftar_penerima['nilai']; ?></td>
+        <td>Skor <?= $daftar_penerima['nilai_tertinggi']; ?></td>
         <?php endif; ?>
       </tr>
       <?php $i++; ?>

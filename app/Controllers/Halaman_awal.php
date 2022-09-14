@@ -118,8 +118,11 @@ class Halaman_awal extends BaseController
             }
         }
         // dd($daftar_penerima);
+        $tanggal_pengumuman = $this->MTanggalPenting->find(5);
+
         $data = [
-            'penerima' => $daftar_penerima
+            'penerima' => $daftar_penerima,
+            'tanggal_pengumuman' => $tanggal_pengumuman
         ];
         return view('/pendaftar/info_awal/infoPenerima', $data);
     }

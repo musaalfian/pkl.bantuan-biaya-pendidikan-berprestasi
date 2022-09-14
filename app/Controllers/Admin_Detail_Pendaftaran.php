@@ -160,9 +160,10 @@ class admin_detail_pendaftaran extends BaseController
         }
         $j = 0;
         // mnegupdate nilai prestasi
+
         foreach ($prestasi as $prestasi_update) {
             // dd($penilaian);
-            if ($prestasi_update['nilai'] == 0) {
+            if ($prestasi_update['nilai'] == 0 && $prestasi_update['isUpdate'] == false) {
                 $update_nilai = [
                     'nilai' => $penilaian[$j]
                 ];
@@ -197,11 +198,13 @@ class admin_detail_pendaftaran extends BaseController
     public function simpan_penilaian($no_induk)
     {
         $prestasi = $this->MPrestasi->detail_prestasi($no_induk)->getResultArray();
+        // dd($prestasi);
         $j = 1;
         // dd($this->request->getVar('nilai_prestasi_' . $j));
         foreach ($prestasi as $prestasi_update) {
             $update_nilai = [
-                'nilai' => $this->request->getVar('nilai_prestasi_' . $j)
+                'nilai' => $this->request->getVar('nilai_prestasi_' . $j),
+                'isUpdate' => true
             ];
             $this->MPrestasi->update($prestasi_update['id_prestasi'], $update_nilai);
             $j++;

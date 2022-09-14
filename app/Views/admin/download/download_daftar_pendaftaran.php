@@ -164,11 +164,11 @@
         </td>
         <td><?= ($id_status_peserta == 1) ? $daftar_pendaftar['kelas'] : $daftar_pendaftar['semester_ke']; ?>
         </td>
-        <td><?= $daftar_pendaftar['nama_prestasi']; ?></td>
-        <?php if($daftar_pendaftar['nilai'] == 200) :?>
+        <td><?= $daftar_pendaftar['nama_prestasi_tertinggi']; ?></td>
+        <?php if($daftar_pendaftar['nilai_tertinggi'] == 200) :?>
         <td>Diterima langsung</td>
         <?php else: ?>
-        <td><?= $daftar_pendaftar['nilai']; ?></td>
+        <td><?= $daftar_pendaftar['nilai_tertinggi']; ?></td>
         <?php endif ?>
       </tr>
       <?php endforeach; ?>

@@ -10,7 +10,7 @@ class MPrestasi extends Model
 
         protected $primaryKey = 'id_prestasi';
         protected $useAutoIncrement = true;
-        protected $allowedFields = ['id_prestasi', 'kategori', 'tingkat', 'juara', 'nilai', 'no_induk', 'file_prestasi', 'nama_prestasi', 'tahun_prestasi'];
+        protected $allowedFields = ['id_prestasi', 'kategori', 'tingkat', 'juara', 'nilai', 'no_induk', 'file_prestasi', 'nama_prestasi', 'tahun_prestasi', 'isUpdate'];
 
         // mencari prestasi berdasarkan nomer induk
         public function find_prestasi_noinduk($no_induk)
@@ -24,13 +24,18 @@ class MPrestasi extends Model
         }
         public function find_max_prestasi_noinduk($no_induk)
         {
-                $builder = $this->db->table('prestasi');
-                $builder->select('nama_prestasi');
-                $builder->selectMax('nilai');
-                $builder->join('identitas', 'identitas.no_induk = prestasi.no_induk');
-                $builder->where('identitas.no_induk', $no_induk);
-                $query = $builder->get();
-                return $query;
+                $builder = $this->db->query("SELECT o.*
+                FROM prestasi o
+                INNER JOIN (
+                      SELECT no_induk, `nama_prestasi`, MAX(nilai) nilai
+                      FROM prestasi                        
+                      GROUP BY no_induk
+                ) sub
+                ON o.no_induk = sub.no_induk
+                          AND o.nilai = sub.nilai 
+                WHERE o.no_induk = '$no_induk'
+                order by o.nilai desc");
+                return $builder;
         }
         public function detail_prestasi($no_induk)
         {
